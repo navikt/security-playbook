@@ -1,0 +1,88 @@
+[
+  {
+    "tittel": "Code review (egen kode)",
+    "alternativer": [
+      { "valg": "Solo", "poeng": -10 },
+      { "valg": "PR", "poeng": 0 },
+      { "valg": "Par/mob", "poeng": 20 }
+    ]
+  },
+  {
+    "tittel": "Code scan (egen kode)",
+    "alternativer": [
+      { "valg": "Ingen", "poeng": 0 },
+      { "valg": "Ad-hoc", "poeng": 5 },
+      {
+        "valg": "Auto med varsling (SAST, static application security testing)",
+        "poeng": 20
+      }
+    ]
+  },
+  {
+    "tittel": "Avhengigheter-scan",
+    "alternativer": [
+      { "valg": "Ingen", "poeng": -10 },
+      { "valg": "Automatisk/lav oppfølging", "poeng": 0 },
+      { "valg": "Automatisk med varsling, rutiner på plass", "poeng": 20 }
+    ]
+  },
+  {
+    "tittel": "Trusselmodellering/wargames",
+    "alternativer": [
+      { "valg": "Ingen", "poeng": 0 },
+      { "valg": "Ad-hoc", "poeng": 5 },
+      { "valg": "Rutine", "poeng": 20 }
+    ]
+  },
+  {
+    "tittel": "Pentesting, intern",
+    "alternativer": [
+      { "valg": "Ingen", "poeng": 0 },
+      { "valg": "Ad-hoc", "poeng": 10 },
+      {
+        "valg": "Automatisk (DAST, dynamic application security testing)",
+        "poeng": 20
+      }
+    ]
+  },
+  {
+    "tittel": "Pentesting, ekstern",
+    "alternativer": [
+      { "valg": "Ingen", "poeng": 0 },
+      { "valg": "Ad-hoc", "poeng": 10 },
+      { "valg": "Jevnlig", "poeng": 20 }
+    ]
+  },
+  {
+    "tittel": "Audit-logging",
+    "alternativer": [
+      { "valg": "Ikke vurdert", "poeng": -20 },
+      { "valg": "N/A", "poeng": 0 },
+      { "valg": "Ja", "poeng": 0 }
+    ]
+  },
+  {
+    "tittel": "PII-logging / logghygiene",
+    "alternativer": [
+      { "valg": "Ikke vurdert", "poeng": -20 },
+      { "valg": "Følger logghygiene-punkter", "poeng": 0 },
+      { "valg": "ROS/Wargames/Logghygiene", "poeng": 10 }
+    ]
+  },
+  {
+    "tittel": "Tilgangsstyring",
+    "alternativer": [
+      { "valg": "Vet ikke", "poeng": -20 },
+      { "valg": "Gjenomgått «best practice»", "poeng": 0 },
+      { "valg": "Automatisk (?), med tester som bekrefter regler", "poeng": 10 }
+    ]
+  },
+  {
+    "tittel": "Sikkerhetshendelser (/«beredskap»)",
+    "alternativer": [
+      { "valg": "Vet ikke", "poeng": -20 },
+      { "valg": "Gjennomgått soc-rutine (MÅ LAGE!)", "poeng": 0 },
+      { "valg": "Wargames, øving, dele feil og war stories", "poeng": 20 }
+    ]
+  }
+]
