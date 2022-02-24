@@ -1,36 +1,49 @@
-# Security Champions Playbook
-The website can be visited here: [Sikkerhet NAV](https://sikkerhet.nav.no)
+# Security Playbook 🔐
 
-## Website
+> «Hvordan vi utvikler sikker software i NAV IT»
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Playbooken er laget av og for utviklere i NAV, og kan besøkes her: [Sikkerhet NAV](https://sikkerhet.nav.no)
 
-## Installation
+## Hvem kan bidra? 🤔
+
+Alle! 🥳 Utviklere i NAV har full skrivetilgang til koden, og kan selv endre alt. For andre er det bare å sende inn en Pull Request! 😀
+
+Innholdet har kun verdi dersom det holdes oppdatert og relevant,
+så det er viktig at det er så lav terskel som mulig å komme med oppdateringer. 💪
+
+### Har du flere spørsmål? 🙋
+
+Still gjerne spørsmål om playbooken i Slack-kanalen `#security-champion` 😃
+
+## Utvikling
+
+Nettsiden er laget med [Docusaurus 2](https://docusaurus.io/), en moderne «statisk side»-generator.
+
+De fleste endringene kan gjøres direkte fra GitHub, ved å trykke `edit this file` direkte fra markdown-filene.
+
+Dersom du ønsker å gjøre større endringer, anbefales det å starte applikasjonen lokalt.
+
+### Lokal utvikling
+
+Krever `node` versjon `>= 16`.
+
+#### Installer lokalt
 
 ```console
-yarn install
+$ npm install
 ```
 
-## Local Development
+##### Kjør playbooken lokalt i utviklingsmodus
 
 ```console
-yarn start
+$ npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+**NB**: Ikke alle funksjoner fungerer i utviklingsmodus. Bl.a. søk krever at du i stedet bygger playbooken.
 
-## Build
+#### Bygg og start en komplett versjon playbooken
 
 ```console
-yarn build
+$ npm run build
+$ npm run serve
 ```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
