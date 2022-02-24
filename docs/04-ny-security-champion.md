@@ -36,8 +36,8 @@ Playbooken er drevet av Security Champions selv. Det er derfor viktig at alle f�
 
 :::success Praktisk oppgave – Oppdater playbooken
 
-1. Gå til [security-playbook](https://github.com/navikt/security-champions)-koden på GitHub
-2. Finn én ting du kan endre under [`docs`-mappen](https://github.com/navikt/security-champions/tree/main/docs) (eller mer!)
+1. Gå til [security-playbook](https://github.com/navikt/security-playbook)-koden på GitHub
+2. Finn én ting du kan endre under [`docs`-mappen](https://github.com/navikt/playbook/tree/main/docs) (eller mer!)
 3. Commit og push endringen til `main` 🥳
 
 :::

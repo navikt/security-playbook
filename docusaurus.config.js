@@ -57,7 +57,7 @@ module.exports = {
           label: "Kom i gang 🚀",
         },
         {
-          href: "https://github.com/navikt/security-champions",
+          href: "https://github.com/navikt/security-playbook",
           label: "GitHub",
           position: "right",
         },
@@ -117,7 +117,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/navikt/security-champions/tree/main/",
+          editUrl: "https://github.com/navikt/security-playbook/tree/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

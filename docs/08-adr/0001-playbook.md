@@ -29,7 +29,7 @@ I security champion admin-gruppa har vi bestemt oss for å starte arbeidet med �
 
 - Security champions admin-gruppa har redaktøransvaret og møtes jevnlig for å jobbe med playbooken.
 - Første møte i admin-gruppa ble avholdt 21 juni 2021.
-- GitHub repo, ADR og start på playbook [opprettet](https://github.com/navikt/security-champions)
+- GitHub repo, ADR og start på playbook [opprettet](https://github.com/navikt/security-playbook)
 
 ### Referanser:
 
