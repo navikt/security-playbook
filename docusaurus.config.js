@@ -88,7 +88,7 @@ module.exports = {
             },
             {
               label: "«Security Champion»-redaksjonen",
-              href: "https://teamkatalog.nais.adeo.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7",
+              href: "https://teamkatalog.intern.nav.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7",
             },
           ],
         },
