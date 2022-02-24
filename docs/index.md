@@ -32,7 +32,7 @@ Det arrangeres jevnlige [samlinger](/docs/events/2022-01-11-kickoff), [kurs](/do
 
 Hjelp til med å gjøre playbooken enda bedre for neste besøkende! 🥰
 
-Innholdet i playbooken er drevet av deg! Vi oppfordrer sterkt til å komme med forbedringer selv i [GitHub-repoet](https://github.com/navikt/security-playbook), men det går ellers an å si ifra i [#security-champion-kanalen](https://nav-it.slack.com/archives/CN8N938K1), eller ta direkte kontakt med oss i [redaksjonen](https://teamkatalog.intern.nav.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7).
+Innholdet i playbooken er drevet av deg! Vi oppfordrer sterkt til å komme med forbedringer selv i [GitHub-repoet](https://github.com/navikt/security-playbook), men det går ellers an å si ifra i [#security-champion-kanalen](https://nav-it.slack.com/archives/CN8N938K1), eller ta direkte kontakt med oss i [redaksjonen](https://teamkatalog.nav.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7).
 
 :::tip Tips!
 Hver side har en lenke direkte til kildekoden på GitHub. Trykk på **«Rediger denne siden»** nederst.  

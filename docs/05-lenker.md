@@ -37,7 +37,7 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 - [TryggNok – Risikovurdering](https://apps.powerapps.com/play/f8517640-ea01-46e2-9c09-be6b05013566)
 - [NAIS doc](https://doc.nais.io/)
 - [NAV - Security Blueprints](https://security.labs.nais.io/)
-- [Oversikt over security champions](https://teamkatalog.intern.nav.no/dashboard/members/role/SECURITY_CHAMPION)
+- [Oversikt over security champions](https://teamkatalog.nav.no/dashboard/members/role/SECURITY_CHAMPION)
 
 ### Eksterne ressurser
 
