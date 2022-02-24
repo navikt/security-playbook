@@ -30,14 +30,14 @@ Playbooken forsøker å samle informasjon som er nyttig og relevant for det dagl
 
 :::
 
-### Bidra til Security Champions Playbook 🎖
+### Bidra til Security Playbook 🎖
 
 Playbooken er drevet av Security Champions selv. Det er derfor viktig at alle føler de kan bidra, og at endringer ikke må gå gjennom en lang, tung, og byråkratisk prosess. Les mer på siden [«Introduksjon»](/docs/#forslag-kommentarer-eller-feil).
 
 :::success Praktisk oppgave – Oppdater playbooken
 
 1. Gå til [security-playbook](https://github.com/navikt/security-playbook)-koden på GitHub
-2. Finn én ting du kan endre under [`docs`-mappen](https://github.com/navikt/playbook/tree/main/docs) (eller mer!)
+2. Finn én ting du kan endre under [`docs`-mappen](https://github.com/navikt/security-playbook/tree/main/docs) (eller mer!)
 3. Commit og push endringen til `main` 🥳
 
 :::

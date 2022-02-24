@@ -8,8 +8,8 @@ const FeatureList = [
     Svg: require("../../static/img/road.svg").default,
     description: (
       <>
-        Security Champions Playbook følger <i>"Golden Path"</i> prinsipet. Å
-        følge playbooken er ikke et krav, men den representerer hvordan{" "}
+        Security Playbook følger <i>«Golden Path»</i>-prinsippet. Å følge
+        playbooken er ikke et krav, men den representerer hvordan{" "}
         <b>Utvikling og Data</b> ønsker å bygge sikker software.
       </>
     ),
@@ -19,7 +19,7 @@ const FeatureList = [
     Svg: require("../../static/img/honesty.svg").default,
     description: (
       <>
-        Vi i NAV har tillit til hverandre og vi har forståelse for at ikke alle
+        Vi i NAV har tillit til hverandre og har forståelse for at ikke alle
         starter fra likt utgangspunkt.
       </>
     ),
@@ -30,7 +30,8 @@ const FeatureList = [
     description: (
       <>
         Denne playbooken er bare så god som bidragene til den er. Det forventes
-        at alle som tar i bruk playbooken også er med og bidrar.
+        at alle som tar i bruk playbooken også er med og{" "}
+        <a href="https://github.com/navikt/security-playbook">bidrar</a>.
       </>
     ),
   },
