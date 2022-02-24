@@ -9,7 +9,10 @@ Du behøver ikke være utlært sikkerhetsekspert for å bli security champion. V
 
 1. Rediger teamet ditt og gi deg selv rollen «Security Champion» i [teamkatalogen](https://teamkatalog.nav.no/)
 
-… og det var det. Gratulerer! Du har nå blitt med i ett av NAVs kuleste [nettverk](/docs/om-security-champions)! 🥳
+… og det var det. Gratulerer! Du har nå blitt med i ett av NAVs kuleste [nettverk](/docs/om-security-champions) og kan pryde deg selv med klistremerker, hettegenser, og annet swag! 🥳
+
+<img alt="Hettegenser for security champions" src="/img/security-champion-hoodie.png" style={{"height":"150px"}}/>
+<img alt="Klistremerker for security champions" src="/img/security-champion-stickers.png" style={{"height":"150px"}}/>
 
 [Slackboten](https://github.com/navikt/security-champion-slackbot) vår vil videre passe på at du meldes inn i Slack-gruppen [@security-champions](https://app.slack.com/client/T5LNAMWNA/browse-user-groups/user_groups/S01MX7W3LB0) og kanalen [#security-champion](https://nav-it.slack.com/archives/CN8N938K1) innen relativt kort tid (maks 24 timer), så du skal slippe å gjøre det selv. 🙂
 
