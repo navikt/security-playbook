@@ -1,4 +1,5 @@
 # Security Champions Playbook
+The website can be visited here: [Sikkerhet NAV](https://sikkerhet.nav.no)
 
 ## Website
 
