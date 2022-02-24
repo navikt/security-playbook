@@ -39,9 +39,9 @@ module.exports = {
   ],
   themeConfig: {
     navbar: {
-      title: "Security Champions Playbook",
+      title: "Security Playbook",
       logo: {
-        alt: "Security Champions Playbook",
+        alt: "Security Playbook",
         src: "img/SecurityChampion.svg",
       },
       items: [
@@ -49,7 +49,7 @@ module.exports = {
           type: "doc",
           docId: "index",
           position: "left",
-          label: "Playbook 📚",
+          label: "Hva er dette? 📚",
         },
         {
           href: "/docs/sikker-utvikling",
