@@ -57,6 +57,11 @@ module.exports = {
           label: "Kom i gang 🚀",
         },
         {
+          href: "/docs/events/",
+          position: "left",
+          label: "Arrangementer 🎉",
+        },
+        {
           href: "https://github.com/navikt/security-playbook",
           label: "GitHub",
           position: "right",
