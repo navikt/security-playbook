@@ -125,8 +125,5 @@ module.exports = {
       },
     ],
   ],
-  clientModules: [
-    require.resolve("./src/modules/amplitude.js"),
-    require.resolve("./src/modules/redirect.js"),
-  ],
+  clientModules: [require.resolve("./src/modules/amplitude.js")],
 };
