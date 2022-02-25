@@ -26,7 +26,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className={`button button--secondary button--lg ${styles.button}`}
-            to="/docs/sikker-utvikling"
+            to="/docs/sikker-utvikling/"
           >
             Sikker utvikling i NAV IT 🔒
           </Link>

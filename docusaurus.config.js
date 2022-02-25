@@ -27,7 +27,7 @@ module.exports = {
         redirects: [
           {
             from: "/docs/kom-i-gang",
-            to: "/docs/sikker-utvikling",
+            to: "/docs/sikker-utvikling/",
           },
           {
             from: "/docs/intro",
@@ -52,7 +52,7 @@ module.exports = {
           label: "Hva er dette? 📚",
         },
         {
-          href: "/docs/sikker-utvikling",
+          href: "/docs/sikker-utvikling/",
           position: "left",
           label: "Kom i gang 🚀",
         },
