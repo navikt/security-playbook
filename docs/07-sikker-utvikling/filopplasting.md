@@ -19,6 +19,8 @@ Virusscanning er ikke feilfri, og selv om man har scannet et dokument betyr det 
 
 Man bør også vurdere om de opplastede filene skal krypteres. Dette gjelder spesielt dersom man tilbyr mellomlagring av delvis utfylte søknader da denne informasjonen juridisk sett ikke er "innsendt" enda, og da har vi ikke hjemmel til å benytte den. Et eksempel på slik kryptering finner du [her](https://github.com/navikt/foreldrepengesoknad-api/blob/master/src/main/java/no/nav/foreldrepenger/selvbetjening/mellomlagring/MellomlagringKrypto.java). Husk å beskytte nøkler og passphrases ved å lagre dem i [Google Secrets Manager](https://doc.nais.io/security/secrets/google-secrets-manager/) (eller [Vault](https://doc.nais.io/security/secrets/vault/) hvis man er on-prem).
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

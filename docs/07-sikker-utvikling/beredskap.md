@@ -36,6 +36,8 @@ https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-NAV
 
 [Varslingsprosedyre på etatsnivå](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Varslingsprosedyre-p%C3%A5-etatsniv%C3%A5.aspx)
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

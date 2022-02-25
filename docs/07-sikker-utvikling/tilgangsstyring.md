@@ -64,6 +64,8 @@ egne sertifikater.
 - [Veiviser for innlogging og bruk av tokens](https://security.labs.nais.io/pages/guide/)
 - [NAIS - Authentication and Authorization](https://doc.nais.io/security/auth/)
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

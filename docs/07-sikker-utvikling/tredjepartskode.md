@@ -92,6 +92,8 @@ Snyk kan også brukes til statisk analyse av egen kode (SAST), i tillegg til ana
 Mer informasjon om GitHub Security kommer her.
 :::
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

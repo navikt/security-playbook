@@ -92,6 +92,8 @@ Verktøy som kan være nyttige:
 
 - [Threagile](https://threagile.io/)
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

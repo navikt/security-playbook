@@ -19,6 +19,8 @@ Man kan også finne sårbarheter ved å teste manuelt. Nettlesere med utviklerve
 
 Man kan finne mye snacks bare ved å rote litt rundt i sine egne apper. «Hva skjer hvis jeg sender inn et negativt tall for fødselsår? Hva om jeg sender inn en streng på 4000 tegn istedenfor de forventede 12?». Vær nysgjerrig!
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

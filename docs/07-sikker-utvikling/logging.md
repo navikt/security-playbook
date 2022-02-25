@@ -28,6 +28,8 @@ Et eksempel på en app som benytter alle disse loggemulighetene finner man [her]
 - ROS på teamets logging og eventuelt tilgang til secure logs (**husk å oppdatere ved behov!**)
 - Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Remedy](https://it-hjelpa.adeo.no/arsys/forms/remedy/Avvik/webViewSub/). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

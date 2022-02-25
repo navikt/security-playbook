@@ -37,6 +37,8 @@ For team som allerede bruker [Snyk](/docs/sikker-utvikling/tredjepartskode#snyk)
 
 Snyk Code vil nå analysere og rapportere om potensielle sårbarhetere i applikasjonskoden selv, og ikke bare fra tredjepartskode.
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

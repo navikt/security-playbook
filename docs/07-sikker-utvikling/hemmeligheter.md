@@ -41,6 +41,8 @@ Uansett hvor mange forholdsregler man tar vil det fra tid til annen skje feil el
 - Sjekk logging og overvåking for spor etter evt. kompromittering.
 - Varsle aktuelle parter ihht [etatens beredskapsplaner](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-NAV.aspx) dersom man har konkrete mistanker om at systemer er kompromittert og/eller at informasjon er på avveie.
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```

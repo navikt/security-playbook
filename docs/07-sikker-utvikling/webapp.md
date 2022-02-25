@@ -15,6 +15,8 @@ I tillegg til sjekklisten så bør det implementeres [tilgangsstyring](tilgangss
 
 - https://www.appsecmonkey.com/blog/web-application-security-checklist
 
+```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
+```
