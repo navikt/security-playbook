@@ -9,12 +9,13 @@ Har du forslag til arrangementer, kurs, eller lignende? Si ifra til [redaksjonen
 
 ## Kommende arrangementer
 
-| Når              | Hva                                                                                                                             | Hvem                     |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| 1. mars 2022     | [Snyk-konferanse «Know Your Code»](https://www.techstrongevents.com/know-your-code-open-source-and-supply-chain-summit/1839768) | Alle                     |
-| 3. mars 2022     | [Frontend-forum](2022-03-03-frontend-forum)                                                                                     | Frontend-utviklere       |
-| 3. mars 2022     | [Security Champions Meetup](2022-03-meetup)                                                                                     | Security Champions       |
-| 4.–7. april 2022 | [NDC Security Oslo](https://ndc-security.com/)                                                                                  | Spør personallederen din |
+| Når              | Hva                                                                                                                             | Hvem                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| 1. mars 2022     | [Snyk-konferanse «Know Your Code»](https://www.techstrongevents.com/know-your-code-open-source-and-supply-chain-summit/1839768) | Alle                        |
+| 3. mars 2022     | [Frontend-forum](2022-03-03-frontend-forum)                                                                                     | Frontend-utviklere          |
+| 3. mars 2022     | [Security Champions Meetup](2022-03-meetup)                                                                                     | Security Champions          |
+| 4.–7. april 2022 | [NDC Security Oslo](https://ndc-security.com/)                                                                                  | Spør personallederen din 💰 |
+| 25. mai 2022     | [BSides Oslo](https://bsidesoslo.no/)                                                                                           | Spør personallederen din 💰 |
 
 ## Tidligere arrangementer
 
