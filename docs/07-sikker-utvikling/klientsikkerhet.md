@@ -1,6 +1,6 @@
 ---
 title: Klientsikkerhet
-description: :computer: Det er mye å passe på - også din egen maskin
+description: Det er mye å passe på - også din egen maskin
 ---
 
 [‹ tilbake til temaoversikt](/docs/sikker-utvikling)
@@ -30,4 +30,3 @@ import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
 ```
-
