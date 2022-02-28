@@ -96,7 +96,7 @@ Security Operations Center - organisatorisk enhet som har som hovedoppgave å dr
 Bruk av psykologisk manipulasjon for å få mennesker til å utføre handlinger (som å klikke på vedlegg eller starte applikasjoner) eller avsløre konfidensiell informasjon. Eksempler på teknikker kan være å lure deg til å tro at du er i kontakt med en venn eller kollega, eller at noe haster veldig sånn at du ikke har tid til å tenke deg om.
 
 #### Supply chain attack
-Et "supply chain attack" er et cyberangrep som søker å skade en organisasjon ved å rette seg mot mindre sikre elementer i forsyningskjeden.[1] Et "supply chain attack" kan forekomme i alle bransjer, fra finanssektoren, oljeindustrien til en offentlig sektor.[2] Nettkriminelle tukler vanligvis med produksjonsprosessen til et produkt ved å installere et rootkit eller maskinvarebaserte spioneringskomponenter.
+Et "supply chain attack" er et cyberangrep som søker å skade en organisasjon ved å rette seg mot mindre sikre elementer i forsyningskjeden. Et "supply chain attack" kan forekomme i alle bransjer, fra finanssektoren, oljeindustrien til en offentlig sektor. Nettkriminelle tukler vanligvis med produksjonsprosessen til et produkt ved å installere et rootkit eller maskinvarebaserte spioneringskomponenter.
 
 [Wikipedia](https://en.wikipedia.org/wiki/Supply_chain_attack)
 
