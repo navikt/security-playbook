@@ -78,6 +78,8 @@ Hvis den **ikke** settes, så vil Snyk velge en tilfeldig organisasjon som aller
 
 Det kan være vanskelig å følge med på feil som kommer inn i Snyk, og spesielt hvis bare enkelte personer i teamet går inn og sjekker oversikten av og til. Derfor anbefales det å sette opp [**Slack-varsler**](https://docs.snyk.io/features/integrations/notifications-ticketing-system-integrations/slack-integration) til hele teamet for å synliggjøre risikoen.
 
+**Merk**: Snyk sin Slack-integrasjon gir deg alle varsler, uavhengig av type (sårbarhet/lisenskrøll) og alvorlighetsgrad (fra «lav» til «kritisk»). Ta en titt på vår interne [snyk-slack-notifier](https://github.com/navikt/snyk-slack-notifier) hvis du ønsker mer kontroll.
+
 ![Slack-integrasjon i Snyk](/img/snyk-slack.png "Slack-integrasjon i Snyk")
 
 ### Snyk Code og statisk kodeanalyse
