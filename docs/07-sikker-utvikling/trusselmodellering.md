@@ -3,8 +3,6 @@ title: Trusselmodellering
 description: 🪖 Det meste går bra, så lenge du først har sagt ja
 ---
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 _Trusselmodellering_ er prosessen med å systematisk identifisere, forstå og finne tiltak mot sikkerhetstrusler i
 systemene vi utvikler. Ordet trusselmodellering kan virke teoretisk og avskrekkende, men trusselmodellering er noe vi
 alle gjør i vårt daglige liv - hver gang du skal krysse veien og ser deg for etter biler gjør du en liten kort

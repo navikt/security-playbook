@@ -3,11 +3,9 @@ title: Klientsikkerhet
 description: Det er mye å passe på - også din egen maskin
 ---
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 ## Kortreist sikkerhet
 
-I NAV IT, som i de aller fleste IT-organisasjoner, så finnes det en drøss av sikkerhetsmekanismer som er designet for å beskytte brukere fra seg selv. Sagt litt annerledes: Maskinene som benyttes til "kontorarbeid" eller utvikling av applikasjoner er oftere enn ikke underlagt kontroll og styring. Dette gir noen utfordringer. 
+I NAV IT, som i de aller fleste IT-organisasjoner, så finnes det en drøss av sikkerhetsmekanismer som er designet for å beskytte brukere fra seg selv. Sagt litt annerledes: Maskinene som benyttes til "kontorarbeid" eller utvikling av applikasjoner er oftere enn ikke underlagt kontroll og styring. Dette gir noen utfordringer.
 
 - Policiene som settes er ofte ikke kommunisert noe sted.
 - Policiene er til heft of plunder for avanserte brukere.

@@ -3,8 +3,6 @@ title: Opplasting av filer
 description: 🗂 Håndtering av filer når du først tviler
 ---
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 I selvbetjeningsløsningene er det ofte behov for å laste opp dokumentasjon i form av dokumenter. Hvordan skal man sørge for at disse dokumentene ikke inneholder noe skadelig?
 
 ## Virusscanning

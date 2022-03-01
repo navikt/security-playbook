@@ -3,8 +3,6 @@ title: Logging
 description: 🪵 God logging holder deg unna jogging
 ---
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 NAIS-plattformen tilbyr et [standard opplegg](https://doc.nais.io/observability/logs/) for logging. `stdout` fra alle pods skrapes, indekseres i LogStash/Elasticsearch og kan søkes i fra [Kibana (logs.adeo.no)](https://logs.adeo.no). For at dette skal funke bra er man avhengig av at det logges som JSON. Mange rammeverk har støtte for dette JSON-baserte formatet, f.eks. [LogBack](https://github.com/logstash/logstash-logback-encoder) og [winston](https://www.npmjs.com/package/winston).
 
 ## Loggindekser og tilgang

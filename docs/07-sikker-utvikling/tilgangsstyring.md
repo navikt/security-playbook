@@ -3,8 +3,6 @@ title: Tilgangsstyring
 description: 💂 Hvem som slipper inn bør være på toppen av ditt sinn
 ---
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 ![You shall not pass!](../../static/img/You-Shall-Not-Pass.png)
 
 Tilgangskontroll består av to hoveddeler. Først må man finne ut hvem brukeren er (autentisering), deretter må man ta

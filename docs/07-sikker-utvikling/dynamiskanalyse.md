@@ -3,8 +3,6 @@ title: Dynamisk analyse
 description: 🕵️ Testing av dynamikk helt uten folkeskikk
 ---
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 ![hacker](/img/haxor.webp)
 
 Dynamisk analyse (<abbr title="Dynamic Application Security Testing">DAST</abbr>) betyr å analysere («scanne») en ferdig kjørende instans av en app. Dette er en «black box»-test, dvs. at man ikke nødvendigvis vet noe om hvordan appen er bygget opp. Man kommuniserer med appen via dens grensesnitt på samme måte som en sluttbruker (og en angriper) ville ha gjort. Testverktøyene sender (ugyldig) input som appen ikke ville ha fått under normal bruk for å se hvordan den reagerer. På denne måten kan man oppdage både kjente og ukjente svakheter. Hvis appen krever pålogging kan man velge om man vil kjøre scanning med eller uten gyldige credentials.

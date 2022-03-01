@@ -5,8 +5,6 @@ description: 🚨 Øv på det som kan skje, før alt detter ned
 
 # Beredskap
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 > Beredskap er det å være forberedt til innsats for å møte uventede kritiske situasjoner. Forskjellige former for
 > beredskap kan være redningsberedskap, oljeberedskap, egenberedskap og forsvarsberedskap. Beredskap er vanligst brukt
 > i forbindelse med militære og sivile tiltak som må utføres for å sette samfunnet i stand til å møte et eventuelt

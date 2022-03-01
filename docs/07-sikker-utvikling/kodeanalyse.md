@@ -3,8 +3,6 @@ title: Statisk kodeanalyse
 description: 🤖 Du trenger ikke myse med statisk kodeanalyse
 ---
 
-[‹ tilbake til temaoversikt](/docs/sikker-utvikling)
-
 Statisk analyse (<abbr title="Static Application Securiy Testing">SAST</abbr>) kan være nyttig for å oppdage feil i egen kode.
 Slike verktøy kan oppdage en rekke sårbarheter som er lavthengende, men som likevel ofte er lett å introdusere. For eksempel:
 
