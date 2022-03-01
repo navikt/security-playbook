@@ -16,9 +16,9 @@
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/plugin-client-redirects": "2.0.0-beta.15",
-    "@docusaurus/preset-classic": "2.0.0-beta.15",
+    "@docusaurus/core": "2.0.0-beta.16",
+    "@docusaurus/plugin-client-redirects": "2.0.0-beta.16",
+    "@docusaurus/preset-classic": "2.0.0-beta.16",
     "@mdx-js/react": "1.6.22",
     "@svgr/webpack": "6.2.1",
     "amplitude-js": "8.17.0",
