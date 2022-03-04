@@ -49,6 +49,10 @@ En hash-funksjon mapper data med tilfeldig størrelse til et tall med fast lengd
 
 Filer, innslag i logger eller andre ting man finner som indikerer at uvedkommende er og/eller har vært på besøk på datamaskiner eller i nettverk. Det er mange måter å oppdage IoC'er på. Man kan f.eks. søke etter kjente ondsinnede filer vha [hasher](#hash), søke etter kjente signaturer (som er metoden de fleste antivirus-programmer benytter) eller se etter ukjente prosesser som kjører på maskinen. Nettverkstrafikk til og fra kjente ondsinnede ip-adresser er også typiske IoC'er.
 
+#### Informasjonssikkerhet
+
+"InfoSec" som det ofte forkortes er prosessen og konkrete tiltak som utføres for å beskytte informasjon. Prosessen består typisk av en eller flere former for trusselmodellering der man søker å identifisere hvilke trusler man står ovenfor og hvilke konkrete risikoer de medfører. Siden det er umulig å beskytte seg mot alt og alle må man deretter prioritere hvilke risikoer man skal akseptere og hvilke man skal sette inn tiltak mot (og i hvilken form). InfoSec-arbeid består i stor grad av å balansere de tre grunnpillarene (konfidensialitet, integritet og tilgjengelighet) opp mot at organisasjonen skal kunne utføre jobben sin på best mulig måte.
+
 ### M
 
 #### Malware
