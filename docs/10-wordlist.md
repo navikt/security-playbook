@@ -57,6 +57,14 @@ Fellesbetegnelse på programvare som er laget for å stjele informasjon, omgå s
 
 ### O
 
+#### OAuth (Open Authorization)
+
+Standard for delegering av tilgang på weben. Gjør det mulig å la brukere dele informasjon på beskyttede websider uten å samtidig måtte dele sine brukernavn og passord. Er mye brukt av tilbydere som Google og Facebook for å muliggjøre deling av kontoinformasjon med tredjeparter.
+
+#### OIDC (OpenID Connect)
+
+Tynt lag oppå [OAuth](#oauth) som fokuserer på innlogging. Lar deg "outsource" verifisering av brukere til en tredjepart, i standarden benevnt som en "identity provider", som du stoler på. OIDC definerer også standardmekanismer for å hente enkel profilinformasjon (som navn og e-post) om brukeren.
+
 #### OWASP
 
 The Open Web Application Security Project, en "nonprofit" organisasjon som jobber for å bedre sikkerheten i software. Har hundrevis av lokalavdelinger som arrangerer kurs og konferanser over hele verden i tillegg til å lage verktøy og publikasjoner. Er kanskje mest kjent for [OWASP Top Ten](https://owasp.org/www-project-top-ten/) som er en kultivert liste over de 10 mest utbredte truslene mot webapplikasjoner.
@@ -96,6 +104,7 @@ Security Operations Center - organisatorisk enhet som har som hovedoppgave å dr
 Bruk av psykologisk manipulasjon for å få mennesker til å utføre handlinger (som å klikke på vedlegg eller starte applikasjoner) eller avsløre konfidensiell informasjon. Eksempler på teknikker kan være å lure deg til å tro at du er i kontakt med en venn eller kollega, eller at noe haster veldig sånn at du ikke har tid til å tenke deg om.
 
 #### Supply chain attack
+
 Et "supply chain attack" er et cyberangrep som søker å skade en organisasjon ved å rette seg mot mindre sikre elementer i forsyningskjeden. Et "supply chain attack" kan forekomme i alle bransjer, fra finanssektoren, oljeindustrien til en offentlig sektor. Nettkriminelle tukler vanligvis med produksjonsprosessen til et produkt ved å installere et rootkit eller maskinvarebaserte spioneringskomponenter.
 
 [Wikipedia](https://en.wikipedia.org/wiki/Supply_chain_attack)
