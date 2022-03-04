@@ -7,7 +7,7 @@ hide_table_of_contents: true
 
 Du behøver ikke være utlært sikkerhetsekspert for å bli security champion. Vi ser at det kommer til å være stort spenn i kunnskapen, og det skal vi jobbe med over tid for å få alle opp på et godt nivå. Vil du hjelpe teamet ditt til å tenke mer på sikkerhet og bidra til at NAV leverer enda tryggere og sikrere tjenester? Bli med i dag!
 
-1. Rediger teamet ditt og gi deg selv rollen «Security Champion» i [teamkatalogen](https://teamkatalog.nav.no/)
+1. Rediger teamet ditt og gi deg selv rollen «Security Champion» i [teamkatalogen](https://teamkatalog.nais.adeo.no/)
 
 … og det var det. Gratulerer! Du har nå blitt med i ett av NAVs kuleste [nettverk](/docs/om-security-champions) og kan pryde deg selv med klistremerker, hettegenser, og annet swag! 🥳
 
