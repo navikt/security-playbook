@@ -37,6 +37,12 @@ Infrastruktur og rammeverk som benyttes av ["red teams"](#red-team) og trusselak
 
 IT-område [digital sikkerhet](https://teamkatalog.nav.no/area/adf0151b-83c2-43e7-91ec-bd078230f688). Les mer på [Navet](https://navno.sharepoint.com/sites/enhet-it-avdelingen/SitePages/IT-omr%C3%A5de%20digital%20sikkerhet.aspx).
 
+### F
+
+#### Fuzzing
+
+Metode for automatisk testing der man sender ugyldige data som input til et program eller nettverksendepunkt. Målet er å få programmet til å kræsje eller oppføre seg annerledes enn tiltenkt. Denne inputen kan være tilfeldig eller skreddersydd for å treffe på mulige "corner cases" i programmets logikk.
+
 ### H
 
 #### Hash
