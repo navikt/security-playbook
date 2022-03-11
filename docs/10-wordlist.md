@@ -27,6 +27,10 @@ Computer Emergency Response Team - team som koordinerer og hjelper til når det 
 
 Infrastruktur og rammeverk som benyttes av ["red teams"](#red-team) og trusselaktører for å angripe datamaskiner og opprettholde oversikt over og kontroll på maskiner de allerede har kompromittert. Uttrykket er (som mye av den andre terminologien i sikkerhetsbransjen) hentet fra det militære. Kontrollen opprettholdes ved å installere en eller form for "agent" på disse maskinene. Agentene søker å gi seg selv persistens, dvs at de kan overleve restarting av maskinen samtidig som de søker å gjøre seg selv så lite synlige som mulig. Kommunikasjonen mellom agentene og serverne kan skje over mange ulike protokoller alt etter hvilket miljø de er i. De ulike rammeverkene har ulik grad av funksjonalitet for å "kommandere" agentene til å utføre ønskede handlinger. Det finnes en rekke mer eller mindre avanserte C2-rammeverk, det mest kjente kommersielle produktet er "Cobaltstrike".
 
+#### Cross-origin resource sharing (CORS)
+
+Mekanisme som tillater at ["begrensede"](#same-origin-policy-sop) ressurser på en webside kan hentes fra et annet domene enn det som websiden stammer fra. Et vanlig bruksområde er å hente data fra API-er som er hostet av andre vha JavaScript `fetch`-kall. CORS er implementert vha en rekke [Access-Control HTTP-headere](https://portswigger.net/web-security/cors). CORS er et nyttig verktøy, men også en angrepsvektor dersom det brukes feil.
+
 ### D
 
 #### Denial of Service-angrep
@@ -96,6 +100,10 @@ En type [malware](#malware) som tar filer som "gissel" ved å kryptere dem slik 
 En gruppe som spiller rollen som trusselaktør og med eierens tillatelse tester sikkerheten i systemer ved å angripe dem på samme måte som det ville ha blitt gjort "på ordentlig". Red teams finnes ikke bare innenfor IT, men også f.eks. på steder der man trenger god fysisk sikkerhet som banker og flyplasser. Motsetningen til red teams er [blue teams](#blue-team)
 
 ### S
+
+#### Same-origin Policy (SOP)
+
+En av grunnsteinene i sikkerhetsmodellen på weben. En `origin` er et sted der innhold er lastet fra og består av kombinasjonen protokoll, host og port. `http://www.nav.no` er ikke det samme som `http://pensjon.nav.no` fordi hosten er forskjellig, `http://nav.no` ikke er det samme som `https://nav.no` fordi protokollen er forskjellig mens `https://nav.no` ikke er det samme som `https://nav.no:8080` fordi porten er forskjellig. Ressurser som bilder og style sheets kan lastes fra andre origins, men JavaScript har kun tilgang til den delen av DOM-en som stammer fra samme origin. Cookies sendes (med mindre det er eksplisitt overstyrt) kun tilbake til samme origin. For de tilfellene der man har bruk for å dele mellom ulike origins finnes mekanismen [CORS](#cross-origin-resource-sharing-cors).
 
 #### Security Champion (NAV)
 
