@@ -1,4 +1,4 @@
-# ADR security champion playbook
+# ADR security playbook
 
 ## Status
 
