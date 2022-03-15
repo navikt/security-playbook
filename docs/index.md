@@ -4,7 +4,7 @@ hide_table_of_contents: false
 sidebar_position: 1
 ---
 
-Velkommen til NAVs Security Champion Playbook – inngangen til alt du trenger for å jobbe med sikkerhet i produktteam.
+Velkommen til NAVs Security Playbook – inngangen til alt du trenger for å jobbe med sikkerhet i produktteam.
 
 :::note
 Vi forsøker hardt å holde denne playbooken så åpen som mulig, men av og til må noen ting begrenses av hensyn til sikkerhet eller copyright og lisenser. Noen av linkene her vil derfor føre til steder som krever at du [jobber i NAV](https://www.detsombetyrnoe.no/) og har en [skikkelig nais device](https://doc.nais.io/device/).
