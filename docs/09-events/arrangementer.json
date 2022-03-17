@@ -1,0 +1,39 @@
+[
+  {
+    "date": "2022-03-01",
+    "label": "Snyk-konferanse «Know Your Code»",
+    "href": "https://www.techstrongevents.com/know-your-code-open-source-and-supply-chain-summit/1839768"
+  },
+  {
+    "date": "2022-03-29",
+    "label": "OWASP Norge: Where Security meets Forensics",
+    "href": "https://www.meetup.com/OWASP-Oslo/events/284603583/"
+  },
+  {
+    "startDate": "2022-04-04",
+    "endDate": "2022-04-07",
+    "label": "NDC Security Oslo",
+    "href": "https://ndc-security.com/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "date": "2022-05-25",
+    "label": "BSides Oslo",
+    "href": "https://bsidesoslo.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2022-08-06",
+    "endDate": "2022-08-11",
+    "label": "Black Hat USA",
+    "href": "https://www.blackhat.com/us-22/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2022-08-11",
+    "endDate": "2022-08-14",
+    "label": "Def Con USA",
+    "href": "https://defcon.org/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  }
+]

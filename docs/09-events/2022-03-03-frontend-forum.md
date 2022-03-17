@@ -1,6 +1,8 @@
 ---
 title: Frontend-forum 3. mars
 hide_table_of_contents: true
+sidebar_custom_props:
+  audience: "Frontend-utviklere"
 ---
 
 # Frontend-forum 3. mars
