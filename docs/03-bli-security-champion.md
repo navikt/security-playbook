@@ -18,7 +18,7 @@ Du behøver ikke være utlært sikkerhetsekspert for å bli security champion. V
 
 ## Spørsmål?
 
-Vi har forsøkt å svare på noen vanlige spørsmål her, men ta mer enn gjerne kontakt med [oss i redaksjonen](https://teamkatalog.nav.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7) hvis du lurer på noe rundt det å bli Security Champion!
+Vi har forsøkt å svare på noen vanlige spørsmål her, men ta mer enn gjerne kontakt med [oss i redaksjonen](https://teamkatalog.nais.adeo.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7) hvis du lurer på noe rundt det å bli Security Champion!
 
 ### Må jeg være sikkerhetsekspert for å bli security champion?
 

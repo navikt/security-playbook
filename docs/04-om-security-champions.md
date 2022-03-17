@@ -16,7 +16,7 @@ Samle sikkerhetsinteresserte i NAV IT og bygge et community.
 ## Redaksjonen
 
 «Security Champions»-redaksjonen jobber med å utvikle Security Champions»-nettverket.
-En oppdatert liste av medlemmene i redaksjonen finnes i [Teamkatalogen](https://teamkatalog.nav.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7).
+En oppdatert liste av medlemmene i redaksjonen finnes i [Teamkatalogen](https://teamkatalog.nais.adeo.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7).
 
 Eksempler på ting redaksjonen driver med:
 

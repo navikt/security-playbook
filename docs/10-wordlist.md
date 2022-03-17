@@ -39,7 +39,7 @@ Mekanisme som tillater at ["begrensede"](#same-origin-policy-sop) ressurser på 
 
 #### Digital sikkerhet (NAV)
 
-IT-område [digital sikkerhet](https://teamkatalog.nav.no/area/adf0151b-83c2-43e7-91ec-bd078230f688). Les mer på [Navet](https://navno.sharepoint.com/sites/enhet-it-avdelingen/SitePages/IT-omr%C3%A5de%20digital%20sikkerhet.aspx).
+IT-område [digital sikkerhet](https://teamkatalog.nais.adeo.no/area/adf0151b-83c2-43e7-91ec-bd078230f688). Les mer på [Navet](https://navno.sharepoint.com/sites/enhet-it-avdelingen/SitePages/IT-omr%C3%A5de%20digital%20sikkerhet.aspx).
 
 ### F
 
