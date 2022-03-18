@@ -57,6 +57,11 @@ module.exports = {
           label: "Kom i gang 🚀",
         },
         {
+          href: "/docs/verktoy/",
+          position: "left",
+          label: "Verktøy 🧰",
+        },
+        {
           href: "/docs/events/",
           position: "left",
           label: "Arrangementer 🎉",
