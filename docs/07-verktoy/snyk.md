@@ -96,3 +96,37 @@ Snyk sin Slack-integrasjon gir deg alle varsler, uavhengig av type (sårbarhet/l
 :::
 
 ![Slack-integrasjon i Snyk](/img/snyk-slack.png "Slack-integrasjon i Snyk")
+
+### Scanning av ikke-åpne maven-pakker med GitHub Action
+
+Snyk får ikke automatisk tilgang til pakker som ligger i ikke-åpne maven-repositories, slik som [GitHub Maven registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry), og krever at autentisering settes opp.
+
+For å få Snyk til å autentisere mot maven-repoet, må vi lage egen `settings.xml`-fil med credentials, og så fortelle Snyk at den skal brukes. Merk at GitHub-actionet `snyk/actions/maven` kjører gjennom en docker-container, og får kun tilgang til filer som ligger i kildekode-mappen. En typisk `~/.m2/settings.xml` vil derfor ikke bli plukket opp, og vi må i stedet legge settings-filen sammen med resten av kildekoden.
+
+Dette kan for eksempel gjøres med en slik GitHub-workflow:
+
+```yaml
+jobs:
+  snyk:
+    name: Snyk test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create settings.xml
+        uses: whelk-io/maven-settings-xml-action@v20
+        with:
+          repositories: '[{ "id": "github", "name": "github", "url": "https://maven.pkg.github.com/navikt/...", "releases": { "enabled": "true" }, "snapshots": { "enabled": "false" } }]'
+          servers: '[{ "id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.READER_TOKEN }}" }]'
+          # OBS: merk at default-plassering av output_file ikke plukkes opp av Snyk
+          output_file: snyk-settings.xml
+
+      - name: Run Snyk
+        uses: snyk/actions/maven@master
+        with:
+          command: test
+          # OBS: merk "--" mellom Snyk-options (--org) og Maven-options (--settings)
+          args: --org=... -- --settings snyk-settings.xml
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+```
