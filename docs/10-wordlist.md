@@ -31,6 +31,10 @@ Infrastruktur og rammeverk som benyttes av ["red teams"](#red-team) og trusselak
 
 Mekanisme som tillater at ["begrensede"](#same-origin-policy-sop) ressurser på en webside kan hentes fra et annet domene enn det som websiden stammer fra. Et vanlig bruksområde er å hente data fra API-er som er hostet av andre vha JavaScript `fetch`-kall. CORS er implementert vha en rekke [Access-Control HTTP-headere](https://portswigger.net/web-security/cors). CORS er et nyttig verktøy, men også en angrepsvektor dersom det brukes feil.
 
+#### Cross-Site Request Forgery (CSRF)
+
+CSRF handler om forfalskning av forespørsler sendt via nettlesere på vegne av andre brukere. Har man som bruker en aktiv sesjon på site A kan en angriper lure brukeren til å sende forespørsler til site A fra en ondsinnet site, som da blir sendt på vegne av offeret. Dersom de som har utviklet site A ikke har tatt aktive grep for å forhindre dette kan angripere utføre handlinger på site A på vegne av andre brukere. Det finnes en rekke løsninger på dette problemet, der bruken av et såkalt CSRF-token er en av de mest brukte. [Les mer om slike tokens og andre løsninger på Wikipedia](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Synchronizer_token_pattern).
+
 ### D
 
 #### Denial of Service-angrep
