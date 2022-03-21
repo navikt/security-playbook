@@ -130,3 +130,35 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 ```
+
+### Raskere snyk
+
+Snyk bruker pakkesystemet til å finne avhengigheter. Det betyr at for å kunne gjøre `synk test` eller `snyk monitor` så må alle avhengigheter løses først. Kjører du `snyk` som egne GitHub Actions workflows (eller jobber) så vil de starte med en tom checkout og måtte løse alle avhengigheter.
+
+Ønsker du at snyk skal blokkere deployment betyr dette i praksis fort en dobling i bygg-tid. Kjører du heller `snyk` som et steg i en eksisterende jobb vil det bare ta noen sekunder ekstra. 
+
+Den raskeste måten å kjøre `snyk` er å bruke `snyk/actions/setup`. For et Gradle-prosjekt vil det se slik ut:
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      # Installerer snyk i GitHub Action runneren
+      - uses: snyk/actions/setup@master
+      
+      - uses: actions/setup-java@v2
+        with:
+          distribution: temurin
+          java-version: 17
+          
+      - uses: gradle/gradle-build-action@v2
+      - run: gradle test
+
+      - run: snyk test --org=[PROJECT]
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+```
+
+Snyk sine GitHub Actions som for eksempel `snyk/actions/gradle` kjører `snyk` i Docker så de vil være like trege, selv som et steg i en eksisterende jobb.
