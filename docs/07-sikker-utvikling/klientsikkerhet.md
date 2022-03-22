@@ -21,6 +21,13 @@ Så for å parafrasere et utrykk som er aktuelt i samtiden; Kortreist sikkerhet 
 - Prøv å orientere deg i hva (og hvorfor noe) er gjort med maskinen din via policies så du kan gjøre opplyste avgjørelser om å gå rundt eller disable policies.
 - Sett deg inn i [Do's and Don´ts](https://naisdevice-approval.nais.io). De er der for å hjelpe deg gjøre riktige valg.
 
+### Konkrete og effektive tiltak for sikring av egen maskin og egne brukerkontoer:
+
+- Hold softwaren din oppdatert. Ikke bare operativsystemet og web-browseren, men også de andre verktøyene du bruker.
+- Ha sterke og unike passord på hver tjeneste du bruker. Den eneste måten å oppnå dette på i praksis er ved å bruke en passord-manager. Om du bruker [LastPass](https://www.lastpass.com/), [1Password](https://1password.com/), [Bitwarden](https://bitwarden.com/) eller en annen spiller ikke så stor rolle, men bruk en av dem.
+- Skru på 2-faktor autentisering (2FA, av og til omtalt som multifaktor-autentisering eller MFA) alle steder som støtter dette (og det er de fleste). [WebAuthn](https://webauthn.io/) med [Yubikeys](https://www.yubico.com/why-yubico/) eller tilsvarende er bedre enn engangspassord fra en "authenticator app", app er bedre enn SMS, men SMS er mye bedre enn ingenting.
+- Ikke kjør med flere tillatelser enn du trenger til vanlig, det er ikke så ofte man faktisk trenger å være root. På en standard NAV-oppsatt Mac har du tilgang til et verktøy som heter [Privileges](https://github.com/SAP/macOS-enterprise-privileges) som kan benyttes til å gi seg selv ekstra tilgang ved behov.
+
 Og ikke minst; Vi har mange eksperter i NAV - og når det gjelder sikkerhet så anser vi alle spørsmål som smarte, så hvis du er i tvil; spør en venn.
 
 ```mdx-code-block
