@@ -48,7 +48,7 @@ En av de beste måtene å lære, er å sammen lære av hverandre. «Security Cha
 
 :::success Praktisk oppgave – ta en kaffeprat
 
-1. Finn en Security Champion i [Teamkatalogen](https://teamkatalog.nais.adeo.no/dashboard/members/role/SECURITY_CHAMPION) du ikke har snakket med før
+1. Finn en Security Champion i [Teamkatalogen](https://teamkatalog.nav.no/dashboard/members/role/SECURITY_CHAMPION) du ikke har snakket med før
 2. Inviter personen til en kaffeprat
 3. ☕️
 
