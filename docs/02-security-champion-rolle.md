@@ -10,6 +10,8 @@ Sikkerhetsarbeidet må skalere sammen med organiseringen i produktteam samtidig 
 
 I NAV ønsker vi derfor at alle team har en person som tar på seg rollen som security champion. En security champion er en pådriver og motivator i sikkerhetsarbeidet i teamet. Teamet har det samlede ansvaret for å sørge for at sikkerhetsoppgavene fordeles og gjøres. I rollen som security champion hjelper du teamet med å være bevisst på sikkerhet og bidra som teamets sikkerhetssamvittighet.
 
+For å bli security champion trenger man ikke å være ekspert på sikkerhet, men man bør ha en interesse for det. Og så er det viktig å huske på: Du er ikke alene! Som security champion er du en del av en gruppe med folk som jobber med sikkerhet og kan hjelpe deg (og kanskje du kan hjelpe noen andre?). I tillegg er det ikke du som alene er ansvarlig for sikkerheten i teamet ditt; det er et team-ansvar. Men som security champion skal du bidra til å ansvarliggjøre teamet.
+
 ### Kjerneaktiviteter for security champion i produktteam eller tilsvarende
 
 - Bidra til at sikkerhet blir en del av det daglige arbeidet i teamet
