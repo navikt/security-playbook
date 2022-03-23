@@ -53,3 +53,7 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 - [5h3llcast](https://open.spotify.com/show/76cxbNjWBBGzc486SV48YE) - "en uformell sikkerhetspodcast på norsk"
 - [Try Hack Me](https://tryhackme.com/) - lær med tutorials og oppgaver i et trygt miljø (gratis eller "premium" til $8/mnd)
 - [Cheatsheet for Web Security hos Owasp](https://cheatsheetseries.owasp.org/)
+
+### Artikler/blogposts
+
+- [Artikkel fra Microsoft Security](https://www.microsoft.com/security/blog/2022/03/22/dev-0537-criminal-actor-targeting-organizations-for-data-exfiltration-and-destruction/) om hvordan "LAPSUS$"-gruppen opererer
