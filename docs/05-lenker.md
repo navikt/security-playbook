@@ -53,6 +53,7 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 - [5h3llcast](https://open.spotify.com/show/76cxbNjWBBGzc486SV48YE) - "en uformell sikkerhetspodcast på norsk"
 - [Try Hack Me](https://tryhackme.com/) - lær med tutorials og oppgaver i et trygt miljø (gratis eller "premium" til $8/mnd)
 - [Cheatsheet for Web Security hos Owasp](https://cheatsheetseries.owasp.org/)
+- [Cast O3](https://casto3.no/om-oss/) - Norsk podcast som ofte har tema relatert til sikkerhet.
 
 ### Artikler/blogposts
 
