@@ -54,6 +54,7 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 - [Try Hack Me](https://tryhackme.com/) - lær med tutorials og oppgaver i et trygt miljø (gratis eller "premium" til $8/mnd)
 - [Cheatsheet for Web Security hos Owasp](https://cheatsheetseries.owasp.org/)
 - [Cast O3](https://casto3.no/om-oss/) - Norsk podcast som ofte har tema relatert til sikkerhet.
+- [PentesterLab](https://pentesterlab.com/) - lær med oppgaver i et trygt miljø (gratis eller "premium" til $20/mnd)
 
 ### Artikler/blogposts
 
