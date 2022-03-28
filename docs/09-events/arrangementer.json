@@ -10,6 +10,11 @@
     "href": "https://www.meetup.com/OWASP-Oslo/events/284603583/"
   },
   {
+    "date": "2022-03-30",
+    "label": "Sikkerhetskonferansen 2022 (NSM)",
+    "href": "https://nsm.no/aktuelt/sikkerhetskonferansen-2022"
+  },
+  {
     "startDate": "2022-04-04",
     "endDate": "2022-04-07",
     "label": "NDC Security Oslo",
