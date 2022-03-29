@@ -33,6 +33,10 @@ Computer Emergency Response Team - team som koordinerer og hjelper til når det 
 
 Infrastruktur og rammeverk som benyttes av ["red teams"](#red-team) og trusselaktører for å angripe datamaskiner og opprettholde oversikt over og kontroll på maskiner de allerede har kompromittert. Uttrykket er (som mye av den andre terminologien i sikkerhetsbransjen) hentet fra det militære. Kontrollen opprettholdes ved å installere en eller form for "agent" på disse maskinene. Agentene søker å gi seg selv persistens, dvs at de kan overleve restarting av maskinen samtidig som de søker å gjøre seg selv så lite synlige som mulig. Kommunikasjonen mellom agentene og serverne kan skje over mange ulike protokoller alt etter hvilket miljø de er i. De ulike rammeverkene har ulik grad av funksjonalitet for å "kommandere" agentene til å utføre ønskede handlinger. Det finnes en rekke mer eller mindre avanserte C2-rammeverk, det mest kjente kommersielle produktet er "Cobaltstrike".
 
+#### Cross Site Scripting (XSS)
+
+[Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/) er en angrepsmekanisme der angriper prøver å legge til ondsinnet skript til en webside. Angrepet skjer ved at en angriper klarer å sende kode med onde hensikter, ofte i form av browserskript (f.eks. javascript), til en intetanende bruker (ekstern eller intern bruker). Det finnes flere teknikker for å beskytte seg mot XSS, anbefaler å gå igjennom en sjekkliste fra [OWASP siden om ulike teknikker for beskyttelse](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).
+
 #### Cross-origin resource sharing (CORS)
 
 Mekanisme som tillater at ["begrensede"](#same-origin-policy-sop) ressurser på en webside kan hentes fra et annet domene enn det som websiden stammer fra. Et vanlig bruksområde er å hente data fra API-er som er hostet av andre vha JavaScript `fetch`-kall. CORS er implementert vha en rekke [Access-Control HTTP-headere](https://portswigger.net/web-security/cors). CORS er et nyttig verktøy, men også en angrepsvektor dersom det brukes feil.
