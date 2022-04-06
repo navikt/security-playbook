@@ -99,6 +99,10 @@ The Open Web Application Security Project, en "nonprofit" organisasjon som jobbe
 
 ### P
 
+#### Prototype pollution
+
+Prototype pollution er en angrepsmekanisme der angriper endrer prototype ("\__proto__") egenskapen til et JavaScript objekt. JavaScript er prototype-basert; det vil si at alle objekter har denne egenskapen, som inneholder grunnleggende funksjonalitet slik som `toString`, `constructor`, og `hasOwnProperty`. Avhengig av logikken til applikasjonen din, kan prototype pollution føre til så og si alle populære web sårbarheter: Remote Code Execution (RCE), Cross Site Scripting (XSS), SQL Injection, Denial-of-Service (DoS), osv. Les mer om prototype pollution, se kode-eksempler, og lær hvordan du kan beskytte deg mot det [her på Snyk Learn](https://learn.snyk.io/lessons/prototype-pollution/javascript/).
+
 #### Public-key kryptografi
 
 Public-key kryptografi, eller asymmetrisk kryptografi, er et system som benytter nøkkelpar. Hvert par består av en privat nøkkel som holdes hemmelig og en offentlig nøkkel som deles med andre. Hvis A skal sende data til B så krypterer og/eller signerer hen med B's offentlige nøkkel. Den eneste som kan dekryptere og verifisere disse dataene er da B vha sin private nøkkel. Dette muliggjør at man kan kommunisere sikkert med noen uten å måtte utveksle hemmeligheter via andre kanaler på forhånd. Asymmetrisk kryptografi er grunnsteinen i en rekke protokoller og standarder for kommunikasjon og [tillit](#signatur) som f.eks. PGP, HTTPS/TLS og SSH.
