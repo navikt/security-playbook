@@ -135,7 +135,7 @@ jobs:
 
 ### Raskere snyk
 
-Snyk bruker pakkesystemet til å finne avhengigheter. Det betyr at for å kunne gjøre `synk test` eller `snyk monitor` så må alle avhengigheter løses først. Kjører du `snyk` som egne GitHub Actions workflows (eller jobber) så vil de starte med en tom checkout og måtte løse alle avhengigheter.
+Snyk bruker pakkesystemet til å finne avhengigheter. Det betyr at for å kunne gjøre `snyk test` eller `snyk monitor` så må alle avhengigheter løses først. Kjører du `snyk` som egne GitHub Actions workflows (eller jobber) så vil de starte med en tom checkout og måtte løse alle avhengigheter.
 
 Ønsker du at snyk skal blokkere deployment betyr dette i praksis fort en dobling i bygg-tid. Kjører du heller `snyk` som et steg i en eksisterende jobb vil det bare ta noen sekunder ekstra.
 
