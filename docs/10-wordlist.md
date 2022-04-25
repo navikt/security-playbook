@@ -49,6 +49,11 @@ Mekanisme som tillater at ["begrensede"](#same-origin-policy-sop) ressurser på 
 
 CSRF handler om forfalskning av forespørsler sendt via nettlesere på vegne av andre brukere. Har man som bruker en aktiv sesjon på site A kan en angriper lure brukeren til å sende forespørsler til site A fra en ondsinnet site, som da blir sendt på vegne av offeret. Dersom de som har utviklet site A ikke har tatt aktive grep for å forhindre dette kan angripere utføre handlinger på site A på vegne av andre brukere. Det finnes en rekke løsninger på dette problemet, der bruken av et såkalt CSRF-token er en av de mest brukte. [Les mer om slike tokens og andre løsninger på Wikipedia](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Synchronizer_token_pattern).
 
+#### Common Vulnerabilities and Exposures (CVE)
+
+CVE står for Common Vulnerabilities and Exposures. CVE er en internasjonal, felleskapsdrevet innsats for å identifisere, definere og katogorisere kjente programvare/fastvare(firmware) sårbarheter. Det er en CVE-Record for hver sårbarhet identifisert i katalogen. Sårbarhetene blir oppdaget og deretter tildelt og publisert av organisasjoner fra hele verden som har inngått samarbeid med CVE-programmet. Fagfolk innen informasjonsteknologi og nettverkssikkerhet bruker CVE-Record for å forsikre seg at de diskuterer det samme problemet, og for å koordinere innsatsen for å prioritere og adressere sårbarhetene.
+[Ler her for mer info om CVE](https://www.cve.org/About/Overview)
+
 ### D
 
 #### Denial of Service-angrep
