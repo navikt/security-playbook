@@ -1,2 +1,5 @@
 ingresses:
   - https://sikkerhet.dev.nav.no
+
+minreplicas: 1
+maxreplicas: 1
