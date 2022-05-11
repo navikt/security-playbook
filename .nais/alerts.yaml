@@ -25,6 +25,6 @@ spec:
       action: "Sjekk loggene til app security-playbook i namespace security-champion-admin, for å se hvorfor det er så mye feil"
   receivers:
     slack:
-      channel: security-champions-hendelser
+      channel: security-champions-playbook-aktivitet
       prependText: '<!here> | '
     enabled: true
