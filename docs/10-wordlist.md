@@ -92,6 +92,10 @@ Filer, innslag i logger eller andre ting man finner som indikerer at uvedkommend
 
 Fellesbetegnelse på programvare som er laget for å stjele informasjon, omgå sikkerhetsmekanismer, kræsje eller på annen måte forstyrre den tiltenkte virkemåten til datamaskiner og/eller nettverk.
 
+#### Man in the middle-angrep
+
+Når en angriper installerer seg selv som et mellomledd i kommunikasjon uten at deltakerne merker det. Hensikten med dette er oftest at man ønsker å lytte på det som blir sendt fram og tilbake, men i en slik posisjon kan man også endre på informasjonen.
+
 ### O
 
 #### OAuth (Open Authorization)
@@ -110,7 +114,7 @@ The Open Web Application Security Project, en "nonprofit" organisasjon som jobbe
 
 #### Prototype pollution
 
-Prototype pollution er en angrepsmekanisme der angriper endrer prototype ("\__proto__") egenskapen til et JavaScript objekt. JavaScript er prototype-basert; det vil si at alle objekter har denne egenskapen, som inneholder grunnleggende funksjonalitet slik som `toString`, `constructor`, og `hasOwnProperty`. Avhengig av logikken til applikasjonen din, kan prototype pollution føre til så og si alle populære web sårbarheter: Remote Code Execution (RCE), Cross Site Scripting (XSS), SQL Injection, Denial-of-Service (DoS), osv. Les mer om prototype pollution, se kode-eksempler, og lær hvordan du kan beskytte deg mot det [her på Snyk Learn](https://learn.snyk.io/lessons/prototype-pollution/javascript/).
+Prototype pollution er en angrepsmekanisme der angriper endrer prototype ("\_\_proto\_\_") egenskapen til et JavaScript objekt. JavaScript er prototype-basert; det vil si at alle objekter har denne egenskapen, som inneholder grunnleggende funksjonalitet slik som `toString`, `constructor`, og `hasOwnProperty`. Avhengig av logikken til applikasjonen din, kan prototype pollution føre til så og si alle populære web sårbarheter: Remote Code Execution (RCE), Cross Site Scripting (XSS), SQL Injection, Denial-of-Service (DoS), osv. Les mer om prototype pollution, se kode-eksempler, og lær hvordan du kan beskytte deg mot det [her på Snyk Learn](https://learn.snyk.io/lessons/prototype-pollution/javascript/).
 
 #### Public-key kryptografi
 
