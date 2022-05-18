@@ -9,13 +9,21 @@ hide_table_of_contents: false
 
 ### A
 
+#### Access Control List (ACL)
+
+En ACL, eller tilgangskontroll er en liste med regler som sier hvem eller hva som får lov til å snakke med dingsen man tilgangsstyrer. NAIS har mulighet for å sette noen noe tilgangstyring for applikasjonen din i nais.yml gjennom accesPolicy variabelen.
+
 #### Audit log
 
 En audit log (eller audit trail) er en kronologisk logg av hendelser som dokumenterer aktivitetene som har påvirket tilstanden til et bestemt objekt. Et slikt objekt kan være alt fra databaser og filer til fysiske "dingser". Audit-logging benyttes gjerne der man har et ekstra behov for å kunne dokumentere hendelser i ettertid som finansielle transaksjoner, i helseregistre og ifm pålogging og autorisering.
 
-#### Access Control List (ACL)
+#### Autentisering
 
-En ACL, eller tilgangskontroll er en liste med regler som sier hvem eller hva som får lov til å snakke med dingsen man tilgangsstyrer. NAIS har mulighet for å sette noen noe tilgangstyring for applikasjonen din i nais.yml gjennom accesPolicy variabelen.
+Autentisering er handlingen som utføres for å bekrefte riktigheten av en påstått identitet.
+
+#### Autorisering
+
+Autorisering er handlingen som utføres for å godkjenne eller gi tillatelse for noen til å utføre noe.
 
 ### B
 
