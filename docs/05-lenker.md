@@ -48,6 +48,7 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
 - [OWASP Security Knowledge Framework](https://www.securityknowledgeframework.org/)
 - [Sikkerhet på GitHub](https://github.com/features/security)
+- [Security hardening for GitHub Actions](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
 - [Blogg fra Telenor SOC](https://telenorsoc.blogspot.com/)
 - [The Darknet Diaries](https://darknetdiaries.com/) - podkastserie fra "the dark side of the Internet"
 - [5h3llcast](https://open.spotify.com/show/76cxbNjWBBGzc486SV48YE) - "en uformell sikkerhetspodcast på norsk"
