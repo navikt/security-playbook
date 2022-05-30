@@ -55,6 +55,8 @@ const months = [
   "desember",
 ];
 
+const TO_BE_ANNOUNCED_TEXT = "TBA";
+
 function getDateParts(dateString) {
   const [year, month, day] = dateString.split("-").map((e) => parseInt(e, 10));
   return { year, month, day };
@@ -64,6 +66,10 @@ function formatDate(event) {
   const currentYear = new Date().getFullYear();
   const start = getDateParts(event.startDate);
   const end = getDateParts(event.endDate);
+
+  if (!start.day || !end.day) {
+    return TO_BE_ANNOUNCED_TEXT;
+  }
 
   if (event.startDate === event.endDate) {
     const str = `${start.day}. ${months[start.month - 1]}`;
