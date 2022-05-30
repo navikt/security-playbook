@@ -52,7 +52,7 @@ jobs:
       - name: Generate Docker image tag with short sha
         id: dockertag
         run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
-      - uses: nais/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05 # ratchet:nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05 # ratchet:nais/deploy/actions/deploy@v1
         if: github.ref == 'refs/heads/main'
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
@@ -68,7 +68,7 @@ jobs:
       - name: Generate Docker image tag with short sha
         id: dockertag
         run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
-      - uses: nais/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05 # ratchet:nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05 # ratchet:nais/deploy/actions/deploy@v1
         if: github.ref == 'refs/heads/main'
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
