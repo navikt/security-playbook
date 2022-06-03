@@ -42,6 +42,15 @@ Videre er det bare å kjøre på og sette opp Snyk for repoene deres. Dette kan 
 
 Snyk skal nå automatisk plukke opp og scanne `pom.xml`, `package.json`, `Dockerfile` og andre avhengigetsfiler, og i tillegg sette opp en webhook som plukker opp fremtidige endringer.
 
+:::tip
+Ved import av prosjekt via Snyk UI vil Snyk kunne identfisere baseimage fra `Dockerfile` som den kjenner til fra før.
+Se [Identification methods](https://docs.snyk.io/products/snyk-container/getting-around-the-snyk-container-ui/base-image-detection#identification-methods) for mer info.
+:::
+
+:::caution
+Hvis du bruker en baseimage som Snyk ikke kjenner vil den ikke ikke kunne oppdage sårbarheter. Man får heller ingen advarsel om det i Snyk UI. Dockerfile importeres inn uten sårbarheter, noe som er misvisende.
+:::
+
 ### CLI via GitHub-action
 
 Se [Snyks egen dokumentasjon](https://github.com/snyk/actions) på dette.
