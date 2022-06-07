@@ -120,6 +120,10 @@ The Open Web Application Security Project, en "nonprofit" organisasjon som jobbe
 
 ### P
 
+#### Phishing
+
+En type [social engineering](#social-engineering) der en angriper sender målet en forfalsket melding i den hensikt å få målet til å oppgi sensitiv informasjon eller kunne installere [malware](#malware) på målets maskin. Man kan på denne måten feks stjele brukernavn og passord ved å få folk til å besøke en falsk påloggingsside.
+
 #### Prototype pollution
 
 Prototype pollution er en angrepsmekanisme der angriper endrer prototype ("\_\_proto\_\_") egenskapen til et JavaScript objekt. JavaScript er prototype-basert; det vil si at alle objekter har denne egenskapen, som inneholder grunnleggende funksjonalitet slik som `toString`, `constructor`, og `hasOwnProperty`. Avhengig av logikken til applikasjonen din, kan prototype pollution føre til så og si alle populære web sårbarheter: Remote Code Execution (RCE), Cross Site Scripting (XSS), SQL Injection, Denial-of-Service (DoS), osv. Les mer om prototype pollution, se kode-eksempler, og lær hvordan du kan beskytte deg mot det [her på Snyk Learn](https://learn.snyk.io/lessons/prototype-pollution/javascript/).
