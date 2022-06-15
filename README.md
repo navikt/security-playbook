@@ -2,7 +2,7 @@
 
 > «Hvordan vi utvikler sikker software i NAV IT»
 
-Playbooken er laget av og for utviklere i NAV, og kan besøkes her: [Sikkerhet NAV](https://sikkerhet.nav.no)
+Playbooken er helt åpen for verden, men innholdet er primært laget av og for utviklere i NAV. :[Sikkerhet NAV](https://sikkerhet.nav.no)
 
 ## Hvem kan bidra? 🤔
 
@@ -10,6 +10,14 @@ Alle! 🥳 Utviklere i NAV har full skrivetilgang til koden, og kan selv endre a
 
 Innholdet har kun verdi dersom det holdes oppdatert og relevant,
 så det er viktig at det er så lav terskel som mulig å komme med oppdateringer. 💪
+
+### Hvem er målgruppen?
+
+Utviklere og andre som driver med sikkerhet i produktutvikling i NAV er hovedmålgruppen til playbooken, men det legges til rette for at innholdet kan benyttes enda bredere.
+
+### Kan jeg publisere NAV-intern/hemmelig informasjon?
+
+Nei, ikke direkte. Playbooken er tilgjengelig for hele verden, så ikke-offentlig informasjon må holdes utenfor. Men det er greit å lenke videre til interne sider bak innlogging fra playbooken!
 
 ### Har du flere spørsmål? 🙋
 
