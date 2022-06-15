@@ -40,5 +40,12 @@
     "label": "Def Con USA",
     "href": "https://defcon.org/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2022-08-29",
+    "endDate": "2022-08-31",
+    "label": "Sikkerhetsfestivalen",
+    "href": "https://sikkerhetsfestivalen.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
