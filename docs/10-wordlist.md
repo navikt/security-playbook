@@ -33,6 +33,14 @@ En gruppe som analyserer sikkerheten i IT-systemer og implementerer tiltak for �
 
 ### C
 
+#### CA
+Certification Authority
+
+A sertifikatmyndighet (CA), også noen ganger referert til som en sertifiseringsmyndighet,
+er et selskap eller organisasjon som opptrer for å validere identitetene til enheter
+(for eksempel nettsteder, e-postadresser, selskaper eller enkeltpersoner) og binder dem til
+kryptografiske nøkler gjennom utstedelse av elektroniske dokumenter kjent som digitale sertifikater.
+
 #### Capture the flag (CTF)
 
 Konkurranse hvor team eller enkeltpersoner skal finne, og av og til stjele (flere ulike varianter finnes), skjulte "flagg" ved å utnytte sårbarheter i software eller hardware. Hensikten er at deltakerne skal lære (eller vise at de behersker) ulike teknologier og angrepsteknikker. Dette kan være ting som reverse engineering, pakkesniffing, programmering, protokollanalyse og mye mer. Terminologien stammer fra sporten der et lag skal ta seg inn på det andre lagets område og stjele flagg som skal bringes trygt hjem.
@@ -41,17 +49,16 @@ Konkurranse hvor team eller enkeltpersoner skal finne, og av og til stjele (fler
 
 Computer Emergency Response Team - team som koordinerer og hjelper til når det er en IT-sikkerhetshendelse (er egentlig et registrert varemerke, og noe man kan sertifiseres for, så noen organisasjoner bruker f eks CSIRT - Computer Security Incident Readiness Team)
 
-#### CA
-Certification Authority
-
-A sertifikatmyndighet (CA), også noen ganger referert til som en sertifiseringsmyndighet, 
-er et selskap eller organisasjon som opptrer for å validere identitetene til enheter 
-(for eksempel nettsteder, e-postadresser, selskaper eller enkeltpersoner) og binder dem til 
-kryptografiske nøkler gjennom utstedelse av elektroniske dokumenter kjent som digitale sertifikater.
-
 #### Command & Control (C2)
 
 Infrastruktur og rammeverk som benyttes av ["red teams"](#red-team) og trusselaktører for å angripe datamaskiner og opprettholde oversikt over og kontroll på maskiner de allerede har kompromittert. Uttrykket er (som mye av den andre terminologien i sikkerhetsbransjen) hentet fra det militære. Kontrollen opprettholdes ved å installere en eller form for "agent" på disse maskinene. Agentene søker å gi seg selv persistens, dvs at de kan overleve restarting av maskinen samtidig som de søker å gjøre seg selv så lite synlige som mulig. Kommunikasjonen mellom agentene og serverne kan skje over mange ulike protokoller alt etter hvilket miljø de er i. De ulike rammeverkene har ulik grad av funksjonalitet for å "kommandere" agentene til å utføre ønskede handlinger. Det finnes en rekke mer eller mindre avanserte C2-rammeverk, det mest kjente kommersielle produktet er "Cobaltstrike".
+
+#### CRL
+
+I kryptografi er en sertifikatopphevelsesliste (eller CRL) 
+"en liste over digitale sertifikater som har blitt tilbakekalt av den [utstedende sertifikatmyndigheten](#ca) før deres planlagte utløpsdato og som ikke lenger skal være klarert".
+CRL-er kreves ikke lenger av CA/Browser-forumet, ettersom alternative teknologier for tilbakekalling av sertifikater (som OCSP) i økende grad brukes i stedet. 
+Likevel er CRL-er fortsatt mye brukt av CA-ene.
 
 #### Cross Site Scripting (XSS)
 
@@ -118,6 +125,14 @@ Når en angriper installerer seg selv som et mellomledd i kommunikasjon uten at 
 Open Authorization
 
 Standard for delegering av tilgang på weben. Gjør det mulig å la brukere dele informasjon på beskyttede websider uten å samtidig måtte dele sine brukernavn og passord. Er mye brukt av tilbydere som Google og Facebook for å muliggjøre deling av kontoinformasjon med tredjeparter.
+
+#### OCSP
+
+Online Certificate Status Protocol (OCSP) er en Internett-protokoll som brukes for å få 
+tilbakekallingsstatusen til et X.509 digitalt sertifikat. Den er beskrevet i RFC 6960. 
+Den ble opprettet som et alternativ til [sertifikattilbakekallingslister](#crl), 
+som spesifikt adresserer visse problemer knyttet til bruk av CRL-er i en [offentlig nøkkelinfrastruktur](#pki).
+Meldinger som kommuniseres via OCSP er kodet i ASN.1 og kommuniseres vanligvis over HTTP.
 
 #### OIDC (OpenID Connect)
 
