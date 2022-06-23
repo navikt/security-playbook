@@ -33,6 +33,14 @@ En gruppe som analyserer sikkerheten i IT-systemer og implementerer tiltak for �
 
 ### C
 
+#### CA
+Certification Authority
+
+A sertifikatmyndighet (CA), også noen ganger referert til som en sertifiseringsmyndighet,
+er et selskap eller organisasjon som opptrer for å validere identitetene til enheter
+(for eksempel nettsteder, e-postadresser, selskaper eller enkeltpersoner) og binder dem til
+kryptografiske nøkler gjennom utstedelse av elektroniske dokumenter kjent som digitale sertifikater.
+
 #### Capture the flag (CTF)
 
 Konkurranse hvor team eller enkeltpersoner skal finne, og av og til stjele (flere ulike varianter finnes), skjulte "flagg" ved å utnytte sårbarheter i software eller hardware. Hensikten er at deltakerne skal lære (eller vise at de behersker) ulike teknologier og angrepsteknikker. Dette kan være ting som reverse engineering, pakkesniffing, programmering, protokollanalyse og mye mer. Terminologien stammer fra sporten der et lag skal ta seg inn på det andre lagets område og stjele flagg som skal bringes trygt hjem.
@@ -44,6 +52,13 @@ Computer Emergency Response Team - team som koordinerer og hjelper til når det 
 #### Command & Control (C2)
 
 Infrastruktur og rammeverk som benyttes av ["red teams"](#red-team) og trusselaktører for å angripe datamaskiner og opprettholde oversikt over og kontroll på maskiner de allerede har kompromittert. Uttrykket er (som mye av den andre terminologien i sikkerhetsbransjen) hentet fra det militære. Kontrollen opprettholdes ved å installere en eller form for "agent" på disse maskinene. Agentene søker å gi seg selv persistens, dvs at de kan overleve restarting av maskinen samtidig som de søker å gjøre seg selv så lite synlige som mulig. Kommunikasjonen mellom agentene og serverne kan skje over mange ulike protokoller alt etter hvilket miljø de er i. De ulike rammeverkene har ulik grad av funksjonalitet for å "kommandere" agentene til å utføre ønskede handlinger. Det finnes en rekke mer eller mindre avanserte C2-rammeverk, det mest kjente kommersielle produktet er "Cobaltstrike".
+
+#### CRL
+
+I kryptografi er en sertifikatopphevelsesliste (eller CRL) 
+"en liste over digitale sertifikater som har blitt tilbakekalt av den [utstedende sertifikatmyndigheten](#ca) før deres planlagte utløpsdato og som ikke lenger skal være klarert".
+CRL-er kreves ikke lenger av CA/Browser-forumet, ettersom alternative teknologier for tilbakekalling av sertifikater (som OCSP) i økende grad brukes i stedet. 
+Likevel er CRL-er fortsatt mye brukt av CA-ene.
 
 #### Cross Site Scripting (XSS)
 
@@ -106,9 +121,18 @@ Når en angriper installerer seg selv som et mellomledd i kommunikasjon uten at 
 
 ### O
 
-#### OAuth (Open Authorization)
+#### OAuth
+Open Authorization
 
 Standard for delegering av tilgang på weben. Gjør det mulig å la brukere dele informasjon på beskyttede websider uten å samtidig måtte dele sine brukernavn og passord. Er mye brukt av tilbydere som Google og Facebook for å muliggjøre deling av kontoinformasjon med tredjeparter.
+
+#### OCSP
+
+Online Certificate Status Protocol (OCSP) er en Internett-protokoll som brukes for å få 
+tilbakekallingsstatusen til et X.509 digitalt sertifikat. Den er beskrevet i RFC 6960. 
+Den ble opprettet som et alternativ til [sertifikattilbakekallingslister](#crl), 
+som spesifikt adresserer visse problemer knyttet til bruk av CRL-er i en [offentlig nøkkelinfrastruktur](#pki).
+Meldinger som kommuniseres via OCSP er kodet i ASN.1 og kommuniseres vanligvis over HTTP.
 
 #### OIDC (OpenID Connect)
 
@@ -124,6 +148,21 @@ The Open Web Application Security Project, en "nonprofit" organisasjon som jobbe
 
 En type [social engineering](#social-engineering) der en angriper sender målet en forfalsket melding i den hensikt å få målet til å oppgi sensitiv informasjon eller kunne installere [malware](#malware) på målets maskin. Man kan på denne måten feks stjele brukernavn og passord ved å få folk til å besøke en falsk påloggingsside.
 
+#### PKCS
+
+Public Key Cryptographic Standards. Inkluderer flere formater f.eks. 
+* PKCS#12 som brukes til å lagre X.509 privat nøkkel som følger med offentlige nøkkelsertifikater, 
+beskyttet av symmetrisk passord
+* PKCS#7 Se RFC 2315. Brukes til å signere og/eller kryptere meldinger under en PKI. 
+Brukes også for sertifikatspredning (for eksempel som svar på en PKCS #10-melding). 
+Dannet grunnlaget for S/MIME, som per 2010 er basert på RFC 5652, en oppdatert Cryptographic Message Syntax Standard (CMS).
+* PKCS#10 Se RFC 2986. Format på meldinger sendt til en sertifiseringsinstans [CA](#ca) for å be om sertifisering av en offentlig nøkkel.
+
+#### PKI
+
+Public Key Infrastructure består av policyer, standarder, personer og systemer som støtter distribusjon av offentlige nøkler 
+og identitetsvalidering av enkeltpersoner eller enheter med digitale sertifikater og en [sertifiseringsinstans](#ca).
+
 #### Prototype pollution
 
 Prototype pollution er en angrepsmekanisme der angriper endrer prototype ("\_\_proto\_\_") egenskapen til et JavaScript objekt. JavaScript er prototype-basert; det vil si at alle objekter har denne egenskapen, som inneholder grunnleggende funksjonalitet slik som `toString`, `constructor`, og `hasOwnProperty`. Avhengig av logikken til applikasjonen din, kan prototype pollution føre til så og si alle populære web sårbarheter: Remote Code Execution (RCE), Cross Site Scripting (XSS), SQL Injection, Denial-of-Service (DoS), osv. Les mer om prototype pollution, se kode-eksempler, og lær hvordan du kan beskytte deg mot det [her på Snyk Learn](https://learn.snyk.io/lessons/prototype-pollution/javascript/).
@@ -133,6 +172,29 @@ Prototype pollution er en angrepsmekanisme der angriper endrer prototype ("\_\_p
 Public-key kryptografi, eller asymmetrisk kryptografi, er et system som benytter nøkkelpar. Hvert par består av en privat nøkkel som holdes hemmelig og en offentlig nøkkel som deles med andre. Hvis A skal sende data til B så krypterer og/eller signerer hen med B's offentlige nøkkel. Den eneste som kan dekryptere og verifisere disse dataene er da B vha sin private nøkkel. Dette muliggjør at man kan kommunisere sikkert med noen uten å måtte utveksle hemmeligheter via andre kanaler på forhånd. Asymmetrisk kryptografi er grunnsteinen i en rekke protokoller og standarder for kommunikasjon og [tillit](#signatur) som f.eks. PGP, HTTPS/TLS og SSH.
 
 ### R
+
+#### RA
+
+Registration authority
+
+En registreringsmyndighet (RA) er en autoritet i et nettverk som verifiserer brukerforespørsler om et
+digitalt sertifikat og ber sertifikatmyndigheten (CA) om å utstede det.
+RA er en del av en offentlig nøkkelinfrastruktur ([PKI](#public-key-kryptografi))), et nettverkssystem som gjør det
+mulig for bedrifter og brukere å utveksle informasjon trygt og sikkert.
+Det digitale sertifikatet inneholder en offentlig nøkkel som brukes til å kryptere meldinger
+og validere digitale signaturer. Den prvate nøkkelen brukes til å dekryptere krypterte meldinger
+og opprette digitale signaturer (signere meldinger).
+
+Selv om RA ikke kan opprette eller utstede et sertifikat, da dette er CAs eneansvar,
+fungerer den som en mellommann for CA for å samle inn nødvendig informasjon og behandle følgende oppgaver:
+* motta bruker- eller enhetssertifikatforespørsler
+* validere brukere eller enheter
+* autentisere brukere eller enheter
+* trekke tilbake credentials hvis sertifikatet ikke lenger er gyldig
+
+Hovedformålet med en RA er å sikre at en bruker eller enhet har lov til å be om et digitalt sertifikat
+fra en bestemt nettside eller applikasjon. Hvis forespørselen tillates,
+videresender RA sertifikatforespørselen til CA, som fullfører den digitale sertifikatforespørselsprosessen.
 
 #### Ransomware
 
@@ -155,6 +217,21 @@ Teamets sikkerhetssamvittighet. Ikke nødvendigvis en sikkerhetsekspert, men en 
 #### Signatur
 
 En digital signatur er en matematisk metode for å verifisere ektheten til digitale meldinger eller dokumenter. En gyldig signatur gir mottakeren tillit til at meldingen ble produsert av en kjent avsender og ikke har blitt endret underveis. Signering og verifikasjon gjøres ved hjelp av [asymmetrisk kryptografi](#public-key-kryptografi).
+Eksempler på digitale signaturer er bl.a. XMLDSIG, XAdES, CAdES, PAdES, JAdES, ASiC-S/ASiC-E.
+
+#### Sikkerhetshendelse
+
+En sikkerhetshendelse er en bekreftet hendelse. 
+En sikkerhetshendelse kan føre til brudd på konfidensialitet, integritet og tilgjengelighet. 
+En sikkerhetshendelse kan bl.a. skyldes at
+* systemer og/eller annen infrastruktur er truet av teknisk feil
+* uvanlig mange forsøk på pålogging over et kort tidsrom
+* data er kommet på avveie, eller data er blitt korrupt
+* dataangrep fra eksterne eller interne trusselaktører
+
+#### Sikkerhetssituasjon
+
+En sikkerhetssituasjon er en mulig hendelse. Status er usikkert og uavklart, men kan utvikle seg til en [_sikkerhetshendelse_](#Sikkerhetshendelse).
 
 #### SOC
 
