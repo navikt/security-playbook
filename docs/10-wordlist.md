@@ -34,6 +34,7 @@ En gruppe som analyserer sikkerheten i IT-systemer og implementerer tiltak for �
 ### C
 
 #### CA
+
 Certification Authority
 
 A sertifikatmyndighet (CA), også noen ganger referert til som en sertifiseringsmyndighet,
@@ -55,9 +56,9 @@ Infrastruktur og rammeverk som benyttes av ["red teams"](#red-team) og trusselak
 
 #### CRL
 
-I kryptografi er en sertifikatopphevelsesliste (eller CRL) 
+I kryptografi er en sertifikatopphevelsesliste (eller CRL)
 "en liste over digitale sertifikater som har blitt tilbakekalt av den [utstedende sertifikatmyndigheten](#ca) før deres planlagte utløpsdato og som ikke lenger skal være klarert".
-CRL-er kreves ikke lenger av CA/Browser-forumet, ettersom alternative teknologier for tilbakekalling av sertifikater (som OCSP) i økende grad brukes i stedet. 
+CRL-er kreves ikke lenger av CA/Browser-forumet, ettersom alternative teknologier for tilbakekalling av sertifikater (som OCSP) i økende grad brukes i stedet.
 Likevel er CRL-er fortsatt mye brukt av CA-ene.
 
 #### Cross Site Scripting (XSS)
@@ -122,15 +123,16 @@ Når en angriper installerer seg selv som et mellomledd i kommunikasjon uten at 
 ### O
 
 #### OAuth
+
 Open Authorization
 
 Standard for delegering av tilgang på weben. Gjør det mulig å la brukere dele informasjon på beskyttede websider uten å samtidig måtte dele sine brukernavn og passord. Er mye brukt av tilbydere som Google og Facebook for å muliggjøre deling av kontoinformasjon med tredjeparter.
 
 #### OCSP
 
-Online Certificate Status Protocol (OCSP) er en Internett-protokoll som brukes for å få 
-tilbakekallingsstatusen til et X.509 digitalt sertifikat. Den er beskrevet i RFC 6960. 
-Den ble opprettet som et alternativ til [sertifikattilbakekallingslister](#crl), 
+Online Certificate Status Protocol (OCSP) er en Internett-protokoll som brukes for å få
+tilbakekallingsstatusen til et X.509 digitalt sertifikat. Den er beskrevet i RFC 6960.
+Den ble opprettet som et alternativ til [sertifikattilbakekallingslister](#crl),
 som spesifikt adresserer visse problemer knyttet til bruk av CRL-er i en [offentlig nøkkelinfrastruktur](#pki).
 Meldinger som kommuniseres via OCSP er kodet i ASN.1 og kommuniseres vanligvis over HTTP.
 
@@ -150,17 +152,18 @@ En type [social engineering](#social-engineering) der en angriper sender målet 
 
 #### PKCS
 
-Public Key Cryptographic Standards. Inkluderer flere formater f.eks. 
-* PKCS#12 som brukes til å lagre X.509 privat nøkkel som følger med offentlige nøkkelsertifikater, 
-beskyttet av symmetrisk passord
-* PKCS#7 Se RFC 2315. Brukes til å signere og/eller kryptere meldinger under en PKI. 
-Brukes også for sertifikatspredning (for eksempel som svar på en PKCS #10-melding). 
-Dannet grunnlaget for S/MIME, som per 2010 er basert på RFC 5652, en oppdatert Cryptographic Message Syntax Standard (CMS).
-* PKCS#10 Se RFC 2986. Format på meldinger sendt til en sertifiseringsinstans [CA](#ca) for å be om sertifisering av en offentlig nøkkel.
+Public Key Cryptographic Standards. Inkluderer flere formater f.eks.
+
+- PKCS#12 som brukes til å lagre X.509 privat nøkkel som følger med offentlige nøkkelsertifikater,
+  beskyttet av symmetrisk passord
+- PKCS#7 Se RFC 2315. Brukes til å signere og/eller kryptere meldinger under en PKI.
+  Brukes også for sertifikatspredning (for eksempel som svar på en PKCS #10-melding).
+  Dannet grunnlaget for S/MIME, som per 2010 er basert på RFC 5652, en oppdatert Cryptographic Message Syntax Standard (CMS).
+- PKCS#10 Se RFC 2986. Format på meldinger sendt til en sertifiseringsinstans [CA](#ca) for å be om sertifisering av en offentlig nøkkel.
 
 #### PKI
 
-Public Key Infrastructure består av policyer, standarder, personer og systemer som støtter distribusjon av offentlige nøkler 
+Public Key Infrastructure består av policyer, standarder, personer og systemer som støtter distribusjon av offentlige nøkler
 og identitetsvalidering av enkeltpersoner eller enheter med digitale sertifikater og en [sertifiseringsinstans](#ca).
 
 #### Prototype pollution
@@ -187,10 +190,11 @@ og opprette digitale signaturer (signere meldinger).
 
 Selv om RA ikke kan opprette eller utstede et sertifikat, da dette er CAs eneansvar,
 fungerer den som en mellommann for CA for å samle inn nødvendig informasjon og behandle følgende oppgaver:
-* motta bruker- eller enhetssertifikatforespørsler
-* validere brukere eller enheter
-* autentisere brukere eller enheter
-* trekke tilbake credentials hvis sertifikatet ikke lenger er gyldig
+
+- motta bruker- eller enhetssertifikatforespørsler
+- validere brukere eller enheter
+- autentisere brukere eller enheter
+- trekke tilbake credentials hvis sertifikatet ikke lenger er gyldig
 
 Hovedformålet med en RA er å sikre at en bruker eller enhet har lov til å be om et digitalt sertifikat
 fra en bestemt nettside eller applikasjon. Hvis forespørselen tillates,
@@ -221,13 +225,14 @@ Eksempler på digitale signaturer er bl.a. XMLDSIG, XAdES, CAdES, PAdES, JAdES, 
 
 #### Sikkerhetshendelse
 
-En sikkerhetshendelse er en bekreftet hendelse. 
-En sikkerhetshendelse kan føre til brudd på konfidensialitet, integritet og tilgjengelighet. 
+En sikkerhetshendelse er en bekreftet hendelse.
+En sikkerhetshendelse kan føre til brudd på konfidensialitet, integritet og tilgjengelighet.
 En sikkerhetshendelse kan bl.a. skyldes at
-* systemer og/eller annen infrastruktur er truet av teknisk feil
-* uvanlig mange forsøk på pålogging over et kort tidsrom
-* data er kommet på avveie, eller data er blitt korrupt
-* dataangrep fra eksterne eller interne trusselaktører
+
+- systemer og/eller annen infrastruktur er truet av teknisk feil
+- uvanlig mange forsøk på pålogging over et kort tidsrom
+- data er kommet på avveie, eller data er blitt korrupt
+- dataangrep fra eksterne eller interne trusselaktører
 
 #### Sikkerhetssituasjon
 
