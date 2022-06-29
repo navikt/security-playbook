@@ -8,7 +8,7 @@ Alle applikasjoner som eksponeres på internett er i større eller mindre grad s
 
 Begrensning av trafikk kan i veldig beskjeden grad utføres vha "rate limiting" i applikasjonen, men i praksis er det kun mere omfattende tiltak i kjøretidsmiljøet som duger. Det er en rekke tiltak som kan iverksettes på ulike lag i stacken. Man kan skalere opp ressursene sine, avvise trafikk basert på ulike mønstre eller egenskaper samt ha utstrakt bruk av caching.
 
-Den beste måten å understøtte plattformen i dette som applikasjonsutvikler er å lage produktene sine på en måte som gjør dem enkle å skalere. Det koker i all hovedsak ned til:
+Den beste måten å understøtte plattformen i dette som applikasjonsutvikler er å lage produktene sine på en måte som gjør dem enkle å [skalere](https://doc.nais.io/nais-application/automatic-scaling/). Det koker i all hovedsak ned til:
 
 1. Design applikasjonene sånn at de tåler restarting.
 2. Ha gode metrikker og kjenn applikasjonen din sånn at du vet når og hvorfor det gir mening å skalere opp.
