@@ -31,6 +31,10 @@ Autorisering er handlingen som utføres for å godkjenne eller gi tillatelse for
 
 En gruppe som analyserer sikkerheten i IT-systemer og implementerer tiltak for å adressere svakheter de finner. Navnet stammer fra militære øvelser. Veldig forenklet kan man si at blue team er de som forsvarer mens [red team](#red-team) er de som angriper.
 
+#### Botnet
+
+En gruppe av datamaskiner som er infisert av [malware](#malware) som kontrolleres av en enkelt aktør. Nettverket kan kommanderes til å utføre handlinger, feks. [DDoS-angrep](#denial-of-service-angrep), på vegne av denne aktøren.
+
 ### C
 
 #### CA
