@@ -1,7 +1,6 @@
 ---
 title: Denial of Service
 description: ⚖️ Last men ikke brast
-draft: true
 ---
 
 Alle applikasjoner som eksponeres på internett er i større eller mindre grad sårbare for "Denial of Service"-angrep, ofte oversatt til "tjenestenekt". Målet med slike angrep er å ta ned de aktuelle tjenestene sånn at ingen kan bruke dem, heller ikke de tiltenkte brukerne. Måten dette gjøres på er ved å sende så mange forespørsler til tjenestene at de ikke klarer å ta unna og blir utilgjengelige. Slike angrep er som oftest distribuerte og utføres vha av "botnet" sm angriperen kontrollerer. Dette gjør at de blir vanskeligere å beskytte seg mot.
