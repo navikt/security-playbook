@@ -19,7 +19,7 @@ Forutsetningen for slik "elastisitet" er at applikasjonen ikke holder på state 
 
 For å ta i bruk rate limiting i applikasjonene er det ulik støtte i de ulike rammeverkene. Det finnes mange ressurser som forklarer ulike framgangsmåter, feks. disse for hhv. [Spring](https://www.baeldung.com/spring-bucket4j), [Node/Express](https://www.section.io/engineering-education/nodejs-rate-limiting/) og [Resilience4j](https://resilience4j.readme.io/docs/examples-4) som kan benyttes i flere kontekster på JVM-en.
 
-Det er også viktig at man gjør seg noen litt mere generelle betraktninger om hvordan man designer appene sine. Kan vi redusere mengden kostbart arbeid som må gjøres for hver request uten at det går utover funksjonaliteten? Bør vi sette en maksgrense for størrelsen på POST og PUTs? Forkaster vi ugyldig input så tidlig som mulig? Vil det lønne seg å cache enkelte typer responser? Summen av alt dette kan bidrar til å gjøre applikasjonen mere robust.
+Det er også viktig at man gjør seg noen litt mere generelle betraktninger om hvordan man designer appene sine. Kan vi redusere mengden kostbart arbeid som må gjøres for hver request uten at det går utover funksjonaliteten? Bør vi sette en maksgrense for størrelsen på POST og PUTs? Forkaster vi ugyldig input så tidlig som mulig? Vil det lønne seg å cache enkelte typer responser? Summen av alt dette bidrar til å gjøre applikasjonen mere robust.
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
