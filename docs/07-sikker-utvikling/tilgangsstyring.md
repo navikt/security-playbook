@@ -48,7 +48,7 @@ og [Azure AD](https://doc.nais.io/security/auth/azure-ad/sidecar/).
 Når man skal validere tokens, kan man benytte et [tredjepartsbibliotek](https://jwt.io/libraries), eller vårt
 egenproduserte [token-support](https://github.com/navikt/token-support/) som kan plugges rett inn i Spring og Ktor.
 
-Se også [tokenvalidering](https://security.labs.nais.io/pages/tokenvalidering/) for utdypende info.
+Se også [tokenvalidering](https://doc.nais.io/security/auth/concepts/tokens/#token-validation) for utdypende info.
 
 ## Testing
 
@@ -59,7 +59,6 @@ egne sertifikater.
 
 ## Gode ressurser
 
-- [Veiviser for innlogging og bruk av tokens](https://security.labs.nais.io/pages/guide/)
 - [NAIS - Authentication and Authorization](https://doc.nais.io/security/auth/)
 
 ```mdx-code-block
