@@ -47,5 +47,12 @@
     "label": "Sikkerhetsfestivalen",
     "href": "https://sikkerhetsfestivalen.no/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2022-11-04",
+    "endDate": "2022-11-05",
+    "label": "Equinor CTF",
+    "href": "https://ctf.equinor.com/",
+    "audience": "Åpent for alle (fysisk/remote)"
   }
 ]
