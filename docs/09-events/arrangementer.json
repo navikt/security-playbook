@@ -49,6 +49,13 @@
     "audience": "Spør din personalleder \uD83D\uDCB8"
   },
   {
+    "startDate": "2022-09-21",
+    "endDate": "2022-09-21",
+    "label": "OP Holmgang, Kripos sin årlige CTF",
+    "href": "https://opholmgang.com/",
+    "audience": "Åpent for alle"
+  },
+  {
     "startDate": "2022-11-04",
     "endDate": "2022-11-05",
     "label": "Equinor CTF",
