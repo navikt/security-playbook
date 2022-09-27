@@ -61,5 +61,12 @@
     "label": "Equinor CTF",
     "href": "https://ctf.equinor.com/",
     "audience": "Åpent for alle (fysisk/remote)"
+  },
+  {
+    "startDate": "2022-09-29",
+    "endDate": "2022-09-29",
+    "label": "CS20: Presentasjon fra Kripos om ransomware-angrepet på Norsk Hydro i 2019",
+    "href": "https://financeinnovation.no/events/cs-in-20-minutes-with-kripos",
+    "audience": "Åpent for alle"
   }
 ]
