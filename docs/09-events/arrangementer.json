@@ -68,5 +68,12 @@
     "label": "CS20: Presentasjon fra Kripos om ransomware-angrepet på Norsk Hydro i 2019",
     "href": "https://financeinnovation.no/events/cs-in-20-minutes-with-kripos",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2022-11-09",
+    "endDate": "2022-11-09",
+    "label": "Snyk \"Fetch the Flag\" CTF",
+    "href": "https://snyk.io/ctf/",
+    "audience": "Åpent for alle"
   }
 ]
