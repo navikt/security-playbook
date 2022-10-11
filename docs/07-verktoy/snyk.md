@@ -34,33 +34,96 @@ Ta kontakt i [#snyk](https://nav-it.slack.com/archives/C02KF9C5XSM) for å få d
 
 Videre er det bare å kjøre på og sette opp Snyk for repoene deres. Dette kan for eksempel gjøres fra [app.snyk.io](https://app.snyk.io/login/sso) ved å importere GitHub-repoene deres, eller fra repoene selv med CLIet via en GitHub-action:
 
-### Importer fra GitHub
+### Importer fra GitHub {#github}
+
+Snyk lar deg importere GitHub-prosjekter rett fra [app.snyk.io](https://app.snyk.io/) etter du har logget inn i teamets «Snyk-organisasjon». Dette er en enkel måte å starte med Snyk, og gir deg veldig mye ut av boksen.
 
 1. Velg «Add project» og så «GitHub» fra [Snyk-organisasjonen](https://app.snyk.io/) til teamet ditt
 2. Velg repoene du ønsker å koble til
 3. Velg «Add selected repositories» øverst
 
+Merk at dette setter også opp [statisk kodeanalyse](#snyk-code) med Snyk Code, gitt at det er aktivert for Snyk-orgen til teamet ditt.
+
 Snyk skal nå automatisk plukke opp og scanne `pom.xml`, `package.json`, `Dockerfile` og andre avhengigetsfiler, og i tillegg sette opp en webhook som plukker opp fremtidige endringer.
 
-:::tip
-Ved import av prosjekt via Snyk UI vil Snyk kunne identfisere baseimage fra `Dockerfile` som den kjenner til fra før.
+:::caution Importerer du `build.gradle.kts`?
+Dette er foreløpig ikke støttet med GitHub-import, og må importeres fra [CLI](#cli)
+:::
+
+:::caution Importerer du `Dockerfile`?
+Snyk har kun støtte for et utvalg av baseimages, og vil ikke nødvendigvis plukke opp sårbarheter. Du vil heller ikke få noen god advarsel på dette, noe som er misvisende.
 Se [Identification methods](https://docs.snyk.io/products/snyk-container/getting-around-the-snyk-container-ui/base-image-detection#identification-methods) for mer info.
 :::
 
-:::caution
-Hvis du bruker en baseimage som Snyk ikke kjenner vil den ikke ikke kunne oppdage sårbarheter. Man får heller ingen advarsel om det i Snyk UI. Dockerfile importeres inn uten sårbarheter, noe som er misvisende.
+:::caution Hentes avhengigheter fra `repo.adeo.no`, `npm.pkg.github.com`, eller andre ikke-offentlige brønner?
+Snyks GitHub-import kan kun se offentlige avhengigheter, og vil derfor ikke kjøre en fullverdig sjekk av avhengighetene.
+
+Bruk heller `snyk monitor` fra en [CLI](#cli)-GitHub-action, og autentiser som ellers i pipelinen.
 :::
 
-### CLI via GitHub-action
+### CLI via GitHub-action {#cli}
+
+Import via CLI krever at du selv sier ifra til Snyk når avhengighetene endres. Dette gjøres gjerne via en GitHub-action som kjører `snyk monitor` ved hver push. Snyk vil deretter varsle om nye sårbarheter som dukker opp i avhengighetene dine.
 
 Se [Snyks egen dokumentasjon](https://github.com/snyk/actions) på dette.
-Merk at dette setter også opp [statisk kodeanalyse](#snyk-code) med Snyk Code.
 
-1. Legg til et github-action-steg. Enten som en separat workflow, eller som en del av en eksisterende workflow.
+#### Hvilken GitHub-action skal jeg bruke?
 
-Eksempel for **JVM**-prosjekter: https://github.com/navikt/dp-quiz/blob/main/.github/workflows/snyk.yml
+Snyk har to typer GitHub-actions:
 
-Eksempel for **node**-prosjekter:
+1. **Språk-spesifikke** actions, f.eks. `snyk/actions/node`, `snyk/actions/maven`, `snyk/actions/golang`, …
+   - Passer **bra** hvis du ikke har en eksisterende GitHub-pipeline
+   - Passer **dårlig** hvis du har mange avhengigheter og vil bruke caching i GitHub (se [Raskere Snyk](#raskere-snyk))
+   - Passer **dårlig** hvis du bruker ikke-offentlige pakkebrønner som `repo.adeo.no` eller `npm.pkg.github.com` (mye knot)
+   - Passer **dårlig** hvis du har flere språk du vil teste i samme repo
+   - Se [Snyks dokumentasjon](https://github.com/snyk/actions#snyk-github-actions)
+2. **Generell** action: `snyk/actions/setup`
+   - Passer **dårlig** hvis du ikke allerede har en GitHub-pipeline som bygger koden
+   - Passer **bra** hvis du vil legger til caching av avhengigheter (se [Raskere Snyk](#raskere-snyk))
+   - Passer **bra** hvis du bruker ikke-offentlige pakkebrønner som `repo.adeo.no` eller `npm.pkg.github.com` (du kan autentisere på samme måte som når du bygger koden)
+   - Passer **bra** hvis du har flere språk du vil teste i samme repo
+   - Se [Snyks dokumentasjon](https://github.com/snyk/actions#bring-your-own-development-environment)
+
+Eksempel med bruk av **generell** action i et **gradle**-prosjekt:
+
+```yaml
+jobs:
+  build:
+    name: Monitor dependencies with Snyk
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          java-version: "17"
+          distribution: "adopt"
+          cache: "gradle"
+      - name: Install Snyk CLI
+        uses: snyk/actions/setup@master
+      - name: Monitor dependencies with Snyk
+        run: snyk monitor --org=TEAMETS_ORG_HER
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+```
+
+Eksempel med bruk av en **språkspesifikk** action i et **maven**-prosjekt:
+
+```yaml
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/gradle-jdk11@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+          args: --org=TEAMETS_ORG_HER
+```
+
+Eksempel med bruk av **språkspesifikk** action i et **node**-prosjekt:
 
 ```yaml
 jobs:
@@ -97,6 +160,42 @@ Les mer om [statisk kodeanalyse](/docs/sikker-utvikling/kodeanalyse).
 
 ## Tips og triks
 
+### Stopp GitHub-workflow ved sårbarheter
+
+Snyk vil ikke stoppe opp GitHub-workflowen din når den finner sårbarheter, med mindre du bruker `snyk test`-kommandoen, og/eller `snyk code test`.
+
+Dette kan gjøres på samme måte som bruken av `snyk monitor`, men med andre kommandoer i CLIet:
+
+- [Dokumentasjon av `snyk test`](https://docs.snyk.io/snyk-cli/commands/test) (scanning av nåværende avhengigheter)
+- [Dokumentasjon av `snyk code test`](https://docs.snyk.io/products/snyk-code/cli-for-snyk-code) (statisk kodeanalyse)
+
+:::caution Ikke glem monitor
+`snyk test` vil kun sjekke **nåværende** status på avhengighetene dine, og vil ikke rapportere om nye sårbarheter som dukker opp. Du bør derfor bruke både `test` og `monitor` (enten fra CLI eller fra GitHub).
+:::
+
+Eksempel på workflow som stopper opp pipelinen ved feil:
+
+```yaml
+jobs:
+  snyk:
+    name: Check dependencies with Snyk
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          java-version: "17"
+          distribution: "adopt"
+          cache: "gradle"
+      - name: Install Snyk CLI
+        uses: snyk/actions/setup@master
+      - name: Check dependencies with Snyk
+        # severity kan være low, medium, high, eller critical
+        run: snyk test --org=TEAMETS_ORG_HER --severity-threshold=high
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+```
+
 ### Slack-varsler fra Snyk
 
 Det kan være vanskelig å følge med på feil som kommer inn i Snyk, og spesielt hvis bare enkelte personer i teamet går inn og sjekker oversikten av og til. Derfor anbefales det å sette opp [**Slack-varsler**](https://docs.snyk.io/features/integrations/notifications-ticketing-system-integrations/slack-integration) til hele teamet for å synliggjøre risikoen.
@@ -109,6 +208,8 @@ Snyk sin Slack-integrasjon gir deg alle varsler, uavhengig av type (sårbarhet/l
 ![Slack-integrasjon i Snyk](/img/snyk-slack.png "Slack-integrasjon i Snyk")
 
 ### Scanning av ikke-åpne maven-pakker med GitHub Action
+
+**Merk**: Dette gjelder kun for **språkspesifikke** actions. Hvis du bygger med en **generell** action, vil du kunne gjenbruke autentiseringen fra den vanlige pipelinen din. [Les mer om de ulike actionene her](#hvilken-github-action-skal-jeg-bruke).
 
 Snyk får ikke automatisk tilgang til pakker som ligger i ikke-åpne maven-repositories, slik som [GitHub Maven registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry), og krever at autentisering settes opp.
 
