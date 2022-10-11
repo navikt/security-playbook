@@ -96,7 +96,7 @@ jobs:
       - uses: actions/setup-java@v2
         with:
           java-version: "17"
-          distribution: "adopt"
+          distribution: "temurin"
           cache: "gradle"
       - name: Install Snyk CLI
         uses: snyk/actions/setup@master
@@ -185,7 +185,7 @@ jobs:
       - uses: actions/setup-java@v2
         with:
           java-version: "17"
-          distribution: "adopt"
+          distribution: "temurin"
           cache: "gradle"
       - name: Install Snyk CLI
         uses: snyk/actions/setup@master
