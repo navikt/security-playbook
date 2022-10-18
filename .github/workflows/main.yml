@@ -7,13 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@7884fcad6b5d53d10323aee724dc68d8b9096a2e # ratchet:actions/checkout@v2
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
       - name: Setup Node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # ratchet:actions/setup-node@v2
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # ratchet:actions/setup-node@v3
         with:
           node-version: '16.x'
       - name: Cache dependencies
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # ratchet:actions/cache@v2
+        uses: actions/cache@1c73980b09e7aea7201f325a7aa3ad00beddcdda # ratchet:actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Login to GitHub Docker Registry
-        uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7 # ratchet:docker/login-action@v1
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # ratchet:docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -37,7 +37,7 @@ jobs:
         id: dockertag
         run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
       - name: Build and push the Docker image
-        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # ratchet:docker/build-push-action@v2
+        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # ratchet:docker/build-push-action@v3
         with:
           context: .
           push: true
@@ -48,11 +48,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@7884fcad6b5d53d10323aee724dc68d8b9096a2e # ratchet:actions/checkout@v2
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
       - name: Generate Docker image tag with short sha
         id: dockertag
         run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
-      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05 # ratchet:nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05
         if: github.ref == 'refs/heads/main'
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
@@ -64,11 +64,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy-dev
     steps:
-      - uses: actions/checkout@7884fcad6b5d53d10323aee724dc68d8b9096a2e # ratchet:actions/checkout@v2
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
       - name: Generate Docker image tag with short sha
         id: dockertag
         run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
-      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05 # ratchet:nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05
         if: github.ref == 'refs/heads/main'
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
