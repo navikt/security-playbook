@@ -1,11 +1,11 @@
 ---
-title: Security Champions Norge Meetup
+title: Security Champions Norge – Meetup 2
 hide_table_of_contents: true
 sidebar_custom_props:
   audience: "Security Champions-interesserte"
 ---
 
-# Security Champions Norge – Meetup
+# Security Champions Norge – Meetup 2
 
 NAV inviterer til meetup i fellesskapet Security Champions Norge. Bli med og si hei!
 
