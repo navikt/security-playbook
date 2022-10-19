@@ -9,13 +9,13 @@ sidebar_custom_props:
 
 NAV inviterer til meetup i fellesskapet Security Champions Norge. Bli med og si hei!
 
-Se Slack for påmelding.
+Se Security Champions Norges Slack for påmelding.
 
 ## Praktisk info
 
-**Dato**: 28. november 2022
+**Dato**: Mandag, 28. november 2022
 
-**Tidspunkt**: 12.00–?
+**Tidspunkt**: 12.00–16.00, med mulighet for sosialisering etterpå
 
 **Sted**: Hjemme hos NAV, [Fyrstikkalléen 1, Helsfyr, Oslo](https://goo.gl/maps/QbpE3fzk6DpVSBaV9)
 
