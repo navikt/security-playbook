@@ -7,6 +7,8 @@ sidebar_custom_props:
 
 # Security Champions Norge – Meetup 2
 
+<img style={{height: "15em"}} src="/img/scn-meetup2.svg" alt="SCN meetup 2" />
+
 NAV inviterer til meetup i fellesskapet Security Champions Norge. Bli med og si hei!
 
 Se Security Champions Norges Slack for påmelding.
