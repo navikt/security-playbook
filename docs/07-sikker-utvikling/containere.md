@@ -5,7 +5,7 @@ description: 🐮 Å sette i bås er ikke allltid vås
 
 ## Generelt
 
-Hvordan endrer trusselmodellen seg når man kjører appene sine i containere vs. på tradisjonelle servere? Den største forskjellen er kanskje at du nå også har ansvar for operativsystemet på "boksen" din i motsetning til at noen andre ™️ fikser det for deg. Imaget du baserer appen din på (`FROM`-linja i din Dockerfile) bør oppdateres jevnlig for å få med seg sikkerhetsoppdateringer. Den enkleste måten å oppnå dette på er å slengte på en `--pull` når du kjører `docker build`. Docker vil da hente nyeste utgave av den tagen du ber om.
+Hvordan endrer trusselmodellen seg når man kjører appene sine i containere vs. på tradisjonelle servere? Den største forskjellen er kanskje at du nå også har ansvar for operativsystemet på "boksen" din i motsetning til at noen andre ™️ fikser det for deg. Imaget du baserer appen din på (`FROM`-linja i din Dockerfile) bør oppdateres jevnlig for å få med seg sikkerhetsoppdateringer. Den enkleste måten å oppnå dette på er å slenge på en `--pull` når du kjører `docker build`. Docker vil da hente nyeste utgave av den tagen du ber om.
 
 Det er praktisk å få varsel når det oppdages alvorlige sårbarheter i images sånn at man kan oppdatere. Scan dine images regelmessig med verktøy som [Snyk](/docs/verktoy/snyk/) eller [Trivy](https://github.com/aquasecurity/trivy).
 
@@ -20,9 +20,9 @@ RUN useradd --uid 10000 runner
 USER 10000
 ```
 
-Selve containeren bør også ha begrensede rettigheter. Docker kan kjøre containere i [privileged mode](https://www.docker.com/blog/docker-can-now-run-within-docker/), noe som gir containeren mer eller mindre full tilgang til hostens ressurser. Dette er IKKE en god idé da en kompromittert app i praksis betyr full kontroll på host-maskinen. Man kan også [justere](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) hvilke [capabilities](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities) containeren skal ha. Grunnregelen her er å starte helt uten ekstra capabilities og så eksplisitt legge på de man evt. trenger.
+Selve containeren bør også ha begrensede rettigheter. Docker kan kjøre containere i [privileged mode](https://www.docker.com/blog/docker-can-now-run-within-docker/), noe som gir containeren mer eller mindre full tilgang til hostens ressurser. Dette er IKKE en god idé da en kompromittert app i praksis betyr full kontroll på host-maskinen. Man kan også [justere](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) hvilke [capabilities](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities) containeren skal ha. Grunnregelen her er å starte helt uten ekstra capabilities og så eksplisitt legge på de man ev. trenger.
 
-I et orkestreringsmiljø som Kubernetes endres ting ofte, og systemet kan flytte pods rundt rundt i clusteret uten forvarsel i tillegg til å skalere antall instanser opp og ned etter behov. En gratis og positiv bieffekt av dette er at det gjør jobben til en angriper vanskeligere. Det er mye vanskeligere å opprettholde persistens dersom miljøet du er i rives ned og gjenoppbygges ofte.
+I et orkestreringsmiljø som Kubernetes endres ting ofte, og systemet kan flytte pods rundt i clusteret uten forvarsel i tillegg til å skalere antall instanser opp og ned etter behov. En gratis og positiv bieffekt av dette er at det gjør jobben til en angriper vanskeligere. Det er mye vanskeligere å opprettholde persistens dersom miljøet du er i rives ned og gjenoppbygges ofte.
 
 Se forøvrig [OWASP Docker top 10](https://owasp.org/www-pdf-archive//Dirk_Wetter_-_Docker_Top10-AMS.pdf) og [The Docker Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html) for mer info.
 
