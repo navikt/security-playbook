@@ -63,3 +63,4 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 ### Små og nyttige verktøy
 
 - [Ratchet](https://github.com/sethvargo/ratchet), gjør det enkelt å "pinne" versjoner i CI/CD pipelines.
+- [End of Life](https://endoflife.date/), lister aktiv support/EOL dato for flere ulike produkter, kan hente info fra API.
