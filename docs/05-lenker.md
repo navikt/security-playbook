@@ -55,6 +55,7 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 | [#security-champion](https://nav-it.slack.com/archives/CN8N938K1)              | Forum for diskusjon og erfaringsutveksling for security champions                                                          |
 | [#security-champions-hendelser](https://nav-it.slack.com/archives/C030XCYD5RU) | Viktige beskjeder og informasjon til security champions                                                                    |
 | [#security-champion-aktivitet](https://nav-it.slack.com/archives/C0314EZ719S)  | Meldinger fra GitHub om aktivitet i [security-champions](https://github.com/navikt/security-playbook)-repoet (og lignende) |
+| [#faggruppe-hack](https://nav-it.slack.com/archives/C045XD7KV32)               | Faggruppe for hacking og [CTF (Capture the flag)](https://sikkerhet.nav.no/docs/wordlist#capture-the-flag-ctf)             |
 | [#tech-sikkerhet](https://nav-it.slack.com/archives/CCSET7820)                 | Her henger de som driver med nettverk, brannmurer og denslags                                                              |
 | [#auditlogging-arcsight](https://nav-it.slack.com/archives/C014576K5TQ)        | De som jobber med innsamling og crunching av logger                                                                        |
 | [#tilgang-og-identitet](https://nav-it.slack.com/archives/C025DDBBSLU)         | Forum for involvering av alle/alt som har med Tilgang og/eller Identitet å gjøre i NAV                                     |
