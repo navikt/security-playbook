@@ -23,6 +23,14 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 - [PentesterLab](https://pentesterlab.com/) - lær med oppgaver i et trygt miljø (gratis eller "premium" til $20/mnd)
 - [Equinor AppSec](https://equinor.github.io/appsec/#security-champion) Equinor sin AppSec playbook
 
+### Artikler og presentasjoner fra NAV
+
+- September 2022: [JavaZone – Hvordan vi sikrer NAV.no og ⅓ av Norges statsbudsjett](https://vimeo.com/748031584)
+- Juni 2022: [Kode24 – NAV forvalter en tredjedel av statsbudsjettet: - Vi blir angrepet hele tiden](https://www.kode24.no/artikkel/nav-forvalter-en-tredjedel-av-statsbudsjettet-vi-blir-angrepet-hele-tiden/76410353)
+- Februar 2022: [Kode24 – NAV gjør DevSecOps med 'security champions': - Det første forsøket feilet](https://www.kode24.no/artikkel/nav-gjor-devsecops-med-security-champions-det-forste-forsoket-feilet/75393687)
+- Desember 2021: [JavaZone – Vi må snakke sammen! (via TokenX og OAuth 2.0)](https://vimeo.com/669150683)
+- Desember 2021: [JavaZone – Autonome team og Security Champions, hvordan NAV utvikler sikkert i fart](https://vimeo.com/669321429)
+
 ### Artikler/blogposts
 
 - [Artikkel fra Microsoft Security](https://www.microsoft.com/security/blog/2022/03/22/dev-0537-criminal-actor-targeting-organizations-for-data-exfiltration-and-destruction/) om hvordan "LAPSUS$"-gruppen opererer
