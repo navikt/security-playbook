@@ -59,10 +59,7 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 | [#auditlogging-arcsight](https://nav-it.slack.com/archives/C014576K5TQ)        | De som jobber med innsamling og crunching av logger                                                                        |
 | [#tilgang-og-identitet](https://nav-it.slack.com/archives/C025DDBBSLU)         | Forum for involvering av alle/alt som har med Tilgang og/eller Identitet å gjøre i NAV                                     |
 | [#tryggnok](https://nav-it.slack.com/archives/CQ0D5HLSW)                       | Spørsmål om tryggnok-tjenesten for risikovurdering                                                                         |
-| [#pig_sikkerhet](https://nav-it.slack.com/archives/CUT80FEES)                  | Her henger de som jobber med og har interesse for sikkerhet i NAIS-teamet                                                  |
-| [#faggruppe-sikkerhet](https://nav-it.slack.com/archives/CQW6A7HEF)            | Faggruppa for sikkerhet                                                                                                    |
 | [#digital-sikkerhet](https://nav-it.slack.com/archives/C026BETG37H)            | Ting som omhandler opprettelsen av det nye området for IT-sikkerhet                                                        |
 | [#soc](https://nav-it.slack.com/archives/C0162CBNJRJ)                          | Her legger SOC-folket ut ting de mener er av interesse for flere                                                           |
 | [#snyk](https://nav-it.slack.com/archives/C02KF9C5XSM)                         | Hjelp og spørsmål om Snyk                                                                                                  |
-| [#security-playbook](https://nav-it.slack.com/archives/C02HPVCSTFE)            | Informasjon om overordnet Security Playbook i NAV                                                                          |
 | [#telenor-soc](https://nav-it.slack.com/archives/C02TC0HRK0E)                  | Meldinger fra Telenor sitt [SOC-nyhetsbrev](https://telenorsoc-news.blogspot.com/)                                         |
