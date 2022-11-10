@@ -19,6 +19,7 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 - [5h3llcast](https://open.spotify.com/show/76cxbNjWBBGzc486SV48YE) - "en uformell sikkerhetspodcast på norsk"
 - [Try Hack Me](https://tryhackme.com/) - lær med tutorials og oppgaver i et trygt miljø (gratis eller "premium" til $8/mnd)
 - [Cheatsheet for Web Security hos Owasp](https://cheatsheetseries.owasp.org/)
+- [Awesome Hacker Search Engines](https://github.com/edoardottt/awesome-hacker-search-engines)
 - [Cast O3](https://casto3.no/om-oss/) - Norsk podcast som ofte har tema relatert til sikkerhet.
 - [PentesterLab](https://pentesterlab.com/) - lær med oppgaver i et trygt miljø (gratis eller "premium" til $20/mnd)
 - [Equinor AppSec](https://equinor.github.io/appsec/#security-champion) Equinor sin AppSec playbook
