@@ -27,5 +27,5 @@ Detaljert program kommer nærmere datoen, men her er noen deler av programmet:
 
 - **Oslo Kommune Origo** snakker om sitt nyopprettede Security Champions-initiativ
 - **Snyk** deler erfaringer fra Security Champions i ulike organisasjoner
-- **Bouvet** forteller om sitt Sikkerhetsadakami
+- **Bouvet** forteller om sitt sikkerhetsakademi
 - Erfaringsdeling fra ulike deler av sikkerhetsnorge (detaljer kommer senere)
