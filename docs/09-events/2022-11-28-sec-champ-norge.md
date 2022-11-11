@@ -23,4 +23,9 @@ Se Security Champions Norges Slack for påmelding.
 
 ## Program
 
-Kommer snart!
+Detaljert program kommer nærmere datoen, men her er noen deler av programmet:
+
+- **Oslo Kommune Origo** snakker om sitt nyopprettede Security Champions-initiativ
+- **Snyk** deler erfaringer fra Security Champions i ulike organisasjoner
+- **Bouvet** forteller om sitt Sikkerhetsadakami
+- Erfaringsdeling fra ulike deler av sikkerhetsnorge (detaljer kommer senere)
