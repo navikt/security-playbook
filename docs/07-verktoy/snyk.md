@@ -120,7 +120,8 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: monitor
-          args: --org=TEAMETS_ORG_HER
+          # OBS: args må være på én linje
+          args: --org=TEAMETS_ORG_HER --project-name=${{ github.repository }}
 ```
 
 Eksempel med bruk av **språkspesifikk** action i et **node**-prosjekt:
