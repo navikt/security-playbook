@@ -2,7 +2,7 @@
 title: NDC meetup m/Troy Hunt
 hide_table_of_contents: true
 sidebar_custom_props:
-audience: "Alle sikkerhetsinteresserte"
+  audience: "Alle sikkerhetsinteresserte"
 ---
 
 # NDC meetup m/Troy Hunt
