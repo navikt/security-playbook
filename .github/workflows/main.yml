@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate Docker image tag with short sha
         id: dockertag
-        run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
+        run: echo "docker_img=ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Build and push the Docker image
         uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # ratchet:docker/build-push-action@v3
         with:
@@ -51,7 +51,7 @@ jobs:
       - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
       - name: Generate Docker image tag with short sha
         id: dockertag
-        run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
+        run: echo "docker_img=ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05
         if: github.ref == 'refs/heads/main'
         env:
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
       - name: Generate Docker image tag with short sha
         id: dockertag
-        run: echo "::set-output name=docker_img::ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
+        run: echo "docker_img=ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05
         if: github.ref == 'refs/heads/main'
         env:
