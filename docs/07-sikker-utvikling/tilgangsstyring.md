@@ -57,6 +57,16 @@ benytte [mock-oauth2-server](https://github.com/navikt/mock-oauth2-server). Denn
 JUnit-tester eller som en Docker-container. Den kan også konfigureres til å støtte ting som custom «claims» og HTTPS med
 egne sertifikater.
 
+## Grupper i Azure AD og on-premise AD i tilgangskontroll
+
+For å gjøre tilgangskontroll i applikasjoner med interne brukere benyttes primært gruppemedlemskap i Azure Active Directory. For legacyapplikasjoner benyttes gruppemedlemskap i on-premise Active Directory. Ved veldig spesielle behov benyttes Axsys og evnt andre løsninger.
+
+For noen utvalgte tilgangstyper er det felles grupper som skal benyttes for alle nye applikasjoner. De er dokumentert her: [https://confluence.adeo.no/display/IDM/Tilgangskontroll+for+spesielle+brukergrupper]( https://confluence.adeo.no/x/QYWEHg)
+
+Ellers bør ikke grupper i AD/AAD gjenbrukes i nye applikasjoner med mindre teamet selv er eiere av gruppene og har full kontroll på eierskapet, innsikt i bruken og hvordan medlemskap tildeles. Hva grupper representerer, hvilke brukerkontoer som er medlem, hvem som eier grupper og om grupper er i bruk eller avvikles kan endre seg over tid. Det er dermed anbefalt å opprette nye grupper for nye applikasjoner eller å gjenbruke grupper som teamet selv kontrollerer.
+Nye grupper bestilles av Team Azure og tilgangsstyring bestilles av Team IDM (\#identrutina).
+
+
 ## Gode ressurser
 
 - [NAIS - Authentication and Authorization](https://doc.nais.io/security/auth/)
