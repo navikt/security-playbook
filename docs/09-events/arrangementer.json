@@ -81,5 +81,33 @@
     "label": "Rebel Share #5: Crypto, Cyber Criminals and Government Hackers",
     "href": "https://www.meetup.com/rebel-oslo/events/289809955/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2022-12-05",
+    "endDate": "2022-12-08",
+    "label": "Black Hat Europe (London)",
+    "href": "https://www.blackhat.com/eu-22/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2023-01-16",
+    "endDate": "2023-01-19",
+    "label": "NDC Security Oslo",
+    "href": "https://ndc-security.com/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2023-02-01",
+    "endDate": "2023-02-10",
+    "label": "HackCon Online",
+    "href": "https://www.bigmarker.com/series/hco2023/series_summit",
+    "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2023-02-15",
+    "endDate": "2023-02-16",
+    "label": "HackCon #18",
+    "href": "https://www.hackcon.org/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
