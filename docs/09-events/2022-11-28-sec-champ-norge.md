@@ -21,6 +21,8 @@ Se Security Champions Norges Slack for påmelding.
 
 **Sted**: Hjemme hos NAV, [Fyrstikkalléen 1, Helsfyr, Oslo](https://goo.gl/maps/QbpE3fzk6DpVSBaV9)
 
+<img style={{height: "18em"}} src="/img/nav-kontor.png" alt="Kart fra Helsfyr t-bane til NAV-kontoret" />
+
 ## Program
 
 | Tid   | Hva                                                                            |  Hvem                                   |
