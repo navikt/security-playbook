@@ -25,17 +25,17 @@ Se Security Champions Norges Slack for påmelding.
 
 ## Program
 
-| Tid   | Hva                                                                            |  Hvem                                   |
-| ----- | ------------------------------------------------------------------------------ | --------------------------------------- |
-| 12.00 | _Dørene åpner – Registrering og kaffe_                                         |                                         |
-| 12.30 | **Velkommen-tale**                                                             | NAV                                     |
-| 12.45 | **Lyntaler om sikkerhetskultur**<br />Erfaringsdeling fra ulike organisasjoner | Kommer snart (Vil du dele? Ta kontakt!) |
-| 13.15 | **Security Champions i Origo**                                                 | Oslo Kommune Origo                      |
-| 13.45 | _Pause_                                                                        |                                         |
-| 14.15 | **Sikkerhetsakademi**                                                          |  Bouvet                                 |
-| 14.45 | _Pause_                                                                        |                                         |
-| 15.00 | **DevSecOps Culture**                                                          |  Snyk                                   |
-| 15.55 | **Avslutning**                                                                 |  NAV                                    |
-| 16.00 |  *Mat og drikke*                                                               |                                         |
+| Tid   | Hva                                                                            |  Hvem                                                                     |
+| ----- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| 12.00 | _Dørene åpner – Registrering og kaffe_                                         |                                                                           |
+| 12.30 | **Velkommen-tale**                                                             | NAV                                                                       |
+| 12.45 | **Lyntaler om sikkerhetskultur**<br />Erfaringsdeling fra ulike organisasjoner | Tripletex, NRK, NBIM, Equinor, Norsk Helsenett                            |
+| 13.15 | **Security Champions i Origo**                                                 | **Martin Albert-Hoff**<br />Faglig leder for infosec i Oslo Kommune Origo |
+| 13.45 | _Pause_                                                                        |                                                                           |
+| 14.15 | **Sikkerhetsakademiet: fra stryk til toppkarakter**                            | **Johan Paramanathan**<br />Security Lead i Bouvet                        |
+| 14.45 | _Pause_                                                                        |                                                                           |
+| 15.00 | **DevSecOps Culture**                                                          | **Simon Maple**<br />Field CTO i Snyk                                     |
+| 15.55 | **Avslutning**                                                                 | NAV                                                                       |
+| 16.00 |  *Mat og drikke*                                                               |                                                                           |
 
 (Det kan forekomme endringer i programmet, så følg med her og/eller på Slack)
