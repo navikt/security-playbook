@@ -34,7 +34,7 @@ Se Security Champions Norges Slack for påmelding.
 | 13.45 | _Pause_                                                                        |                                                                           |
 | 14.15 | **Sikkerhetsakademiet: fra stryk til toppkarakter**                            | **Johan Paramanathan**<br />Security Lead i Bouvet                        |
 | 14.45 | _Pause_                                                                        |                                                                           |
-| 15.00 | **DevSecOps Culture**                                                          | **Simon Maple**<br />Field CTO i Snyk                                     |
+| 15.00 | **Best practices learned from successful security champions programs**         | **Simon Maple**<br />Field CTO i Snyk                                     |
 | 15.55 | **Avslutning**                                                                 | NAV                                                                       |
 | 16.00 |  *Mat og drikke*                                                               |                                                                           |
 
