@@ -103,8 +103,12 @@ module.exports = {
           ],
         },
         {
-          title: "Viktige kilder",
+          title: "Nyttige kilder",
           items: [
+            {
+              label: "Security Champions Norge",
+              to: "https://securitychampions.no/",
+            },
             {
               label: "OWASP",
               to: "https://owasp.org/",
