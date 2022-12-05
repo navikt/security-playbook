@@ -23,6 +23,7 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 - [Cast O3](https://casto3.no/om-oss/) - Norsk podcast som ofte har tema relatert til sikkerhet.
 - [PentesterLab](https://pentesterlab.com/) - lær med oppgaver i et trygt miljø (gratis eller "premium" til $20/mnd)
 - [Equinor AppSec](https://equinor.github.io/appsec/#security-champion) Equinor sin AppSec playbook
+- [Secyrity Champions Norge](https://securitychampions.no/) Norges hyggeligste fellesskap for sikkerhetskultur
 
 ### Artikler og presentasjoner fra NAV
 
