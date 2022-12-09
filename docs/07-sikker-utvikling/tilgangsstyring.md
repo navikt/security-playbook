@@ -11,7 +11,7 @@ avgjørelser om tilgang basert på hvilke egenskaper denne brukeren har (autoris
 
 I NAV har vi valgt å ta i bruk [OAuth 2.0](https://oauth.net/2/) og [OpenID Connect (OIDC)](https://openid.net/connect/)
 for dette formålet. En introduksjon til disse samt tilhørende begrep og uttrykk finner
-du [her](https://nais.io/blog/posts/2020/09/oauth1). Dette er veletablerte standarder med god industristøtte.
+du [her](https://nais.io/blog/posts/oauth1/). Dette er veletablerte standarder med god industristøtte.
 
 Standardene muliggjør bruken av eksterne tilbydere som kan abstrahere vekk og konsolidere funksjonalitet som man
 tradisjonelt sett har måttet håndtere selv. Vi benytter eksterne tilbydere i form
@@ -31,7 +31,7 @@ sluttbrukeren som startet kallkjeden er bevart hele veien gjennom dersom man bru
 Til sammenligning så har man tradisjonelt sett brukt systembrukere mellom de ulike leddene som i praksis fjerner
 informasjon om sluttbrukeren (eller påtvinger krav om å inkludere den på andre måter). Azure AD støtter token exchange
 via sin «on behalf of»-flyt, mens for ID-porten har vi laget et tilsvarende opplegg som vi har kalt TokenX. Mer info
-finnes på [NAIS-bloggen](https://nais.io/blog/posts/2020/09/oauth2).
+finnes på [NAIS-bloggen](https://nais.io/blog/posts/oauth2/).
 
 ## Eksempler og implementasjon
 
@@ -61,11 +61,10 @@ egne sertifikater.
 
 For å gjøre tilgangskontroll i applikasjoner med interne brukere benyttes primært gruppemedlemskap i Azure Active Directory. For legacyapplikasjoner benyttes gruppemedlemskap i on-premise Active Directory. Ved veldig spesielle behov benyttes Axsys og evnt andre løsninger.
 
-For noen utvalgte tilgangstyper er det felles grupper som skal benyttes for alle nye applikasjoner. De er dokumentert her: [https://confluence.adeo.no/display/IDM/Tilgangskontroll+for+spesielle+brukergrupper]( https://confluence.adeo.no/x/QYWEHg)
+For noen utvalgte tilgangstyper er det felles grupper som skal benyttes for alle nye applikasjoner. De er dokumentert her: [https://confluence.adeo.no/display/IDM/Tilgangskontroll+for+spesielle+brukergrupper](https://confluence.adeo.no/x/QYWEHg)
 
 Ellers bør ikke grupper i AD/AAD gjenbrukes i nye applikasjoner med mindre teamet selv er eiere av gruppene og har full kontroll på eierskapet, innsikt i bruken og hvordan medlemskap tildeles. Hva grupper representerer, hvilke brukerkontoer som er medlem, hvem som eier grupper og om grupper er i bruk eller avvikles kan endre seg over tid. Det er dermed anbefalt å opprette nye grupper for nye applikasjoner eller å gjenbruke grupper som teamet selv kontrollerer.
 Nye grupper bestilles av Team Azure og tilgangsstyring bestilles av Team IDM (\#identrutina).
-
 
 ## Gode ressurser
 
