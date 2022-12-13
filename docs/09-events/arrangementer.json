@@ -109,5 +109,12 @@
     "label": "HackCon #18",
     "href": "https://www.hackcon.org/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2023-08-28",
+    "endDate": "2023-08-30",
+    "label": "Sikkerhetsfestivalen",
+    "href": "https://sikkerhetsfestivalen.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
