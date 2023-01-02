@@ -11,7 +11,7 @@ Standardindeksene (`logstash-apps-*`) er åpne for veldig mange mennesker (bl.a 
 
 ## Auditlogging
 
-Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dette finnes også i [NAIS-docen](https://doc.nais.io/observability/logs/#audit-logs). Loggene blir da søkbare for de som har behov for dette. ArcSight krever at man logger i [Common Event Format (CEF)](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/CORP_KNOWLEDGEBASE/78000/KB78712/en_US/CEF_White_Paper_20100722.pdf) via [Syslog](https://en.wikipedia.org/wiki/Syslog). Det er ikke bred støtte for CEF i de mest brukte loggerammeverkene, så her må man fikse formatteringen selv. Ved behov for hjelp kan man henvende seg til [#tech-logg_analyse_og_datainnsikt](https://nav-it.slack.com/archives/C014576K5TQ) på Slack.
+Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dette finnes også i [NAIS-docen](https://doc.nais.io/observability/logs/#audit-logs). Loggene blir da søkbare for de som har behov for dette. ArcSight krever at man logger i [Common Event Format (CEF)](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/CORP_KNOWLEDGEBASE/78000/KB78712/en_US/CEF_White_Paper_20100722.pdf) via [Syslog](https://en.wikipedia.org/wiki/Syslog). Det er ikke bred støtte for CEF i de mest brukte loggerammeverkene, så her må man fikse formatteringen selv. Ved behov for hjelp kan man henvende seg til [#auditlogging-arcsight](https://nav-it.slack.com/archives/C014576K5TQ) på Slack.
 
 Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
 
