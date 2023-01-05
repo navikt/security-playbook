@@ -4,8 +4,11 @@ on:
     branches:
       - main
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # ratchet:actions/checkout@v3
       - name: Setup Node
@@ -27,15 +30,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-  upload:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-    steps:
       - uses: 'actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b' # ratchet:actions/checkout@v3
-      - id: upload
+      - name: Upload to cdn
+        id: upload
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: security-champions-admin
@@ -44,3 +41,4 @@ jobs:
           cache-invalidation: true
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
+  
