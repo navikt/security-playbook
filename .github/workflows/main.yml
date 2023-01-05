@@ -35,10 +35,10 @@ jobs:
         uses: navikt/frontend/actions/spa-deploy/v1@main
         with:
           team-name: security-champion-admin
-          app-name: security-playbook
-          source: ./build
-          ingress: https://playbooktest.nav.no/
+          app-name: playbook
+          environment: prod
+          source: build
+          ingress: https://playbooktest.labs.nais.io/
           nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
-        shell: bash
+
   
