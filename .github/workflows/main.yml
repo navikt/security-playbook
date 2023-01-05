@@ -30,14 +30,13 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - uses: 'actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b' # ratchet:actions/checkout@v3
-      - name: Upload to cdn
+      - name: Upload to CDN
         id: upload
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: security-champions-admin
           source: ./build
-          destination: '/secchamp-playbook/'
+          destination: '/security-playbook'
           cache-invalidation: true
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
