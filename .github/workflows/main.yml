@@ -34,7 +34,7 @@ jobs:
         id: upload
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
-          cdn-team-name: security-champions-admin
+          cdn-team-name: security-champion-admin
           source: ./build
           destination: '/security-playbook'
           cache-invalidation: true
