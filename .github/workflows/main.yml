@@ -36,6 +36,7 @@ jobs:
         with:
           cdn-team-name: security-champion-admin
           source: ./build
+          source-keep-parent-name: false
           destination: '/security-playbook'
           cache-invalidation: true
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
