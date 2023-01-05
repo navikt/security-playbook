@@ -41,6 +41,6 @@ jobs:
           cdn-team-name: security-champions-admin
           source: ./build
           destination: '/secchamp-playbook/'
-          cache-invalidate: true
+          cache-invalidation: true
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
