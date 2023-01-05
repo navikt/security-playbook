@@ -7,13 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
+      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # ratchet:actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # ratchet:actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
       - name: Cache dependencies
-        uses: actions/cache@1c73980b09e7aea7201f325a7aa3ad00beddcdda # ratchet:actions/cache@v3
+        uses: actions/cache@4723a57e26efda3a62cbde1812113b730952852d # ratchet:actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -27,52 +27,20 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Login to GitHub Docker Registry
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # ratchet:docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Generate Docker image tag with short sha
-        id: dockertag
-        run: echo "docker_img=ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - name: Build and push the Docker image
-        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # ratchet:docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.dockertag.outputs.docker_img }}
-          cache-from: type=registry,ref=${{ steps.dockertag.outputs.docker_img }}
-          cache-to: type=inline
-  deploy-dev:
+  upload:
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
-      - name: Generate Docker image tag with short sha
-        id: dockertag
-        run: echo "docker_img=ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05
-        if: github.ref == 'refs/heads/main'
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-gcp
-          RESOURCE: .nais/nais.yaml
-          VARS: .nais/dev-gcp.yaml
-          IMAGE: ${{ steps.dockertag.outputs.docker_img }}
-  deploy-prod:
-    runs-on: ubuntu-latest
-    needs: deploy-dev
-    steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3
-      - name: Generate Docker image tag with short sha
-        id: dockertag
-        run: echo "docker_img=ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - uses: nais/deploy/actions/deploy@727f0adc1e2ba8ef9286f42230ade61a70d2da05
-        if: github.ref == 'refs/heads/main'
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-gcp
-          RESOURCE: .nais/nais.yaml,.nais/alerts.yaml
-          VARS: .nais/prod-gcp.yaml
-          IMAGE: ${{ steps.dockertag.outputs.docker_img }}
+      - uses: 'actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b' # ratchet:actions/checkout@v3
+      - id: upload
+        uses: navikt/frontend/actions/cdn-upload/v1@main
+        with:
+          cdn-team-name: security-champions-admin
+          source: ./build
+          destination: '/secchamp-playbook/'
+          cache-invalidate: true
+      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
+        shell: bash
