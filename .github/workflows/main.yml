@@ -32,13 +32,13 @@ jobs:
         run: npm run build
       - name: Upload to CDN
         id: upload
-        uses: navikt/frontend/actions/cdn-upload/v1@main
+        uses: navikt/frontend/actions/spa-deploy/v1@main
         with:
-          cdn-team-name: security-champion-admin
+          team-name: security-champion-admin
+          app-name: security-playbook
           source: ./build
-          source-keep-parent-name: false
-          destination: '/security-playbook'
-          cache-invalidation: true
+          ingress: https://playbooktest.nav.no/
+          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
   
