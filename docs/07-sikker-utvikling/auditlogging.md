@@ -108,7 +108,8 @@ En mer komplett liste finnes [her](https://confluence.adeo.no/display/NIS/Device
 Bruker fiktive FNR=17912099997 og NAVID=A123456 i eksemplene
 
 Der hvor applikasjonen har behov for å sende både navID og Orgnummer som intern bruker er dette et eksempel på ting som må være med :
-``` CEF:0|tiltaksoppfølging|AuditLogger|1.0|audit:access|Sporingslogg|INFO|duid=\<Brukers Fnr> end=\<Tid i Epoch> suid=\<NAVID> cn1=\<OrgNummer> msg=\<Menneskelesbar context>
+``` 
+CEF:0|tiltaksoppfølging|AuditLogger|1.0|audit:access|Sporingslogg|INFO|duid=\<Brukers Fnr> end=\<Tid i Epoch> suid=\<NAVID> cn1=\<OrgNummer> msg=\<Menneskelesbar context>
 ```
 
 Dersom det ønskes logget mer kan dette legges inn i f.eks ‘cs’,’cn’, ‘flexString’ attributtene.
