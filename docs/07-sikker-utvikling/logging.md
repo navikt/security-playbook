@@ -11,9 +11,7 @@ Standardindeksene (`logstash-apps-*`) er åpne for veldig mange mennesker (bl.a 
 
 ## Auditlogging
 
-Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dette finnes også i [NAIS-docen](https://doc.nais.io/observability/logs/#audit-logs). Loggene blir da søkbare for de som har behov for dette. ArcSight krever at man logger i [Common Event Format (CEF)](https://kcm.trellix.com/resources/sites/MCAFEE/content/live/CORP_KNOWLEDGEBASE/78000/KB78712/en_US/CEF_White_Paper_20100722.pdf) via [Syslog](https://en.wikipedia.org/wiki/Syslog). Det er ikke bred støtte for CEF i de mest brukte loggerammeverkene, så her må man fikse formatteringen selv. Ved behov for hjelp kan man henvende seg til [#auditlogging-arcsight](https://nav-it.slack.com/archives/C014576K5TQ) på Slack.
-
-Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
+Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dette finnes [her](auditlogging).
 
 ## Logghygiene
 
@@ -25,6 +23,8 @@ Et eksempel på en app som benytter alle disse loggemulighetene finner man [her]
 - Alt det som ikke kan gå i åpen logg kan legges i secure logs, med begrenset tilgang til loggen (teamet må ha kontroll på hvem som har tilgang)
 - ROS på teamets logging og eventuelt tilgang til secure logs (**husk å oppdatere ved behov!**)
 - Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Asys](https://it-hjelpa.adeo.no/arsys/forms/remedy/Avvik/webViewSub/). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
+
+Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
