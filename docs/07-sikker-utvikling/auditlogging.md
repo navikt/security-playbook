@@ -1,6 +1,6 @@
 ---
 title: Auditlogging
-description: Skal svare på: Hvem sett på borgers data og hva har en ansatt gjort i NAVs IT systemer?
+description: Skal svare på følgende. Hvem sett på borgers data og hva har en ansatt gjort i NAVs IT systemer?
 ---
 
 ## Hva er auditlogg?
