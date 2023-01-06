@@ -4,25 +4,25 @@ description: Skal svare på følgende. Hvem sett på borgers data og hva har en 
 ---
 
 ## Hva er auditlogg?
-En logg over brukere av NAV IT systemer (primært ansatte) sine handlinger på borgeres informasjon og annen viktige informasjon. Handlinger er primært å se på informasjon. Så all visning av informasjon skal logges, i tillegg til endringer av informasjon. 
+En logg over brukere av NAV IT systemer (primært ansatte) sine handlinger på borgers informasjon og annen viktig informasjon. Handlinger er primært å se på informasjon. All visning av informasjon skal logges, i tillegg til endringer av informasjon. 
 
-Formålet er for borgere å få innsyn i hvem som har sett på egne data, samt for NAV å avdekke misbruk eller mistenkelig handlinger som går ut over tjenstlig behov.
+Formålet er for borgere å få innsyn i hvem som har sett på egne data, samt for NAV å avdekke misbruk eller mistenkelige handlinger som går ut over tjenestlig behov.
 Loggene vil også bli brukt til maskinell kontroll av mistenkelige handlinger.
 En annet formål er å avdekke misbruk av informasjon som ikke er direkte tilknyttet en borger.
 
 ## Hva er loggverdig?
-Det er primært handlingene som personen i GUI utfører som er loggverdig. Søk opp en person er loggverdig, ikke de titalls tjenestekallene som er nødvendig for å svare på handlingen.
+Det er primært handlingene som bruker utfører i GUI som er loggverdig. Søk opp en person er loggverdig, ikke de titalls tjenestekallene som er nødvendig for å svare på handlingen.
 
 ## Teknisk implementasjon av auditlogg
-I NAV implementeres auditlogg i ArcSight og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
+I NAV implementeres auditlogg i ArcSight, og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
 Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit).
 
-Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.3/pdfdoc/cef-implementation-standard/cef-implementation-standard.pdf) format i versjon 0.1 som er loggformatet som benyttes i NAV.  
+Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.3/pdfdoc/cef-implementation-standard/cef-implementation-standard.pdf) i versjon 0.1 som er loggformatet som benyttes i NAV.  
 
 
 ## Riktig bruk av severity
 Som hovedregel benyttes INFO.
-Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på streng fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige.
+Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på strengt fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige.
 
 
 ## Beskrivelse av CEF
