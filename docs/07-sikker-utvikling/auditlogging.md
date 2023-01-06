@@ -115,27 +115,33 @@ CEF:0|tiltaksoppfølging|AuditLogger|1.0|audit:access|Sporingslogg|INFO|duid=\<B
 Dersom det ønskes logget mer kan dette legges inn i f.eks ‘cs’,’cn’, ‘flexString’ attributtene.
 
 Eksempel på en logg hvor ansatt ser på bruker og sender med requesten.
-``` CEF:0|fp|fpsak|1.0|audit:access|ABAC Sporingslogg|INFO|act=read duid=17912099997 suid=A123456 end=1617855180866 flexString1=147362349 flexString1Label=Saksnummer request=/behandlinger/alle requestContext=no.nav.abac.attributter.foreldrepenger.fagsak
+``` 
+CEF:0|fp|fpsak|1.0|audit:access|ABAC Sporingslogg|INFO|act=read duid=17912099997 suid=A123456 end=1617855180866 flexString1=147362349 flexString1Label=Saksnummer request=/behandlinger/alle requestContext=no.nav.abac.attributter.foreldrepenger.fagsak
 ```
 
 Eksempel på en logg hvor bruker er den som slår opp. I dette tilfelle en sak.
-``` CEF:0|veilarbarena|Sporingslogg|1.0|audit:access|ABAC Sporingslogg|INFO|suid=17912099997 duid=1000046021217 end=1617832255629 sproc=6698e7ce18094277a49fa9f951132a21 flexString1Label=Decision flexString1=Permit request=/veilarbarena/api/oppfolgingsbruker/17912099997 requestContext=no.nav.abac.attributter.resource.felles.person requestMethod=GET act=read dproc=veilarboppfolging
+``` 
+CEF:0|veilarbarena|Sporingslogg|1.0|audit:access|ABAC Sporingslogg|INFO|suid=17912099997 duid=1000046021217 end=1617832255629 sproc=6698e7ce18094277a49fa9f951132a21 flexString1Label=Decision flexString1=Permit request=/veilarbarena/api/oppfolgingsbruker/17912099997 requestContext=no.nav.abac.attributter.resource.felles.person requestMethod=GET act=read dproc=veilarboppfolging
 ```
 
 Eksempel på en logg hvor ansatt ser på en bruker og har fått lov av systemet.
-``` CEF:0|veilarbperson|Sporingslogg|1.0|audit:access|ABAC Sporingslogg|INFO|suid=A123456 duid=17912099997 end=1617843742663 sproc=5833d7af5d114a2d8ad572ee344ebe3d request=/veilarbperson/api/person/17912099997/tilgangTilBruker requestContext=no.nav.abac.attributter.resource.felles.person requestMethod=GET act=read flexString1=Permit flexString1Label=Decision dproc=veilarbpersonflatefs
+``` 
+CEF:0|veilarbperson|Sporingslogg|1.0|audit:access|ABAC Sporingslogg|INFO|suid=A123456 duid=17912099997 end=1617843742663 sproc=5833d7af5d114a2d8ad572ee344ebe3d request=/veilarbperson/api/person/17912099997/tilgangTilBruker requestContext=no.nav.abac.attributter.resource.felles.person requestMethod=GET act=read flexString1=Permit flexString1Label=Decision dproc=veilarbpersonflatefs
 ```
 
 Eksempel på en logg hvor ansatt ser på en bruker og loggen er en del av et større oppslag.
-``` CEF:0|arbeid-og-inntekt|Sporingslogg|1.0|audit:access|ABAC Sporingslogg|INFO|end=1582903443096 suid=A123456 duid=17912099997 sproc=a4e0c336-70fa-45ca-b599-fc25955d65b3 requestMethod=POST request=/api/v1/person/inntekter/FNR flexString1=Permit flexString1Label=Decision
+``` 
+CEF:0|arbeid-og-inntekt|Sporingslogg|1.0|audit:access|ABAC Sporingslogg|INFO|end=1582903443096 suid=A123456 duid=17912099997 sproc=a4e0c336-70fa-45ca-b599-fc25955d65b3 requestMethod=POST request=/api/v1/person/inntekter/FNR flexString1=Permit flexString1Label=Decision
 ```
 
 Eksempel på logg hvor det benyttes CallId, og ansatt ikke får tilgang til oppslaget sitt.
-``` CEF:0|PDL|ABAC|1.0|audit:oppslag|Personopplysninger|WARN|end=1582899163115 suid=A123456 duid=17912099997 sproc=CallId_1582899163057_863604738 act=READ dproc=srvModiabrukerdialog request=http://pdl-api/graphql requestMethod=POST flexString1=Deny flexString1Label=Decision flexString2=fp3_behandle_egen_ansatt flexString2Label=deny_policy cs3=cause-0001-manglerrolle cs3Label=deny_cause
+``` 
+CEF:0|PDL|ABAC|1.0|audit:oppslag|Personopplysninger|WARN|end=1582899163115 suid=A123456 duid=17912099997 sproc=CallId_1582899163057_863604738 act=READ dproc=srvModiabrukerdialog request=http://pdl-api/graphql requestMethod=POST flexString1=Deny flexString1Label=Decision flexString2=fp3_behandle_egen_ansatt flexString2Label=deny_policy cs3=cause-0001-manglerrolle cs3Label=deny_cause
 ```
 
 Eksempel på logg som har en message, som forklarer hva som har skjedd. Meldingen bør lesbar for borgere som ikke har noe fag eller systemforståelse.
-``` CEF:0|my-nice-app|auditLog|1.0|audit:access|my-nice-app audit log|INFO|end=1618308696856 suid=X123456 duid=01010199999 msg=Dette er en ganske lang tekst som forklarer hva som har skjedd som et menneske kan forstå flexString1Label=Decision flexString1=Permit 
+``` 
+CEF:0|my-nice-app|auditLog|1.0|audit:access|my-nice-app audit log|INFO|end=1618308696856 suid=X123456 duid=01010199999 msg=Dette er en ganske lang tekst som forklarer hva som har skjedd som et menneske kan forstå flexString1Label=Decision flexString1=Permit 
 ```
 
 ```mdx-code-block
