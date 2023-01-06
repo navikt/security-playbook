@@ -38,7 +38,7 @@ jobs:
           app-name: playbook
           environment: prod
           source: build
-          ingress: https://playbooktest.labs.nais.io/
+          ingress: https://sikkerhet.nav.no
           nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
 
   
