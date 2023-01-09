@@ -15,7 +15,7 @@ Det er primært handlingene som bruker utfører i GUI som er loggverdig. Søk op
 
 ## Teknisk implementasjon av auditlogg
 I NAV implementeres auditlogg i ArcSight, og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
-Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit).
+Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit). [Team Komet](https://teamkatalog.nav.no/team/5345bce7-e076-4b37-8bf4-49030901a4c3) ved Alex Gård har også utviklet en komponent for å hjelpe med oversendingen. Denne kan du finne på [github](https://github.com/navikt/common-java-modules/tree/main/audit-log)
 
 Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.3/pdfdoc/cef-implementation-standard/cef-implementation-standard.pdf) i versjon 0.1 som er loggformatet som benyttes i NAV.  
 
@@ -32,7 +32,7 @@ Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. vær
 |-----------------------|----------------------|------------------------------------------------------------------------------------------------|
 | Version               | CEF standard version | Sett til: 0 (null)                                                                             |
 | Device Vendor         | Application name     | Applikasjonsnavnet\Delapplikasjonsnavn ala Arena, Bisys, fpsak, veilarbperson etc              |
-| Device Product        | Log name             | Navnet til loggen meldinger kommer fra: Auditlog, ABAC-Audit, Sporingslogg                     |
+| Device Product        | Log name             | Navnet til type logg meldinger kommer fra: Auditlog, ABAC-Audit, Sporingslogg                  |
 | Device Version        | Version              | Versjonen av loggformatet: 1.0                                                                 |
 | Device Event Class ID | type_id              | En tekst som representerer hendelsetypen: audit:create, audit:read, audit:update, audit:delete |
 | Name                  | message              | En beskrivelse av hendelsen ala Sporingslogg                                                   |
