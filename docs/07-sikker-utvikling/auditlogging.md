@@ -13,6 +13,12 @@ En annet formål er å avdekke misbruk av informasjon som ikke er direkte tilkny
 ## Hva er loggverdig?
 Det er primært handlingene som bruker utfører i GUI som er loggverdig. Søk opp en person er loggverdig, ikke de titalls tjenestekallene som er nødvendig for å svare på handlingen.
 
+Betyr det at tjenester ikke skal logge? Det er to svar på det spørsmålet:
+Fellestjenester skal logge. Dette er for å sikre at dersom UI applikasjoner har manglende logging, så vil fellestjenesten sikre at aktiviteten logges.
+Når det gjelder alle tjenester som er teaminterne, så blir det opp til teamet å finne det riktige stedet å logge. Det kan bety at mange interne tjenester ikke trenger å logge.
+
+Det er også viktig å tenke over det beste stedet å logge. Spesielt i en mikrotjenestearkitektur så gjelder det å finne det stedet som har all nødvendig kontekst slik at loggmeldingen inneholder all nødvendig informasjon. Det kan være tilfeller der det er nødvendig å logge flere steder for å få full kontekst. Det kan være at en tjeneste vet hvilken borger handlingen, men et annet sted vet hvilken handling ble utført. I utgangspunktet bør applikasjonen selv sette sammen informasjonen i en felles loggmelding. Hvis dette ikke er mulig må det sikres at logglinjene kan korreleres i etterkant og da må teamet ta kontakt med Team auditlogg slik at dette kan settes opp.
+
 ## Teknisk implementasjon av auditlogg
 I NAV implementeres auditlogg i ArcSight, og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
 Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit). [Team Komet](https://teamkatalog.nav.no/team/5345bce7-e076-4b37-8bf4-49030901a4c3) ved Alex Gård har også utviklet en komponent for å hjelpe med oversendingen. Denne kan du finne på [github](https://github.com/navikt/common-java-modules/tree/main/audit-log)
