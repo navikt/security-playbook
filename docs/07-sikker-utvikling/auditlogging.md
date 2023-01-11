@@ -28,7 +28,7 @@ Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documenta
 
 ## Riktig bruk av severity
 Som hovedregel benyttes INFO.
-Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på strengt fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige.
+Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på strengt fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige. Både eventer av typen "permit" og "deny" kan være INFO\WARN. Det er ikke unormalt i seg selv at en ansatt ikke har tilgang til data.
 
 
 ## Beskrivelse av CEF
@@ -41,7 +41,7 @@ Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. vær
 | Device Product        | Log name             | Navnet til type logg meldinger kommer fra: Auditlog, ABAC-Audit, Sporingslogg                  |
 | Device Version        | Version              | Versjonen av loggformatet: 1.0                                                                 |
 | Device Event Class ID | type_id              | En tekst som representerer hendelsetypen: audit:create, audit:read, audit:update, audit:delete |
-| Name                  | message              | En beskrivelse av hendelsen ala Sporingslogg                                                   |
+| Name                  | message              | En beskrivelse av hendelsen. F.eks Sporingslogg eller annet passende                           |
 | Severity              | severity_id          | Alvorlighetsgraden av hendelsen: INFO, WARN                                                    |
 
 Extention attributter
@@ -51,13 +51,15 @@ Extention attributter
 | suid           | sourceUserId           | Hvem gjør oppslaget?                                                                                                  | NAV-ID på ansatt: A123456       | T-ID (abc1234), epost (fornavn.etternavn@nav.no), orgnummer, Fødselsnummer/DNR (for partnere som autentiserer med ID-porten, eller selvbetjening via ID-porten) |
 | duid           | destinationUserId      | Hvilken borger gjelder hendelsen                                                                                      | Fødselsnummer på borgeren       | AktørID, Orgnummer                                                                                                                                              |
 | end            | endTime                | Når hendelsen skjedde                                                                                                 | Epoch tid                       |                                                                                                                                                                 |
-| msg            | message                | En menneskelesbar beskrivelse av hendelsen                                                                            |                                 |                                                                                                                                                                 |
+| msg            | message                | En menneskelesbar beskrivelse av hendelsen, tanken er at "average joe" må kunne forstå hva som skjedde                |                                 |                                                                                                                                                                 |
 | act            | deviceAction           | Duplikat av "Device Event Class ID", ikke nødvendig å bruke                                                           |                                 |                                                                                                                                                                 |
 | request        | requestUrl             | Request URLen                                                                                                         | https://enapp.nav.no/entjeneste |                                                                                                                                                                 |
 | requestContext | requestContext         |                                                                                                                       |                                 |                                                                                                                                                                 |
 | requestMethod  | requestMethod          | HTTP verbet som ble brukt                                                                                             | GET                             | POST, PUT, PATCH, DELETE                                                                                                                                        |
 | dproc          | destinationProcessName | Dersom hendelsen gjelder flere borgeres data, så logges flere logglinjer med en borger per linje, men med samme dproc |                                 |                                                                                                                                                                 |
 | sproc          | sourceProcessName      | Dersom flere loggmeldinger må settes sammen for å beskrive samme hendelse, brukes samme Call-ID som sproc             |                                 |                                                                                                                                                                 |
+* MERK! - Dersom dproc og sproc er like, trenger det selvsagt ikke logges til begge.
+
 
 Her er attributter reservert til intern bruk. ( Skal ikke benyttes av utviklere )
 
