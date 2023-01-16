@@ -116,5 +116,12 @@
     "label": "Sikkerhetsfestivalen",
     "href": "https://sikkerhetsfestivalen.no/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2023-01-17",
+    "endDate": "2023-01-17",
+    "label": "OWASP meetup: Tune your Toolbox for Velocity and Value (Josh Grossman)",
+    "href": "https://www.meetup.com/owasp-oslo/events/290761822/",
+    "audience": "Åpent for alle"
   }
 ]
