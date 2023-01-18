@@ -121,9 +121,9 @@ CEF:0|fp|fpsak|1.0|audit:access|ABAC Sporingslogg|INFO|act=read duid=17912099997
 ```
 
 Eksempel på en logg hvor bruker er den som slår opp. I dette tilfelle en sak.
-``` 
+<code> 
 CEF:0|veilarbarena|Sporingslogg|1.0|audit:access|ABAC Sporingslogg|INFO|suid=17912099997 duid=1000046021217 end=1617832255629 sproc=6698e7ce18094277a49fa9f951132a21 flexString1Label=Decision flexString1=Permit request=/veilarbarena/api/oppfolgingsbruker/17912099997 requestContext=no.nav.abac.attributter.resource.felles.person requestMethod=GET act=read dproc=veilarboppfolging
-```
+</code>
 
 Eksempel på en logg hvor ansatt ser på en bruker og har fått lov av systemet.
 ``` 
