@@ -83,7 +83,7 @@ Her er attributter ledige til bruk ( Fritt frem for loggverdig innhold, bruk lab
 | Flexible String | flexString2  | flexString2Label | String   |
 
 ## Eksempler på bruk av Device Vendor og Device Product
-I de tilfellene der forskjellige applikasjoner ligger under samme paraply, så kan Device Product benyttes til å skille de spesifikke delapplikasjonene.
+I dagens løsning skal som hovedregel "Auditlog, ABAC-Audit, Sporingslogg" benyttes i Device Product feltet som henvist i første del, men i de tilfellene der forskjellige applikasjoner ligger under samme paraply, så kan Device Product benyttes til å skille de spesifikke delapplikasjonene.
 Her er noen eksempler:
 
 | Device Vendor       | Device Product        |
