@@ -17,7 +17,7 @@ Betyr det at tjenester ikke skal logge? Det er to svar på det spørsmålet:
 Fellestjenester skal logge. Dette er for å sikre at dersom UI applikasjoner har manglende logging, så vil fellestjenesten sikre at aktiviteten logges.
 Når det gjelder alle tjenester som er teaminterne, så blir det opp til teamet å finne det riktige stedet å logge. Det kan bety at mange interne tjenester ikke trenger å logge.
 
-Det er også viktig å tenke over det beste stedet å logge. Spesielt i en mikrotjenestearkitektur så gjelder det å finne det stedet som har all nødvendig kontekst slik at loggmeldingen inneholder all nødvendig informasjon. Det kan være tilfeller der det er nødvendig å logge flere steder for å få full kontekst. Det kan være at en tjeneste vet hvilken borger handlingen, men et annet sted vet hvilken handling ble utført. I utgangspunktet bør applikasjonen selv sette sammen informasjonen i en felles loggmelding. Hvis dette ikke er mulig må det sikres at logglinjene kan korreleres i etterkant og da må teamet ta kontakt med Team auditlogg slik at dette kan settes opp.
+Det er også viktig å tenke over det beste stedet å logge. Spesielt i en mikrotjenestearkitektur så gjelder det å finne det stedet som har all nødvendig kontekst slik at loggmeldingen inneholder all nødvendig informasjon. Det kan være tilfeller der det er nødvendig å logge flere steder for å få full kontekst. Det kan være at en tjeneste vet hvilken borger handlingen, men et annet sted vet hvilken handling ble utført. I utgangspunktet bør applikasjonen selv sette sammen informasjonen i en felles loggmelding. Hvis dette ikke er mulig må det sikres at logglinjene kan korreleres i etterkant og da må teamet ta kontakt med Team auditlogg slik at dette kan settes opp. Dette fordi loggene sier ingenting om hvem som sender de, og vi har et ønske om å kunne samarbeide med teamene, hvem enn de måtte være, for å passe på at vi får all info vi trenger selv om det kanskje kommer fra flere mikroapplikasjoner. Siden vi ikke vet om det er en mikroapplikasjon eller ikke, er det vanskelig for oss å vite om loggen er ufullstendig eller om det egentlig er en del av en større tjeneste.
 
 ## Teknisk implementasjon av auditlogg
 I NAV implementeres auditlogg i ArcSight, og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
@@ -79,7 +79,7 @@ Her er attributter ledige til bruk ( Fritt frem for loggverdig innhold, bruk lab
 | Custom Number   | Cn1          | Cn1Label         | Long     |
 | Custom Number   | Cn2          | Cn2Label         | Long     |
 | Custom Number   | Cn3          | Cn3Label         | Long     |
-| Flexible String | 	flexString1 | flexString1Label | String   |
+| Flexible String | flexString1  | flexString1Label | String   |
 | Flexible String | flexString2  | flexString2Label | String   |
 
 ## Eksempler på bruk av Device Vendor og Device Product
@@ -88,8 +88,6 @@ Her er noen eksempler:
 
 | Device Vendor       | Device Product        |
 |---------------------|-----------------------|
-| Psys                | PSAK                  |
-| SAF                 | hentdokument_auditlog |
 | Gosys               | ApneDokument          |
 | Gosys               | HentDokument          |
 | Gosys               | PersonSok             |
@@ -105,11 +103,6 @@ Her er noen eksempler:
 | FAMILIE-BA-SAK      | AuditLogg             |
 | FAMILIE-EF-SAK      | AuditLogg             |
 | FAMILIE-KLAGE       | AuditLogg             |
-| veilarbvedtaksinfo  | Sporingslogg          |
-| veilarbregistrering | Sporingslogg          |
-| veilarbveileder     | Sporingslogg          |
-
-En mer komplett liste finnes [her](https://confluence.adeo.no/display/NIS/Device+Typer).
 
 ## Eksempler bruk av CEF formatet
 
