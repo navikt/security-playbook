@@ -16,12 +16,12 @@
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
   },
   "dependencies": {
-    "@docusaurus/core": "2.2.0",
-    "@docusaurus/plugin-client-redirects": "2.2.0",
-    "@docusaurus/preset-classic": "2.2.0",
+    "@docusaurus/core": "2.3.0",
+    "@docusaurus/plugin-client-redirects": "2.3.0",
+    "@docusaurus/preset-classic": "2.3.0",
     "@mdx-js/react": "1.6.22",
     "@svgr/webpack": "6.5.1",
-    "amplitude-js": "8.21.3",
+    "amplitude-js": "8.21.4",
     "clsx": "1.2.1",
     "docusaurus-lunr-search": "2.3.2",
     "file-loader": "6.2.0",
@@ -44,8 +44,8 @@
   "devDependencies": {
     "husky": "8.0.3",
     "lint-staged": "13.1.0",
-    "prettier": "2.8.1",
-    "snyk": "1.1064.0"
+    "prettier": "2.8.3",
+    "snyk": "1.1091.0"
   },
   "overrides": {
     "trim": "0.0.3",
