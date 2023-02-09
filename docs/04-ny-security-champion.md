@@ -77,3 +77,15 @@ Gamle tjenester er gjerne de som glemmes når det kommer til sikkerhet. Dersom t
 3. Skru det av 🪦 (husk å feire med kake! 🍰)
 
 :::
+
+### Lær mer om sikkerhet 📚
+
+Ta et kurs, les en bok eller lytt på en podcast.
+
+:::success Praktisk oppgave – Lær noe nytt
+
+1. Besøk noen av [ressursene](/docs/lenker) som er listet her i playbooken
+2. Prøv deg på noen CTF-oppgaver hos feks [Pico](https://picoctf.org/) eller [TryHackMe](https://tryhackme.com/)
+3. Benytt noe av det som [O'Reilly](https://learning.oreilly.com/search/?q=security&type=playlist&playlist_type=expert&rows=10) tilbyr (krever abonnement, ansatte i NAV IT kan [selvbetjene](https://myapps.microsoft.com) tilgang)
+
+:::
