@@ -78,6 +78,18 @@ Gamle tjenester er gjerne de som glemmes når det kommer til sikkerhet. Dersom t
 
 :::
 
+### Arkiver forlatte GitHub-repos
+
+Det er lett å glemme GitHub-repoet når man pensjonerer applikasjoner eller kodeeksperimenter. Hvis man ikke arkiverer repoene vil Dependabot fortsette å scanne og rapportere dependencies med sårbarheter. Statistikkene blir dermed feil, og det ser ut som man ligger lenger bakpå enn hva som faktisk er tilfelle.
+
+:::success Praktisk oppgave – arkiver gamle GitHub-repos
+
+1. Se gjennom repoene til teamet ditt og finn de som ikke er deployet noen steder og/eller ikke har vært skrevet til på lenge. [Risiko-dashboardet](https://github.com/orgs/navikt/security/risk) kan være en grei plass å starte (sorter etter "Dependabot alerts").
+2. Arkiver dem (gjøres under "settings"-taben). NB! arkivering er ikke det samme som sletting, arkiverte repo kan enkelt bringes tilbake på et sendre tidspunkt.
+3. Profit! 💰
+
+:::
+
 ### Lær mer om sikkerhet 📚
 
 Ta et kurs, les en bok eller lytt på en podcast.
