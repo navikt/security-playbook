@@ -6,7 +6,9 @@ description: Skal svare på følgende. Hvem sett på borgers data og hva har en 
 ## Hva er auditlogg?
 En logg over brukere av NAV IT systemer (primært ansatte) sine handlinger på borgers informasjon og annen viktig informasjon. Handlinger er primært å se på informasjon. All visning av informasjon skal logges, i tillegg til endringer av informasjon. 
 
-Formålet er for borgere å få innsyn i hvem som har sett på egne data, samt for NAV å avdekke misbruk eller mistenkelige handlinger som går ut over tjenestlig behov.
+Formål: Auditloggene skal kunne bevise, eller motbevise, om de ansatte har misbrukt sine tilganger.
+
+Borgere har mulighet til å få innsyn i hvem som har sett på egne data. I tillegg trenger NAV muligheten til å avdekke misbruk eller mistenkelige handlinger som går ut over tjenestlig behov.
 Loggene vil også bli brukt til maskinell kontroll av mistenkelige handlinger.
 En annet formål er å avdekke misbruk av informasjon som ikke er direkte tilknyttet en borger.
 
