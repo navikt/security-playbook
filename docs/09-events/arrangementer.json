@@ -130,5 +130,12 @@
     "label": "OWASP meetup: Tune your Toolbox for Velocity and Value (Josh Grossman)",
     "href": "https://www.meetup.com/owasp-oslo/events/290761822/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2023-11-11",
+    "endDate": "2023-11-11",
+    "label": "Equinor CTF",
+    "href": "https://ctf.equinor.com/",
+    "audience": "Åpent for alle. Sett av datoen, detaljer kommer etter sommeren"
   }
 ]
