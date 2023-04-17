@@ -7,13 +7,14 @@ description: Skal svare på følgende. Hvem sett på borgers data og hva har en 
 En logg over brukere av NAV IT systemer (primært ansatte) sine handlinger på borgers informasjon og annen viktig informasjon. Handlinger er primært å se på informasjon. All visning av informasjon skal logges, i tillegg til endringer av informasjon. 
 
 Formål: Auditloggene skal kunne bevise, eller motbevise, om de ansatte har misbrukt sine tilganger.
+( Dette betyr i praksis at vi ikke har behov for system\service brukere )
 
 Borgere har mulighet til å få innsyn i hvem som har sett på egne data. I tillegg trenger NAV muligheten til å avdekke misbruk eller mistenkelige handlinger som går ut over tjenestlig behov.
 Loggene vil også bli brukt til maskinell kontroll av mistenkelige handlinger.
 En annet formål er å avdekke misbruk av informasjon som ikke er direkte tilknyttet en borger.
 
 ## Hva er loggverdig?
-Det er primært handlingene som bruker utfører i GUI som er loggverdig. Søk opp en person er loggverdig, ikke de titalls tjenestekallene som er nødvendig for å svare på handlingen.
+Det er primært handlingene som bruker utfører i GUI som er loggverdig. Søk opp en person er loggverdig, ikke de titalls tjenestekallene som er nødvendig for å svare på handlingen. Logger fra system og\eller service brukere er derfor ikke nødvendig da disse ikke kan spores tilbake til en spessifik ansatt.
 
 Betyr det at tjenester ikke skal logge? Det er to svar på det spørsmålet:
 Fellestjenester skal logge. Dette er for å sikre at dersom UI applikasjoner har manglende logging, så vil fellestjenesten sikre at aktiviteten logges.
