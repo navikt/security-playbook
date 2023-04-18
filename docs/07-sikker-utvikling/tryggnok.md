@@ -33,7 +33,7 @@ Ved to tidspunkter må en risikovurderingsbeslutning eskaleres:
 
 ## Brukerveileding for TryggNok
 
-Intern lenke til [TryggNoks brukerveiledning] (https://navno.sharepoint.com/sites/intranett-it/SitePages/Skal-du-bruke-TryggNok-for-f%C3%B8rste-gang-.aspx)
+Intern lenke til [TryggNoks brukerveiledning](https://navno.sharepoint.com/sites/intranett-it/SitePages/Skal-du-bruke-TryggNok-for-f%C3%B8rste-gang-.aspx)
 
 ## Trenger dere hjelp?
 
