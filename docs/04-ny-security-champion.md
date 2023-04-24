@@ -10,11 +10,11 @@ Har du akkurat blitt Security Champion? Gratulerer! 🎉
 
 Noen estimater sier at så mye som 85 % av koden i en typisk applikasjon er skrevet av andre enn oss selv. Det er derfor minst like viktig å følge med på sikkerheten i tredjepartskoden, som sin egen kode. Les mer på siden [«Tredjepartskode»](/docs/sikker-utvikling/tredjepartskode).
 
-:::success Praktisk oppgave – Snyk
+:::success Praktisk oppgave – GitHub Security
 
-1. Sett opp et verktøy som [Snyk](/docs/sikker-utvikling/tredjepartskode#snyk)
-2. Få en oversikt over hvilke avhengigheter dere har
-3. Rett opp sårbarheter avdekket av verktøyet 🥷
+1. Sjekk at [Dependabot](/docs/verktoy/dependabot), [Code Scanning](https://sikkerhet.nav.no/docs/verktoy/github-advanced-security) og Secret Scanning er aktivert for alt teamet ditt har ansvar for ([se oversikt på GitHub](https://github.com/orgs/navikt/security/coverage))
+2. Gå gjennom [sikkerhetsvarsler flagget i GitHub](https://github.com/orgs/navikt/security/risk)
+3. Rett opp sårbarheter i avhengigheter og egen kode 🥷
 
 :::
 
