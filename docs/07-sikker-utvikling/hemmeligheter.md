@@ -19,7 +19,7 @@ Dersom man trenger å benytte hemmeligheter når man bygger på GitHub kan man b
 
 ## Hemmeligheter i kildekode
 
-Et av de vanligste stedene å lekke hemmeligheter er i kildekode. Hvis man ikke er oppmerksom er det fort gjort å hardkode og commit'e hemmeligheter fordi "man bare kjapt skulle teste noe", eller at man legger de i env-filer eller IDE-konfigurasjon som man glemmer å `.gitignore`. For å oppdage dette så tidlig som mulig lønner det seg å bruke verktøy som [git-secrets](https://github.com/awslabs/git-secrets) og scanne repoene sine med [Snyk Code](https://docs.snyk.io/products/snyk-code/key-features/ai-engine#hardcoded-secrets).
+Et av de vanligste stedene å lekke hemmeligheter er i kildekode. Hvis man ikke er oppmerksom er det fort gjort å hardkode og commit'e hemmeligheter fordi "man bare kjapt skulle teste noe", eller at man legger de i env-filer eller IDE-konfigurasjon som man glemmer å `.gitignore`. For å oppdage dette så tidlig som mulig lønner det seg å bruke verktøy som [git-secrets](https://github.com/awslabs/git-secrets) og scanne repoene sine med [GitHub Secret Scanning](/docs/verktoy/github-advanced-security).
 
 :::tip Tips!
 For å holde hemmeligheter unna lokale filer samt Git og kommandohistorikk kan man bruke kommandolinjeverktøyene `gcloud` eller `vault`.
