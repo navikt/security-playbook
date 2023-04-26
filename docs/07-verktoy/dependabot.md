@@ -79,7 +79,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3 # ratchet:actions/checkout@v3
       - name: Run snapshot action
-        uses: mikepenz/gradle-dependency-submission@v3
+        uses: mikepenz/gradle-dependency-submission@v0.8.6
         with:
           fail-on-error: true
           gradle-dependency-path: "build.gradle.kts"
