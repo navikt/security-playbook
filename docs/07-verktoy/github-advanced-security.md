@@ -96,6 +96,6 @@ jobs:
 
 ## Secret Scanning
 
-GitHub vil automatisk plukke opp secrets som committes som en del av koden. Secrets skal holdes utenfor koden, så dette vil stoppes ved push. Les mer om hvordan håndtere hemmeligheter på siden [«Hemmeligheter»](./docs/sikker-utvikling/hemmeligheter).
+GitHub vil automatisk plukke opp secrets som committes som en del av koden. Secrets skal holdes utenfor koden, så dette vil stoppes ved push. Les mer om hvordan håndtere hemmeligheter på siden [«Hemmeligheter»](/docs/sikker-utvikling/hemmeligheter).
 
 [Les mer om Secret Scanning hos GitHub.](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning)
