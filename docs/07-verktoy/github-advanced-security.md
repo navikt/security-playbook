@@ -15,7 +15,7 @@ tags:
 
 [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) er tilgjengelig og aktivert alle repoer under organisasjonene [navikt](https://github.com/navikt) og [nais](https://github.com/nais) på GitHub, og du skal ikke trenge gjøre noe for å kommme i gang.
 
-Alle repoer får automatisk [secret scanning](#secret-scanning) og [Dependabot](./dependabot) aktivert, mens [statisk kodeanalyse](/docs/sikker-utvikling/kodeanalyse) med CodeQL må settes opp manuelt for hvert repo.
+Alle repoer (med unntak av forks) får automatisk [secret scanning](#secret-scanning) og [Dependabot](./dependabot) aktivert, mens [statisk kodeanalyse](/docs/sikker-utvikling/kodeanalyse) med CodeQL må settes opp manuelt for hvert repo. For forks må alt aktiveres manuelt.
 
 :::caution
 Selv om Dependabot aktiveres automatisk, kan det hende den ikke plukker opp alle avhengigheter. Se [anbefalt oppskrift](./dependabot) for oppsett.
