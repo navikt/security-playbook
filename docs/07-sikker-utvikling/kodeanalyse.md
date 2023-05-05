@@ -17,12 +17,7 @@ Ulempen med SAST-verktøy er at de kun kan identifisere et svært begrenset sett
 
 ## Verktøy
 
-Det finnes flere mulige verktøy, men flere i NAV bruker og anbefaler disse:
-
-- [GitHub Advanced Security (CodeQL)](/docs/verktoy/github-advanced-security) (kun åpne repoer)
-- [Snyk Code](/docs/verktoy/snyk#snyk-code)
-
-[GitHub Security](https://github.com/features/security) gir deg i tillegg tilgang til å integrere mot en rekke SAST-verktøy. Hos [OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) finner man en liste med andre verktøy man kan teste.
+Det finnes flere mulige verktøy, men NAV tilbyr [GitHub Advanced Security (CodeQL)](/docs/verktoy/github-advanced-security), som gir deg tilgang til å integrere mot en rekke SAST-verktøy. Hos [OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) finner man en liste med andre verktøy man kan teste.
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
