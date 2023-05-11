@@ -8,6 +8,11 @@ tags:
 
 # Snyk ([snyk.io](https://snyk.io))
 
+:::warning Vi bytter!
+Vi har fom mai 2023 sagt opp avtalen vår med Snyk og gått all in på [GitHub Advanced Security](/docs/verktoy/github-advanced-security).
+Tilgang til de Snyk-tjenestene som koster 💰 vil forsvinne.
+:::
+
 **Relevante tema:**
 
 - [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode)
