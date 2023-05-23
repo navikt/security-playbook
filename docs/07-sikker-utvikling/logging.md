@@ -26,6 +26,10 @@ Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dett
 
 Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
 
+## Logging av sikkerhetsrelaterte hendelser
+
+Logger kan brukes både i nær sanntid av såkalte [Intrusion Detection Systems](https://en.wikipedia.org/wiki/Intrusion_detection_system) og etter en sikkerhetshendelse for å finne spor av hva som foregår. Trusselaktører vil stort sett alltid legge igjen spor etter seg, og ved å pusle sammen disse kan man danne seg et bilde av hendelsesforløpet. For at mengden informasjon i loggene og signal/støyforholdet skal bli håndterbart er det imidlertid viktig at man gjør bevisste valg på hvilke hendelser man logger. Det er ingen fasit på dette, men unormale bruksmønster som gjentatte valideringsfeil og innlogginger på rare tidspunkt er ofte høyverdige signaler. OWASP har laget et "[cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)" med gode tips og råd. Hva man logger bør endre seg i takt med applikasjonen, ta en titt på loggene deres med jevne mellomrom og spør dere selv om dere ville ha vært i stand til å oppdage konkrete trusler vha informasjonen som finnes der.
+
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
