@@ -10,13 +10,13 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
-      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # ratchet:actions/checkout@v3
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # ratchet:actions/checkout@v3
       - name: Setup Node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # ratchet:actions/setup-node@v3
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # ratchet:actions/setup-node@v3
         with:
           node-version: '18.x'
       - name: Cache dependencies
-        uses: actions/cache@4723a57e26efda3a62cbde1812113b730952852d # ratchet:actions/cache@v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # ratchet:actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -32,7 +32,7 @@ jobs:
         run: npm run build
       - name: Upload to CDN
         id: upload
-        uses: navikt/frontend/actions/spa-deploy/v1@c41cccbc81a1e1b31531f12c1f2e8bc20919fc3e # ratchet:navikt/frontend/actions/spa-deploy/v1@main
+        uses: navikt/frontend/actions/spa-deploy/v1@3a87f63d3d7a0903d8cce798453d3567d1b0020a # ratchet:navikt/frontend/actions/spa-deploy/v1@main
         with:
           team-name: security-champion-admin
           app-name: playbook
