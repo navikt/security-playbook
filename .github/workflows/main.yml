@@ -40,4 +40,3 @@ jobs:
           source: build
           ingress: https://sikkerhet.nav.no
           nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          cache-invalidate: true
