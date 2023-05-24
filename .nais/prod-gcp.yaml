@@ -1,5 +1,0 @@
-ingresses:
-  - https://sikkerhet.nav.no
-
-minreplicas: 2
-maxreplicas: 4
