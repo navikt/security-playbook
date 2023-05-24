@@ -35,6 +35,14 @@ En gruppe som analyserer sikkerheten i IT-systemer og implementerer tiltak for �
 
 En gruppe av datamaskiner som er infisert av [malware](#malware) som kontrolleres av en enkelt aktør. Nettverket kan kommanderes til å utføre handlinger, feks. [DDoS-angrep](#denial-of-service-angrep), på vegne av denne aktøren.
 
+#### Bastion Host
+
+En "bastion host" er en spesiell form for server som er designet for å stå imot angrep. Den er eksponert for offentlig internett og er dermed et vanlig mål for uønsket handlinger. "Bastion host" brukes ofte i sikkerhetssammenhenger og kan bli sett på som den første linjen av forsvar i beskyttelse av interne datanettverk.
+
+En bastion host er vanligvis fullstendig sikret i henhold til best practice standarder, og kjører så få applikasjoner som mulig for å minimere potensielle sikkerhetshull. Denne serveren er også regelmessig oppdatert og overvåket for å sikre at den fortsatt gir det nødvendige sikkerhetsnivået.
+
+En vanlig bruk for en bastion host er som en server for en VPN-tjeneste, som tillater ekstern tilgang til et nettverk. I denne konteksten vil bastion hosten håndtere alle inngående nettverkstilkoblinger og vil autentisere brukere før de får tilgang til det interne nettverket.
+
 ### C
 
 #### CA
