@@ -72,5 +72,4 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 | [#tryggnok](https://nav-it.slack.com/archives/CQ0D5HLSW)                       | Spørsmål om tryggnok-tjenesten for risikovurdering                                                                         |
 | [#digital-sikkerhet](https://nav-it.slack.com/archives/C026BETG37H)            | Ting som omhandler opprettelsen av det nye området for IT-sikkerhet                                                        |
 | [#soc](https://nav-it.slack.com/archives/C0162CBNJRJ)                          | Her legger SOC-folket ut ting de mener er av interesse for flere                                                           |
-| [#snyk](https://nav-it.slack.com/archives/C02KF9C5XSM)                         | Hjelp og spørsmål om Snyk                                                                                                  |
 | [#telenor-soc](https://nav-it.slack.com/archives/C02TC0HRK0E)                  | Meldinger fra Telenor sitt [SOC-nyhetsbrev](https://telenorsoc-news.blogspot.com/)                                         |
