@@ -31,6 +31,7 @@ Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://gith
 
 Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.3/pdfdoc/cef-implementation-standard/cef-implementation-standard.pdf) i versjon 0.1 som er loggformatet som benyttes i NAV.  
 
+**MERK!** Etter Device Vendor \ Device Product er satt kan disse ikke endres uten at det tas opp med Team Auditlogg. Endringer i hva dere sender i Extension attributtene er helt opp til teamene selv, men disse to kan ikke røres ettersom de brekker filtrene vi benytter og loggene kan derfor falle ut av rapporter etc. Det er derfor svært viktig at Team Auditlogg informeres om endringer i disse som følge av valg teamene mener bør gjøres slik at vi kan løse problemene når de oppstår og ikke ende opp i en situasjon hvor bruker får ufullstendige logger uten at vi kan forklare dette.
 
 ## Riktig bruk av severity
 Som hovedregel benyttes INFO.
