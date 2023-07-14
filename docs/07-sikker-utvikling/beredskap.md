@@ -28,11 +28,14 @@ kanskje ikke har oversikt over selv. Disse rutinene må øves på og om nødvend
 
 Rammeverket for beredskap i NAV beskriver hvordan vi skal organisere, håndtere og evaluere beredskapshendelser.
 Målet er å ha en beredskapsorganisasjon som er proaktiv, profesjonell og som gir nødvendig beslutningsstøtte.
-https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-NAV.aspx
+
+[Beredskap i NAV](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-NAV.aspx)
 
 [Beredskapsprosessen](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskapsprosessen-i-NAV.aspx)
 
 [Varslingsprosedyre på etatsnivå](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Varslingsprosedyre-p%C3%A5-etatsniv%C3%A5.aspx)
+
+[IT-sikkerhet og beredskap](https://navno.sharepoint.com/:u:/r/sites/enhet-it-avdelingen/SitePages/IT-sikkerhet%20og%20beredskap.aspx?csf=1&web=1&e=raIwcM)
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
