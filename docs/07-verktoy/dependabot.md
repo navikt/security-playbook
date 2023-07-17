@@ -10,13 +10,13 @@ tags:
 
 - [Tredjepartskode](../sikker-utvikling/tredjepartskode)
 
-[Dependabot](https://github.com/dependabot) er et verktøy som kan brukes på åpne GitHub-repos (i motsetning til Snyk som også kan brukes på private repos). Dersom man ønsker at Dependabot kun skal sjekke etter sårbarheter, kan dette settes opp i dit repo i GitHub, under _Security_. Ønsker man å også få forslag til oppgraderinger som ikke nødvendigvis er sårbarheter, kan man be om det via `dependabot.yml`. Les mer om den siste varianten [her](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates).
+[Dependabot](https://github.com/dependabot) er et verktøy som kan brukes på alle GitHub-repos. Dersom man ønsker at Dependabot kun skal sjekke etter sårbarheter, kan dette settes opp i dit repo i GitHub, under _Security_. Ønsker man å også få forslag til oppgraderinger som ikke nødvendigvis er sårbarheter, kan man be om det via `dependabot.yml`. Les mer om den siste varianten [her](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates).
 
 ![GitHub Security](/img/dependabot.png "GitHub Security")
 
 ## Oppsett av Dependabot
 
-Dependabot i seg selv skal være automatisk aktivert for alle nye repo på GitHub, men det kan hende den ikke klarer å få oversikt over avhengighetene ut av boksen.
+Dependabot i seg selv skal være automatisk aktivert for alle nye repo på GitHub i `navikt`, men det kan hende den ikke klarer å få oversikt over avhengighetene ut av boksen.
 
 ### Sjekk om Dependabot finner avhengigheter (og versjoner) automatisk
 
@@ -84,6 +84,10 @@ jobs:
           fail-on-error: true
           gradle-dependency-path: "build.gradle.kts"
 ```
+
+:::tip
+Gradle har nå kommet med eksperimentell støtte for dependency submission i sin egen [build action](https://github.com/gradle/gradle-build-action#github-dependency-graph-support)
+:::
 
 ```mdx-code-block
 import UnderArbeid from '../07-sikker-utvikling/\_under-arbeid.mdx'
