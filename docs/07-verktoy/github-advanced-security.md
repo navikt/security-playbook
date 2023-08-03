@@ -94,6 +94,15 @@ jobs:
           category: "/language:${{matrix.language}}"
 ```
 
+Om du ønsker mer analyse enn default så kan du legge til `security-extended` eller `security-and-quality` i konfigurasjonen til `github/codeql-action/init@v2` som eksempelet under: 
+
+```
+uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended | security-and-quality
+```
+
 ## Secret Scanning
 
 GitHub vil automatisk plukke opp secrets som committes som en del av koden. Secrets skal holdes utenfor koden, så dette vil stoppes ved push. Les mer om hvordan håndtere hemmeligheter på siden [«Hemmeligheter»](/docs/sikker-utvikling/hemmeligheter).
