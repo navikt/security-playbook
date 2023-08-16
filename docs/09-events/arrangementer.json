@@ -136,7 +136,7 @@
     "endDate": "2023-11-11",
     "label": "Equinor CTF",
     "href": "https://ctf.equinor.com/",
-    "audience": "Åpent for alle. Sett av datoen, detaljer kommer etter sommeren"
+    "audience": "Åpent for alle. Kun fysisk på 'Oslo Event Hub' denne gangen."
   },
   {
     "startDate": "2023-06-22",
@@ -144,5 +144,12 @@
     "label": "Cloud Security Detection and Response",
     "href": "https://www.meetup.com/cloud-security-alliance-norway-meetup/events/293979257/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2023-08-28",
+    "endDate": "2023-08-30",
+    "label": "Sikkerhetsfestivalen",
+    "href": "https://sikkerhetsfestivalen.no",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
