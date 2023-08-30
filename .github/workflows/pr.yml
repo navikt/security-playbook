@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: '16.x'
       - name: Cache dependencies
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # ratchet:actions/cache@v2
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # ratchet:actions/cache@v2
         env:
           cache-name: cache-node-modules
         with:
