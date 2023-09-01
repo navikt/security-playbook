@@ -34,6 +34,13 @@ Vi har valgt å begrense tilgangen til disk i containerne, den eneste pathen man
 
 For å hindre at angripere kan bevege seg fritt rundt etter å ha kompromittert en app har vi tatt i bruk [access policies](https://doc.nais.io/nais-application/access-policy/). All kommunikasjon i eller ut av clustrene må derfor eksplisitt tillates.
 
+## Dockerfile eksempler 
+
+For å se hvordan andre i NAV bygger sine docker images bruk [github search](https://github.com/search) og søk etter f.eks. `org:navikt "FROM gcr.io/distroless/java"`
+- [Google Distroless](https://github.com/GoogleContainerTools/distroless/tree/main/examples)
+- [Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/reference/) - (støtter kun siste LTS)
+
+
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
