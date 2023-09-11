@@ -11,7 +11,7 @@ Det er en uoverkommelig oppgave å skulle holde oversikt over slike ting selv. D
 
 Disse konkrete produktene brukes mye i NAV og kan anbefales:
 
-- [Snyk](/docs/verktoy/snyk)
+- [GitHub Advanced Security](/docs/verktoy/github-advanced-security)
 - [Dependabot](/docs/verktoy/dependabot)
 
 Disse kan scanne prosjektene dine jevnlig etter avhengigheter med kjente sårbarheter og varsle dere i form av meldinger på Slack/epost eller ved å lage pull requests som oppdaterer de sårbare versjonene.
