@@ -58,10 +58,10 @@ jobs:
 
 ### Oppsett Gradle (build.gradle.kts / build.gradle)
 
-Gradle-avhengigheter må eksplisitt legges inn gjennom GitHubs [Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api). Dette kan gjøres med en github-actionen [gradle-dependency-submission](https://github.com/marketplace/actions/gradle-dependency-submission), slik:
+Gradle-avhengigheter må eksplisitt legges inn gjennom GitHubs [Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api). Dette kan gjøres med en github-actionen [gradle-build-action](https://github.com/gradle/gradle-build-action#github-dependency-graph-support), slik:
 
 ```yaml
-name: Monitor dependencies with Dependabot
+name: Submit dependency graph
 on:
   push:
     branches:
@@ -69,25 +69,20 @@ on:
     paths:
       - "**.gradle.kts"
       - "gradle.properties"
-  workflow_dispatch:
 jobs:
-  dependabot:
-    name: Monitor dependencies with Dependabot
-    runs-on: ubuntu-20.04
+  dependencies:
+    runs-on: ubuntu-latest
     permissions: # The Dependency Submission API requires write permission
       contents: write
     steps:
-      - uses: actions/checkout@v3 # ratchet:actions/checkout@v3
-      - name: Run snapshot action
-        uses: mikepenz/gradle-dependency-submission@v0.8.6
+      - uses: actions/checkout@v3
+      - name: Setup Gradle to generate and submit dependency graphs
+        uses: gradle/gradle-build-action@v2
         with:
-          fail-on-error: true
-          gradle-dependency-path: "build.gradle.kts"
+          dependency-graph: generate-and-submit
+      - name: Run a build, generating the dependency graph snapshot which will be submitted
+        run: ./gradlew build
 ```
-
-:::tip
-Gradle har nå kommet med eksperimentell støtte for dependency submission i sin egen [build action](https://github.com/gradle/gradle-build-action#github-dependency-graph-support)
-:::
 
 ```mdx-code-block
 import UnderArbeid from '../07-sikker-utvikling/\_under-arbeid.mdx'
