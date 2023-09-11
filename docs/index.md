@@ -16,7 +16,7 @@ Vi forsøker hardt å holde denne playbooken så åpen som mulig, men av og til 
 
 Det du trenger i det daglige. For eksempel:
 
-- [Hvordan sette opp sikkerhetsverktøyet Snyk for å oppdage sårbarheter i tredjepartsbiblioteker](/docs/sikker-utvikling/tredjepartskode)
+- [Hvordan sette opp sikkerhetsverktøy for å oppdage sårbarheter i tredjepartsbiblioteker](/docs/sikker-utvikling/tredjepartskode)
 - [Finne ut hvem du kan kontakte for sikkerhetsspørsmål](/docs/lenker)
 - [Tips til gjennomføring av trusselmodellering](/docs/sikker-utvikling/trusselmodellering)
 
