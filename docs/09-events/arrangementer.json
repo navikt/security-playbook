@@ -144,5 +144,19 @@
     "label": "Cloud Security Detection and Response",
     "href": "https://www.meetup.com/cloud-security-alliance-norway-meetup/events/293979257/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2023-10-18",
+    "endDate": "2023-10-18",
+    "label": "Snyk CTF Workshop",
+    "href": "https://snyk.io/events/ctf/",
+    "audience": "CTF Intro som forbereder deg på CTF eventet Oct 27"
+  },
+    {
+    "startDate": "2023-10-27",
+    "endDate": "2023-10-27",
+    "label": "Snyk CTF",
+    "href": "https://snyk.io/events/ctf/",
+    "audience": "Snyk holder CTF sammen med John Hammond. Ryktes om web-fokus."
   }
 ]
