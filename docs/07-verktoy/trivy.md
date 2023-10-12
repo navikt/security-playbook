@@ -12,10 +12,10 @@ tags:
 
 - [Sikkerhet i og rundt containere](../sikker-utvikling/containere)
 
-[Trivy fra aquasecurity](https://github.com/aquasecurity/trivy) er omfattende sårbarhetsskanner som er enkel og ta i bruk.
-Ved å integrere Trivy med GitHub Actions kan du skanne Docker-images for sårbarheter i både OS+applikasjon og laste opp resultatene til Github advanced security for att få alerts i code-scanning seksjonen.
+[Trivy fra aquasecurity](https://github.com/aquasecurity/trivy) er en omfattende sårbarhetsskanner som er enkel å ta i bruk.
+Ved å integrere Trivy med GitHub Actions kan du skanne Docker-images for sårbarheter i både OS og applikasjon samt laste opp resultatene til Github Advanced Security for å få alerts i "Code Scanning"-seksjonen.
 
-Legg til actionet i ditt workflow ett sted etter du har byggt din docker image.
+Legg til `aquasecurity/trivy-action` i din workflow etter stegene der du bygger Docker-imaget:
 
 ```trivy
 jobs:
@@ -46,7 +46,7 @@ jobs:
           sarif_file: 'trivy.sarif'
 ```
 
-Vill du sette opp trivy i ett eget steg må du hente ned imaget med docker pull først, for images fra Google Artifact Registry (GAR) kan det løses slikt:
+Hvis du vil du sette opp Trivy i et eget steg må du hente ned imaget med Docker pull først. For images fra Google Artifact Registry (GAR) kan det løses slik:
 
 ```trivy-gar
 jobs:
