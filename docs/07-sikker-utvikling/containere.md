@@ -1,6 +1,8 @@
 ---
 title: Sikkerhet i og rundt containere
 description: 🐮 Å sette i bås er ikke allltid vås
+tags:
+  - containere
 ---
 
 ## Generelt

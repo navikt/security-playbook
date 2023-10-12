@@ -6,10 +6,14 @@ tags:
   - containere
 ---
 
-# Trivy ([aquasecurity/trivy](https://github.com/aquasecurity/trivy))
+# Trivy
 
-Trivy er en enkel og omfattende sårbarhetsskanner for containere. 
-Ved å integrere Trivy med GitHub Actions kan du skanne Docker-bilder for sårbarheter som en del av CI/CD-prosessen uten problemer.
+**Relevante tema:**
+
+- [Sikkerhet i og rundt containere](../sikker-utvikling/containere)
+
+([Trivy fra aquasecurity](https://github.com/aquasecurity/trivy)) er omfattende sårbarhetsskanner som er enkel og ta i bruk. 
+Ved å integrere Trivy med GitHub Actions kan du skanne Docker-images og laste opp resultatene til Github advanced security for att få alerts i code-scanning seksjonen.
 
 Legg til actionet i ditt workflow ett sted etter du har byggt din docker image.
 
@@ -98,3 +102,11 @@ jobs:
         with:
           sarif_file: 'trivy.sarif'
 ```
+
+
+```mdx-code-block
+import UnderArbeid from './\_under-arbeid.mdx'
+
+<UnderArbeid />
+```
+
