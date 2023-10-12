@@ -105,7 +105,7 @@ jobs:
 
 
 ```mdx-code-block
-import UnderArbeid from '../sikker-utvikling//\_under-arbeid.mdx'
+import UnderArbeid from '../sikker-utvikling/\_under-arbeid.mdx'
 
 <UnderArbeid />
 ```
