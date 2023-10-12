@@ -3,7 +3,7 @@ title: Trivy
 description: Scanning av images
 tags:
   - tredjepartskode
-  - statisk-kodeanalyse
+  - containere
 ---
 
 # Trivy ([aquasecurity/trivy](https://github.com/aquasecurity/trivy))
