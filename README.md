@@ -2,7 +2,7 @@
 
 > «Hvordan vi utvikler sikker software i NAV IT»
 
-Playbooken er helt åpen for verden, men innholdet er primært laget av og for utviklere i NAV. :[Sikkerhet NAV](https://sikkerhet.nav.no)
+Playbooken er helt åpen for verden, men innholdet er primært laget av og for utviklere i NAV. [Sikkerhet NAV](https://sikkerhet.nav.no)
 
 ## Hvem kan bidra? 🤔
 
@@ -25,7 +25,7 @@ Still gjerne spørsmål om playbooken i Slack-kanalen `#security-champion` 😃
 
 ## Utvikling
 
-Nettsiden er laget med [Docusaurus 2](https://docusaurus.io/), en moderne «statisk side»-generator.
+Nettsiden er laget med [Docusaurus 3](https://docusaurus.io/), en moderne «statisk side»-generator.
 
 De fleste endringene kan gjøres direkte fra GitHub, ved å trykke `edit this file` direkte fra markdown-filene.
 
@@ -33,7 +33,7 @@ Dersom du ønsker å gjøre større endringer, anbefales det å starte applikasj
 
 ### Lokal utvikling
 
-Krever `node` versjon `>= 16`.
+Krever `node` versjon `>= 18`.
 
 #### Installer lokalt
 
@@ -55,4 +55,3 @@ $ npm start
 $ npm run build
 $ npm run serve
 ```
- 

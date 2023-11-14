@@ -22,12 +22,11 @@
     "@mdx-js/react": "3.0.0",
     "@svgr/webpack": "8.1.0",
     "amplitude-js": "8.21.9",
+    "classnames": "2.3.2",
     "clsx": "2.0.0",
     "docusaurus-lunr-search": "3.3.0",
-    "file-loader": "6.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "url-loader": "4.1.1"
+    "react-dom": "18.2.0"
   },
   "browserslist": {
     "production": [
@@ -44,13 +43,7 @@
   "devDependencies": {
     "husky": "8.0.3",
     "lint-staged": "15.1.0",
-    "prettier": "3.1.0",
-    "snyk": "1.1244.0"
-  },
-  "overrides": {
-    "trim": "0.0.3",
-    "node-fetch": "3.2.10",
-    "got": "12.1.0"
+    "prettier": "3.1.0"
   },
   "lint-staged": {
     "*.{js,jsx,css,md,mdx,json}": "prettier --write"
