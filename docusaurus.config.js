@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     [
-      "docusaurus-lunr-search",
+      require.resolve("docusaurus-lunr-search"),
       {
         languages: ["no"], // language codes
       },
