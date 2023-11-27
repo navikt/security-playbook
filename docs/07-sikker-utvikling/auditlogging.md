@@ -27,7 +27,14 @@ Vi i Team Auditlogg tenker at det ikke er nødvendig med logging av systembruker
 
 ## Teknisk implementasjon av auditlogg
 I NAV implementeres auditlogg i ArcSight, og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
-Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit). [Team Komet](https://teamkatalog.nav.no/team/5345bce7-e076-4b37-8bf4-49030901a4c3) ved Alex Gård har også utviklet en komponent for å hjelpe med oversendingen. Denne kan du finne på [github](https://github.com/navikt/common-java-modules/tree/main/audit-log)
+Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit). [Team Komet](https://teamkatalog.nav.no/team/5345bce7-e076-4b37-8bf4-49030901a4c3) har også utviklet en komponent for å hjelpe med oversendingen. Denne kan du finne på [github](https://github.com/navikt/common-java-modules/tree/main/audit-log)
+
+Eksempler på implementasjon av auditlogg  ( App'ene er strippet annet enn logging for å demonstrere hvordan dette fungerer ) :
+| Type App                               | Github adresse                         |
+|----------------------------------------|----------------------------------------|
+| NodeJS app                             | https://github.com/navikt/testnodeapp  |
+| Java app                               | https://github.com/navikt/testjavaapp  |
+| Java app m/ Team Komet sin løsning     | https://github.com/navikt/testjavaapp2 |
 
 Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.3/pdfdoc/cef-implementation-standard/cef-implementation-standard.pdf) i versjon 0.1 som er loggformatet som benyttes i NAV.  
 
@@ -104,14 +111,14 @@ Her er noen eksempler:
 | InfoTrygd           | Leselogg              |
 | PDL                 | Sporinglogg           |
 | PDL                 | ABAC                  |
-| Fp                  | fpsak                 |
-| Fp                  | fprisk                |
-| Fp                  | fptilbake             |
-| Fp                  | fpabakus              |
-| Fp                  | fpfordel              |
-| FAMILIE-BA-SAK      | AuditLogg             |
-| FAMILIE-EF-SAK      | AuditLogg             |
-| FAMILIE-KLAGE       | AuditLogg             |
+| Foreldrepenger      | fpsak                 |
+| Foreldrepenger      | fprisk                |
+| Foreldrepenger      | fptilbake             |
+| Foreldrepenger      | fpabakus              |
+| Foreldrepenger      | fpfordel              |
+| Familie             | AuditLogg             |
+| Familie             | AuditLogg             |
+| Familie             | AuditLogg             |
 
 ## Eksempler bruk av CEF formatet
 
