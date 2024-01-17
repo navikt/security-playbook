@@ -152,11 +152,25 @@
     "href": "https://snyk.io/events/ctf/",
     "audience": "CTF Intro som forbereder deg på CTF eventet Oct 27"
   },
-    {
+  {
     "startDate": "2023-10-27",
     "endDate": "2023-10-27",
     "label": "Snyk CTF",
     "href": "https://snyk.io/events/ctf/",
     "audience": "Snyk holder CTF sammen med John Hammond. Ryktes om web-fokus."
+  },
+  {
+    "startDate": "2024-02-01",
+    "endDate": "2024-02-01",
+    "label": "Trusselmodellering workshop",
+    "href": "https://delta.nav.no/event/ad4380ae-7f69-4fdd-a8c1-6796293e4be5",
+    "audience": "Security Champions++++"
+  },
+  {
+    "startDate": "2024-02-13",
+    "endDate": "2024-02-13",
+    "label": "Meetup - Februar 2024 (Påmelding @ delta.nav.no)",
+    "href": "https://delta.nav.no/event/bf36c158-b6a7-450f-9209-a29523842019",
+    "audience": "Security Champions"
   }
 ]
