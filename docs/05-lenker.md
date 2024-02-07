@@ -23,7 +23,7 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 - [Cast O3](https://www.o3c.no/knowledge) - Norsk podcast som ofte har tema relatert til sikkerhet.
 - [PentesterLab](https://pentesterlab.com/) - lær med oppgaver i et trygt miljø (gratis eller "premium" til $20/mnd)
 - [Equinor AppSec](https://equinor.github.io/appsec/#security-champion) Equinor sin AppSec playbook
-- [Secyrity Champions Norge](https://securitychampions.no/) Norges hyggeligste fellesskap for sikkerhetskultur
+- [Security Champions Norge](https://securitychampions.no/) Norges hyggeligste fellesskap for sikkerhetskultur
 
 ### Artikler og presentasjoner fra NAV
 
@@ -72,4 +72,3 @@ Sikkerhetsrelaterte kanaler på NAV IT-slacken:
 | [#tryggnok](https://nav-it.slack.com/archives/CQ0D5HLSW)                       | Spørsmål om tryggnok-tjenesten for risikovurdering                                                                         |
 | [#digital-sikkerhet](https://nav-it.slack.com/archives/C026BETG37H)            | Ting som omhandler opprettelsen av det nye området for IT-sikkerhet                                                        |
 | [#soc](https://nav-it.slack.com/archives/C0162CBNJRJ)                          | Her legger SOC-folket ut ting de mener er av interesse for flere                                                           |
-| [#telenor-soc](https://nav-it.slack.com/archives/C02TC0HRK0E)                  | Meldinger fra Telenor sitt [SOC-nyhetsbrev](https://telenorsoc-news.blogspot.com/)                                         |
