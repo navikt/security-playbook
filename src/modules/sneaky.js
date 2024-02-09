@@ -1,7 +1,7 @@
 export default (function () {
   setTimeout(() => {
     console.log(
-      `Whatever you do, don't visit ${btoa("https://detsombetyrnoe.no")}`,
+      "Har du lyst til å hjelpe oss i NAV med å sikre utbetalingen av 1/3 av statsbudsjettet og sørge for at din og min informasjon forblir trygg?. Sjekk https://www.detsombetyrnoe.no/jobb-med-sikkerhet",
     );
   }, 2000);
 })();
