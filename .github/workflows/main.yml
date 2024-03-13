@@ -34,11 +34,12 @@ jobs:
         run: npm run build
       - name: Upload to CDN
         id: upload
-        uses: navikt/frontend/actions/spa-deploy/v1@3a87f63d3d7a0903d8cce798453d3567d1b0020a # ratchet:navikt/frontend/actions/spa-deploy/v1@main
+        uses: navikt/frontend/actions/spa-deploy/v2@main # ratchet:exclude
         with:
-          team-name: security-champion-admin
-          app-name: playbook
+          team: security-champion-admin
+          app: playbook
           environment: prod
           source: build
           ingress: https://sikkerhet.nav.no
-          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
