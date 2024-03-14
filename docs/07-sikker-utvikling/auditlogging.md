@@ -26,7 +26,7 @@ Det er også viktig å tenke over det beste stedet å logge. Spesielt i en mikro
 Vi i Team Auditlogg tenker at det ikke er nødvendig med logging av systembrukerhandling ettersom dette ikke pr dags dato kan spores tilbake til en person på noen som helst slags måte. Denne typen logger vil derfor fremstå mest som støy som ligger i logg systemet uten å gi noen mening. Vi tenker også at det kun bør logges ting man vet at er vist til, eller endret av, en person i GUI. Dette for å sikre kvalitet på loggene. Samt at det kun bør logges én linje per handling. Det kan gjerne tas i betraktning at logging av en type hendelse kan skje f.eks en gang pr session. Det er noe uvesentlig for bruker om veileder har vært inne på samme applikasjon og sett opplysningene før og etter lunch. En refresh av en nettside bør f.eks ikke utløse flere logg eventer. Vi anser det alikevel litt opp til teamene hvordan dette håndteres.
 
 ## Teknisk implementasjon av auditlogg
-I NAV implementeres auditlogg i ArcSight, og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
+I NAV implementeres auditlogg i [ArcSight](#hva-er-arcsight-), og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
 Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit). [Team Komet](https://teamkatalog.nav.no/team/5345bce7-e076-4b37-8bf4-49030901a4c3) har også utviklet en komponent for å hjelpe med oversendingen. Denne kan du finne på [github](https://github.com/navikt/common-java-modules/tree/main/audit-log)
 
 Eksempler på implementasjon av auditlogg  ( App'ene er strippet annet enn logging for å demonstrere hvordan dette fungerer ) :
@@ -41,6 +41,9 @@ Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documenta
 Det mest vanlige i NAV er å benytte logback.xml gjennom logback rammeverket. Dette er gjerne i backend applikasjoner, og ofte java basert. Linken ovenfor er en måte å ordne dette på i Java. Dersom det logges i frontend, eksempelvis NodeJS relaterte applikasjoner kan f.eks Winston benyttes, eller [Winston-syslog](https://github.com/winstonjs/winston-syslog) da.
 
 **MERK!** Etter Device Vendor \ Device Product er satt kan disse ikke endres uten at det tas opp med Team Auditlogg. Endringer i hva dere sender i Extension attributtene er helt opp til teamene selv, men disse to kan ikke røres ettersom de brekker filtrene vi benytter og loggene kan derfor falle ut av rapporter etc. Det er derfor svært viktig at Team Auditlogg informeres om endringer i disse som følge av valg teamene mener bør gjøres slik at vi kan løse problemene når de oppstår og ikke ende opp i en situasjon hvor bruker får ufullstendige logger uten at vi kan forklare dette.
+
+## Hva er Arcsight ?
+Arcsight er en SIEM pakke fra OpenText ( tidligere MicroFocus ). Dette er en løsning vi selv har installert og drifter på fysiske servere. Arcsight består av ulike komponenter som til slutt ( iallefall for vår del ) munner ut i innsynsrapporten og auditlogg arkiv for NAV. Tjenesten eies av Sikkerhetsavdelingen\Digital Sikkerhet og brukes av Team Auditlogg. Arcsight har vært i bruk i NAV siden rundt 2016. Ønsker du å vite mer ? Ta kontakt på Slack #auditlogging-arcsight
 
 ## Riktig bruk av severity
 Som hovedregel benyttes INFO.
