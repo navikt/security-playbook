@@ -36,12 +36,57 @@ Vi har valgt å begrense tilgangen til disk i containerne, den eneste pathen man
 
 For å hindre at angripere kan bevege seg fritt rundt etter å ha kompromittert en app har vi tatt i bruk [access policies](https://doc.nais.io/nais-application/access-policy/). All kommunikasjon i eller ut av clustrene må derfor eksplisitt tillates.
 
-## Dockerfile eksempler 
+## Dockerfile eksempler
 
-For å se hvordan andre i NAV bygger sine docker images bruk [github search](https://github.com/search) og søk etter f.eks. `org:navikt "FROM gcr.io/distroless/java"`
-- [Google Distroless](https://github.com/GoogleContainerTools/distroless/tree/main/examples)
-- [Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/reference/) - (støtter kun siste LTS)
+:::note
+Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever spesifikke versjoner av Java må andre baseimages (feks Google sine) benyttes.
+:::
 
+#### Java-applikasjon
+
+```bash
+FROM chainguard/jre
+
+COPY /your/stuff/ /app
+
+CMD ["-jar", "/app/my-app.jar", "-Xmx128m", "other", "jvm", "args"]
+```
+
+```bash
+FROM gcr.io/distroless/java21:nonroot
+
+USER nonroot
+
+COPY /your/stuff/ /app
+
+CMD ["/app/my-app.jar", "-Xmx128m", "other", "jvm", "args"]
+```
+
+#### JavaScript-applikasjon med NodeJS
+
+```bash
+FROM chainguard/node:latest
+ENV NODE_ENV=production
+
+WORKDIR /app
+
+COPY /my/stuff/ /app
+
+CMD [ "my-app.js" ]
+```
+
+```bash
+FROM gcr.io/distroless/nodejs20-debian12:nonroot
+ENV NODE_ENV=production
+
+WORKDIR /app
+
+USER nonroot
+
+COPY /my/stuff/ /app
+
+CMD ["my-app.js"]
+```
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
