@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # ratchet:actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '20.x'
       - name: Cache dependencies
         uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # ratchet:actions/cache@v3
         env:
