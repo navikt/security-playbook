@@ -172,5 +172,12 @@
     "label": "Meetup - Februar 2024 (Påmelding @ delta.nav.no)",
     "href": "https://delta.nav.no/event/bf36c158-b6a7-450f-9209-a29523842019",
     "audience": "Security Champions"
+  },
+  {
+    "startDate": "2024-04-09",
+    "endDate": "2024-04-09",
+    "label": "Meetup - April 2024 (Påmelding @ delta.nav.no)",
+    "href": "https://delta.nav.no/event/ff2d1731-cb51-44e0-ba5b-3f44476453c9",
+    "audience": "Security Champions"
   }
 ]
