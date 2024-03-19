@@ -49,7 +49,7 @@ $ npm start
 
 **NB**: Ikke alle funksjoner fungerer i utviklingsmodus. Bl.a. søk krever at du i stedet bygger playbooken.
 
-#### Bygg og start en komplett versjon playbooken
+#### Bygg og start en komplett versjon av playbooken
 
 ```console
 $ npm run build
