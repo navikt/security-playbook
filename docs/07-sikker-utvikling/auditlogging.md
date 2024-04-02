@@ -119,9 +119,9 @@ Her er noen eksempler:
 | Foreldrepenger      | fptilbake             |
 | Foreldrepenger      | fpabakus              |
 | Foreldrepenger      | fpfordel              |
-| Familie             | AuditLogg             |
-| Familie             | AuditLogg             |
-| Familie             | AuditLogg             |
+| Familie             | familie-ba-sak        |
+| Familie             | familie-tilbake       |
+| Familie             | familie-klage         |
 
 ## Eksempler bruk av CEF formatet
 
@@ -169,3 +169,10 @@ import UnderArbeid from './\_under-arbeid.mdx'
 
 <UnderArbeid />
 ```
+
+## Overvåkning via Prometheus \ Grafana
+Fra etter påsken 2024 blir det dyttet ut daglige og timentlige status oppdateringer på mottatte events fra de ulike appene i NAV. Dette sendes til følgende metrics på fss datasource. Disse kan benyttes til å lage egne alarmer for å passe på at auditloggingen ikke stanser ved en oppdatering eller annet. Skulle det være ønske om andre metrikker kan dette meldes inn til slack kanalen vår. Applikasjonen tagges med "source" og er $NAIS_APP_NAME.
+| Navn på Metric                  | Beskrivelse                                                          | Oppdaterings intervall |
+|---------------------------------|----------------------------------------------------------------------|------------------------|
+| arcsight_logging_events_pr_hour | Beskriver antall loggevents for alle applikasjoner foregående time.  | 5 min over hver time   |
+| arcsight_logging_events_total   | Beskriver antall loggevents forrige døgn.                            | 30 min over midnatt    |
