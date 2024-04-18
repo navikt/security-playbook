@@ -67,6 +67,11 @@ module.exports = {
           label: "Arrangementer 🎉",
         },
         {
+          href: "/docs/goldenpath/",
+          position: "left",
+          label: "Golden Path 📣"
+        },
+        {
           href: "https://github.com/navikt/security-playbook",
           label: "GitHub",
           position: "right",
