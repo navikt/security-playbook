@@ -9,7 +9,7 @@ tags:
 
 Hvordan endrer trusselmodellen seg når man kjører appene sine i containere vs. på tradisjonelle servere? Den største forskjellen er kanskje at du nå også har ansvar for operativsystemet på "boksen" din i motsetning til at noen andre ™️ fikser det for deg. Imaget du baserer appen din på (`FROM`-linja i din Dockerfile) bør oppdateres jevnlig for å få med seg sikkerhetsoppdateringer. Den enkleste måten å oppnå dette på er å slenge på en `--pull` når du kjører `docker build`. Docker vil da hente nyeste utgave av den tagen du ber om.
 
-Det er praktisk å få varsel når det oppdages alvorlige sårbarheter i images sånn at man kan oppdatere. Scan dine images regelmessig med verktøy som [Snyk](/docs/verktoy/snyk/) eller [Trivy](https://github.com/aquasecurity/trivy).
+Det er praktisk å få varsel når det oppdages alvorlige sårbarheter i images sånn at man kan oppdatere. Scan dine images regelmessig med verktøy som [Trivy](https://github.com/aquasecurity/trivy).
 
 Man unngår mange potensielle sikkerhetsproblemer ved å bruke så minimale image som mulig. Du trenger sannsynligvis ikke et shell, en package manager og en masse utilities for å få kjørt appen din, men for en angriper er de veldig nyttige. Såkalte "distroless" images er spesialdesignet for å være så lette som mulig, se f.eks. disse fra [Google](https://github.com/GoogleContainerTools/distroless) og [Chainguard](https://github.com/chainguard-images).
 
