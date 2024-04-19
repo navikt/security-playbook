@@ -1,41 +1,27 @@
 ---
 title: Golden Path 📣
-hide_table_of_contents: false
+hide_table_of_contents: true
 sidebar_position: 6
 ---
 
-⚠️ Heavy work in progress ⚠️
-===============
+```mdx-code-block
+import UnderArbeid from './\_under-arbeid.mdx'
 
-![Heavy work in progress!](/img/work-in-progress-cat.jpg "WIP Cat")
+<UnderArbeid />
+```
 
 Golden Path er en samling av oppgaver med nyttige tiltak ett team kan implementere for att få in sikkerhetsbiten i DevSecOps.
 De er satt opp i prioritert rekkefølge så att team med dårlig tid kan få på plass de raskeste tiltaken og vente med de som tar litt lengre tid.
 
-## Planlegging, Design & Analyse
-- Trusselmodellering
-- OWASP Top 10
-- Vurdere valg av rammeverk
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-## Koding
-- Vurdere valg av avhengigheter
-- ASVS med venner
-- Auditlogg
-- Tracing
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
 
-## Testing
-- Kodescanning
+### Savner du noe?
 
-## Produksjonssetting
-- Sett opp Docker images etter best practice retningslinjer
-- Scanne docker images etter sårbarheter og hemmeligheter
-- Submitte avhengigheter og resultater fra scanning til GHAS
-
-## Forvaltning
-- Automatisere patching
-- Kjør scans med cron schedule
-- Alerts for applikasjon og pipeline
-
-## Generellt
-- Håndtering av hemmeligheter
-- GHAS-greier
+Da er du sannsynligvis ikke alene! Kom veldig gjerne med bidrag [selv](https://github.com/navikt/security-playbook),
+eller si ifra i [#security-champion](https://nav-it.slack.com/archives/CN8N938K1)-kanalen.
+Så blir playbooken enda bedre for alle! 🥰
