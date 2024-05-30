@@ -18,13 +18,16 @@ Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dett
 - Det burde ikke logges mer personinformasjon enn det som er nødvendig for å feilsøke. Ikke lagre mer informasjon enn man har tjenstlig behov for.
 - Rader som unikt identifiserer brukerne skal ikke i åpen logg. Eksempler:
   - Fødselsnummer, aktørId, husadresser, IP-adresser, organisasjonsnummer
-- Pass spesielt på URL-stier, HTTP-headere og lignende som ofte blir logget av rammeverk eller mellomtjenester
-  - F.eks. fødselsnummer i URLen, `/person/1234567890` eller `/person?fnr=1234567890`, vil fort feilaktig ende opp i tilgangslogger uten videre beskyttelse.
 - Alt det som ikke kan gå i åpen logg kan legges i secure logs, med begrenset tilgang til loggen (teamet må ha kontroll på hvem som har tilgang)
 - ROS på teamets logging og eventuelt tilgang til secure logs (**husk å oppdatere ved behov!**)
 - Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Asys](https://it-hjelpa.adeo.no/arsys/forms/remedy/Avvik/webViewSub/). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
 
 Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
+
+:::warning Pass på URL-ene
+URLer og HTTP-headere blir ofte logget av ulike rammeverk eller "mellomtjenester" som lastbalanserere.
+Fødselsnumre og evt annen sensitiv informasjon i URL-er som `/person/1234567890` eller `/person?fnr=1234567890` vil derfor ende opp i logger uten nødvendig beskyttelse. Den eneste måten å unngå dette på (inntil [Query-metoden](https://www.ietf.org/archive/id/draft-ietf-httpbis-safe-method-w-body-02.html)) evt blir en del av HTTP-specen) er å POSTe slike queries. Det er ikke kjempebra bruk av semantikken i HTTP, men det er det eneste som løser dette problemet. Vær også obs på at selv om ikke du logger slike ting så kan tredjepartsbiblioteker gjøre det. Test hva som er standard oppførsel for bibliotekene du bruker!
+:::
 
 ## Logging av sikkerhetsrelaterte hendelser
 
