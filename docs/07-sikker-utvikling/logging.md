@@ -26,7 +26,7 @@ Et eksempel på en app som benytter alle disse loggemulighetene finner man [her]
 
 :::warning Pass på URL-ene
 URLer og HTTP-headere blir ofte logget av ulike rammeverk eller "mellomtjenester" som lastbalanserere.
-Fødselsnumre og evt annen sensitiv informasjon i URL-er som `/person/1234567890` eller `/person?fnr=1234567890` vil derfor ende opp i logger uten nødvendig beskyttelse. Den eneste måten å unngå dette på (inntil [Query-metoden](https://www.ietf.org/archive/id/draft-ietf-httpbis-safe-method-w-body-02.html)) evt blir en del av HTTP-specen) er å POSTe slike queries. Det er ikke kjempebra bruk av semantikken i HTTP, men det er det eneste som løser dette problemet. Vær også obs på at selv om ikke du logger slike ting så kan tredjepartsbiblioteker gjøre det. Test hva som er standard oppførsel for bibliotekene du bruker!
+Fødselsnumre og evt annen sensitiv informasjon i URL-er som `/person/1234567890` eller `/person?fnr=1234567890` vil derfor ende opp i logger uten nødvendig beskyttelse. Den eneste måten å unngå dette på (inntil [Query-metoden](https://www.ietf.org/archive/id/draft-ietf-httpbis-safe-method-w-body-02.html) evt blir en del av HTTP-specen) er å POSTe slike queries. Det er ikke kjempebra bruk av semantikken i HTTP, men det er det eneste som løser dette problemet. Vær også obs på at selv om ikke du logger slike ting så kan tredjepartsbiblioteker gjøre det. Test hva som er standard oppførsel for bibliotekene du bruker!
 :::
 
 ## Logging av sikkerhetsrelaterte hendelser
