@@ -1,7 +1,7 @@
 name: Merge Dependabot PRs
 on:
   schedule:
-    cron: '0 10 * * *'
+    [ cron: '25 06 * * *' ]
 
 permissions:
   contents: write
