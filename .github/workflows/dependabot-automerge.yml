@@ -1,0 +1,146 @@
+name: Merge Dependabot PRs
+on:
+  schedule:
+    cron: '0 10 * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge-pullrequests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@8348ea7f5d949b08c7f125a44b569c9626b05db3 # ratchet:dependabot/fetch-metadata@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: merge
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # ratchet:actions/github-script@v7
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major' || steps.metadata.outputs.package-ecosystem == 'github_actions'
+        with:
+          script: |
+            // HUSK Å SJEKKE TODO-ENE NEDERST OG ENDRE
+            // TIL Å PASSE DITT MILJØ
+
+            const erFerie = () => {
+              const today = new Date();
+              const sommerStart = new Date(today.getFullYear(), 5, 20);
+              const sommerSlutt = new Date(today.getFullYear(), 7, 7);
+              const julStart = new Date(today.getFullYear(), 11, 20);
+              const julSlutt = new Date(today.getFullYear(), 11, 31);
+              const nyttaarStart = new Date(today.getFullYear(), 0, 1);
+              const nyttaarSlutt = new Date(today.getFullYear(), 0, 3);
+
+              return (today >= sommerStart && today <= sommerSlutt) || (today >= julStart && today <= julSlutt) || (today >= nyttaarStart && today <= nyttaarSlutt)
+            } 
+
+            
+
+            if (erFerie()) {
+                console.log('Skriptet kjører ikke i ferier');
+                return;
+            }
+
+
+            const pulls = await github.request('GET /repos/{owner}/{repo}/pulls', {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+            })
+
+            if (pulls.data.length === 0) {
+                console.log('Ingen PRs funnet -> ingenting å gjøre.');
+                return;
+            }
+
+            const toDager = 2 * 60 * 60 * 24 * 1000 // 2 days
+            const filtrert = pulls.data
+                .filter((it) => it.state == 'open')
+                .filter((it) => !it.head.repo.fork)
+                .filter((it) => it.user.login === 'dependabot[bot]')
+                .filter((it) => new Date(it.created_at).getTime() < (Date.now() - toDager))
+                .map((it) => {
+                    return {
+                        title: it.title,
+                        number: it.number,
+
+                    }
+                })
+                .map(async (it) => {
+                    const QUERY = `query($owner: String!, $repo: String!, $pull_number: Int!) {
+                                          repository(owner: $owner, name:$repo) {
+                                            pullRequest(number:$pull_number) {
+                                              commits(last: 1) {
+                                                nodes {
+                                                  commit {
+                                                    statusCheckRollup {
+                                                      state
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }`
+
+                    const result = await github.graphql(QUERY, {
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        pull_number: it.number,
+                    })
+                    const [{ commit: lastCommit }] =
+                        result.repository.pullRequest.commits.nodes
+
+                    return {
+                        title: it.title,
+                        number: it.number,
+                        checksOk: lastCommit.statusCheckRollup?.state === 'SUCCESS',
+                    }
+                })
+
+            const allePrs = await Promise.all(filtrert)
+            const mergeablePromise = allePrs
+                .filter((it) => it.checksOk)
+                .map(async (it) => {
+                    const prdata = await github.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        pull_number: it.number
+                    })
+                    return {
+                        title: it.title,
+                        number: it.number,
+                        mergeable: prdata.data.mergeable
+                    }
+                })
+
+
+            const mergeable = (await Promise.all(mergeablePromise))
+                .filter((it) => {
+                  return it.mergeable;
+                })
+            if (mergeable.length > 0) {
+                const pr = mergeable[0]
+                console.log('Merger PR', pr.title)
+                await github.request('PUT /repos/{owner}/{repo}/pulls/{pull_number}/merge', {
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: pr.number,
+                    merge_method: 'squash'
+                })
+                console.log('Starter main workflow')
+
+                await github.request(
+                    'POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches',
+                    {
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        workflow_id: 'main.yml',
+                        ref: 'main',
+                    }
+                )
+            } else {
+                console.log('Ingen PRer å merge')
+            }
