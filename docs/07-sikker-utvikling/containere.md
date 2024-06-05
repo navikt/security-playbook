@@ -26,7 +26,7 @@ Selve containeren bør også ha begrensede rettigheter. Docker kan kjøre contai
 
 I et orkestreringsmiljø som Kubernetes endres ting ofte, og systemet kan flytte pods rundt i clusteret uten forvarsel i tillegg til å skalere antall instanser opp og ned etter behov. En gratis og positiv bieffekt av dette er at det gjør jobben til en angriper vanskeligere. Det er mye vanskeligere å opprettholde persistens dersom miljøet du er i rives ned og gjenoppbygges ofte.
 
-Se forøvrig [OWASP Docker top 10](https://owasp.org/www-pdf-archive//Dirk_Wetter_-_Docker_Top10-AMS.pdf) og [The Docker Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html) for mer info.
+Se forøvrig [OWASP Docker top 10](https://github.com/OWASP/Docker-Security/blob/main/dist/owasp-docker-security.pdf) og [The Docker Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html) for mer info.
 
 ## nais
 
