@@ -13,12 +13,12 @@ import UnderArbeid from './\_under-arbeid.mdx'
 Golden Path er en samling av oppgaver med nyttige tiltak et team kan implementere for å bedre sikkerheten sin.
 De er satt opp i prioritert rekkefølge sånn at man kan komme raskt i gang.
 
-- Lese [nais doc](https://doc.nais.io/security/). Gjør deg kjent med og implementer anbefalingene som gis der, spesielt det som gjelder autentisering og autorisering.
+- Lese [nais doc](https://doc.nais.io/). Gjør deg kjent med og implementer anbefalingene som gis der, spesielt det som gjelder autentisering og autorisering.
 - Sett opp [overvåking og alarmer](https://doc.nais.io/observability/) for appene dine sånn at du oppdager oppførsel som avviker fra normalen.
 - Pass på at du har kontroll på [hemmelighetene](/docs/sikker-utvikling/hemmeligheter) som appene dine benytter. ALDRI kopier ut hemmeligheter fra produksjonsmiljøet til egen PC.
-- Scan avhengighetene dine med [Dependabot](https://sikkerhet.nav.no/docs/sikker-utvikling/tredjepartskode) og patch dem regelmessig.
+- Scan avhengighetene dine med [Dependabot](/docs/sikker-utvikling/tredjepartskode) og patch dem regelmessig.
 - Kjør [statisk analyse](/docs/sikker-utvikling/kodeanalyse) av koden din og fiks det den oppdager.
-- Bruk Docker baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless).
+- Bruk Docker baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless). [Eksempel her](/docs/sikker-utvikling/containere)
 - [Scan](/docs/verktoy/trivy) Docker imagene dine. Det kan ha sneket seg med andre sårbarheter eller hemmeligheter du ikke er klar over. Kjør slike scans regelmessig selv om du ikke har gjort endringer i appen din, det kan ha dukket opp nye problemer siden sist. Dette gjøres ved å legge til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) på workflowen.
 - Bygg imagene dine vha [docker-build-push](https://doc.nais.io/build/), og ikke skru av generering og opplasting sv SBOM (parametrene `byosbom` og `salsa`).
 
