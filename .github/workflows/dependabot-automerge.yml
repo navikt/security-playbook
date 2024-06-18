@@ -22,7 +22,7 @@ jobs:
         if: steps.metadata.outputs.update-type != 'version-update:semver-major' || steps.metadata.outputs.package-ecosystem == 'github_actions'
         with:
           script: |
-              const erFerie = () => {
+            const erFerie = () => {
               const today = new Date();
               const sommerStart = new Date(today.getFullYear(), 6, 1);
               const sommerSlutt = new Date(today.getFullYear(), 6, 31);
