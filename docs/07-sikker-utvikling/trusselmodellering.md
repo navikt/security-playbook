@@ -22,13 +22,13 @@ forstå følgende:
 - Hva skal vi gjøre med det?
 - Gjorde vi en god nok jobb?
 
-<p style={{fontSize: "small"}}><i>"Hva er det vi jobber med" kan være et helt system, en applikasjon eller en liten feature. Trusselmodellering kan 
+<p style={{fontSize:"small"}}><i>"Hva er det vi jobber med" kan være et helt system, en applikasjon eller en liten feature. Trusselmodellering kan 
 brukes med fordel i alle tilfeller.</i></p>
 :::
 
 ## Hvordan gjennomfører man en trusselmodellering?
 
-<p style={{fontSize: "x-small"}}><i>Det er mange teknikker og modeller for å gjennomføre trusselmodellering, det som 
+<p style={{fontSize:"x-small"}}><i>Det er mange teknikker og modeller for å gjennomføre trusselmodellering, det som 
 presenteres her er den subjektivt beste. Diskusjon rundt trusselmodellerng tas i <a href="https://nav-it.slack.com/archives/CN8N938K1">#security-champion</a></i></p>
 
 ### 1. Hva vi jobber med?
@@ -42,41 +42,67 @@ av _[Data Flow Diagram](https://en.wikipedia.org/wiki/Data-flow_diagram)_.
 
 :::caution
 Ikke tenk så mye på å være pinlig nøyaktig! Diagrammet skal ikke være dokumentasjon, det skal være et verktøy for å
-hjelpe til å oppdage sikkerhetsproblemer.
+hjelpe til å oppdage sikkerhetsproblemer. Husk at alle modeller er feil, men mange kan være nyttige
 :::
 
-import DFDstepOne from '/img/dfd-step-1.svg';
-import DFDstepTwo from '/img/dfd-step-2.svg';
-
-1. Tegn ressursene som er i spill
+1. Tegn opp systemet man skal trusselmodellere.
 
    I dette tilfellet så er systemet en visningsløsning for brukere. Vi starter enkelt og tar i begynnelsen bare med det vi
    mener er de viktigste prosessene, personene og data.
 
-   <DFDstepOne width="70%" height="70%" />
+2. Ta med dataflyt og tillitgrenser.
 
-2. Legg på dataflyten mellom elementene
-
-<DFDstepTwo width="70%" height="70%" />
+<img alt="Eksempel på DFD tegning" src="/img/DFD_eksempel.png"/>
 
 ### 2. Hva kan gå galt?
 
 Systematisk gjennomgang av komponentene med mål om å finne sårbarheter.
 
-Huskeordet [STRIDE](<https://en.wikipedia.org/wiki/STRIDE_(security)>) oppsummerer viktige trusler:
+Huskeordet **STRIPED** (som er basert [STRIDE](<https://en.wikipedia.org/wiki/STRIDE_(security)>)) oppsummerer viktige trusler
 
 - **S**poofing - aktør utgir seg for å være en annen for å få uautorisert tilgang
 - **T**ampering - aktør forsøker å endre på data, f.eks. gjennom [_SQL-injeksjon_](https://en.wikipedia.org/wiki/SQL_injection)
 - **R**epudiation - aktør benekter at man har utført en handling, som at man har mottatt noe, eller godtatt noe
 - **I**nformation disclosure - aktør kan lese data de ikke skal ha tilgang til å lese, gjennom f.eks. [_man-in-the-middle_ (MITM)](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) eller SQL-injeksjon
-- **D**enial of service - aktør forsøker å gjøre systemet utilgjengelig for brukerne
+- **P**rivacy - uautorisert innsamling, bruk, visning eller lagring av personopplysninger.
 - **E**levation of privilege - aktør forsøker å skaffe seg mer tilgang enn man skal ha
+- **D**enial of service - aktør forsøker å gjøre systemet utilgjengelig for brukerne
 
 ### 3. Hva skal vi gjøre med det?
 
+Man må velge en strategi for å håndtere truslene. Det er flere muligheter:
+
+- **Redusere** - legg til kontroller, retningslinjer, prosedyrer eller koder for å redusere sårbarheten
+- **Eliminere** - fjerne funksjonalitet, kode eller komponent
+- **Godta** - erkjenne, forstå og dokumentere aksept
+- **Overføre** - kjøpe forsikring, dele med andre, dokumentere eller spore
+
+**Sjekk og verifiser** forutsetninger og problemer
+
 ### 4. Gjorde vi en god nok jobb?
 
-![data flow diagram](/img/dfd_with_labels.jpg)
+**Gjør retrospektiver av trusselmodellering jevnlig!**
+Der kan integrere dem i de vanlige teamretroene, eller ha dedikerte økter for det. (Hvor evaluerer du vanligvis emner som kvalitet, standarder, sikkerhetskode, etc?)
+
+**Mulige spørsmål til refleksjon:**
+
+- Fant vi noen trusler?
+- Bør vi ha mål som «2 STRIPED» trusler per komponent?
+- Hvor mange av de identifiserte truslene har vi klart å håndtere? (lukket vs åpent)
+- Fungerte tiltakene våre?
+- Har vi hendelser som er forårsaket av feil i tiltakene våre?
+- Er vi (teamet) fornøyd med vår måte å drive trusselmodellering på?
+- Setter vi av nok tid til trusselmodellering?
+- Fungerer vår mekanisme for å prioritere arbeid?
+- Er det noen eksperimenter vi bør prøve, som f.eks. andre metoder?
+
+### 5. Husk SDLC
+
+Det meste av sikkerhetsarbeidet vårt fokuserer på å beskytte systemene våre og egenutviklede apper.
+Vi bruker mindre tid på trusselmodellering av våre egene utviklingsprosesser.
+Angrep i forsyningskjeden er reell fare.
+Vår SDLC er eksponert for ulike angrepsvektorer.
+Programvareutviklere har ofte et bredt sett med tillatelser og er "mål med høy verdi"
 
 ## Gode ressurser
 
