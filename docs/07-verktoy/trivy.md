@@ -15,6 +15,10 @@ tags:
 [Trivy fra aquasecurity](https://github.com/aquasecurity/trivy) er en omfattende sårbarhetsskanner som er enkel å ta i bruk.
 Ved å integrere Trivy med GitHub Actions kan du skanne Docker-images for sårbarheter i både OS og applikasjon samt laste opp resultatene til Github Advanced Security for å få alerts i "Code Scanning"-seksjonen.
 
+:::note
+Det er lurt å legge til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) på workflowen. Det er fordi det kan dukke opp nye sårbarheter selv når dere ikke gjør kodeendringer.
+:::
+
 Legg til `aquasecurity/trivy-action` i din workflow etter stegene der du bygger Docker-imaget:
 
 ```trivy

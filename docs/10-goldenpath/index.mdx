@@ -13,11 +13,11 @@ De er satt opp i prioritert rekkefølge sånn at man kan komme raskt i gang.
 - Scan avhengighetene dine med [Dependabot](/docs/sikker-utvikling/tredjepartskode) og patch dem regelmessig.
 - Kjør [statisk analyse](/docs/sikker-utvikling/kodeanalyse) av koden din og fiks det den oppdager.
 - Bruk Docker baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless). [Eksempel her](/docs/sikker-utvikling/containere)
-- [Scan](/docs/verktoy/trivy) Docker imagene dine. Det kan ha sneket seg med andre sårbarheter eller hemmeligheter du ikke er klar over. Kjør slike scans regelmessig selv om du ikke har gjort endringer i appen din, det kan ha dukket opp nye problemer siden sist. Dette gjøres ved å legge til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) på workflowen.
+- [Scan](/docs/verktoy/trivy) Docker imagene dine. Det kan ha sneket seg med andre sårbarheter eller hemmeligheter du ikke er klar over.
+  Det er lurt å legge til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) på workflowen. Det er fordi det kan dukke opp nye sårbarheter selv når dere ikke gjør kodeendringer.
 - Bygg imagene dine vha [docker-build-push](https://doc.nais.io/build/), og ikke skru av generering og opplasting sv SBOM (parametrene `byosbom` og `salsa`).
 - Valider all input. Ikke stol på data som kommer inn uavhengig av hvor det kommer fra.
 - Ha kontroll på [loggene](/docs/sikker-utvikling/logging). Pass på at dere ikke logger FNR til standardloggene.
-
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
