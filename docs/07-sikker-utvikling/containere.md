@@ -15,18 +15,31 @@ Man unngår mange potensielle sikkerhetsproblemer ved å bruke så minimale imag
 
 ![shell](/img/cantdont.jpg "shell")
 
-Et annet billig sikkerhetstiltak er å ikke kjøre appen sin som root inni containeren. Mange images har i utgangspunktet root som eneste bruker, og vil derfor kjøre appen din som root med mindre du ber om noe annet. Fikses ved å legge noe sånn som dette inn i din `Dockerfile` (_før_ `ENTRYPOINT` og `CMD`-linjer):
+Et annet billig sikkerhetstiltak er å ikke kjøre appen sin som root inni containeren. Dette er default i nais nå.
+
+<details>
+<summary>Manuelt sette opp å ikke bruke root</summary>
+
+Mange images har i utgangspunktet root som eneste bruker, og vil derfor kjøre appen din som root med mindre du ber om noe annet. Fikses ved å legge noe sånn som dette inn i din `Dockerfile` (_før_ `ENTRYPOINT` og `CMD`-linjer):
 
 ```bash
 RUN useradd --uid 10000 runner
 USER 10000
 ```
 
+</details>
+
 Selve containeren bør også ha begrensede rettigheter. Docker kan kjøre containere i [privileged mode](https://www.docker.com/blog/docker-can-now-run-within-docker/), noe som gir containeren mer eller mindre full tilgang til hostens ressurser. Dette er IKKE en god idé da en kompromittert app i praksis betyr full kontroll på host-maskinen. Man kan også [justere](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) hvilke [capabilities](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities) containeren skal ha. Grunnregelen her er å starte helt uten ekstra capabilities og så eksplisitt legge på de man ev. trenger.
 
 I et orkestreringsmiljø som Kubernetes endres ting ofte, og systemet kan flytte pods rundt i clusteret uten forvarsel i tillegg til å skalere antall instanser opp og ned etter behov. En gratis og positiv bieffekt av dette er at det gjør jobben til en angriper vanskeligere. Det er mye vanskeligere å opprettholde persistens dersom miljøet du er i rives ned og gjenoppbygges ofte.
 
 Se forøvrig [OWASP Docker top 10](https://github.com/OWASP/Docker-Security/blob/main/dist/owasp-docker-security.pdf) og [The Docker Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html) for mer info.
+
+## Distroless
+
+Vi anbfaler å kjøre i såkalte "distroless" docker-images uten shell. Disse er spesialdesignet for å være så lette som mulig, og inneholder kun det som trengs for å kjøre appen din. Dette gjør det vanskeligere for angripere å utnytte sårbarheter i systemet ditt. Se f.eks. disse fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless)
+
+Man kan fortsatt debugge disse ved å bruke **Ephemeral containers** i Kubernetes. Dette er en midlertidig container som kjører i samme nettverk og med samme filsystem som poden du vil debugge. Se [nais docen](https://docs.nais.io/workloads/explanations/ephemeral-containers/) for mer info.
 
 ## nais
 
