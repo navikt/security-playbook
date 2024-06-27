@@ -51,7 +51,7 @@ For å hindre at angripere kan bevege seg fritt rundt etter å ha kompromittert 
 
 ## Dockerfile eksempler
 
-:::note
+:::note Chainguard
 Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever spesifikke versjoner av Java må andre baseimages (feks Google sine) benyttes.
 :::
 

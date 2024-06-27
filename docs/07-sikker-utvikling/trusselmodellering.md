@@ -15,7 +15,7 @@ forstå følgende:
 - hvordan man kan gjennomføre trusselmodellering
 - hva man kan forvente å få ut av en trusselmodelleringssesjon (puh!) 💪
 
-:::note trusselmodelleringens fire spørsmål
+:::note Trusselmodelleringens fire spørsmål
 
 - Hva er det vi jobber med?
 - Hva kan gå galt?
@@ -40,7 +40,7 @@ av _[Data Flow Diagram](https://en.wikipedia.org/wiki/Data-flow_diagram)_.
 
 **Data Flow Diagram**
 
-:::caution
+:::caution Nøyaktighet
 Ikke tenk så mye på å være pinlig nøyaktig! Diagrammet skal ikke være dokumentasjon, det skal være et verktøy for å
 hjelpe til å oppdage sikkerhetsproblemer. Husk at alle modeller er feil, men mange kan være nyttige
 :::

@@ -9,7 +9,7 @@ Alle systemer har informasjon de trenger å holde hemmelig. Dette er ting som pa
 
 Kode og hemmeligheter bør alltid holdes fra hverandre og håndteres separat. Hemmelighetene tilgjengeliggjøres for applikasjonene i kjøretidsmiljøet vha mekanismer som plattformen tilbyr. Applikasjoner som bruker Postgres får automatisk en [Cloud SQL Proxy](https://doc.nais.io/persistence/postgres/#cloud-sql-proxy) som sørger for at tilkobling skjer kryptert og med credentials som roteres automatisk. Hvis man skulle trenge å hente ut Postgres-credentials finnes det et [opplegg](https://doc.nais.io/persistence/postgres/#cloud-sql-credentials) for det også. For [OAuth](https://doc.nais.io/security/auth/) får man også automatisk provisjonert (og rotert) nødvendige hemmeligheter som tilgjengeliggjøres i podene som miljøvariabler, filer eller Kubernetes secrets. Deploy benytter kortlevde tokens fra GitHub.
 
-:::caution
+:::danger OBS!
 Hemmeligheter for prod-systemer skal ikke under noen omstendigheter hentes ut og lagres på utsiden!
 :::
 
@@ -23,8 +23,10 @@ Et av de vanligste stedene å lekke hemmeligheter er i kildekode. Hvis man ikke 
 
 Et billig og effektivt tiltak man kan gjøre er å alltid ignorere filer som typisk inneholder potensielt sensitiv konfigurasjon, feks `.env`. Git, Docker og npm har alle ignore-mekanismer (hhv `.gitignore`, `.dockerignore` og `.npmignore`) der slike filer kan utelukkes.
 
-Når man skal kopiere filer over til et Docker-image er det også lurt å være eksplisitt. `COPY . .` i en Dockerfile fører til at alt i denne katalogen kopieres over, også filer man kanskje ikke hadde tenkt skulle være med. `COPY enkonkretfil /enkatalog/` gir deg full kontroll.
-
+Når man skal kopiere filer over til et Docker-image er det også lurt å være eksplisitt. `COPY enkonkretfil /enkatalog/` gir deg full kontroll.
+:::caution Kopier bare det du trenger
+`COPY . .` i en Dockerfile fører til at alt i denne katalogen kopieres over, også filer man kanskje ikke hadde tenkt skulle være med.
+:::
 :::tip Tips!
 For å holde hemmeligheter unna lokale filer samt Git og kommandohistorikk kan man bruke kommandolinjeverktøyene som noen passordmanagere tilbyr.
 
