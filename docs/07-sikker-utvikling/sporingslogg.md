@@ -5,7 +5,7 @@ description: Formålet er støtte til å gi brukere innsyn i hvilke data NAV har
 
 ## Hva er Sporingslogg?
 
-Dette kunne også vært kalt "innsynslogg" og formålet er støtte til å gi brukere innsyn i hvilke data NAV har utlevert om dem. Så når en tjeneste i NAV utleverer NAV-data til en ekstern part, skal dette logges slik at bruker i ettertid kan få vite hva som er blitt utlevert.
+Dette kunne også vært kalt "innsynslogg" og formålet er støtte til å gi brukere innsyn i hvilke data NAV har utlevert om dem til eksterne organisasjoner. Så når en tjeneste i NAV utleverer NAV-data til en ekstern part, skal dette logges slik at bruker i ettertid kan få vite hva som er blitt utlevert.
 
 ## Hvordan logger man?
 
