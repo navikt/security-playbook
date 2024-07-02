@@ -119,6 +119,11 @@ Der kan integrere dem i de vanlige teamretroene, eller ha dedikerte økter for d
 
 ### 5. Husk SDLC
 
+:::note SDLC
+SDLC = Software/System Development Life Cycle
+
+:::
+
 Det meste av sikkerhetsarbeidet vårt fokuserer på å beskytte systemene våre og egenutviklede apper.
 Vi bruker mindre tid på trusselmodellering av våre egene utviklingsprosesser.
 Angrep i forsyningskjeden er reell fare.
