@@ -37,13 +37,16 @@ Se forøvrig [OWASP Docker top 10](https://github.com/OWASP/Docker-Security/blob
 
 ## Distroless
 
-Vi anbfaler å kjøre i såkalte "distroless" docker-images uten shell. Disse er spesialdesignet for å være så lette som mulig, og inneholder kun det som trengs for å kjøre appen din. Dette gjør det vanskeligere for angripere å utnytte sårbarheter i systemet ditt. Se f.eks. disse fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless)
+Vi anbefaler å kjøre i såkalte "distroless" docker-images uten shell. Disse er spesialdesignet for å være så lette som mulig, og inneholder kun det som trengs for å kjøre appen din. Dette gjør det vanskeligere for angripere å utnytte sårbarheter i systemet ditt. Se f.eks. disse fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless)
 
 Man kan fortsatt debugge disse ved å bruke **Ephemeral containers** i Kubernetes. Dette er en midlertidig container som kjører i samme nettverk og med samme filsystem som poden du vil debugge. Se [nais docen](https://docs.nais.io/workloads/explanations/ephemeral-containers/) for mer info.
 
 ## nais
 
-I nais har vi samlet alle disse praksisene i en [security context](https://doc.nais.io/nais-application/securitycontext/) som legges til appen din automatisk. Det finnes også flere såkalte "policy engines" som kan installeres i Kubernetes-clustre. Disse kan forhindre at risikable settinger konfigureres eller nekte å kjøre enkelte payloads basert på kriterier som administratoren setter. I nais bruker vi [Kyverno](https://kyverno.io/) til å bl.a. kun tillate kjøring av images som kommer fra package registries som vi stoler på.
+I nais har vi samlet alle disse praksisene i en [security context](https://doc.nais.io/nais-application/securitycontext/) som legges til appen din automatisk.
+Det finnes også flere såkalte "policy engines" som kan installeres i Kubernetes-clustre.
+Disse kan forhindre at risikable settinger konfigureres og at enkelte payloads kjøres, basert på kriterier som administratoren setter.
+I nais bruker vi [Kyverno](https://kyverno.io/) til å bl.a. kun tillate kjøring av images som kommer fra package registries som vi stoler på.
 
 Vi har valgt å begrense tilgangen til disk i containerne, den eneste pathen man i utgangspunktet kan skrive til er `/tmp`. Fordi containerne er flyktige av natur egner de seg ikke til å lagre ting i uansett, lagring bør skje i [eksterne systemer](https://doc.nais.io/persistence/responsibilities/) som databaser eller "block storage".
 
