@@ -6,7 +6,8 @@ Playbooken er helt åpen for verden, men innholdet er primært laget av og for u
 
 ## Hvem kan bidra? 🤔
 
-Alle! 🥳 Utviklere i NAV har full skrivetilgang til koden, og kan selv endre alt. For andre er det bare å sende inn en Pull Request! 😀
+Alle! 🥳 Utviklere i NAV har full skrivetilgang til koden, og kan selv endre alt.
+For andre er det bare å sende inn en Pull Request! 😀
 
 Innholdet har kun verdi dersom det holdes oppdatert og relevant,
 så det er viktig at det er så lav terskel som mulig å komme med oppdateringer. 💪
