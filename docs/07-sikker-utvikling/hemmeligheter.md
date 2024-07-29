@@ -35,7 +35,21 @@ Eksempel (med 1Password):
 `MY_PW=$(op read op://vault/secret/field)`
 
 `MY_PW=$(vault read path/to/my/password)`
+
+Dersom hardkodede hemmeligheter byttes ut med 1Password-referanser kan man gjøre ting som dette:
+
+`op run --env-file="my.env" -- node myapp.js`
+
+Se [1Password-dokumentasjonen](https://developer.1password.com/docs/cli/) for detaljer
 :::
+
+## Hemmeligheter i Git
+
+Husk at Git aldri glemmer, og man har ikke kontroll på hvor mange som har sjekket ut eller forket et repository. Tjenester som [GH Archive](http://www.gharchive.org/) driver med mer eller mindre systematisk scraping av alle public repositories på GitHub.
+
+Selv om man feks sletter en branch vil commitene den bestod av fortsatt eksistere, og disse kan enkelt [gjenopprettes](https://rewind.com/blog/how-to-restore-deleted-branch-commit-git-reflog/). Det er også flere [gotchas](https://trufflesecurity.com/blog/anyone-can-access-deleted-and-private-repo-data-github) ifm forking av repositories på GitHub. Koblinger mellom forks og originalene representeres i tre-strukturer, og sletting av forks betyr bare at pekere til commit-noder skyfles rundt.
+
+Moralen er derfor: alle hemmeligheter som har funnet veien inn i Git er å anse som kompromitterte, uansett hvor kort tid de har vært der.
 
 ## Hvordan håndtere lekkede hemmeligheter
 
