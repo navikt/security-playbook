@@ -24,23 +24,25 @@ Et av de vanligste stedene å lekke hemmeligheter er i kildekode. Hvis man ikke 
 Et billig og effektivt tiltak man kan gjøre er å alltid ignorere filer som typisk inneholder potensielt sensitiv konfigurasjon, feks `.env`. Git, Docker og npm har alle ignore-mekanismer (hhv `.gitignore`, `.dockerignore` og `.npmignore`) der slike filer kan utelukkes.
 
 Når man skal kopiere filer over til et Docker-image er det også lurt å være eksplisitt. `COPY enkonkretfil /enkatalog/` gir deg full kontroll.
+
 :::caution Kopier bare det du trenger
 `COPY . .` i en Dockerfile fører til at alt i denne katalogen kopieres over, også filer man kanskje ikke hadde tenkt skulle være med.
 :::
+
 :::tip Tips!
-For å holde hemmeligheter unna lokale filer samt Git og kommandohistorikk kan man bruke kommandolinjeverktøyene som noen passordmanagere tilbyr.
+For å holde hemmeligheter unna lokale filer samt Git og kommandohistorikk kan man bruke kommandolinjeverktøyene som tilbys av passordmanagere og andre produkter.
 
-Eksempel (med 1Password):
+Eksempel med 1Password:
 
-`MY_PW=$(op read op://vault/secret/field)`
-
-`MY_PW=$(vault read path/to/my/password)`
-
-Dersom hardkodede hemmeligheter byttes ut med 1Password-referanser kan man gjøre ting som dette:
+`MY_PW=$(op read op://vault/entry/field)`
 
 `op run --env-file="my.env" -- node myapp.js`
 
-Se [1Password-dokumentasjonen](https://developer.1password.com/docs/cli/) for detaljer
+Eksempel med Hashicorp Vault:
+
+`MY_PW=$(vault read path/to/my/password)`
+
+Se dokumentasjonen til [1Password](https://developer.1password.com/docs/cli/) og [Vault](https://developer.hashicorp.com/vault/docs/commands) for detaljer
 :::
 
 ## Hemmeligheter i Git
