@@ -45,7 +45,7 @@ jobs:
 
       - name: Upload results to GitHub Security
         if: inputs.upload-sarif
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy.sarif'
 ```
@@ -103,7 +103,7 @@ jobs:
 
       - name: Upload results to GitHub Security
         if: inputs.upload-sarif
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy.sarif'
 ```
