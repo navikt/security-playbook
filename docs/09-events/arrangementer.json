@@ -179,5 +179,12 @@
     "label": "Meetup - April 2024 (Påmelding @ delta.nav.no)",
     "href": "https://delta.nav.no/event/ff2d1731-cb51-44e0-ba5b-3f44476453c9",
     "audience": "Security Champions"
+  },
+  {
+    "startDate": "2024-10-14",
+    "endDate": "2024-10-14",
+    "label": "BSides Oslo",
+    "href": "https://bsidesoslo.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
