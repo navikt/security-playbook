@@ -46,7 +46,7 @@ jobs:
         run: npm run build
       - name: Upload to CDN
         id: upload
-        uses: nais/deploy/actions/spa-deploy/v2@main # ratchet:exclude
+        uses: nais/deploy/actions/spa-deploy/v2@master # ratchet:exclude
         with:
           team: security-champion-admin
           app: playbook
