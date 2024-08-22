@@ -13,6 +13,7 @@ Disse konkrete produktene brukes mye i NAV og kan anbefales:
 
 - [GitHub Advanced Security](/docs/verktoy/github-advanced-security)
 - [Dependabot](/docs/verktoy/dependabot)
+- [NAIS Console & Dependency-Track](/docs/verktoy/nais-console-dp-track)
 
 Disse kan scanne prosjektene dine jevnlig etter avhengigheter med kjente sårbarheter og varsle dere i form av meldinger på Slack/epost eller ved å lage pull requests som oppdaterer de sårbare versjonene.
 
