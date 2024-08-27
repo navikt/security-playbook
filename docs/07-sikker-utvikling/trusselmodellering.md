@@ -125,7 +125,7 @@ SDLC = Software/System Development Life Cycle
 :::
 
 Det meste av sikkerhetsarbeidet vårt fokuserer på å beskytte systemene våre og egenutviklede apper.
-Vi bruker mindre tid på trusselmodellering av våre egene utviklingsprosesser.
+Vi bruker mindre tid på trusselmodellering av våre egne utviklingsprosesser.
 Angrep i forsyningskjeden er reell fare.
 Vår SDLC er eksponert for ulike angrepsvektorer.
 Programvareutviklere har ofte et bredt sett med tillatelser og er "mål med høy verdi"
