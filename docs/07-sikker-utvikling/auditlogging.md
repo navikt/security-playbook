@@ -1,29 +1,40 @@
 ---
 title: Auditlogging
-description: Skal svare på følgende. Hvem sett på borgers data og hva har en ansatt gjort i NAVs IT systemer?
+description: Skal dokumentere hvilke NAV-ansatte som har aksessert data om hvilke brukere
 ---
 
 ## Hva er auditlogg?
-En logg over brukere av NAV IT systemer (primært ansatte) sine handlinger på borgers informasjon og annen viktig informasjon. Handlinger er primært å se på informasjon. All visning av informasjon skal logges, i tillegg til endringer av informasjon. 
+Auditlogg er loggen over hvilke NAV-ansatte som har hatt tilgang til opplysninger om borgere. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt tilgang til opplysninger om en bruker. Auditloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
 
-Formål: Auditloggene skal kunne bevise, eller motbevise, om de ansatte har misbrukt sine tilganger.
-( Dette betyr i praksis at vi ikke har behov for system\service brukere )
 
-Borgere har mulighet til å få innsyn i hvem som har sett på egne data. I tillegg trenger NAV muligheten til å avdekke misbruk eller mistenkelige handlinger som går ut over tjenestlig behov.
-Loggene vil også bli brukt til maskinell kontroll av mistenkelige handlinger.
-En annet formål er å avdekke misbruk av informasjon som ikke er direkte tilknyttet en borger.
+## Hvilke krav stilles til auditlogging?
+Følgende avsnitt er en kopi av kravene slik de ligger i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/253/1).
 
-## Hva er loggverdig?
-Det er primært handlingene som bruker utfører i GUI som er loggverdig. Søk opp en person er loggverdig, ikke de titalls tjenestekallene som er nødvendig for å svare på handlingen. Logger fra system og\eller service brukere er derfor ikke nødvendig da disse ikke kan spores tilbake til en spessifik ansatt.
+### 1. Når en brukers personopplysninger vises i vårt fagsystem, blir dette auditlogget
+Visning av brukernes opplysninger i fagsystemene skal auditlogges.
+Det finnes noen unntak fra kravet, se suksesskriterium 3.
 
-Betyr det at tjenester ikke skal logge? Det er to svar på det spørsmålet:
-Fellestjenester skal logge. Dette er for å sikre at dersom UI applikasjoner har manglende logging, så vil fellestjenesten sikre at aktiviteten logges.
-Når det gjelder alle tjenester som er teaminterne, så blir det opp til teamet å finne det riktige stedet å logge. Det kan bety at mange interne tjenester ikke trenger å logge.
+### 2. Vi auditlogger kun når vi vet at personopplysninger er vist frem
+Auditloggene skal dokumentere hvilke NAV-ansatte som har hatt tilgang til brukerdata. Derfor skal loggene kun inneholde hendelser som dokumenterer visning av informasjon. Det skal for eksempel ikke logges ved henting av data for tilgangskontroll eller maskinell behandling, eller når en NAV-ansatt får tilgang avvist.
+Det kan oppstå tekniske feil som medfører at data i enkeltstående tilfeller ikke returneres fra backend til frontend. Det er ikke nødvendig å ta høyde for dette i loggingen.
 
-Det er også viktig å tenke over det beste stedet å logge. Spesielt i en mikrotjenestearkitektur så gjelder det å finne det stedet som har all nødvendig kontekst slik at loggmeldingen inneholder all nødvendig informasjon. Det kan være tilfeller der det er nødvendig å logge flere steder for å få full kontekst. Det kan være at en tjeneste vet hvilken borger handlingen gjelder, men et annet sted vet hvilken handling ble utført. I utgangspunktet bør applikasjonen selv sette sammen informasjonen i en felles loggmelding. Hvis dette ikke er mulig må det sikres at logglinjene kan korreleres i etterkant og da må teamet ta kontakt med Team auditlogg slik at dette kan settes opp. Dette fordi loggene sier ingenting om hvem som sender de, og vi har et ønske om å kunne samarbeide med teamene, hvem enn de måtte være, for å passe på at vi får all info vi trenger selv om det kanskje kommer fra flere mikroapplikasjoner. Siden vi ikke vet om det er en mikroapplikasjon eller ikke, er det vanskelig for oss å vite om loggen er ufullstendig eller om det egentlig er en del av en større tjeneste.
+### 3. Vi auditlogger ikke når en bruker "dukker opp" i et liste eller i en annen brukers sak
+Når mengden personopplysninger som vises om en bruker er begrenset, og ikke stammer fra et direkte oppslag på brukeren, skal det ikke auditlogges. Eksempler på slike situasjoner er:
 
-## Nyttige ting å vite om hvordan det bør logges
-Vi i Team Auditlogg tenker at det ikke er nødvendig med logging av systembrukerhandling ettersom dette ikke pr dags dato kan spores tilbake til en person på noen som helst slags måte. Denne typen logger vil derfor fremstå mest som støy som ligger i logg systemet uten å gi noen mening. Vi tenker også at det kun bør logges ting man vet at er vist til, eller endret av, en person i GUI. Dette for å sikre kvalitet på loggene. Samt at det kun bør logges én linje per handling. Det kan gjerne tas i betraktning at logging av en type hendelse kan skje f.eks en gang pr session. Det er noe uvesentlig for bruker om veileder har vært inne på samme applikasjon og sett opplysningene før og etter lunch. En refresh av en nettside bør f.eks ikke utløse flere logg eventer. Vi anser det alikevel litt opp til teamene hvordan dette håndteres.
+- Brukerens navn vises i en annen brukers sak, for eksempel som familiemedlem eller verge.
+- Brukerens vises i en liste over deltakere på arbeidsmarkedstiltak.
+- Brukerens fødselsnummer vises i en oppgave på oppgavebenken til den ansattes NAV-enhet.
+
+Dersom disse situasjonene skrives til auditloggen, blir de oppfattet som ordinære oppslag og blir inkludert i brukerens innsynsrapporter. Dette gir et misvisende bilde av hva den ansatte har sett og gjort, og det er urimelig å forvente at den ansatte kan forklare dette i ettertid. Fagsystemene skal derfor kun auditlogge når den ansatte utfører en handling som tilgjengeliggjør ytterligere personopplysninger om brukeren, for eksempel ved å åpne brukerens sak
+
+### 4. Vi auditlogger ikke mer enn nødvendig
+For å redusere loggvolumet og minimere "støy" i auditloggen, skal én handling i et fagsystem resultere i én linje i auditloggen. Eksempler på handlinger er at en NAV-ansatt gjør oppslag på bruker eller navigerer til en ny fane eller skjermbilde i fagsystemet. Kun handlinger som gir den ansatte tilgang til nye personopplysniger om brukeren skal auditlogges.
+
+### 5. Vi har avklart med Team Auditlogging hvorvidt fagsystemet skal inkluderes i innsynsrapportene til borgere og ledere
+De fleste fagsystemer skal inkluderes i innsynsrapportene til borgere og ledere. Det må avklares med Team Auditlogging hvilke rapporter systemet skal inkluderes i, og hvordan systemet skal navngis og beskrives i rapporten.
+
+### 6. Team Auditlogging har bekreftet at loggene er mottatt på rett format i produksjon
+Les om loggformat i neste avsnitt. Format kan verifiseres i samarbeid med Team Auditlogging på teamets slack-kanal.
 
 ## Teknisk implementasjon av auditlogg
 I NAV implementeres auditlogg i [ArcSight](#hva-er-arcsight-), og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
@@ -56,11 +67,11 @@ Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. vær
 | CEF header field      | ArcSight attribute   | Beskrivelse                                                                                    |
 |-----------------------|----------------------|------------------------------------------------------------------------------------------------|
 | Version               | CEF standard version | Sett til: 0 (null)                                                                             |
-| Device Vendor         | Application name     | Applikasjonsnavnet\Delapplikasjonsnavn ala Arena, Bisys, fpsak, veilarbperson etc              |
-| Device Product        | Log name             | Navnet til type logg meldinger kommer fra: Auditlog, ABAC-Audit, Sporingslogg                  |
+| Device Vendor         | Application name     | Fagsystemets navn, f.eks. Gosys eller Pesys. Navnet vil være synlig i loggrapoprtene og må være gjenkjennbart for de ansatte som bruker av systemet.|
+| Device Product        | Log name             | Navn på applikasjon / undersystem f.eks. notat-administrasjon. Brukes for teknisk feilsøking og overvåkning, og vises ikke i loggrapportene.|
 | Device Version        | Version              | Versjonen av loggformatet: 1.0                                                                 |
 | Device Event Class ID | type_id              | En tekst som representerer hendelsetypen: audit:create, audit:read, audit:update, audit:delete |
-| Name                  | message              | En beskrivelse av hendelsen. F.eks Sporingslogg eller annet passende                           |
+| Name                  | message              | Navn på loggtype, for eksempel Auditlogg eller noe annet passende. |
 | Severity              | severity_id          | Alvorlighetsgraden av hendelsen: INFO, WARN                                                    |
 
 Extention attributter
