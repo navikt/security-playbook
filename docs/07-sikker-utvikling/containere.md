@@ -61,7 +61,7 @@ Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever
 #### Java-applikasjon
 
 ```bash
-FROM chainguard/jre # or jre-lts
+FROM chainguard/jre
 
 COPY /your/stuff/ /app
 
