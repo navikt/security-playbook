@@ -64,18 +64,17 @@ Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever
 ```bash
 FROM cgr.dev/chainguard/jre
 
-COPY build/libs/app.jar /app/app.jar
-WORKDIR /app
+COPY build/libs/app.jar /app.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
 ```
 
 ```bash
 FROM gcr.io/distroless/java21
 
-COPY /your/stuff/ /app
+COPY build/libs/app.jar /app.jar
 
-ENTRYPOINT ["/app/my-app.jar", "-Xmx128m", "other", "jvm", "args"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
 ```
 
 :::note
@@ -99,7 +98,7 @@ WORKDIR /app
 
 COPY /my/stuff/ /app
 
-ENTRYPOINT [ "my-app.js" ]
+ENTRYPOINT ["/nodejs/bin/node", "my-app.js"]
 ```
 
 ```bash
@@ -112,7 +111,7 @@ USER nonroot
 
 COPY /my/stuff/ /app
 
-ENTRYPOINT ["my-app.js"]
+ENTRYPOINT ["/nodejs/bin/node", "my-app.js"]
 ```
 
 </details>
