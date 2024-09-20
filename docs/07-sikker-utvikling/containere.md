@@ -50,7 +50,7 @@ I nais bruker vi [Kyverno](https://kyverno.io/) til å bl.a. kun tillate kjørin
 
 Vi har valgt å begrense tilgangen til disk i containerne, den eneste pathen man i utgangspunktet kan skrive til er `/tmp`. Fordi containerne er flyktige av natur egner de seg ikke til å lagre ting i uansett, lagring bør skje i [eksterne systemer](https://doc.nais.io/persistence/responsibilities/) som databaser eller "block storage".
 
-For å hindre at angripere kan bevege seg fritt rundt etter å ha kompromittert en app har vi tatt i bruk [access policies](https://doc.nais.io/nais-application/access-policy/). All kommunikasjon i eller ut av clustrene må derfor eksplisitt tillates.
+For å hindre at angripere kan bevege seg fritt rundt etter å ha kompromittert en app har vi tatt i bruk [access policies](https://doc.nais.io/nais-application/access-policy/). All kommunikasjon i eller ut av clustrene må derfor eksplisitt tillates. (Gjelder kun i GCP)
 
 ## Dockerfile eksempler
 
@@ -58,41 +58,52 @@ For å hindre at angripere kan bevege seg fritt rundt etter å ha kompromittert 
 Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever spesifikke versjoner av Java må andre baseimages (feks Google sine) benyttes.
 :::
 
-#### Java-applikasjon
+<details>
+<summary>Java-applikasjon</summary>
 
 ```bash
-FROM chainguard/jre
+FROM cgr.dev/chainguard/jre
 
-COPY /your/stuff/ /app
+COPY build/libs/app.jar /app/app.jar
+WORKDIR /app
 
-CMD ["-jar", "/app/my-app.jar", "-Xmx128m", "other", "jvm", "args"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
 ```bash
-FROM gcr.io/distroless/java21:nonroot
-
-USER nonroot
+FROM gcr.io/distroless/java21
 
 COPY /your/stuff/ /app
 
-CMD ["/app/my-app.jar", "-Xmx128m", "other", "jvm", "args"]
+ENTRYPOINT ["/app/my-app.jar", "-Xmx128m", "other", "jvm", "args"]
 ```
 
-#### JavaScript-applikasjon med NodeJS
+:::note
+Husk og sjekke om du er avhengig av norsk tidssone og locale i din applikasjon.
+:::
 
 ```bash
-FROM chainguard/node:latest
+ENV LANG='nb_NO.UTF-8' LANGUAGE='nb_NO:nb' LC_ALL='nb:NO.UTF-8' TZ="Europe/Oslo"
+```
+
+</details>
+
+<details>
+<summary>JavaScript-applikasjon med NodeJS</summary>
+
+```bash
+FROM cgr.dev/chainguard/node:latest
 ENV NODE_ENV=production
 
 WORKDIR /app
 
 COPY /my/stuff/ /app
 
-CMD [ "my-app.js" ]
+ENTRYPOINT [ "my-app.js" ]
 ```
 
 ```bash
-FROM gcr.io/distroless/nodejs20-debian12:nonroot
+FROM gcr.io/distroless/nodejs20-debian12
 ENV NODE_ENV=production
 
 WORKDIR /app
@@ -101,8 +112,10 @@ USER nonroot
 
 COPY /my/stuff/ /app
 
-CMD ["my-app.js"]
+ENTRYPOINT ["my-app.js"]
 ```
+
+</details>
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
