@@ -52,6 +52,27 @@ Vi har valgt å begrense tilgangen til disk i containerne, den eneste pathen man
 
 For å hindre at angripere kan bevege seg fritt rundt etter å ha kompromittert en app har vi tatt i bruk [access policies](https://doc.nais.io/nais-application/access-policy/). All kommunikasjon i eller ut av clustrene må derfor eksplisitt tillates. (Gjelder kun i GCP)
 
+## Best practices
+
+Les gjerne dockers egne [best practices](https://docs.docker.com/build/building/best-practices/).
+Ett par highlights som er spesielt relevante:
+
+### Docker Secrets
+
+Husk att kommandoer og arguments du bruker i ett bygg lagres i imaget og kan leses ut. Sensitiv informasjon som tokens og passord bør mountes ved hjelp av docker secrets og passes in som build-arg.
+Eksempel fra Aksel:
+
+```bash
+RUN --mount=type=secret,id=NODE_AUTH_TOKEN sh -c \
+    'npm config set //npm.pkg.github.com/:_authToken=$(cat /run/secrets/NODE_AUTH_TOKEN)'
+RUN npm config set @navikt:registry=https://npm.pkg.github.com
+```
+
+### Hemmeligheter
+
+Ikke bruk `COPY . .` for å kopiere filer, spesifiser heller hvilke filer du vil ha med.
+Bygger du din app med en personal access token har den mest sannsynligvis blitt lagret i image-laget.
+
 ## Dockerfile eksempler
 
 :::note Chainguard
