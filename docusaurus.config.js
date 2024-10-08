@@ -13,6 +13,10 @@ module.exports = {
     defaultLocale: "no",
     locales: ["no"],
   },
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
   plugins: [
     [
       require.resolve("docusaurus-lunr-search"),
@@ -69,7 +73,7 @@ module.exports = {
         {
           href: "/docs/goldenpath/",
           position: "left",
-          label: "Golden Path 📣"
+          label: "Golden Path 📣",
         },
         {
           href: "https://github.com/navikt/security-playbook",

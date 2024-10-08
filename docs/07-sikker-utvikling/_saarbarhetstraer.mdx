@@ -1,0 +1,244 @@
+<details>
+<summary><b>Eksterne aktører</b></summary>
+
+For eksterne aktører ser vi for oss disse sårbarhetene:
+
+<details>
+<summary>Autentisering</summary>
+
+```mermaid
+graph TD;
+    AUTH[Autentisering]-->MANGEL[Manglende autentisering];
+    MANGEL-->MANGEL_STD[Standardkonto];
+    MANGEL-->MANGEL_ENP[Endepunkter uten\n autentisering];
+    MANGEL-->MANGEL_VAL[Validerer ikke token];
+
+    AUTH-->SVAK[Svak autentisering];
+    SVAK-->SVAK_STD[Har endepunkter som\n ikke bruker AD/ID-porten];
+
+    AUTH-->LEKK[Lekker passord / tokens];
+    LEKK-->LEKKER[Committer passord /\n token i kode];
+    LEKK-->LOKALT[Passord / token i\n klartekst lokalt];
+```
+
+</details>
+
+<details>
+<summary>Logging og overvåkning</summary>
+
+```mermaid
+graph TD;
+    LOGG[Logging og overvåking]-->MANGEL[Manglfull logging];
+    LOGG-->SENS[Logger sensitiv\n informasjon];
+    LOGG-->MON[Overvåker ikke\n for unormal aktivitet];
+    LOGG-->SCAN_AV[Sårbarhetsskanning\n er ikke skrudd på];
+    LOGG-->SCAN_FUNN[Sårbarheter blir\n ikke håndtert];
+```
+
+</details>
+
+<details>
+<summary>Annet</summary>
+
+```mermaid
+graph TD;
+    ANNET[Annet?\n Noe vi har glemt?];
+```
+
+</details>
+
+</details>
+
+<details>
+<summary><b>Prosesser</b></summary>
+
+For prosesser ser vi for oss disse sårbarhetene:
+
+<details>
+<summary>Logging og overvåkning</summary>
+
+```mermaid
+graph TD;
+    LOGG[Logging og overvåking]-->MANGEL[Manglfull logging];
+    LOGG-->SENS[Oppdager ikke\n logging av\n sensitiv\n informasjon];
+    LOGG-->TVE[Tvetydige eller\n uklare logger];
+    LOGG-->MON[Overvåker\n ikke for\n unormal\n aktivitet];
+    LOGG-->VARSL[Manglende\n varsling\n ved feil];
+    LOGG-->LOKALT[Logger lagres\n kun lokalt];
+```
+
+</details>
+
+<details>
+<summary>Integritet</summary>
+
+```mermaid
+graph TD;
+    INT[Integritet]-->MANGEL[Manglende bruk av digitale signaturer];
+```
+
+</details>
+
+<details>
+<summary>Kryptografi</summary>
+
+```mermaid
+graph TD;
+    KRYPT[Kryptografi]-->MANGEL[Validerer ikke\n token/JWT];
+    KRYPT-->FEIL[Validerer ikke\n token/JWT\n korrekt];
+    KRYPT-->SVAK[Buker svake\n krypteringsalgoritmer];
+    KRYPT-->STD[Bruker standardnøkler\n eller svake nøkler];
+```
+
+</details>
+
+<details>
+<summary>Avhengigheter og programvare</summary>
+
+```mermaid
+graph TD;
+    AVHENG[Avhengigheter og programvare]-->UTDAT[Utdatert programvare];
+    AVHENG-->SARB[Sårbarheter i\n avhengigheter og\n avhengighetskjede];
+    AVHENG-->OPPDAG[Oppdager ikke CVE\n i avhengighetskjede];
+    AVHENG-->SIK[Oppdaterte systemer\n bruker ikke\n nyeste\n sikkerhetsfunksjoner];
+    AVHENG-->CI[CI/CD-pipeline\n er ikke\n konfigurert\n riktig];
+```
+
+</details>
+
+<details>
+<summary>Input</summary>
+
+```mermaid
+graph TD;
+    INPUT[Input]-->MANGL[Manglende test av\n alle parametere];
+    INPUT-->VAL[Feil i validering\n filtrering, sanetisering\n av input];
+```
+
+</details>
+
+<details>
+<summary>Annet?</summary>
+
+```mermaid
+graph TD;
+    ANNET[Annet?]-->DELER[Deler ressurser\n med andre\n applikasjoner];
+```
+
+</details>
+
+</details>
+
+<details>
+<summary><b>Data og lagring</b></summary>
+
+For data og lagring ser vi for oss disse sårbarhetene:
+
+<details>
+<summary>Autentisering</summary>
+
+```mermaid
+graph TD;
+    AUTH[Autentisering]-->TILG[Manglende tilgangsstyring\n - Brukere\n - Programvare\n - Konsumenter\n Etc.];
+    AUTH-->MANGEL[Manglende\n autentisering];
+    AUTH-->STD[Standardkonto];
+    AUTH-->APENT[Hemligheter ligger\n åpent i kode];
+    AUTH-->LOKALT[Hemligheter ligger\n åpent lokalt];
+```
+
+</details>
+
+<details>
+<summary>Tjenestenekt</summary>
+
+```mermaid
+graph TD;
+    TJEN[Tjenestenekt]-->PROC[Nekte tilgang\n til prosesser];
+    TJEN-->FULT[Fult lagringsmedium];
+```
+
+</details>
+
+<details>
+<summary>Logging og overvåkning</summary>
+
+```mermaid
+graph TD;
+    LOG[Logging og overvåkning]-->USYNC[Usynkroniserte\n logger på tvers\n av systemer];
+```
+
+</details>
+
+<details>
+<summary>Konfidensialitet</summary>
+
+```mermaid
+graph TD;
+    KONF[Konfidensialitet]-->MANGEL[Manglende\n kryptering];
+    KONF-->HASH[Manglende hashing\n eller bruk av svake\n algoritmer];
+    KONF-->BACKUP[Backup er ikke testet];
+    KONF-->LEKK[Metadata lekker data\n f.eks. filsystem];
+```
+
+</details>
+
+<details>
+<summary>Annet?</summary>
+
+```mermaid
+graph TD;
+    ANNET[Noe vi har glemt?];
+```
+
+</details>
+
+</details>
+
+<details>
+<summary><b>Dataflyt</b></summary>
+
+For dataflyt ser vi for oss disse sårbarhetene:
+
+<details>
+<summary>Autentisering</summary>
+
+```mermaid
+graph TD;
+    TJEN[Autentisering]-->RATE[Usikre protokoller];
+```
+
+</details>
+
+<details>
+<summary>Tjenestenekt</summary>
+
+```mermaid
+graph TD;
+    TJEN[Tjenestenekt]-->RATE[Manglende rate \n limiting];
+    TJEN-->FALLOVER[Manglende failover ved\n utilgjengelig endepunkt];
+```
+
+</details>
+
+<details>
+<summary>Konfidensialitet</summary>
+
+```mermaid
+graph TD;
+    KONF[Konfidensialitet]-->MANGEL[Manglende kryptering];
+    KONF-->API[API lekker data];
+```
+
+</details>
+
+<details>
+<summary>Annet?</summary>
+
+```mermaid
+graph TD;
+    ANNET[Annet?]-->NET[Manglende nettverkssegmentering];
+```
+
+</details>
+
+</details>

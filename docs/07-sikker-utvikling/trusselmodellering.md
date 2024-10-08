@@ -62,7 +62,9 @@ hjelpe til å oppdage sikkerhetsproblemer. Husk at alle modeller er feil, men ma
 </details>
 ### 2. Hva kan gå galt?
 
-Systematisk gjennomgang av komponentene med mål om å finne sårbarheter.
+Systematisk gjennomgang av komponentene med mål om å finne sårbarheter. Her kan man velge flere metoder som:
+
+#### 2.1. STRIPED
 
 Huskeordet **STRIPED** (som er basert [STRIDE](<https://en.wikipedia.org/wiki/STRIDE_(security)>)) oppsummerer viktige trusler
 
@@ -88,6 +90,66 @@ Huskeordet **STRIPED** (som er basert [STRIDE](<https://en.wikipedia.org/wiki/ST
 | **D**enial of service                               | Tilgjengelighet  | Nekte eller forringe tjenesten til brukerne                                | Nettverksoverflodsangrep - bruk alle ressurser, spis alt minne for et program, rute pakker til void, DDos                                                                                                                                                                                                                                       |
 
 </details>
+
+#### 2.2. Sårbarhetstrær
+
+Her er et sett med sårbarhetstrær som kan brukes:
+
+```mdx-code-block
+import Saarbarhetstraer from './\_saarbarhetstraer.mdx'
+
+<Saarbarhetstraer />
+```
+
+#### 2.3. Lister med spørsmål
+
+- Hva mener dere er de største angrepsvektorene / sårbarhetene i systemet?
+
+<details>
+<summary>Autentisering/autorisering</summary>
+- Hvordan gjøres autentisering for sluttbrukere/administaratorer?
+- Hvordan sikres det at rollene i systemet er tydelig adskilt?
+- Hvordan gir man tilgang til systemet/funksjoner?
+- Hvordan sørger man for at dere ikke lagrer påloggingings info i klartekst?
+</details>
+
+<details>
+<summary>Sesjonshåndtering</summary>
+- Hva er den maksimale levetiden for en sesjon?
+- Hvordan deaktiveres en sesjon ved utlogging eller inaktivitet?
+- Er den unik for pålogging og ikke gjettbar?
+</details>
+
+<details>
+<summary>Inputvalidering</summary>
+- Hvordan valideres input?
+- Er det implementert filtrering av input for å forhindre skadelig kode?
+- Hvordan behandles output for å unngå sikkerhetsproblemer, f.eks. ved å bruke riktig enkoding?
+- Hvilke typer inputvalidering brukes for de forskjellige typene av data (f.eks. tekst, tall, datoer)?
+</details>
+
+<details>
+<summary>Kryptografi</summary>
+- Er det implementert kryptografi i systemet?
+- Hvilke deler av systemet bruker kryptografi?
+- Hvordan beskyttes data i transit (f.eks. overføring av data via nettverket)?
+- Hvordan lagres sensitive data (f.eks. passord) i systemet?
+</details>
+
+<details>
+<summary>Feil og logging</summary>
+- Hvordan gjøres logging av aktivitet og feil?
+- Er det noe overvåkning på plass? Hvordan håndteres feil i systemet?
+- Hvor blir de logget? Er det en mekanisme for å varsle administratorer om alvorlige feil eller sikkerhetsbrudd?
+- Hvordan overvåkes systemet for unormal aktivitet?
+</details>
+
+#### 2.4. Elevation of Privilege kortspill
+
+<img alt="Elevation of Privilege card game" src="/img/EoP.webp" width="15%"/>
+
+AppSecteamet har noen EoP-kortstokker som dere kan bruke for å utforske trussler i systemet.
+Ta kontakt med AppSecteamet for å få låne i en kortstokk. [#appsec](https://nav-it.slack.com/archives/C06P91VN27M)
 
 ### 3. Hva skal vi gjøre med det?
 
@@ -129,6 +191,19 @@ Vi bruker mindre tid på trusselmodellering av våre egne utviklingsprosesser.
 Angrep i forsyningskjeden er reell fare.
 Vår SDLC er eksponert for ulike angrepsvektorer.
 Programvareutviklere har ofte et bredt sett med tillatelser og er "mål med høy verdi"
+
+## God kultur er det viktigste målet
+
+- En kultur for å finne og fikse problemer
+  - Ikke bare sjekkboks etterlevelse
+- Fokus på folk og samarbeid
+  - Ikke bare prosesser, metoder eller verktøy
+- Felles forståelse og læring
+  - Ikke bare sikkerhet og personvern
+- Utføre trusselmodellering
+  - Ikke bare snakke om det
+- Kontinuerlig finjustering
+  - Ikke bare en leveranse
 
 ## Gode ressurser
 
