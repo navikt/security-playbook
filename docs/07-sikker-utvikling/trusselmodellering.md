@@ -139,8 +139,10 @@ import Saarbarhetstraer from './\_saarbarhetstraer.mdx'
 <details>
 <summary>Feil og logging</summary>
 - Hvordan gjøres logging av aktivitet og feil?
-- Er det noe overvåkning på plass? Hvordan håndteres feil i systemet?
-- Hvor blir de logget? Er det en mekanisme for å varsle administratorer om alvorlige feil eller sikkerhetsbrudd?
+- Er det noe overvåkning på plass?
+- Hvordan håndteres feil i systemet?
+- Hvor blir feil logget?
+- Er det en mekanisme for å varsle administratorer om alvorlige feil eller sikkerhetsbrudd?
 - Hvordan overvåkes systemet for unormal aktivitet?
 </details>
 
