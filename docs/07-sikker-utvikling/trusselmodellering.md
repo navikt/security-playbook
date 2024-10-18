@@ -107,24 +107,27 @@ import Saarbarhetstraer from './\_saarbarhetstraer.mdx'
 
 <details>
 <summary>Autentisering/autorisering</summary>
-- Hvordan gjøres autentisering for sluttbrukere/administaratorer?
+- Hvordan gjøres autentisering for sluttbrukere/administaratorer? EntraID, Idporten, noe annet?
 - Hvordan sikres det at rollene i systemet er tydelig adskilt?
 - Hvordan gir man tilgang til systemet/funksjoner?
 - Hvordan sørger man for at dere ikke lagrer påloggingings info i klartekst?
+- Hvordan unngår dere at det lagres tokens/passord lokalt hos dere?
+- Hvordan unngår dere at tokens/passord sjekkes inn i kildekoden?
 </details>
 
 <details>
 <summary>Sesjonshåndtering</summary>
+- Har dere implementert en egen mekanisme for å håndtere sesjoner?
 - Hva er den maksimale levetiden for en sesjon?
 - Hvordan deaktiveres en sesjon ved utlogging eller inaktivitet?
-- Er den unik for pålogging og ikke gjettbar?
+- Er den unik for hver bruker og ikke gjettbar?
 </details>
 
 <details>
 <summary>Inputvalidering</summary>
 - Hvordan valideres input?
 - Er det implementert filtrering av input for å forhindre skadelig kode?
-- Hvordan behandles output for å unngå sikkerhetsproblemer, f.eks. ved å bruke riktig enkoding?
+- Hvordan beskytter dere visning av eksterne data? Fra f.eks. brukere som legger inn script eller kode.
 - Hvilke typer inputvalidering brukes for de forskjellige typene av data (f.eks. tekst, tall, datoer)?
 </details>
 
@@ -133,7 +136,7 @@ import Saarbarhetstraer from './\_saarbarhetstraer.mdx'
 - Er det implementert kryptografi i systemet?
 - Hvilke deler av systemet bruker kryptografi?
 - Hvordan beskyttes data i transit (f.eks. overføring av data via nettverket)?
-- Hvordan lagres sensitive data (f.eks. passord) i systemet?
+- Hvordan lagres sensitive data (f.eks. passord / persondata) i systemet?
 </details>
 
 <details>
