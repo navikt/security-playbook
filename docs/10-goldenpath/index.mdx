@@ -19,6 +19,7 @@ De er satt opp i prioritert rekkefølge sånn at man kan komme raskt i gang.
 - Bygg imagene dine vha [docker-build-push](https://doc.nais.io/build/), og ikke skru av generering og opplasting sv SBOM (parametrene `byosbom` og `salsa`).
 - Valider all input. Ikke stol på data som kommer inn uavhengig av hvor det kommer fra.
 - Ha kontroll på [loggene](/docs/sikker-utvikling/logging). Pass på at dere ikke logger FNR til standardloggene.
+- Sikre maskin til maskin-kommunikasjonen din med [OAuth](/docs/sikker-utvikling/m2m), ikke bruk servicebrukere og "STS'en"
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
