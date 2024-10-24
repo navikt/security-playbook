@@ -200,5 +200,12 @@
     "label": "HackCon #20",
     "href": "https://www.hackcon.org/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2024-11-07",
+    "endDate": "2024-11-07",
+    "label": "The Elephant in AppSec Conference",
+    "href": "https://www.theelephantinappsec.com/",
+    "audience": "Åpent for alle"
   }
 ]
