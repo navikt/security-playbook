@@ -97,10 +97,11 @@ graph TD;
 
 ```mermaid
 graph TD;
-    AVHENG[Avhengigheter og programvare]-->UTDAT[Utdatert programvare];
+    AVHENG[Avhengigheter og programvare]-->Fei[Oppdager ikke\n sikkerhetsfeil\n i egen kode];
     AVHENG-->SARB[Sårbarheter i\n avhengigheter og\n avhengighetskjede];
-    AVHENG-->OPPDAG[Oppdager ikke CVE\n i avhengighetskjede];
-    AVHENG-->SIK[Oppdaterte systemer\n bruker ikke\n nyeste\n sikkerhetsfunksjoner];
+    AVHENG-->OPPDAG[Oppdager ikke CVE\n i avhengigheter];
+    AVHENG-->DOCKER[Oppdager ikke\n sårbarheter\n i docker-image];
+    AVHENG-->HAND[Håndterer ikke\n sårbarhetene];
     AVHENG-->CI[CI/CD-pipeline\n er ikke\n konfigurert\n riktig];
 ```
 
