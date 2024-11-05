@@ -1,5 +1,3 @@
-// Setup Amplitude analytics
-
 import * as amplitude from "@amplitude/analytics-browser";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
@@ -7,6 +5,7 @@ function initAmplitude() {
   amplitude.init("default", undefined, {
     useBatch: true,
     serverUrl: "https://amplitude.nav.no/collect",
+    defaultTracking: true,
     ingestionMetadata: {
       sourceName: window.location.toString(),
     },
@@ -28,6 +27,7 @@ export default (function amplitudeModule() {
   initAmplitude();
 
   setTimeout(logPageView, 100);
+
   return {
     onRouteUpdate() {
       logPageView();
