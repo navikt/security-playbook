@@ -5,7 +5,7 @@ import { TracingInstrumentation } from "@grafana/faro-web-tracing";
   initializeFaro({
     url: "https://telemetry.nav.no/collect",
     app: {
-      name: "security playbook",
+      name: "security-playbook",
     },
     instrumentations: [
       ...getWebInstrumentations(),
