@@ -6,7 +6,7 @@ import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 function initAmplitude() {
   amplitude.init("default", undefined, {
     useBatch: true,
-    serverUrl: "https://amplitude.nav.no/collect-auto",
+    serverUrl: "https://amplitude.nav.no/collect",
     ingestionMetadata: {
       sourceName: window.location.toString(),
     },
