@@ -155,7 +155,7 @@ module.exports = {
     ],
   ],
   clientModules: [
-    require.resolve("./src/modules/amplitude.js"),
+    require.resolve("./src/modules/faro.js"),
     require.resolve("./src/modules/sneaky.js"),
   ],
 };
