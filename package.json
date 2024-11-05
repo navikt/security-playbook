@@ -16,13 +16,13 @@
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.11.8",
     "@docusaurus/core": "3.6.0",
     "@docusaurus/plugin-client-redirects": "3.6.0",
     "@docusaurus/preset-classic": "3.6.0",
     "@docusaurus/theme-mermaid": "^3.6.0",
     "@mdx-js/react": "3.1.0",
     "@svgr/webpack": "8.1.0",
-    "amplitude-js": "8.21.9",
     "classnames": "2.5.1",
     "clsx": "2.1.1",
     "docusaurus-lunr-search": "3.5.0",

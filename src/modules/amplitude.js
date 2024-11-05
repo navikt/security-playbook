@@ -1,18 +1,18 @@
-import amplitude from "amplitude-js";
+import * as amplitude from "@amplitude/analytics-browser";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
 function initAmplitude() {
-  amplitude.getInstance().init("default", "", {
-    apiEndpoint: "amplitude.nav.no/collect-auto",
-    saveEvents: false,
-    includeUtm: true,
-    includeReferrer: true,
-    platform: window.location.toString(),
+  amplitude.init("default", undefined, {
+    useBatch: true,
+    serverUrl: "https://amplitude.nav.no/collect-auto",
+    ingestionMetadata: {
+      sourceName: window.location.toString(),
+    },
   });
 }
 
 function logPageView() {
-  amplitude.getInstance().logEvent("sidevisning", {
+  amplitude.track("sidevisning", {
     sidetittel: document.title || "Security Champions Playbook",
     platform: window.location.toString(),
   });
