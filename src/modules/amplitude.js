@@ -1,3 +1,5 @@
+// Setup Amplitude analytics
+
 import * as amplitude from "@amplitude/analytics-browser";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
