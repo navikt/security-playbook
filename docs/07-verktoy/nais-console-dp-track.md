@@ -15,7 +15,7 @@ tags:
 
 ## NAIS Console
 
-🌐 [NAIS Console](https://doc.nais.io/operate/console/index.html) er ett webbasert grensesnitt som lar brukere administrere og overvåke ressurser på NAIS. Her kan team enkelt finne informasjon om sine applikasjoner, ressursbruk, tilstand og sårbarheter. Dette gir en effektiv måte å holde oversikt over sårbarheter og sikre at teamet tar nødvendige tiltak for å beskytte applikasjonene.
+🌐 [NAIS Console](https://doc.nais.io/operate/console/index.html) er et webbasert grensesnitt som lar brukere administrere og overvåke ressurser på NAIS. Her kan team enkelt finne informasjon om sine applikasjoner, ressursbruk, tilstand og sårbarheter. Dette gir en effektiv måte å holde oversikt over sårbarheter og sikre at teamet tar nødvendige tiltak for å beskytte applikasjonene.
 
 📊 Teamene har også en indikator som viser hvor godt de dekker sårbarheter for alle sine applikasjoner.
 
