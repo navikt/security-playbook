@@ -50,7 +50,7 @@ Når man arbeider med SLSA og bruker Dependency-Track, kan man få hjelpe med f�
 
 🧩 **Identifisere Komponenter og Avhengigheter**
 
-NAIS conosle i sammarbeid med Dependency-Track gir en detaljert oversikt over alle komponentene og avhengighetene i programvaren til team ved hjelp av Software Bill of Materials (SBOM). Dette hjelper team med å forstå hva programvaren er bygget av, noe som er viktig for å oppfylle SLSA-kravene om å ha oversikt over alle programvarekomponenter.
+NAIS console i sammarbeid med Dependency-Track gir en detaljert oversikt over alle komponentene og avhengighetene i programvaren til team ved hjelp av Software Bill of Materials (SBOM). Dette hjelper team med å forstå hva programvaren er bygget av, noe som er viktig for å oppfylle SLSA-kravene om å ha oversikt over alle programvarekomponenter.
 
 🛡️ **Forbedre Integritet**
 
