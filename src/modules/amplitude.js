@@ -2,7 +2,9 @@ import * as amplitude from "@amplitude/analytics-browser";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
 function initAmplitude() {
-  amplitude.init("default", undefined, {
+  const AMPLITUDE_PUBLIC_API_KEY = "10798841ebeba333b8ece6c046322d76";
+
+  amplitude.init(AMPLITUDE_PUBLIC_API_KEY, undefined, {
     useBatch: true,
     serverUrl: "https://amplitude.nav.no/collect",
     defaultTracking: true,
