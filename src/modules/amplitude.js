@@ -40,7 +40,7 @@ export default (function amplitudeModule() {
 
   return {
     onRouteUpdate() {
-      logPageView();
+      //logPageView();
     },
   };
 })();
