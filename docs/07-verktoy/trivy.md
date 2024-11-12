@@ -42,8 +42,6 @@ jobs:
           image-ref: '${{ env.IMAGE }}'
           format: 'sarif'
           output: 'trivy.sarif'
-          severity: 'HIGH,CRITICAL'
-          limit-severities-for-sarif: true
 
       - name: Upload results to GitHub Security
         uses: github/codeql-action/upload-sarif@v3
@@ -51,7 +49,8 @@ jobs:
           sarif_file: 'trivy.sarif'
 ```
 
-Hvis du vil du sette opp Trivy i et eget steg må du hente ned imaget med Docker pull først. For images fra Google Artifact Registry (GAR) kan det løses slik:
+Hvis du vil du kjøre Trivy i et eget steg må du autentisere mot docker registry for å laste ned imaget.
+For images fra Google Artifact Registry (GAR) kan man bruke nais/login for å sette opp GAR credentials som trivy-actionet plukker opp automagisk.
 
 ```trivy-gar
 jobs:
@@ -90,17 +89,12 @@ jobs:
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           team: my-team
 
-      - name: Pull docker image
-        run: docker pull ${{ needs.build.outputs.image }}
-
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: '${{ needs.build.outputs.image }}'
           format: 'sarif'
           output: 'trivy.sarif'
-          severity: 'HIGH,CRITICAL'
-          limit-severities-for-sarif: true
 
       - name: Upload results to GitHub Security
         uses: github/codeql-action/upload-sarif@v3
