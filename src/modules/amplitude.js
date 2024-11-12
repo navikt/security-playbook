@@ -4,14 +4,22 @@ import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 function initAmplitude() {
   const AMPLITUDE_PUBLIC_API_KEY = "10798841ebeba333b8ece6c046322d76";
 
-  amplitude.init(AMPLITUDE_PUBLIC_API_KEY, undefined, {
-    useBatch: true,
-    serverUrl: "https://amplitude.nav.no/collect",
-    defaultTracking: true,
-    ingestionMetadata: {
-      sourceName: window.location.toString(),
-    },
-  });
+  amplitude
+    .init(AMPLITUDE_PUBLIC_API_KEY, undefined, {
+      serverUrl: "https://amplitude.nav.no/collect",
+      useBatch: false,
+      autocapture: {
+        attribution: true,
+        fileDownloads: false,
+        formInteractions: false,
+        pageViews: true,
+        sessions: false,
+        elementInteractions: false,
+      },
+    })
+    .promise.catch((err) => {
+      console.error("error initializing amplitude", err);
+    });
 }
 
 function logPageView() {
