@@ -207,5 +207,12 @@
     "label": "The Elephant in AppSec Conference",
     "href": "https://www.theelephantinappsec.com/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2024-11-26",
+    "endDate": "2024-11-26",
+    "label": "Meetup - November 2024 (Påmelding @ delta.nav.no)",
+    "href": "https://delta.nav.no/event/50439a7c-8f65-4cda-9a89-bd3759b882fc",
+    "audience": "Security Champions"
   }
 ]
