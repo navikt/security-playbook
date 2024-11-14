@@ -12,11 +12,11 @@ tags:
 
 [Dependabot](https://github.com/dependabot) er et verktøy som kan brukes på alle GitHub-repos. Dersom man ønsker at Dependabot kun skal sjekke etter sårbarheter, kan dette settes opp i dit repo i GitHub, under _Security_. Ønsker man å også få forslag til oppgraderinger som ikke nødvendigvis er sårbarheter, kan man be om det via `dependabot.yml`. Les mer om den siste varianten [her](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates).
 
-![GitHub Security](/img/dependabot.png "GitHub Security")
+Versjonsoppdateringer anbefales på det sterkeste, ikke alle sårbarheter får et sikkerhetsvarsel og noen patcher tar veldig lang tid å rulle ut. Ved å holde avhengigheter oppdatert, reduserer du risikoen for at ditt system blir utsatt for kjente sårbarheter.
 
 ## Oppsett av Dependabot
 
-Dependabot i seg selv skal være automatisk aktivert for alle nye repo på GitHub i `navikt`, men det kan hende den ikke klarer å få oversikt over avhengighetene ut av boksen.
+Avhengighetsscanning i seg selv skal være automatisk aktivert for alle nye repo på GitHub i `navikt`, men det kan hende den ikke klarer å få oversikt over avhengighetene ut av boksen.
 
 ### Sjekk om Dependabot finner avhengigheter (og versjoner) automatisk
 
@@ -36,29 +36,27 @@ Maven-avhengigheter plukkes stort sett opp automatisk, men bruk av variabler og 
 Det anbefales å sette opp en GitHub workflow som scanner dependencies eksplisitt med [maven-dependency-submission-action](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) fra en github workflow. Eksempel:
 
 ```yaml
-name: Monitor dependencies with Dependabot
+name: Submit dependency graph
 on:
   push:
     branches:
       - main
     paths:
       - "pom.xml"
-  workflow_dispatch:
 jobs:
-  dependabot:
-    name: Monitor dependencies with Dependabot
-    runs-on: ubuntu-20.04
+  dependencies:
+    runs-on: ubuntu-latest
     permissions: # The Dependency Submission API requires write permission
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Submit Dependency Snapshot
-        uses: advanced-security/maven-dependency-submission-action@v3
+        uses: advanced-security/maven-dependency-submission-action@v4
 ```
 
 ### Oppsett Gradle (build.gradle.kts / build.gradle)
 
-Gradle-avhengigheter må eksplisitt legges inn gjennom GitHubs [Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api). Dette kan gjøres med en github-actionen [gradle-build-action](https://github.com/gradle/gradle-build-action#github-dependency-graph-support), slik:
+Gradle-avhengigheter må eksplisitt legges inn gjennom GitHubs [Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api). Dette kan gjøres med en github-actionen [dependency-submission](https://github.com/marketplace/actions/build-with-gradle), slik:
 
 ```yaml
 name: Submit dependency graph
@@ -75,13 +73,9 @@ jobs:
     permissions: # The Dependency Submission API requires write permission
       contents: write
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Gradle to generate and submit dependency graphs
-        uses: gradle/gradle-build-action@v2
-        with:
-          dependency-graph: generate-and-submit
-      - name: Run a build, generating the dependency graph snapshot which will be submitted
-        run: ./gradlew build
+      - uses: actions/checkout@v4
+      - name: Generate and submit dependency graph
+        uses: gradle/actions/dependency-submission@v4
 ```
 
 ```mdx-code-block
