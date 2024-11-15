@@ -15,7 +15,9 @@ tags:
 [Trivy fra aquasecurity](https://github.com/aquasecurity/trivy) er ett verktøy for å finne sårbarheter, hemmeligheter & feilkonfigurasjon.
 Ved å integrere Trivy med GitHub Actions kan du skanne Docker-images for sårbarheter & hemmeligheter i både OS og applikasjon samt laste opp resultatene til Github Advanced Security for å få alerts i "Code Scanning"-seksjonen.
 
-Husk att github advanced security finner hemmeligheter i ditt repo men ikke det du bygger in i dine docker images, derfor er det lurt å sette opp en trivy scan for å søke igjenom alle docker images du bygger. 
+Husk att github advanced security finner hemmeligheter i ditt repo men ikke det du bygger in i dine docker images, derfor er det lurt å sette opp en trivy scan for å søke igjenom alle docker images du bygger.
+
+Hvis din container inneholder en JVM-app (Java, Kotlin, Scala m.fl) vil Trivy detektere appens sammensetning ved å se etter `.jar`-filer. Dersom du har pakket appen i en stor "shadow"-jar vil denne logikken brekke, og sårbarheter kan skli under radaren. I disse tilfellene må du ha andre mekanismer i tillegg, feks å generere en SBOM vha Maven eller Gradle plugins og laste denne opp til GitHub slik at avhengighetsgrafen der blir riktig.
 
 :::note
 Det kan være lurt å ha en Trivy scan i en ekstra workflow med en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule). Det er fordi det kan dukke opp nye sårbarheter selv når dere ikke gjør kodeendringer. NB: "In a public repository, scheduled workflows are **automatically disabled** when no repository activity has occurred in 60 days".
