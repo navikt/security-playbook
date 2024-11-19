@@ -7,11 +7,11 @@ tags:
 
 ## Generelt
 
-Man kan man redusere angrepsflaten sin betydelig ved å basere appen sin på et minimalt baseimage. Jo færre verktøy du har i containeren din, jo mindre spillerom har en angriper til å få fotfeste og eskalere sine rettigheter.
+Man kan redusere angrepsflaten sin betydelig ved å basere appen sin på et minimalt baseimage. Jo færre verktøy du har i containeren din, jo mindre spillerom har en angriper til å få fotfeste og eskalere sine rettigheter.
 
 De gamle [navikt-imagene](https://github.com/navikt/baseimages/) er avviklet og vedlikeholdes ikke lenger. Hvis du fortsatt bruker disse imagene er det på høy tid å bytte over til bedre og moderne alternativer som "[distroless](./containere#distroless)".
 
-Mange tror at det er vanskelig og/eller veldig tidkrevende å migrere over til nye og skinnende "distroless" images, men det er faktisk ikke. Vi har derfor satt sammen en liste over de største forskjellene, og hvordan man bytter over fra gammelt til nytt.
+Mange tror at det er vanskelig og/eller veldig tidkrevende å migrere over til nye og skinnende "distroless" images, men det er det faktisk ikke. Vi har derfor satt sammen en liste over de største forskjellene, og hvordan man bytter over fra gammelt til nytt.
 
 <details>
 <summary>Hemmeligheter fra Vault</summary>
