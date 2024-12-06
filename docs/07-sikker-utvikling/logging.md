@@ -3,11 +3,11 @@ title: Logging
 description: 🪵 God logging holder deg unna jogging
 ---
 
-NAIS-plattformen tilbyr et [standard opplegg](https://doc.nais.io/observability/logs/) for logging. `stdout` fra alle pods skrapes, indekseres i LogStash/Elasticsearch og kan søkes i fra [Kibana (logs.adeo.no)](https://logs.adeo.no). For at dette skal funke bra er man avhengig av at det logges som JSON. Mange rammeverk har støtte for dette JSON-baserte formatet, f.eks. [LogBack](https://github.com/logstash/logstash-logback-encoder) og [winston](https://www.npmjs.com/package/winston).
+NAIS-plattformen tilbyr et [standard opplegg](https://doc.nais.io/observability/) for "observability" hvor logger er en av grunnpilarene. `stdout` fra alle pods skrapes og sendes til [Grafana Loki](https://grafana.nav.cloud.nais.io/) eller [Elasticsearch](https://logs.adeo.no). Det anbefales å logge i JSON-formatet som støttes av flere rammeverk, f.eks. [LogBack](https://github.com/logstash/logstash-logback-encoder) og [winston](https://www.npmjs.com/package/winston).
 
 ## Loggindekser og tilgang
 
-Standardindeksene (`logstash-apps-*`) er åpne for veldig mange mennesker (bl.a alle utviklere), og egner seg derfor ikke for personopplysninger eller andre sensitive data. For dette formålet kan man få opprettet egne indekser som får navnet `tjenestekall-*`. Disse indeksene omtales ofte som `secure log`, og er kun lesbare for teamet som eier dem. Innholdet skrapes automatisk fra filer på fast sted i podene. Prosessen for å få opprettet slike indekser finner man i [NAIS-docen](https://doc.nais.io/observability/logs/#secure-logs).
+Loggene er åpne for alle utviklerne, og egner seg derfor ikke for personopplysninger eller andre sensitive data. For dette formålet kan man få opprettet egne indekser som får navnet `tjenestekall-*` i Elasticsearch. Disse indeksene omtales ofte som `secure log`, og er kun lesbare for teamet som eier dem. Innholdet skrapes automatisk fra filer på fast sted i podene. Prosessen for å få opprettet slike indekser finner man i [NAIS-docen](https://doc.nais.io/observability/logs/#secure-logs).
 
 ## Auditlogging
 
