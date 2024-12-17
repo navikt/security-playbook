@@ -27,7 +27,7 @@ Statisk kodeanalyse med [CodeQL](https://github.com/github/codeql) kan aktiveres
 
 ![CodeQL setup](/img/codeql-setup.png "«Settings» -> «Code security and analysis» for å se aktivere CodeQL")
 
-Oppsettet avhenger av bl.a. hvilke programmeringsspråk som benyttes i repoet, men en typisk workflow for java-applikasjoner vil se slik ut:
+Oppsettet avhenger av bl.a. hvilke programmeringsspråk som benyttes i repoet, men en typisk workflow for jvm-applikasjoner vil se slik ut:
 
 ```yaml
 name: "CodeQL"
@@ -49,58 +49,29 @@ jobs:
       actions: read
       contents: read
       security-events: write
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: ["java"]
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
-        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
-          languages: ${{ matrix.language }}
-          # If you wish to specify custom queries, you can do so here or in a config file.
-          # By default, queries listed here will override any specified in a config file.
-          # Prefix the list here with "+" to use these queries and those in the config file.
-
-          # Details on CodeQL's query packs refer to : https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
-          # queries: security-extended,security-and-quality
+          languages: java-kotlin
+          queries: security-extended,security-and-quality
 
       # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below)
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
 
-      # ℹ️ Command-line programs to run using the OS shell.
-      # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-
-      #   If the Autobuild fails above, remove it and uncomment the following three lines.
-      #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
-
-      # - run: |
-      #   echo "Run, Build Application using script"
-      #   ./location_of_script_within_repo/buildscript.sh
+      #- name: Gradle build
+      #  run: ./gradlew build
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:${{matrix.language}}"
-```
-
-Om du ønsker mer analyse enn default så kan du legge til `security-extended` eller `security-and-quality` i konfigurasjonen til `github/codeql-action/init@v2` som eksempelet under: 
-
-```
-uses: github/codeql-action/init@v2
-        with:
-          languages: ${{ matrix.language }}
-          queries: security-extended | security-and-quality
+          category: "/language:java-kotlin"
 ```
 
 ## Secret Scanning
@@ -108,3 +79,8 @@ uses: github/codeql-action/init@v2
 GitHub vil automatisk plukke opp secrets som committes som en del av koden. Secrets skal holdes utenfor koden, så dette vil stoppes ved push. Les mer om hvordan håndtere hemmeligheter på siden [«Hemmeligheter»](/docs/sikker-utvikling/hemmeligheter).
 
 [Les mer om Secret Scanning hos GitHub.](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning)
+
+
+## Vanlige feil
+
+Hvis du analyserer en større applikasjon er det ikke uvanlig att gradle går tom for minne, noe som kan økes ved å legge til `kotlin.daemon.jvmargs=-Xmx4096m` i `gradle.properties`.
