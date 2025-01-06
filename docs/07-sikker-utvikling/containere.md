@@ -39,7 +39,7 @@ Se forøvrig [OWASP Docker top 10](https://github.com/OWASP/Docker-Security/blob
 
 Vi anbefaler å kjøre i såkalte "distroless" docker-images uten shell. Disse er spesialdesignet for å være så lette som mulig, og inneholder kun det som trengs for å kjøre appen din. Dette gjør det vanskeligere for angripere å utnytte sårbarheter i systemet ditt. Se f.eks. disse fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless)
 
-Man kan fortsatt debugge disse ved å bruke **Ephemeral containers** i Kubernetes. Dette er en midlertidig container som kjører i samme nettverk og med samme filsystem som poden du vil debugge. Se [nais docen](http://docs.nais.io/workloads/how-to/debugging/?h=ephemeral#kubectl-debug) for mer info.
+Man kan fortsatt debugge disse ved å bruke **Ephemeral containers** i Kubernetes. Dette er en midlertidig container som kjører i samme nettverk og med samme filsystem som poden du vil debugge. Se [nais docen](https://docs.nais.io/workloads/how-to/debugging/?h=ephemeral#kubectl-debug) for mer info.
 
 ## nais
 
