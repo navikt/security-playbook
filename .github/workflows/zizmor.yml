@@ -3,8 +3,6 @@ name: zizmor GitHub Actions Security Analysis
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["**"]
 
 jobs:
   zizmor:
@@ -12,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       security-events: write
-      # required for workflows in private repositories
       contents: read
       actions: read
     steps:
