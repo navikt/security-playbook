@@ -34,7 +34,7 @@ Dersom du ønsker å gjøre større endringer, anbefales det å starte applikasj
 
 ### Lokal utvikling
 
-Krever `node` versjon `>= 18`.
+Krever `node` versjon `>= 22`.
 
 #### Installer lokalt
 

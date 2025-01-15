@@ -16,18 +16,17 @@
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
   },
   "dependencies": {
-    "@amplitude/analytics-browser": "^2.11.9",
-    "@docusaurus/core": "3.6.3",
-    "@docusaurus/plugin-client-redirects": "3.6.3",
-    "@docusaurus/preset-classic": "3.6.3",
-    "@docusaurus/theme-mermaid": "^3.6.3",
+    "@docusaurus/core": "3.7.0",
+    "@docusaurus/plugin-client-redirects": "3.7.0",
+    "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/theme-mermaid": "3.7.0",
     "@mdx-js/react": "3.1.0",
     "@svgr/webpack": "8.1.0",
     "classnames": "2.5.1",
     "clsx": "2.1.1",
-    "docusaurus-lunr-search": "3.5.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "docusaurus-lunr-search": "3.6.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "browserslist": {
     "production": [
