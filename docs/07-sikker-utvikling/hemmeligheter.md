@@ -26,7 +26,7 @@ Et billig og effektivt tiltak man kan gjøre er å alltid ignorere filer som typ
 Når man skal kopiere filer over til et Docker-image er det også lurt å være eksplisitt. `COPY enkonkretfil /enkatalog/` gir deg full kontroll.
 
 :::caution Kopier bare det du trenger
-`COPY . .` i en Dockerfile fører til at alt i denne katalogen kopieres over, også filer man kanskje ikke hadde tenkt skulle være med.
+`COPY . .` i en Dockerfile fører til at alt i denne katalogen kopieres over, også filer man kanskje ikke hadde tenkt skulle være med. [Her](containere#hemmeligheter) finner du flere detaljer.
 :::
 
 :::tip Tips!
