@@ -30,7 +30,7 @@ Når man skal kopiere filer over til et Docker-image er det også lurt å være 
 :::
 
 :::tip Tips!
-For å holde hemmeligheter unna lokale filer samt Git og kommandohistorikk kan man bruke kommandolinjeverktøyene som tilbys av passordmanagere og andre produkter.
+For å holde hemmeligheter unna lokale filer samt Git og kommandohistorikk kan man bruke kommandolinjeverktøyene som tilbys av passordmanagere.
 
 Eksempel med 1Password:
 
@@ -38,11 +38,22 @@ Eksempel med 1Password:
 
 `op run --env-file="my.env" -- node myapp.js`
 
-Eksempel med Hashicorp Vault:
+Se dokumentasjonen til [1Password](https://developer.1password.com/docs/cli/) for detaljer
+:::
 
-`MY_PW=$(vault read path/to/my/password)`
+:::tip Tips!
+Dersom man ikke har tilgang til en passordmanager kan man lage seg enkle shellscript som henter hemmeligheter fra egnede lagringssteder og tilgjengeliggjør dem som miljøvariabler som kun lever så lenge en prosess kjører.
 
-Se dokumentasjonen til [1Password](https://developer.1password.com/docs/cli/) og [Vault](https://developer.hashicorp.com/vault/docs/commands) for detaljer
+```
+#!/usr/bin/env bash
+
+export MY_PW_FROM_HASHICORP_VAULT=$(vault read path/to/my/thing)
+export MY_PW_FROM_GCP=$(gcloud secrets versions access 1 --secret mysecret)
+export MY_PW_FROM_K8S=$(kubectl get secret mysecret -o jsonpath='{.data.mykey}' | base64 -d)
+
+npm run mytests
+```
+
 :::
 
 ## Hemmeligheter i Git
