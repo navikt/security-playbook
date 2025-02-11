@@ -25,6 +25,12 @@ Veldig mange utviklerverktøy har en eller annen mekanisme for å utvide funksjo
 
 Før man tar i bruk plugins er det viktig å kjøre en mini-trusselvurdering. Hvilken kontekst skal denne koden kjøre i, og hvilken informasjon har den potensielt tilgang til? Hva er "worst case" hvis en plugin går "rogue"? Hvem har laget den? Hva slags aktivitet har det vært i GitHub-repoet den siste tiden? Gjør et lite søk etter kjente sårbarheter på Google og på steder som [Snyk](https://security.snyk.io/), [VulDB](https://vuldb.com) eller [Mitre](https://cve.mitre.org/cve/search_cve_list.html)
 
+### Begrense handlingsrommet til tredjeparter
+
+I noen pakke-økosystemer er det lagt opp til at pakker skal kunne kjøre vilkårlige shellscripts når de installeres. I Node/NPM-land kalles disse for "lifecycle scripts" eller "pre/postinstall scripts". Dette er en mekanisme som ofte benyttes av ondsinnede pakker. Svært få pakker trenger _egentlig_ denne funksjonaliteten, og den kan med fordel skrus av. For Node.js gjøres dette ved å legge til linja `ignore-scripts=true` i fila `.npmrc` som man finner i hvert enkelt prosjekt og/eller eller en global fil i `$HOME`.
+
+Noen JavaScript-runtimes har allerede disablet lifecycle scripts som default, i skrivende stund gjelder dette [pnpm](https://pnpm.io/), [Bun](https://bun.sh/) og [Deno](https://deno.com/).
+
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
 
