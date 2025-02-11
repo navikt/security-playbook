@@ -71,7 +71,8 @@ RUN npm config set @navikt:registry=https://npm.pkg.github.com
 ### Hemmeligheter
 
 Ikke bruk `COPY . .` for å kopiere filer, spesifiser heller hvilke filer du vil ha med. COPY funksjonen kopierer rekursivt og tar med alt, inkludert hemmeligheter som tokens i .git-mappen, .npmrc, .m2-settings.xml etc.
-Bygger du din app med en personal access token har den mest sannsynligvis blitt lagret i image-laget.
+
+Vær eksplisitt i dine copy-besvergelser: `COPY mylocalfile myfileinimage`.
 
 ## Dockerfile eksempler
 
