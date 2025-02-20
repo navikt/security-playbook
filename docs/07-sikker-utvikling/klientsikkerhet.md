@@ -19,7 +19,7 @@ Store deler av denne playbooken handler om kodescanning og validering av koden s
 Så for å parafrasere et utrykk som er aktuelt i samtiden; Kortreist sikkerhet er den lavest hengende frukten hva gjelder bærekraftig utvikling i NAV.
 
 - Prøv å orientere deg i hva (og hvorfor noe) er gjort med maskinen din via policies så du kan gjøre opplyste avgjørelser om å gå rundt eller disable policies.
-- Sett deg inn i [Do's and Don´ts](https://naisdevice-approval.nais.io). De er der for å hjelpe deg gjøre riktige valg.
+- Sett deg inn i [Do's and Don´ts](https://naisdevice-approval.external.prod-gcp.nav.cloud.nais.io/) (Kun tilgjengelig i Naisdevice). De er der for å hjelpe deg gjøre riktige valg.
 
 ### Konkrete og effektive tiltak for sikring av egen maskin og egne brukerkontoer:
 
