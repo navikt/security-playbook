@@ -30,19 +30,14 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - name: Setup Node
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a
-        with:
-          node-version: '22.x'
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Upload to CDN
-        uses: nais/deploy/actions/spa-deploy/v2@master
+      - uses: nais/docker-build-push@5246e4705d79945a0ec28eb9bd3638dd534fee46
+        id: docker-push
         with:
           team: security-champion-admin
-          app: playbook
-          environment: prod
-          source: build
-          ingress: https://sikkerhet.nav.no
+          push_image: true
+          pull: true
+      - uses: nais/deploy/actions/deploy@7c152a10f4da3ca352d57a25eba0b3a8e04882f9
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: nais.yaml
+          IMAGE: ${{ steps.docker-push.outputs.image }}

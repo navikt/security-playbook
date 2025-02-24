@@ -1,0 +1,22 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: security-playbook
+  namespace: security-champion-admin
+  labels:
+    team: security-champion-admin
+spec:
+  image: "{{ image }}"
+  port: 8080
+  ingresses:
+    - https://sikkerhet.nav.no/
+  replicas:
+    cpuThresholdPercentage: 90
+    max: 2
+    min: 2
+  liveness:
+    initialDelay: 30
+    path: isalive
+  readiness:
+    initialDelay: 30
+    path: isready
