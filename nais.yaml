@@ -10,6 +10,12 @@ metadata:
 spec:
   image: "{{ image }}"
   port: 8080
+  resources:
+    requests:
+      cpu: 20m
+      memory: 64Mi
+    limits:
+      memory: 128Mi
   ingresses:
     - https://sikkerhet.nav.no/
   replicas:
@@ -22,3 +28,7 @@ spec:
   readiness:
     initialDelay: 30
     path: isready
+  observability:
+    logging:
+      destinations:
+        - id: loki
