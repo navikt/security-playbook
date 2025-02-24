@@ -5,6 +5,8 @@ metadata:
   namespace: security-champion-admin
   labels:
     team: security-champion-admin
+  annotations:
+    nais.io/read-only-file-system: "false"
 spec:
   image: "{{ image }}"
   port: 8080
