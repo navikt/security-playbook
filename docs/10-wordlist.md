@@ -248,7 +248,7 @@ En sikkerhetshendelse kan bl.a. skyldes at
 
 #### Sikkerhetssituasjon
 
-En sikkerhetssituasjon er en mulig hendelse. Status er usikkert og uavklart, men kan utvikle seg til en [_sikkerhetshendelse_](#Sikkerhetshendelse).
+En sikkerhetssituasjon er en mulig hendelse. Status er usikkert og uavklart, men kan utvikle seg til en Sikkerhetshendelse.
 
 #### SOC
 

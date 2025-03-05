@@ -49,7 +49,7 @@ Husk att det kun er kildekoden som er påvirket, ting som skjer i workflows som 
   - Dependency graph er en liste over avhengigheter som er brukt i prosjektet.
   - Brukes av github security for å opprette security alerts når de finner en sårbar avhengighet i repoet.
   - Derfor er det viktig att man sikkrer att informasjonen her stemmer, mer info om dette på [dependabot-siden](../verktoy/dependabot).
-- [CodeQL](../verktoy/codeql)
+- [CodeQL](../verktoy/github-advanced-security)
   - CodeQL har støtte for scanning av applikasjoner og github workflows.
 - [Trivy](../verktoy/trivy)
   - Trivy bruker vi for å sikkre att vi ikke lekker hemmeligheter når vi bygger docker images.
