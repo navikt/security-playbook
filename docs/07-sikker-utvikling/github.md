@@ -28,7 +28,7 @@ Sett opp branch protection for default branch for å unngå att noen sletter kod
 ### Workflows
 
 - Bruk intermediate variables for alle variabler. ([Github docs ref](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable))
-  - Sett dine variabler i `env:` å sikkre att du har input validering. Bruker du f.eks. `${{ github.event.pull_request.title }}` direkte i en bash run kan du vara sårbar for command injection.
+  - Sett dine variabler i `env:` å sikre att du har input validering. Bruker du f.eks. `${{ github.event.pull_request.title }}` direkte i en bash run kan du vara sårbar for command injection.
 - Pin 3rd party actions to commit sha ([Github docs ref](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions))
   - Github tags er mutable, noe som betyr att hvis du bruker v1.0 av en action kan den endres uten att du merker noe. Anbefales att man pinner actions á la `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`
   - Githubs egne actions er nå immutable og kan bruke tags.
