@@ -58,7 +58,7 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: java-kotlin
-          queries: security-extended,security-and-quality
+          queries: security-and-quality
 
       # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below)
@@ -74,12 +74,33 @@ jobs:
           category: "/language:java-kotlin"
 ```
 
+### Filtrere bort støy
+
+Ett godt tiltak kan vare att filtrere ut severities som skaper veldigt mange forslag om ting som kanskje ikke er direkt knyttet til sikkerhet.
+Løses ved å sette opp query-filter i en config-fil. Eks. `codeql-config.yml`
+
+```yaml
+name: "CodeQl Config"
+query-filters:
+  - exclude:
+      problem.severity:
+        - note
+```
+
+Og legg til config-filen i workflowen:
+
+```yaml
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v3
+  with:
+    config-file: codeql-config.yml
+```
+
 ## Secret Scanning
 
 GitHub vil automatisk plukke opp secrets som committes som en del av koden. Secrets skal holdes utenfor koden, så dette vil stoppes ved push. Les mer om hvordan håndtere hemmeligheter på siden [«Hemmeligheter»](/docs/sikker-utvikling/hemmeligheter).
 
 [Les mer om Secret Scanning hos GitHub.](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning)
-
 
 ## Vanlige feil
 
