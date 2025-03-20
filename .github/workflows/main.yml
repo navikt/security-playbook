@@ -20,7 +20,7 @@ jobs:
           team: security-champion-admin
           push_image: true
           pull: true
-      - uses: nais/deploy/actions/deploy@a8718ab86a0c9bd63c6e3c8bbae747f62500c272
+      - uses: nais/deploy/actions/deploy@f9bc9a728da8217b4fe5e61e3488aa516320cca7
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais.yaml
