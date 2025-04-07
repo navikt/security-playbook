@@ -7,7 +7,7 @@ I selvbetjeningsløsningene er det ofte behov for å laste opp dokumentasjon i f
 
 ## Virusscanning
 
-I NAIS-clustrene har vi installert et produkt som heter [ClamAV](https://www.clamav.net/). Det har et enkelt HTTP-grensesnitt der man kan laste opp filer man ønsker å få scannet. Dokumentasjon og kodeeksempler finnes i [NAIS-doken](https://doc.nais.io/security/antivirus/#clamav).
+I NAIS-clustrene har vi installert et produkt som heter [ClamAV](https://www.clamav.net/). Det har et enkelt HTTP-grensesnitt der man kan laste opp filer man ønsker å få scannet. Dokumentasjon og kodeeksempler finnes i [NAIS-doken](https://doc.nais.io/services/antivirus/?h=virus).
 
 ![clamav](/img/clamav.webp "clamav")
 
