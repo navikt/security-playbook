@@ -41,7 +41,7 @@ Mange tror at det er vanskelig og/eller veldig tidkrevende å migrere over til n
 <summary>Filrettigheter</summary>
 <p>
 Husk att applikasjoner på nais kjører som user/group 1069 (Ref: [Nais docs](https://doc.nais.io/workloads/reference/container-security/)).
-Hvis du for eksempel skall kopiere in en fil som applikasjonen skall lese er det viktig att du setter riktige rettigheter på filen.
+Hvis du for eksempel skal kopiere in en fil som applikasjonen skal lese er det viktig att du setter riktige rettigheter på filen.
 Du kan kopiere in en fil med riktige rettigheter med `COPY --chown=1069:1069 fil /path/to/fil`.
 </p>
 </details>
