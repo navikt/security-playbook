@@ -16,7 +16,7 @@ I tillegg til sjekklisten så bør det implementeres [tilgangsstyring](tilgangss
 ## Eksponering av applikasjoner i "fagsystemsonen" (FSS)
 
 :::note
-"Fagsystemsonen" er en NAV-greie, men mønsteret som beskrives her er overførbart til andre miljøer
+"Fagsystemsonen" er en Nav-greie, men mønsteret som beskrives her er overførbart til andre miljøer
 :::
 
 Ideelt sett bør alle applikasjoner være laget ihht beskrivelsen ovenfor slik at de lettere kan kjøres i utrivelige miljøer, alltid "assume compromise". Av og til har man likevel behov for å eksponere legacy-apps som ikke nødvendigvis har alle disse forutsetningene på plass. Dette _kan_ gjøres, men forutsetningen er at appen er sikret med OAuth2.

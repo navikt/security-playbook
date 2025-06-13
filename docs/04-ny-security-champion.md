@@ -20,11 +20,11 @@ Noen estimater sier at så mye som 85 % av koden i en typisk applikasjon er skre
 
 ### Les gjennom temaene i playbooken 📚
 
-Playbooken forsøker å samle informasjon som er nyttig og relevant for det daglige arbeidet med sikkerhet i produktteam. Siden [«Sikker utvikling i NAV IT»](/docs/sikker-utvikling) inneholder en liste med tema som de fleste burde kjenne til, men som ikke er åpenbare nok til at vi kan ta for gitt.
+Playbooken forsøker å samle informasjon som er nyttig og relevant for det daglige arbeidet med sikkerhet i produktteam. Siden [«Sikker utvikling i Nav IT»](/docs/sikker-utvikling) inneholder en liste med tema som de fleste burde kjenne til, men som ikke er åpenbare nok til at vi kan ta for gitt.
 
-:::success Praktisk oppgave – Les gjennom temaene under «Sikker utvikling i NAV IT»
+:::success Praktisk oppgave – Les gjennom temaene under «Sikker utvikling i Nav IT»
 
-1. Gå til [«Sikker utvikling i NAV IT»](/docs/sikker-utvikling)
+1. Gå til [«Sikker utvikling i Nav IT»](/docs/sikker-utvikling)
 2. Les gjennom temaene og se om du lærer noe nytt
 3. Tenk gjennom om det er noe du savner 💭
 
@@ -98,6 +98,6 @@ Ta et kurs, les en bok eller lytt på en podcast.
 
 1. Besøk noen av [ressursene](/docs/lenker) som er listet her i playbooken
 2. Prøv deg på noen CTF-oppgaver hos feks [Pico](https://picoctf.org/) eller [TryHackMe](https://tryhackme.com/)
-3. Benytt noe av det som [O'Reilly](https://learning.oreilly.com/search/?q=security&type=playlist&playlist_type=expert&rows=10) tilbyr (krever abonnement, ansatte i NAV IT kan [selvbetjene](https://myapps.microsoft.com) tilgang)
+3. Benytt noe av det som [O'Reilly](https://learning.oreilly.com/search/?q=security&type=playlist&playlist_type=expert&rows=10) tilbyr (krever abonnement, ansatte i Nav IT kan [selvbetjene](https://myapps.microsoft.com) tilgang)
 
 :::

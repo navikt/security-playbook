@@ -5,11 +5,11 @@ hide_table_of_contents: true
 
 <img alt="Security Champion logo" src="/img/SecurityChampion.svg" style={{"height":"125px"}}/>
 
-Du behøver ikke være utlært sikkerhetsekspert for å bli security champion. Vi ser at det kommer til å være stort spenn i kunnskapen, og det skal vi jobbe med over tid for å få alle opp på et godt nivå. Vil du hjelpe teamet ditt til å tenke mer på sikkerhet og bidra til at NAV leverer enda tryggere og sikrere tjenester? Bli med i dag!
+Du behøver ikke være utlært sikkerhetsekspert for å bli security champion. Vi ser at det kommer til å være stort spenn i kunnskapen, og det skal vi jobbe med over tid for å få alle opp på et godt nivå. Vil du hjelpe teamet ditt til å tenke mer på sikkerhet og bidra til at Nav leverer enda tryggere og sikrere tjenester? Bli med i dag!
 
 1. Rediger teamet ditt og gi deg selv rollen «Security Champion» i [teamkatalogen](https://teamkatalog.nav.no/)
 
-… og det var det. Gratulerer! Du har nå blitt med i ett av NAVs kuleste [nettverk](/docs/om-security-champions) og kan pryde deg selv med klistremerker, sokker, hettegenser, og annet swag! 🥳
+… og det var det. Gratulerer! Du har nå blitt med i ett av Navs kuleste [nettverk](/docs/om-security-champions) og kan pryde deg selv med klistremerker, sokker, hettegenser, og annet swag! 🥳
 
 <img alt="Hettegenser for security champions" src="/img/security-champion-hoodie.png" style={{"height":"150px"}}/>
 <img alt="Klistremerker for security champions" src="/img/security-champion-stickers.png" style={{"height":"150px"}}/>

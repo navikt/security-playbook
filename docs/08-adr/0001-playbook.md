@@ -6,7 +6,7 @@ Draft
 
 ## Kontekst
 
-I NAV har vi kommet et stykke på vei med å flytte utvikling ut i autonome produktteam. Når
+I Nav har vi kommet et stykke på vei med å flytte utvikling ut i autonome produktteam. Når
 teamene tar større ansvar for egne produkter så må de samtidig ta større ansvar for å sikre dem. Teamene har ulikt modenhetsnivå på sikkerhet, og trenger støtte og verktøy for å kunne ta gode beslutninger om sikkerhet i sine systemer.
 
 ### Hva er en security playbook?

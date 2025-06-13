@@ -26,12 +26,12 @@ Når det smeller er det viktig å reagere raskt, og hvis man ikke allerede har r
 Det er viktig at man vet hvor man finner nødvendig informasjon og hvem man kan kontakte for å få svar på ting man
 kanskje ikke har oversikt over selv. Disse rutinene må øves på og om nødvendig justeres med jevne mellomrom.
 
-Rammeverket for beredskap i NAV beskriver hvordan vi skal organisere, håndtere og evaluere beredskapshendelser.
+Rammeverket for beredskap i Nav beskriver hvordan vi skal organisere, håndtere og evaluere beredskapshendelser.
 Målet er å ha en beredskapsorganisasjon som er proaktiv, profesjonell og som gir nødvendig beslutningsstøtte.
 
-[Beredskap i NAV](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-NAV.aspx)
+[Beredskap i Nav](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-Nav.aspx)
 
-[Beredskapsprosessen](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskapsprosessen-i-NAV.aspx)
+[Beredskapsprosessen](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskapsprosessen-i-Nav.aspx)
 
 [Varslingsprosedyre på etatsnivå](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Varslingsprosedyre-p%C3%A5-etatsniv%C3%A5.aspx)
 

@@ -1,6 +1,6 @@
 ---
 title: ROS i TryggNok
-description: Dokumenter risikovurderingene dine åpent for de andre teamene i NAV.
+description: Dokumenter risikovurderingene dine åpent for de andre teamene i Nav.
 ---
 
 ## Risikovurderinger for team
@@ -20,7 +20,7 @@ TryggNok skal holdes oppdatert. For å støtte teamene sender TryggNok påminnel
 
 ## Ansvarsavklaringer i TryggNok
 
-TryggNok har ansvarsavklaringer som skal fylles ut når en løsning tar i bruk data eller tjenester som andre team i NAV i tilbyr. Ansvarsavklaring er et sett med spørsmål knyttet til risikoer som kan være relevant når et team tar i bruk en løsning et annet team har utviklet.
+TryggNok har ansvarsavklaringer som skal fylles ut når en løsning tar i bruk data eller tjenester som andre team i Nav i tilbyr. Ansvarsavklaring er et sett med spørsmål knyttet til risikoer som kan være relevant når et team tar i bruk en løsning et annet team har utviklet.
 Kun de ansvarsavklaringene som er relevante for teamet ditt fylles ut, og blir et dokument i risikovurdering i TryggNok.
 
 ## Når skal beslutninger eskaleres?

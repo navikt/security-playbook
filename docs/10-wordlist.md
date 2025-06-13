@@ -96,7 +96,7 @@ CVE står for Common Vulnerabilities and Exposures. CVE er en internasjonal, fel
 
 (Distributed) DoS er en type angrep der man søker å gjøre datamaskiner midlertidig eller permanent utilgjengelige. En vanlig måte å gjøre dette på er å overbelaste maskinene ved å sende de så mange forespørsler at de ikke klarer å håndtere dem. Hvis angrepet utføres distribuert fra flere steder blir det vanskeligere å stoppe.
 
-#### Digital sikkerhet (NAV)
+#### Digital sikkerhet (Nav)
 
 IT-område [digital sikkerhet](https://teamkatalog.nav.no/area/adf0151b-83c2-43e7-91ec-bd078230f688). Les mer på [Navet](https://navno.sharepoint.com/sites/enhet-it-avdelingen/SitePages/IT-omr%C3%A5de%20digital%20sikkerhet.aspx).
 
@@ -226,7 +226,7 @@ En gruppe som spiller rollen som trusselaktør og med eierens tillatelse tester 
 
 En av grunnsteinene i sikkerhetsmodellen på weben. En `origin` er et sted der innhold er lastet fra og består av kombinasjonen protokoll, host og port. `http://www.nav.no` er ikke det samme som `http://pensjon.nav.no` fordi hosten er forskjellig, `http://nav.no` ikke er det samme som `https://nav.no` fordi protokollen er forskjellig mens `https://nav.no` ikke er det samme som `https://nav.no:8080` fordi porten er forskjellig. Ressurser som bilder og style sheets kan lastes fra andre origins, men JavaScript har kun tilgang til den delen av DOM-en som stammer fra samme origin. Cookies sendes (med mindre det er eksplisitt overstyrt) kun tilbake til samme origin. For de tilfellene der man har bruk for å dele mellom ulike origins finnes mekanismen [CORS](#cross-origin-resource-sharing-cors).
 
-#### Security Champion (NAV)
+#### Security Champion (Nav)
 
 Teamets sikkerhetssamvittighet. Ikke nødvendigvis en sikkerhetsekspert, men en person som har sikkerhet mer i bakhodet enn andre. Les mer på siden [«Hva er en Security Champion?»](/docs/security-champion-rolle).
 

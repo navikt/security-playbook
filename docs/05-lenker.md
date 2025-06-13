@@ -25,13 +25,13 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 - [Equinor AppSec](https://equinor.github.io/appsec/#security-champion) Equinor sin AppSec playbook
 - [Security Champions Norge](https://securitychampions.no/) Norges hyggeligste fellesskap for sikkerhetskultur
 
-### Artikler og presentasjoner fra NAV
+### Artikler og presentasjoner fra Nav
 
-- September 2022: [JavaZone – Hvordan vi sikrer NAV.no og ⅓ av Norges statsbudsjett](https://vimeo.com/748031584)
-- Juni 2022: [Kode24 – NAV forvalter en tredjedel av statsbudsjettet: - Vi blir angrepet hele tiden](https://www.kode24.no/artikkel/nav-forvalter-en-tredjedel-av-statsbudsjettet-vi-blir-angrepet-hele-tiden/76410353)
-- Februar 2022: [Kode24 – NAV gjør DevSecOps med 'security champions': - Det første forsøket feilet](https://www.kode24.no/artikkel/nav-gjor-devsecops-med-security-champions-det-forste-forsoket-feilet/75393687)
+- September 2022: [JavaZone – Hvordan vi sikrer Nav.no og ⅓ av Norges statsbudsjett](https://vimeo.com/748031584)
+- Juni 2022: [Kode24 – Nav forvalter en tredjedel av statsbudsjettet: - Vi blir angrepet hele tiden](https://www.kode24.no/artikkel/nav-forvalter-en-tredjedel-av-statsbudsjettet-vi-blir-angrepet-hele-tiden/76410353)
+- Februar 2022: [Kode24 – Nav gjør DevSecOps med 'security champions': - Det første forsøket feilet](https://www.kode24.no/artikkel/nav-gjor-devsecops-med-security-champions-det-forste-forsoket-feilet/75393687)
 - Desember 2021: [JavaZone – Vi må snakke sammen! (via TokenX og OAuth 2.0)](https://vimeo.com/669150683)
-- Desember 2021: [JavaZone – Autonome team og Security Champions, hvordan NAV utvikler sikkert i fart](https://vimeo.com/669321429)
+- Desember 2021: [JavaZone – Autonome team og Security Champions, hvordan Nav utvikler sikkert i fart](https://vimeo.com/669321429)
 
 ### Artikler/blogposts
 
@@ -45,11 +45,11 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 
 ### GitHub-repoer
 
-- [Utvikling i NAV](https://github.com/navikt/utvikling)
+- [Utvikling i Nav](https://github.com/navikt/utvikling)
 - [Really NAIS examples (Eksempler på apper som bruker OAuth og OIDC)](https://github.com/nais/examples)
 - [Hjelpebiblioteker for OAuth og OIDC](https://github.com/navikt/token-support)
 
-## NAV-interne ressurser
+## Nav-interne ressurser
 
 - [TryggNok – Risikovurdering](https://apps.powerapps.com/play/f8517640-ea01-46e2-9c09-be6b05013566)
 - [NAIS doc](https://doc.nais.io/)
@@ -57,17 +57,17 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 
 ### Slack-kanaler
 
-Sikkerhetsrelaterte kanaler på NAV IT-slacken:
+Sikkerhetsrelaterte kanaler på Nav IT-slacken:
 
-| Kanal                                                                          | Beskrivelse                                                                                                                |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| [#sikkerhet](https://nav-it.slack.com/archives/C6UBU9EAU)                      | Alt som ikke hører naturlig hjemme i de andre kanalene                                                                     |
-| [#security-champion](https://nav-it.slack.com/archives/CN8N938K1)              | Forum for diskusjon og erfaringsutveksling for security champions                                                          |
-| [#faggruppe-hack](https://nav-it.slack.com/archives/C045XD7KV32)               | Faggruppe for hacking og [CTF (Capture the flag)](/docs/wordlist#capture-the-flag-ctf)                                     |
-| [#tech-sikkerhet](https://nav-it.slack.com/archives/CCSET7820)                 | Her henger de som driver med nettverk, brannmurer og denslags                                                              |
-| [#auditlogging-arcsight](https://nav-it.slack.com/archives/C014576K5TQ)        | De som jobber med innsamling og crunching av logger                                                                        |
-| [#tilgang-og-identitet](https://nav-it.slack.com/archives/C025DDBBSLU)         | Forum for involvering av alle/alt som har med Tilgang og/eller Identitet å gjøre i NAV                                     |
-| [#tryggnok](https://nav-it.slack.com/archives/CQ0D5HLSW)                       | Spørsmål om tryggnok-tjenesten for risikovurdering                                                                         |
-| [#digital-sikkerhet](https://nav-it.slack.com/archives/C026BETG37H)            | Ting som omhandler opprettelsen av det nye området for IT-sikkerhet                                                        |
-| [#soc](https://nav-it.slack.com/archives/C0162CBNJRJ)                          | Her legger SOC-folket ut ting de mener er av interesse for flere                                                           |
-| [#appsec](https://nav-it.slack.com/archives/C06P91VN27M)                       | Usikker på hvem du kan spørre om hjelp? Team AppSec hjelper deg!                                                           |
+| Kanal                                                                   | Beskrivelse                                                                            |
+| ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [#sikkerhet](https://nav-it.slack.com/archives/C6UBU9EAU)               | Alt som ikke hører naturlig hjemme i de andre kanalene                                 |
+| [#security-champion](https://nav-it.slack.com/archives/CN8N938K1)       | Forum for diskusjon og erfaringsutveksling for security champions                      |
+| [#faggruppe-hack](https://nav-it.slack.com/archives/C045XD7KV32)        | Faggruppe for hacking og [CTF (Capture the flag)](/docs/wordlist#capture-the-flag-ctf) |
+| [#tech-sikkerhet](https://nav-it.slack.com/archives/CCSET7820)          | Her henger de som driver med nettverk, brannmurer og denslags                          |
+| [#auditlogging-arcsight](https://nav-it.slack.com/archives/C014576K5TQ) | De som jobber med innsamling og crunching av logger                                    |
+| [#tilgang-og-identitet](https://nav-it.slack.com/archives/C025DDBBSLU)  | Forum for involvering av alle/alt som har med Tilgang og/eller Identitet å gjøre i Nav |
+| [#tryggnok](https://nav-it.slack.com/archives/CQ0D5HLSW)                | Spørsmål om tryggnok-tjenesten for risikovurdering                                     |
+| [#digital-sikkerhet](https://nav-it.slack.com/archives/C026BETG37H)     | Ting som omhandler opprettelsen av det nye området for IT-sikkerhet                    |
+| [#soc](https://nav-it.slack.com/archives/C0162CBNJRJ)                   | Her legger SOC-folket ut ting de mener er av interesse for flere                       |
+| [#appsec](https://nav-it.slack.com/archives/C06P91VN27M)                | Usikker på hvem du kan spørre om hjelp? Team AppSec hjelper deg!                       |

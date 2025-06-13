@@ -2,7 +2,7 @@
 title: Juridisk logg
 description:
   Formålet er å lagre meldinger/dokumenter på en måte som garanterer at de ikke senere kan endres,
-  slik at man f.eks. ved en juridisk tvist kan bevise innholdet i et dokument som NAV har mottatt/sendt.
+  slik at man f.eks. ved en juridisk tvist kan bevise innholdet i et dokument som Nav har mottatt/sendt.
 ---
 
 ## Hva er Juridisk logg?
@@ -10,7 +10,7 @@ description:
 Et mer konsist navn på tjenesten er "Ikke-benekt Logg" (non-repudiation).
 
 Formålet er å lagre meldinger/dokumenter på en måte som garanterer at de ikke senere kan endres,
-slik at man f.eks. ved en juridisk tvist kan bevise innholdet i et dokument som NAV har mottatt/sendt.
+slik at man f.eks. ved en juridisk tvist kan bevise innholdet i et dokument som Nav har mottatt/sendt.
 
 - Ved lagring angis "låsetiden" for dokumentet - opptil 10 år.
 - Uthenting av lagrede dokumenter skal audit-logges (hvem, når, hvorfor).
