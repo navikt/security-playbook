@@ -9,7 +9,7 @@ Tilgangskontroll består av to hoveddeler. Først må man finne ut hvem brukeren
 avgjørelser om tilgang basert på hvilke egenskaper denne brukeren har (autorisering). På engelsk omtales dette ofte som
 «AuthNZ» (**Auth**e**N**tication og **Auth**ori**Z**ation).
 
-I NAV har vi valgt å ta i bruk [OAuth 2.0](https://oauth.net/2/) og [OpenID Connect (OIDC)](https://openid.net/connect/)
+I Nav har vi valgt å ta i bruk [OAuth 2.0](https://oauth.net/2/) og [OpenID Connect (OIDC)](https://openid.net/connect/)
 for dette formålet. En introduksjon til disse samt tilhørende begrep og uttrykk finner
 du [her](https://nais.io/blog/posts/oauth1/). Dette er veletablerte standarder med god industristøtte.
 

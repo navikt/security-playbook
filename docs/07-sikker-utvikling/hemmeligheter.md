@@ -70,7 +70,7 @@ Uansett hvor mange forholdsregler man tar vil det fra tid til annen skje uhell s
 
 - Roter de(n) aktuelle hemmeligheten(e) så raskt som mulig.
 - Sjekk logging og overvåking for spor etter evt. kompromittering.
-- Varsle aktuelle parter ihht [etatens beredskapsplaner](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-NAV.aspx) dersom man har konkrete mistanker om at systemer er kompromittert og/eller at informasjon er på avveie.
+- Varsle aktuelle parter ihht [etatens beredskapsplaner](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-Nav.aspx) dersom man har konkrete mistanker om at systemer er kompromittert og/eller at informasjon er på avveie.
 
 Det er _veldig_ lurt å øve på situasjoner som dette slik at man har rutiner og verktøy på plass den dagen det smeller.
 

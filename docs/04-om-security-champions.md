@@ -1,17 +1,17 @@
 ---
 title: Om nettverket 🌐
-description: Beskrivelse av «Security Champions»-nettverket i NAV IT
+description: Beskrivelse av «Security Champions»-nettverket i Nav IT
 hide_table_of_contents: false
 ---
 
 ## Beskrivelse
 
-«Security Champions»-nettverket er samlingen av security champions i NAV IT.
-Med gruppen ønsker vi å forsterke sikkerhetsarbeidet i NAV IT ved å ha et felles samlingssted for de som har et ekstra engasjement og interesse for sikkerhet i løsningene vi utvikler.
+«Security Champions»-nettverket er samlingen av security champions i Nav IT.
+Med gruppen ønsker vi å forsterke sikkerhetsarbeidet i Nav IT ved å ha et felles samlingssted for de som har et ekstra engasjement og interesse for sikkerhet i løsningene vi utvikler.
 
 ## Mål
 
-Samle sikkerhetsinteresserte i NAV IT og bygge et community.
+Samle sikkerhetsinteresserte i Nav IT og bygge et community.
 
 ## Redaksjonen
 

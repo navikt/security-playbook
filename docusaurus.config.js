@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: "Security Playbook",
-  tagline: "Hvordan vi utvikler sikker software i NAV",
+  tagline: "Hvordan vi utvikler sikker software i Nav",
   url: "https://sikkerhet.nav.no",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -95,7 +95,7 @@ module.exports = {
           ],
         },
         {
-          title: "NAV Utvikling",
+          title: "Nav Utvikling",
           items: [
             {
               label: "Utvikling",
@@ -129,7 +129,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `${new Date().getFullYear()} NAV. Built with Docusaurus.\n
+      copyright: `${new Date().getFullYear()} Nav. Built with Docusaurus.\n
       <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       `,
     },

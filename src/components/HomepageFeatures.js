@@ -19,7 +19,7 @@ const FeatureList = [
     Svg: require("../../static/img/honesty.svg").default,
     description: (
       <>
-        Vi i NAV har tillit til hverandre og har forståelse for at ikke alle
+        Vi i Nav har tillit til hverandre og har forståelse for at ikke alle
         starter fra likt utgangspunkt.
       </>
     ),

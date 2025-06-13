@@ -24,7 +24,7 @@ function HomepageHeader() {
             className={`button button--secondary button--lg ${styles.button}`}
             to="/docs/sikker-utvikling/"
           >
-            Sikker utvikling i NAV IT 🔒
+            Sikker utvikling i Nav IT 🔒
           </Link>
         </div>
       </div>

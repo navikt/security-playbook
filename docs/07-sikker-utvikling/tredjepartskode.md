@@ -9,7 +9,7 @@ Vi drar stadig flere tredjepartsavhengigheter inn i koden vår. Disse avhengighe
 
 Det er en uoverkommelig oppgave å skulle holde oversikt over slike ting selv. Det har derfor dukket opp tjenester som kontinuerlig monitorerer og systematiserer info om kjente sårbarheter og hvilke produkter som er rammet av dem.
 
-Disse konkrete produktene brukes mye i NAV og kan anbefales:
+Disse konkrete produktene brukes mye i Nav og kan anbefales:
 
 - [GitHub Advanced Security](/docs/verktoy/github-advanced-security)
 - [Dependabot](/docs/verktoy/dependabot)

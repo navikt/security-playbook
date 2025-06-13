@@ -4,10 +4,10 @@ hide_table_of_contents: false
 sidebar_position: 1
 ---
 
-Velkommen til NAVs Security Playbook – inngangen til alt du trenger for å jobbe med sikkerhet i produktteam.
+Velkommen til Navs Security Playbook – inngangen til alt du trenger for å jobbe med sikkerhet i produktteam.
 
 :::note
-Vi forsøker hardt å holde denne playbooken så åpen som mulig, men av og til må noen ting begrenses av hensyn til sikkerhet eller copyright og lisenser. Noen av linkene her vil derfor føre til steder som krever at du [jobber i NAV](https://www.detsombetyrnoe.no/) og har en [skikkelig nais device](https://doc.nais.io/device/).
+Vi forsøker hardt å holde denne playbooken så åpen som mulig, men av og til må noen ting begrenses av hensyn til sikkerhet eller copyright og lisenser. Noen av linkene her vil derfor føre til steder som krever at du [jobber i Nav](https://www.detsombetyrnoe.no/) og har en [skikkelig nais device](https://doc.nais.io/device/).
 :::
 
 ## Hva finner du her?
@@ -22,7 +22,7 @@ Det du trenger i det daglige. For eksempel:
 
 ### 2. Informasjon om det du kanskje ikke har hørt om 💭
 
-På siden [«Sikker utvikling i NAV IT»](/docs/sikker-utvikling) finner du en oversikt over temaer som burde være interessante for alle produktteam. Det anbefales å titte innom alle sammen, og spesielt hvis det er noe du ikke har hørt om før!
+På siden [«Sikker utvikling i Nav IT»](/docs/sikker-utvikling) finner du en oversikt over temaer som burde være interessante for alle produktteam. Det anbefales å titte innom alle sammen, og spesielt hvis det er noe du ikke har hørt om før!
 
 ### 3. Fellesskap 💖
 
@@ -52,7 +52,7 @@ I grove trekk kan ansvarsforholdet beskrives slik: [Plattformen (NAIS)](https://
 
 ### Produktteamenes ansvarsområde
 
-Produktteamenes ansvar starter i det en forespørsel når deres applikasjon. De må selv sørge for at sikkerheten i sine applikasjoner er i henhold til det som forventes av NAV, både fra myndighetene og våre brukere. Vi i NAV forvalter store mengder penger og sensitiv informasjon, og setter derfor ekstra høye krav til oss selv med tanke på sikkerhet. Alle applikasjoner skal bygges i henhold til prinsippene om [«zero trust»](https://en.wikipedia.org/wiki/Zero_trust_security_model).
+Produktteamenes ansvar starter i det en forespørsel når deres applikasjon. De må selv sørge for at sikkerheten i sine applikasjoner er i henhold til det som forventes av Nav, både fra myndighetene og våre brukere. Vi i Nav forvalter store mengder penger og sensitiv informasjon, og setter derfor ekstra høye krav til oss selv med tanke på sikkerhet. Alle applikasjoner skal bygges i henhold til prinsippene om [«zero trust»](https://en.wikipedia.org/wiki/Zero_trust_security_model).
 
 Teamene bør søke å ha oversikt over og kontinuerlig fokus på å avverge de vanligste truslene mot sine applikasjoner. Den vanligste oversikten å støtte seg på er [OWASP Top 10](https://owasp.org/www-project-top-ten/). Når man releaser software hyppig er det ekstra viktig at man har kontinuerlig fokus på sikkerhet og ikke tenker det er «noe man kan legge til etterpå».
 
