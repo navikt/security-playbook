@@ -6,7 +6,7 @@ description: 🧾 Validering av input og output er viktig for å unngå probleme
 Alle systemer må håndtere input og output på en sikker måte. Dette gjelder både for data som kommer inn i systemet, og data som sendes ut. Validering av input og output er en viktig del av sikkerhetsarbeidet, og kan bidra til å forhindre en rekke typer angrep.
 
 :::tip Tips!
-Dette gir ikke bare sikkerhet men også et mer robust system.
+Dette gir ikke bare sikkerhet, men også et mer robust system.
 :::
 
 ## Hvorfor validere input?
@@ -19,21 +19,21 @@ Selv om du stoler på kilden, kan det hende at de har gjort andre vurderinger en
 
 ## Hvorfor validere output?
 
-Andre systemer som mottar data fra ditt system kan anta på at dataene er gyldige og ikke inneholder skadelig kode. Output-validering hinder at skadelig kode blir sendt ut av systemet, og kan bidra til å forhindre angrep i andres systemer.
+Det kan hende at andre systemer forutsetter at dataene fra dere er gyldige og ikke inneholder skadelig kode. Output-validering hindrer at skadelig kode blir sendt ut av systemet, og kan bidra til å forhindre angrep i andres systemer.
 
-Output validering sikkrer også at dataene presentert til brukerene er gyldige og ikke inneholder skadelig kode som XXS (Cross-Site Scripting).
+Output-validering sikrer også at dataene presentert til brukerne er gyldige og ikke inneholder skadelig kode som XSS (Cross-Site Scripting).
 
 ## Hvordan validere input?
 
-- For enkle typer som tall, datoer, enum og e-post adresser, bruk innebygde typer i programmeringsspråket og valider.
+- For enkle typer som tall, datoer, enum og e-postadresser: bruk innebygde typer i programmeringsspråket og valider.
 - Når det kommer til tekst:
   - Vurder hvilke tegn som er gyldige.
   - Sett opp en whitelist av gyldige tegn, og bruk regex for å validere at inputen kun inneholder disse tegnene.
-  - For eksempel fjerne alle ugyldige tegn: `input.replace(/[^a-zA-ZÀ-Ÿ0-9, -_.]/g, "")`.
-  - Trenger man rik tekst eller html, vurder hvilke tags og attributter som er gyldige, og bruk et bibliotek for å sanitere.
+  - For eksempel, fjerne alle ugyldige tegn: `input.replace(/[^a-zA-ZÀ-Ÿ0-9, -_.]/g, "")`.
+  - Trenger man rik tekst eller HTML, vurder hvilke tags og attributter som er gyldige, og bruk et bibliotek for å sanitere.
 
 :::danger OBS!
-Vi bør validere både i frontend og backend. Frontend validering gir rask tilbakemelding til bruker mens backend validering sikrer at dataene er gyldige før de lagres eller behandles videre. Vi kan ikke stole på at frontend validering er tilstrekkelig, da brukere kan omgå den ved å sende direkte forespørsler til backend.
+Vi bør validere både i frontend og backend. Frontend-validering gir rask tilbakemelding til bruker, mens backend-validering sikrer at dataene er gyldige før de lagres eller behandles videre. Vi kan ikke stole på at frontend-validering er tilstrekkelig, da brukere kan omgå den ved å sende direkte forespørsler til backend.
 :::
 
 ## Hvordan validere output?
@@ -42,7 +42,7 @@ Vær obs på at output kan være sammensatt av flere kilder og at kombinasjonen 
 
 Når man presenterer data til brukere, sørg for at de enkodes riktig. Bruk rammeverkets innebygde funksjoner for å enkode data som skal vises i HTML, JSON eller andre formater. Dette kan bidra til å forhindre XSS-angrep.
 
-**For eksempel ikke bruk `dangerouslySetInnerHTML` i React!**
+**For eksempel, ikke bruk `dangerouslySetInnerHTML` i React!**
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
