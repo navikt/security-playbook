@@ -17,7 +17,7 @@ De er satt opp i prioritert rekkefølge sånn at man kan komme raskt i gang.
   - Det er lurt å legge til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) i dine workflows. Det er fordi det kan dukke opp nye sårbarheter selv når dere ikke gjør kodeendringer.
 - Bruk Docker baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless). Mer info og eksempler er det her: [Sikkerhet i og rundt containere](/docs/sikker-utvikling/containere)
 - Bygg imagene dine vha. [docker-build-push](https://doc.nais.io/build/), og ikke skru av generering og opplasting sv SBOM (parametrene `byosbom` og `salsa`).
-- Valider all input. Ikke stol på data som kommer inn uavhengig av hvor det kommer fra.
+- [Valider all input](/docs/sikker-utvikling/inputvalidering). Ikke stol på data som kommer inn uavhengig av hvor det kommer fra.
 - Ha kontroll på [loggene](/docs/sikker-utvikling/logging). Pass på at dere ikke logger sensitiv informasjon (f.eks. FNR/Jwt tokens) til standardloggene.
 - Sikre maskin til maskin-kommunikasjonen din med [OAuth](/docs/sikker-utvikling/m2m), ikke bruk servicebrukere og "STS'en"
 
