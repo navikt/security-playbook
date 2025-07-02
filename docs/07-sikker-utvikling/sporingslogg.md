@@ -1,11 +1,11 @@
 ---
-title: Sporingslogg
-description: Formålet er å logge og vise til brukere utlevering av data fra Nav til forsikringsselskaper på bakgrunn av avgitt samtykke.
+title: Utleveringslogg
+description: Sporingslogg som et eksempel på en utleveringslogg når du deler data med eksterne parter
 ---
 
 ## Hva er Sporingslogg?
 
-Sporingslogg er en utleveringslogg som sikrer at bruker i ettertid kan få vite hva som er utlevert fra Nav til et forsikringsselskap. Data som deles fra Nav styres av det samtykket til datadeling som bruker har gitt i Altinn.
+Formålet med applikasjonen Sporingslogg er å logge og vise til brukere utlevering av data fra Nav til forsikringsselskaper på bakgrunn av avgitt samtykke. Sporingslogg er en utleveringslogg som sikrer at bruker i ettertid kan få vite hva som er utlevert fra Nav til et forsikringsselskap. Data som deles fra Nav styres av det samtykket til datadeling som bruker har gitt i Altinn.
 
 ## Hvordan logger vi i Sporingslogg?
 
@@ -27,4 +27,4 @@ En utlevering logges ved å poste dette på Kafka-topic `aapen-sporingslogg-logg
 
 ## Les mer
 
-Beskrivelsen som ligger her er for å gjøre deg oppmerksom på at det må logges dersom du sender data ut av Nav. Nærmere beskrivelse av løsningen kan du finne i [confluence](https://confluence.adeo.no/display/KES/Sporingslogg) (krever tilgang).
+Beskrivelsen som ligger her er for å gjøre deg oppmerksom på at det må logges dersom du sender data ut av Nav. Nærmere beskrivelse av applikasjonen Sporingslogg kan du finne i [confluence](https://confluence.adeo.no/display/KES/Sporingslogg) (krever tilgang).
