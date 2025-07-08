@@ -13,6 +13,10 @@ Men nedenfor finner du en kort oppsummering av de viktigste punktene.
 
 ## Repository settings
 
+### Eierskap
+
+I Nav anbefaler vi att et nais-team står som admin for ett repository. Fordi når folk slutter eller bytter team blir det mye jobb å gå igjennom alle repositories.
+
 ### Branch protection
 
 Sett opp branch protection for default branch for å unngå att noen sletter kode.
