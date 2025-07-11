@@ -3,11 +3,13 @@ title: Logging
 description: 🪵 God logging holder deg unna jogging
 ---
 
-NAIS-plattformen tilbyr et [standard opplegg](https://doc.nais.io/observability/) for "observability" hvor logger er en av grunnpilarene. `stdout` fra alle pods skrapes og sendes til [Grafana Loki](https://grafana.nav.cloud.nais.io/) eller [Elasticsearch](https://logs.adeo.no). Det anbefales å logge i JSON-formatet som støttes av flere rammeverk, f.eks. [LogBack](https://github.com/logstash/logstash-logback-encoder) og [winston](https://www.npmjs.com/package/winston).
+Nais-plattformen tilbyr et [standard opplegg](https://doc.nais.io/observability/) for "observability" hvor logger er en av grunnpilarene. `stdout` fra alle pods skrapes og sendes til [Grafana Loki](https://grafana.nav.cloud.nais.io/) eller [Elasticsearch](https://logs.adeo.no). Det anbefales å logge i JSON-formatet som støttes av flere rammeverk, f.eks. [LogBack](https://github.com/logstash/logstash-logback-encoder) og [winston](https://www.npmjs.com/package/winston).
 
 ## Loggindekser og tilgang
 
-Loggene er åpne for alle utviklerne, og egner seg derfor ikke for personopplysninger eller andre sensitive data. For dette formålet kan man få opprettet egne indekser som får navnet `tjenestekall-*` i Elasticsearch. Disse indeksene omtales ofte som `secure log`, og er kun lesbare for teamet som eier dem. Innholdet skrapes automatisk fra filer på fast sted i podene. Prosessen for å få opprettet slike indekser finner man i [NAIS-docen](https://doc.nais.io/observability/logs/#secure-logs).
+Loggene er åpne for alle utviklerne, og egner seg derfor ikke for personopplysninger eller andre sensitive data. ~~For dette formålet kan man få opprettet egne indekser som får navnet `tjenestekall-*` i Elasticsearch. Disse indeksene omtales ofte som `secure log`, og er kun lesbare for teamet som eier dem. Innholdet skrapes automatisk fra filer på fast sted i podene. Prosessen for å få opprettet slike indekser finner man i [NAIS-docen](https://doc.nais.io/observability/logs/#secure-logs).~~
+
+For logger som skal vare private bruker vi nå [Nais team logs](https://doc.nais.io/observability/logging/how-to/team-logs/).
 
 ## Auditlogging
 
@@ -20,7 +22,7 @@ Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dett
   - Fødselsnummer, aktørId, husadresser, IP-adresser, organisasjonsnummer
 - Alt det som ikke kan gå i åpen logg kan legges i secure logs, med begrenset tilgang til loggen (teamet må ha kontroll på hvem som har tilgang)
 - ROS på teamets logging og eventuelt tilgang til secure logs (**husk å oppdatere ved behov!**)
-- Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Asys](https://it-hjelpa.adeo.no/arsys/forms/remedy/Avvik/webViewSub/). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
+- Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Avvikssystemet]([https://it-hjelpa.adeo.no/arsys/forms/remedy/Avvik/webViewSub/](https://navno.sharepoint.com/sites/intranett-avvik/SitePages/Avviksskjema.aspx)). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
 
 Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
 
