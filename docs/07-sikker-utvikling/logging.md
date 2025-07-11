@@ -22,7 +22,7 @@ Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dett
   - Fødselsnummer, aktørId, husadresser, IP-adresser, organisasjonsnummer
 - Alt det som ikke kan gå i åpen logg kan legges i secure logs, med begrenset tilgang til loggen (teamet må ha kontroll på hvem som har tilgang)
 - ROS på teamets logging og eventuelt tilgang til secure logs (**husk å oppdatere ved behov!**)
-- Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Avvikssystemet]([https://it-hjelpa.adeo.no/arsys/forms/remedy/Avvik/webViewSub/](https://navno.sharepoint.com/sites/intranett-avvik/SitePages/Avviksskjema.aspx)). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
+- Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Avvikssystemet](https://navno.sharepoint.com/sites/intranett-avvik/SitePages/Avviksskjema.aspx)). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
 
 Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
 
