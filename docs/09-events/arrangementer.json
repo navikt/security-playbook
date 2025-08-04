@@ -207,5 +207,12 @@
     "label": "The Elephant in AppSec Conference",
     "href": "https://www.theelephantinappsec.com/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2025-10-30",
+    "endDate": "2025-10-30",
+    "label": "BSides Oslo",
+    "href": "https://bsidesoslo.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
