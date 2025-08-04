@@ -31,6 +31,8 @@ Output-validering sikrer også at dataene presentert til brukerne er gyldige og 
   - Sett opp en whitelist av gyldige tegn, og bruk regex for å validere at inputen kun inneholder disse tegnene.
   - For eksempel, fjerne alle ugyldige tegn: `input.replace(/[^a-zA-ZÀ-Ÿ0-9, -_.]/g, "")`.
   - Trenger man rik tekst eller HTML, vurder hvilke tags og attributter som er gyldige, og bruk et bibliotek for å sanitere.
+- Filopplasting er spessielt skummelt:
+  - [Egen side om filopplasting](/docs/sikker-utvikling/filopplasting)
 
 :::danger OBS!
 Vi bør validere både i frontend og backend. Frontend-validering gir rask tilbakemelding til bruker, mens backend-validering sikrer at dataene er gyldige før de lagres eller behandles videre. Vi kan ikke stole på at frontend-validering er tilstrekkelig, da brukere kan omgå den ved å sende direkte forespørsler til backend.
@@ -43,6 +45,10 @@ Vær obs på at output kan være sammensatt av flere kilder og at kombinasjonen 
 Når man presenterer data til brukere, sørg for at de enkodes riktig. Bruk rammeverkets innebygde funksjoner for å enkode data som skal vises i HTML, JSON eller andre formater. Dette kan bidra til å forhindre XSS-angrep.
 
 **For eksempel, ikke bruk `dangerouslySetInnerHTML` i React!**
+
+### CSP (Content Security Policy)
+
+CSP vil også hjelpe til å trygge output ved å begrense hva vi tilater på sidene våre. Se [OWASP CSP jukse ark](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 
 ```mdx-code-block
 import UnderArbeid from './\_under-arbeid.mdx'
