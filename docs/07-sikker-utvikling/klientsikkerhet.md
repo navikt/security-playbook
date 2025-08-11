@@ -8,7 +8,7 @@ description: Det er mye å passe på - også din egen maskin
 I Nav IT, som i de aller fleste IT-organisasjoner, så finnes det en drøss av sikkerhetsmekanismer som er designet for å beskytte brukere fra seg selv. Sagt litt annerledes: Maskinene som benyttes til "kontorarbeid" eller utvikling av applikasjoner er oftere enn ikke underlagt kontroll og styring. Dette gir noen utfordringer.
 
 - Policiene som settes er ofte ikke kommunisert noe sted.
-- Policiene er til heft of plunder for avanserte brukere.
+- Policiene er til plunder og heft for avanserte brukere.
 - Policiene tar ikke høyde for "the human element".
 - Policiene er satt med "bred pensel" av noen som ikke kjenner _din_ arbeidsflyt eller kompetansenivå.
 - Policiene fungerer som sovepute da du som bruker får et inntrykk av sikkerheten er ivaretatt for deg.
