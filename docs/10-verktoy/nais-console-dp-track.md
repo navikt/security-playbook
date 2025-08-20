@@ -40,7 +40,7 @@ En [Software Bill of Materials (SBOM)](https://security.cms.gov/learn/software-b
 
 ### Hvordan komme igang
 
-For å komme i gang med identifisering av sårbarheter i NAIS Console og Dependency-Track, kan du bruke [nais-docker-build-push](https://github.com/nais/docker-build-push) action for å bygge og signere, eller [nais-attest-sign](https://github.com/nais/docker-build-push) for kun å signere ditt image. Du finner mer informasjon om hvordan du setter dette opp i din workflow i [nais-dokumentasjonen](https://docs.nais.io/services/salsa/).
+For å komme i gang med identifisering av sårbarheter i NAIS Console og Dependency-Track, kan du bruke [nais-docker-build-push](https://github.com/nais/docker-build-push) action for å bygge og signere, eller [nais-attest-sign](https://github.com/nais/docker-build-push) for kun å signere ditt image. Du finner mer informasjon om hvordan du setter dette opp i din workflow i [nais-dokumentasjonen](https://docs.nais.io/services/vulnerabilities/).
 
 ## SLSA - Supply Chain Levels for Software Artifacts
 
