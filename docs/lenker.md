@@ -1,6 +1,7 @@
 ---
 title: Lenker
 description: Nettets snarveier kan bite 🔗
+sidebar_position: 6
 ---
 
 # Nyttige Lenker 🔗

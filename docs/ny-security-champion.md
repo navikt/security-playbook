@@ -1,6 +1,7 @@
 ---
 title: Ny Security Champion 🤗
 description: Informasjon for nye Security Champions.
+sidebar_position: 4
 ---
 
 # Ny Security Champion 🤗

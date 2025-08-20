@@ -2,6 +2,7 @@
 title: Introduksjon ⭐
 description: Beskribelse av hvilket innhold playbooken inneholder.
 hide_table_of_contents: false
+sidebar_position: 1
 ---
 
 Velkommen til Navs Security Playbook – inngangen til alt du trenger for å jobbe med sikkerhet i produktteam.

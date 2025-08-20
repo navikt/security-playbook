@@ -2,6 +2,7 @@
 title: Ordliste 📕
 description: Beskrivelse av hva ulike ord betyr.
 hide_table_of_contents: false
+sidebar_position: 12
 ---
 
 # Ordliste

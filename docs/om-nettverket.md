@@ -2,6 +2,7 @@
 title: Om nettverket 🌐
 description: Beskrivelse av «Security Champions»-nettverket i Nav IT
 hide_table_of_contents: true
+sidebar_position: 5
 ---
 
 ## Beskrivelse

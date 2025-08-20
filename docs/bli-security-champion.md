@@ -2,6 +2,7 @@
 title: Hvordan bli Security Champion? 💂‍♂️
 description: Beskrivelse om hvordan blir man til en <<Security Champion>>.
 hide_table_of_contents: true
+sidebar_position: 3
 ---
 
 <img alt="Security Champion logo" src="/img/SecurityChampion.svg" style={{"height":"125px"}}/>
@@ -10,7 +11,7 @@ Du behøver ikke være utlært sikkerhetsekspert for å bli security champion. V
 
 1. Rediger teamet ditt og gi deg selv rollen «Security Champion» i [teamkatalogen](https://teamkatalog.nav.no/)
 
-… og det var det. Gratulerer! Du har nå blitt med i ett av Navs kuleste [nettverk](/docs/om-security-champions) og kan pryde deg selv med klistremerker, sokker, hettegenser, og annet swag! 🥳
+… og det var det. Gratulerer! Du har nå blitt med i ett av Navs kuleste [nettverk](/docs/om-nettverket) og kan pryde deg selv med klistremerker, sokker, hettegenser, og annet swag! 🥳
 
 <img alt="Hettegenser for security champions" src="/img/security-champion-hoodie.png" style={{"height":"150px"}}/>
 <img alt="Klistremerker for security champions" src="/img/security-champion-stickers.png" style={{"height":"150px"}}/>
