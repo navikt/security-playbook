@@ -1,3 +1,8 @@
+---
+title: Ny Security Champion 🤗
+description: Informasjon for nye Security Champions.
+---
+
 # Ny Security Champion 🤗
 
 Har du akkurat blitt Security Champion? Gratulerer! 🎉
@@ -101,3 +106,9 @@ Ta et kurs, les en bok eller lytt på en podcast.
 3. Benytt noe av det som [O'Reilly](https://learning.oreilly.com/search/?q=security&type=playlist&playlist_type=expert&rows=10) tilbyr (krever abonnement, ansatte i Nav IT kan [selvbetjene](https://myapps.microsoft.com) tilgang)
 
 :::
+
+```mdx-code-block
+import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
+
+<SavnerDuNoe />
+```

@@ -1,7 +1,7 @@
 ---
-title: Hva er en Security Champion?
-description: Beskrivelse av «Security Champion»-rollen i Nav
-hide_table_of_contents: false
+title: Hva er en Security Champion? 💂‍♂️
+description: Beskrivelse av «Security Champion»-rollen i Nav.
+hide_table_of_contents: true
 ---
 
 <img alt="Security Champion logo" src="/img/SecurityChampion.svg" style={{"height":"125px"}} />
@@ -21,7 +21,13 @@ For å bli security champion trenger man ikke å være ekspert på sikkerhet, me
 
 ### Anbefalte praktiske aktiviter
 
-- Følge opp varsler fra [Dependabot](https://github.com/dependabot). Se [Tredjepartskode](./07-sikker-utvikling/tredjepartskode.md)
-- Følge med på Slack-kanalen [#security-champion](https://nav-it.slack.com/archives/CN8N938K1) og [andre relevante Slack-kanaler](./05-lenker.md#slack-kanaler)
+- Følge opp varsler fra [Dependabot](https://github.com/dependabot). Se [Tredjepartskode](./08-sikker-utvikling/tredjepartskode.md)
+- Følge med på Slack-kanalen [#security-champion](https://nav-it.slack.com/archives/CN8N938K1) og [andre relevante Slack-kanaler](./06-lenker.md#slack-kanaler)
 
 Flere praktiske aktiviteter finnes på siden [«Ny Security Champion»](/docs/ny-security-champion).
+
+```mdx-code-block
+import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
+
+<SavnerDuNoe />
+```

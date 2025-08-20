@@ -1,5 +1,6 @@
 ---
-title: Hvordan bli Security Champion
+title: Hvordan bli Security Champion? 💂‍♂️
+description: Beskrivelse om hvordan blir man til en <<Security Champion>>.
 hide_table_of_contents: true
 ---
 
@@ -31,3 +32,9 @@ Vi har forsøkt å svare på noen vanlige spørsmål her, men ta mer enn gjerne 
 ### Kan vi ha flere security champions i teamet mitt?
 
 **Ja**, hvis det gir mening i teamet ditt. Husk at **teamet som helhet har ansvaret for sikkerheten**. Security champions skal kun støtte opp under teamets ansvar ved å være teamets sikkerhetssamvittighet, og ikke bære ansvaret selv.
+
+```mdx-code-block
+import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
+
+<SavnerDuNoe />
+```
