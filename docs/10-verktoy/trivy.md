@@ -10,7 +10,7 @@ tags:
 
 **Relevante tema:**
 
-- [Sikkerhet i og rundt containere](../sikker-utvikling/containere)
+- [Sikkerhet i og rundt containere](/docs/sikker-utvikling/containere)
 
 [Trivy fra aquasecurity](https://github.com/aquasecurity/trivy) er ett verktøy for å finne sårbarheter, hemmeligheter & feilkonfigurasjon.
 Ved å integrere Trivy med GitHub Actions kan du skanne Docker-images for sårbarheter & hemmeligheter i både OS og applikasjon samt laste opp resultatene til Github Advanced Security for å få alerts i "Code Scanning"-seksjonen.

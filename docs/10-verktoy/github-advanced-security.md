@@ -9,8 +9,8 @@ tags:
 
 **Relevante tema:**
 
-- [Statisk kodeanalyse](../sikker-utvikling/kodeanalyse)
-- [Tredjepartskode](../sikker-utvikling/tredjepartskode)
+- [Statisk kodeanalyse](/docs/sikker-utvikling/kodeanalyse)
+- [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode)
 - [Hemmeligheter](/docs/sikker-utvikling/hemmeligheter)
 
 [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) er tilgjengelig og aktivert alle repoer under organisasjonene [navikt](https://github.com/navikt) og [nais](https://github.com/nais) på GitHub, og du skal ikke trenge gjøre noe for å kommme i gang.

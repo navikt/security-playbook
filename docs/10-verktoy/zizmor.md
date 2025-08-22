@@ -9,7 +9,7 @@ tags:
 
 **Relevante tema:**
 
-- [Statisk analyse](../sikker-utvikling/kodeanalyse)
+- [Statisk analyse](/docs/sikker-utvikling/kodeanalyse)
 
 [zizmor](https://woodruffw.github.io/zizmor) er et statisk analyseverktøy for GitHub Actions.
 Den kan finne mange vanlige sikkerhetsproblemer i GitHub Actions.

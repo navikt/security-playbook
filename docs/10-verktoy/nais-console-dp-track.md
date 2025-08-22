@@ -9,9 +9,9 @@ tags:
 
 **Relevante tema:**
 
-- [Sikkerhet i og rundt containere](../sikker-utvikling/containere)
-- [Tredjepartskode](../sikker-utvikling/tredjepartskode)
-- [Trivy](./trivy)
+- [Sikkerhet i og rundt containere](/docs/sikker-utvikling/containere)
+- [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode)
+- [Trivy](/docs/10-verktoy/trivy.md)
 
 ## NAIS Console
 
