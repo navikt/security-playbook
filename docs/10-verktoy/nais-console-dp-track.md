@@ -11,7 +11,7 @@ tags:
 
 - [Sikkerhet i og rundt containere](/docs/sikker-utvikling/containere)
 - [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode)
-- [Trivy](/docs/10-verktoy/trivy.md)
+- [Trivy](/docs/verktoy/trivy)
 
 ## NAIS Console
 
