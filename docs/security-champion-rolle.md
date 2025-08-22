@@ -22,7 +22,7 @@ For å bli security champion trenger man ikke å være ekspert på sikkerhet, me
 
 ### Anbefalte praktiske aktiviter
 
-- Følge opp varsler fra [Dependabot](https://github.com/dependabot). Se [Tredjepartskode](/docs/08-sikker-utvikling/tredjepartskode.md)
+- Følge opp varsler fra [Dependabot](https://github.com/dependabot). Se [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode)
 - Følge med på Slack-kanalen [#security-champion](https://nav-it.slack.com/archives/CN8N938K1) og [andre relevante Slack-kanaler](./lenker.md#slack-kanaler)
 
 Flere praktiske aktiviteter finnes på siden [«Ny Security Champion»](/docs/ny-security-champion).
