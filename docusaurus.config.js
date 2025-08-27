@@ -4,7 +4,6 @@ module.exports = {
   tagline: "Hvordan vi utvikler sikker software i Nav",
   url: "https://sikkerhet.nav.no",
   baseUrl: "/",
-  trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/security-champion-logo.ico",
