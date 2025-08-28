@@ -5,7 +5,7 @@ description: Spor av alt som skjer, så du slipper å gjette mer 🔎.
 
 ## Hva er auditlogg?
 
-Auditlogg er loggen over hvilke Nav-ansatte som har hatt tilgang til opplysninger om borgere. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt tilgang til opplysninger om en bruker. Auditloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
+Auditlogg eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Auditloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
 
 ## Hvilke krav stilles til auditlogging?
 
@@ -33,7 +33,7 @@ Dersom disse situasjonene skrives til auditloggen, blir de oppfattet som ordinæ
 
 ### 4. Vi auditlogger ikke mer enn nødvendig
 
-For å redusere loggvolumet og minimere "støy" i auditloggen, skal én handling i et fagsystem resultere i én linje i auditloggen. Eksempler på handlinger er at en Nav-ansatt gjør oppslag på bruker eller navigerer til en ny fane eller skjermbilde i fagsystemet. Kun handlinger som gir den ansatte tilgang til nye personopplysniger om brukeren skal auditlogges.
+For å redusere loggvolumet og minimere "støy" i auditloggen, skal én handling i et fagsystem resultere i én linje i auditloggen. Eksempler på handlinger er at en Nav-ansatt gjør oppslag på bruker eller navigerer til en ny fane eller skjermbilde i fagsystemet. Kun handlinger som gir den ansatte tilgang til nye personopplysninger om brukeren skal auditlogges.
 
 ### 5. Vi har avklart med Team Auditlogging hvorvidt fagsystemet skal inkluderes i innsynsrapportene til borgere og ledere
 
@@ -68,7 +68,7 @@ Arcsight er en SIEM pakke fra OpenText ( tidligere MicroFocus ). Dette er en lø
 ## Riktig bruk av severity
 
 Som hovedregel benyttes INFO.
-Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på strengt fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige. Både eventer av typen "permit" og "deny" kan være INFO\WARN. Det er ikke unormalt i seg selv at en ansatt ikke har tilgang til data.
+Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på strengt fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige. Per i dag logges kun eventer av typen "permit" hvor Nav-ansatte faktisk har fått innsyn til personopplysninger, men i framtiden kan WARN vurderes for eventer av typen "deny". Det er ikke unormalt i seg selv at en ansatt ikke har tilgang til data.
 
 ## Beskrivelse av CEF
 
