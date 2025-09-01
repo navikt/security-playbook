@@ -50,7 +50,7 @@ Minst en gang i måneden samler vi alle security champions som ønsker å delta 
 
 Se [arrangementsiden](/docs/events/) for mer informasjon.
 
-```
+```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
 
 <SavnerDuNoe />
