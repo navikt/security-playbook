@@ -77,7 +77,7 @@ Vær eksplisitt i dine copy-besvergelser: `COPY mylocalfile myfileinimage`.
 ## Dockerfile eksempler
 
 :::note Chainguard
-Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever spesifikke versjoner av Java må andre baseimages (feks Google sine) benyttes.
+Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever spesifikke versjoner av Java må betalte versjoner benyttes. Mer informasjon om hvordan ta dem i bruk finnes i [valg av baseimages](./baseimages).
 :::
 
 <details>

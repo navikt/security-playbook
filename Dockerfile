@@ -1,4 +1,5 @@
-FROM node:22-alpine AS build
+FROM cgr.dev/chainguard/node:latest-dev AS build
+USER root
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
