@@ -20,7 +20,7 @@
     "@docusaurus/plugin-client-redirects": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
     "@docusaurus/theme-mermaid": "3.8.1",
-    "@mdx-js/react": "3.1.0",
+    "@mdx-js/react": "3.1.1",
     "@svgr/webpack": "8.1.0",
     "classnames": "2.5.1",
     "clsx": "2.1.1",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "husky": "9.1.7",
-    "lint-staged": "16.1.4",
+    "lint-staged": "16.1.5",
     "prettier": "3.6.2"
   },
   "lint-staged": {
