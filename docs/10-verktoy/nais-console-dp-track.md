@@ -62,7 +62,7 @@ Dependency-Track bidrar til å sikre forsyningskjeden ved å gi verktøy for å 
 
 <br />
 
-```
+```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
 
 <SavnerDuNoe />
