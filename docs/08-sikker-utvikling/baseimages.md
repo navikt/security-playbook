@@ -7,9 +7,40 @@ tags:
 
 ## Generelt
 
-Man kan redusere angrepsflaten sin betydelig ved å basere appen sin på et minimalt baseimage. Jo færre verktøy du har i containeren din, jo mindre spillerom har en angriper til å få fotfeste og eskalere sine rettigheter.
+Man kan redusere angrepsflaten sin betydelig ved å basere appen sin på et minimalt baseimage. Jo færre verktøy du har i containeren din, jo mindre spillerom har en angriper til å få fotfeste og eskalere sine rettigheter. En stor bonus er i tillegg att det ofte fører til betydlig mindre støy i form av sårbarheter som må analyseres.
 
-De gamle [navikt-imagene](https://github.com/navikt/baseimages/) er avviklet og vedlikeholdes ikke lenger. Hvis du fortsatt bruker disse imagene er det på høy tid å bytte over til bedre og moderne alternativer som "[distroless](/docs/sikker-utvikling/containere#distroless)".
+## Chainguard
+
+I Nav betaler vi for Chainguard images som er minimale images med ekstra sikkerhetstiltak. Her får du distroless images med (nesten alltid) null sårbarheter.
+
+Våre images finnes tilgjenglige for alle i Nav IT på Google Artifact Registry. Lokalt logger du in som vanlig med `gcloud auth login`. På github går det an å bruke `nais/docker-build-push`, `nais/login` eller googles egne `google-github-actions/auth`.
+
+Per dagsdato er tilgjenglige baseimages:
+
+- [Jre](https://images.chainguard.dev/directory/image/jre/versions)
+- [Jdk](https://images.chainguard.dev/directory/image/jdk/versions)
+- [Node](https://images.chainguard.dev/directory/image/node/versions)
+- [Python](https://images.chainguard.dev/directory/image/python/versions)
+- [Airflow-core](https://images.chainguard.dev/directory/image/airflow-core/versions)
+
+Tilgjenglige tags finner du på chainguards hjemmeside mens alle images hentes fra vårt GAR repository på
+`europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/`.
+
+Vil du for eksempel bruke node ser din dockerfile slik ut:
+
+```dockerfile
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:<tag/sha256>
+```
+
+For applikasjoner som kompilerer til statiske binærer som go kan man bruke [Static](https://images.chainguard.dev/directory/image/static/versions)
+
+```
+FROM cgr.dev/chainguard/static
+```
+
+## Migrering fra navikt/baseimages
+
+De gamle [navikt-imagene](https://github.com/navikt/baseimages/) er avviklet og vedlikeholdes ikke lenger.
 
 Mange tror at det er vanskelig og/eller veldig tidkrevende å migrere over til nye og skinnende "distroless" images, men det er det faktisk ikke. Vi har derfor satt sammen en liste over de største forskjellene, og hvordan man bytter over fra gammelt til nytt.
 
@@ -43,6 +74,18 @@ Mange tror at det er vanskelig og/eller veldig tidkrevende å migrere over til n
 Husk att applikasjoner på nais kjører som user/group 1069 (Ref: [Nais docs](https://doc.nais.io/workloads/reference/container-security/)).
 Hvis du for eksempel skal kopiere in en fil som applikasjonen skal lese er det viktig att du setter riktige rettigheter på filen.
 Du kan kopiere in en fil med riktige rettigheter med `COPY --chown=1069:1069 fil /path/to/fil`.
+</p>
+</details>
+
+<details>
+<summary>Forskjell på CMD & ENTRYPOINT</summary>
+<p>
+I navikt/baseimages er ENTRYPOINT konfigurert for å kjøre en app.jar-fil. Det betyr att så lenge du kopierer in en jar-fil rett sted i dockerimaget starter applikasjonen.
+
+I google distroless og chainguard images er det antingen java -jar eller kun java. Ved en migrering må du endre i Dockerfile å legge til en CMD for å finne riktig jar-fil.
+
+For chainguard blir dette f.eks. `CMD ["-jar", "/path/to/app.jar"]`
+
 </p>
 </details>
 
