@@ -2,9 +2,9 @@ apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
   name: security-playbook
-  namespace: security-champion-admin
+  namespace: appsec
   labels:
-    team: security-champion-admin
+    team: appsec
   annotations:
     nais.io/read-only-file-system: "false"
 spec:

@@ -17,7 +17,7 @@ jobs:
       - uses: nais/docker-build-push@1fae4798c79f4af4c3cdbd3fe65e51f8f3ba2368
         id: docker-push
         with:
-          team: security-champion-admin
+          team: appsec
           push_image: true
           pull: true
       - uses: nais/deploy/actions/deploy@961addd1e4d4211f1a7333ada5fde85f7c9aa5b7
