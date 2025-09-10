@@ -73,10 +73,11 @@ Nye grupper i on premise AD bestilles via Jira sak i IKT spacet på tjeneste "AD
 ## Tilgangsstyring for grupper beregnet for personlige brukerkontoer (og RA kontoer)
 Dvs dette gjelder ikke grupper beregnet på maskinkontoer.
 
-I utgangspunktet skal alle tilganger beregnet for personlige brukerkontoer (og RA kontoer) sentralt styres via Mine Tilganger. Dette gir en sentral oversikt og felles løsning for bestilling, godkjenning, tilgangsrevisjon, lisenshåndering, nødnedstening med mer.
+I utgangspunktet skal alle tilganger beregnet for personlige brukerkontoer (og RA kontoer) sentralt styres via Mine Tilganger. 
+Dette gir en sentral oversikt og felles løsning for bestilling, godkjenning, tilgangsrevisjon, lisenshåndtering, nødnedstenging med mer.
 Det kan finnes unntak, i så fall ta kontakt via #tilgang-og-identitet på Slack for en dialog. 
 
-Bestilling av styring av nye tilganger og endring av styring på eksiterende tilganger: [Overordnet bestillings- og endringsprosess for tilganger i Mine Tilganger](https://navno.sharepoint.com/sites/intranett-it/SitePages/Overordnet-bestillings--og-endringsprosess-for-tilganger.aspx)
+Bestilling av styring av nye tilganger og endring av styring på eksisterende tilganger: [Overordnet bestillings- og endringsprosess for tilganger i Mine Tilganger](https://navno.sharepoint.com/sites/intranett-it/SitePages/Overordnet-bestillings--og-endringsprosess-for-tilganger.aspx)
 
 ## Gode ressurser
 
