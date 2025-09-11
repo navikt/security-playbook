@@ -89,6 +89,36 @@ For chainguard blir dette f.eks. `CMD ["-jar", "/path/to/app.jar"]`
 </p>
 </details>
 
+<details>
+<summary>Bash-script med initialiserings script</summary>
+<p>
+Noen applikasjoner har et bash-script som kjører før applikasjonen starter. Dette kan være for å sette opp miljøet, kjøre migreringer eller andre oppgaver.
+
+En måte å bli kvitt dette på er å endre applikasjonen slik at den håndterer dette selv. Det enkleste er ofte å migrere hemmelighetene over til Nais Console/Secrets og sette dem som miljøvariabler i app-manifestet. Hvis du trenger en fil eller annet format som ikke passer i Console kan du ofte løse den samme operasjonen direkte i applikasjonen i stedet for å kjøre et bash-script.
+
+Eksempel for Python:
+
+```python
+def copy_license():
+    license_source = Path("/var/run/secrets/license/secret-license.lic")
+    license_destination = Path(
+        "/app/venv/lib/python3.12/site-packages/my-package/license/my-license.lic"
+    )
+
+    if license_source.exists():
+        try:
+            # Resolve any symlinks and copy the actual file
+            resolved_source = license_source.resolve()
+            shutil.copy2(resolved_source, license_destination)
+        except Exception as e:
+            print(f"Warning: Failed to copy license file: {e}")
+    else:
+        print("License file not found, skipping copy")
+```
+
+</p>
+</details>
+
 <br />
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
