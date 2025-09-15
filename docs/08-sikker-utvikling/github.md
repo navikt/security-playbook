@@ -8,8 +8,8 @@ Her finner du eksempel på en applikasjon som bygges, scannes og deployes til Na
 
 Du finner dem her: [Backend](https://github.com/navikt/backend-golden-path) og [Frontend](https://github.com/navikt/frontend-golden-path).
 
-Github har selv skrevet en guide med best practices for github actions, du finner [den her](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions).
-Men nedenfor finner du en kort oppsummering av de viktigste punktene.
+Github har selv skrevet en guide med best practices for github actions, du finner [den her](https://docs.github.com/en/actions/reference/security/secure-use).
+Nedenfor finner du en kort oppsummering av de viktigste punktene.
 
 ## Repository settings
 
@@ -31,9 +31,9 @@ Sett opp branch protection for default branch for å unngå att noen sletter kod
 
 ### Workflows
 
-- Bruk intermediate variables for alle variabler. ([Github docs ref](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable))
+- Bruk intermediate variables for alle variabler. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#use-an-intermediate-environment-variable)
   - Sett dine variabler i `env:` å sikre att du har input validering. Bruker du f.eks. `${{ github.event.pull_request.title }}` direkte i en bash run kan du vara sårbar for command injection.
-- Pin 3rd party actions to commit sha ([Github docs ref](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions))
+- Pin 3rd party actions to commit sha. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)
   - Github tags er mutable, noe som betyr att hvis du bruker v1.0 av en action kan den endres uten att du merker noe. Anbefales att man pinner actions á la `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`
   - Githubs egne actions er nå immutable og kan bruke tags.
 - Use minimum permissions
@@ -42,10 +42,10 @@ Sett opp branch protection for default branch for å unngå att noen sletter kod
 
 ## Secret scanning
 
-Skrudd på by default, fanger opp hemmeligheter før de blir committet.
-Og scanner repoet for å finne eksisterende hemmeligheter.
+Skrudd på by default, og vil kunne fange opp hemmeligheter og blokkere deg fra å pushe koden din, hvis du har hemmeligheter i koden du forsøker å pushe.
+Secret scanning scanner også repoet for å finne eksisterende hemmeligheter.
 
-Husk att det kun er kildekoden som er påvirket, ting som skjer i workflows som for eksempel når du bygger docker images scannes ikke av github.
+Husk at dette kun scanner kildekoden din! Ting som skjer i workflows, for eksempel når du bygger docker images scannes ikke av github.
 
 ## Andre verktøy
 
@@ -53,7 +53,7 @@ Husk att det kun er kildekoden som er påvirket, ting som skjer i workflows som 
   - Dependency graph er en liste over avhengigheter som er brukt i prosjektet.
   - Brukes av github security for å opprette security alerts når de finner en sårbar avhengighet i repoet.
   - Derfor er det viktig att man sikkrer att informasjonen her stemmer, mer info om dette på [dependabot-siden](../verktoy/dependabot).
-- [CodeQL](../verktoy/github-advanced-security)
+- [CodeQL](../verktoy/github-advanced-security#codeql-statisk-kodeanalyse)
   - CodeQL har støtte for scanning av applikasjoner og github workflows.
 - [Trivy](../verktoy/trivy)
   - Trivy bruker vi for å sikkre att vi ikke lekker hemmeligheter når vi bygger docker images.
