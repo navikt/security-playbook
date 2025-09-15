@@ -43,7 +43,7 @@ Man kan fortsatt debugge disse ved å bruke **Ephemeral containers** i Kubernete
 
 ## nais
 
-I nais har vi samlet alle disse praksisene i en [security context](https://doc.nais.io/nais-application/securitycontext/) som legges til appen din automatisk.
+I nais har vi samlet alle disse praksisene i en [security context](https://docs.nais.io/workloads/reference/container-security/index.html) som legges til appen din automatisk.
 Det finnes også flere såkalte "policy engines" som kan installeres i Kubernetes-clustre.
 Disse kan forhindre at risikable settinger konfigureres og at enkelte payloads kjøres, basert på kriterier som administratoren setter.
 I nais bruker vi [Kyverno](https://kyverno.io/) til å bl.a. kun tillate kjøring av images som kommer fra package registries som vi stoler på.
