@@ -76,67 +76,8 @@ Vær eksplisitt i dine copy-besvergelser: `COPY mylocalfile myfileinimage`.
 
 ## Dockerfile eksempler
 
-:::note Chainguard
-Chainguard sine gratis images støtter kun `latest`-tagen. Hvis appen din krever spesifikke versjoner av Java må betalte versjoner benyttes. Mer informasjon om hvordan ta dem i bruk finnes i [valg av baseimages](./baseimages).
-:::
+Se flere eksempler i [Chainguard docker images](./verktøy/chainguard-dockerimages).
 
-<details>
-<summary>Java-applikasjon</summary>
-
-```bash
-FROM cgr.dev/chainguard/jre
-
-COPY build/libs/app.jar /app.jar
-
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-```
-
-```bash
-FROM gcr.io/distroless/java21
-
-COPY build/libs/app.jar /app.jar
-
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-```
-
-:::note
-Husk og sjekke om du er avhengig av norsk tidssone og locale i din applikasjon.
-:::
-
-```bash
-ENV LANG='nb_NO.UTF-8' LANGUAGE='nb_NO:nb' LC_ALL='nb:NO.UTF-8' TZ="Europe/Oslo"
-```
-
-</details>
-
-<details>
-<summary>JavaScript-applikasjon med NodeJS</summary>
-
-```bash
-FROM cgr.dev/chainguard/node:latest
-ENV NODE_ENV=production
-
-WORKDIR /app
-
-COPY /my/stuff/ /app
-
-ENTRYPOINT ["/nodejs/bin/node", "my-app.js"]
-```
-
-```bash
-FROM gcr.io/distroless/nodejs20-debian12
-ENV NODE_ENV=production
-
-WORKDIR /app
-
-USER nonroot
-
-COPY /my/stuff/ /app
-
-ENTRYPOINT ["/nodejs/bin/node", "my-app.js"]
-```
-
-</details>
 <br />
 
 ```mdx-code-block
