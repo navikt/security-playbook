@@ -18,6 +18,8 @@ I Nav betaler vi for å bruke Chainguard sine container images som er minimale i
 
 Chainguard sine images er tilgjengelige i et privat container registry som alle utviklere i Nav har tilgang til. Alle image tags er tilgjengelige i [Google Artifact Registry](https://console.cloud.google.com/artifacts/docker/cgr-nav/europe-north1/pull-through).
 
+Eksempel: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21`
+
 For images som ikke er tilgjenglige kan man ofte finne tilsvarende gratis versjoner av en spesifikk image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finns det gode gratis alternativer.
 
 Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry kan du be om å få det lagt til ved å kontakte Team AppSec.
@@ -35,7 +37,9 @@ Etter dette skal du ha tilgang til å laste ned Chainguard sine images lokalt.
 
 For å laste ned og bruke Chainguard sine container images i Github workflows må du autentisere mot deres container registry. Dette kan gjøres på flere måter, det enkleste er å bruke nais/login-action.
 
-:caution: Husk å legge til github repositoriet i Nais Console.
+:::note
+Husk å legge til github repositoriet i Nais Console.
+:::
 
 #### nais/login
 
@@ -71,7 +75,7 @@ jobs:
 <summary>Java (bygg utenfor dockerfile)</summary>
 
 ```Dockerfile
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjre-21
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21
 COPY target/app.jar app.jar
 CMD ["-jar","app.jar"]
 ```
