@@ -196,3 +196,9 @@ Vi har laget en [FAQ for migrering av dockerfiles](/docs/sikker-utvikling/baseim
 ## Hjelp!
 
 Hvis du står fast, ikke kan logge inn, eller har problemer med å migrere teamets dockerfiler er det bare å ta kontakt med en av oss i appsec direkte eller på #appsec i Slack.
+
+```mdx-code-block
+import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
+
+<SavnerDuNoe />
+```
