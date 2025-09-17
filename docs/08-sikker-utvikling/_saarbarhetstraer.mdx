@@ -10,15 +10,15 @@ For eksterne aktører ser vi for oss disse sårbarhetene:
 graph TD;
     AUTH[Autentisering]-->MANGEL[Manglende autentisering];
     MANGEL-->MANGEL_STD[Standardkonto];
-    MANGEL-->MANGEL_ENP[Endepunkter uten\n autentisering];
+    MANGEL-->MANGEL_ENP[Endepunkter uten autentisering];
     MANGEL-->MANGEL_VAL[Validerer ikke token];
 
     AUTH-->SVAK[Svak autentisering];
-    SVAK-->SVAK_STD[Har endepunkter som\n ikke bruker AD/ID-porten];
+    SVAK-->SVAK_STD[Har endepunkter som ikke bruker AD/ID-porten];
 
-    AUTH-->LEKK[Lekker passord / tokens];
-    LEKK-->LEKKER[Committer passord /\n token i kode];
-    LEKK-->LOKALT[Passord / token i\n klartekst lokalt];
+    AUTH-->LEKK[Lekker passord/tokens];
+    LEKK-->LEKKER[Committer passord/token i kode];
+    LEKK-->LOKALT[Passord/token i klartekst lokalt];
 ```
 
 </details>
@@ -29,10 +29,10 @@ graph TD;
 ```mermaid
 graph TD;
     LOGG[Logging og overvåking]-->MANGEL[Manglfull logging];
-    LOGG-->SENS[Logger sensitiv\n informasjon];
-    LOGG-->MON[Overvåker ikke\n for unormal aktivitet];
-    LOGG-->SCAN_AV[Sårbarhetsskanning\n er ikke skrudd på];
-    LOGG-->SCAN_FUNN[Sårbarheter blir\n ikke håndtert];
+    LOGG-->SENS[Logger sensitiv informasjon];
+    LOGG-->MON[Overvåker ikke for unormal aktivitet];
+    LOGG-->SCAN_AV[Sårbarhetsskanning er ikke skrudd på];
+    LOGG-->SCAN_FUNN[Sårbarheter blir ikke håndtert];
 ```
 
 </details>
@@ -42,7 +42,7 @@ graph TD;
 
 ```mermaid
 graph TD;
-    ANNET[Annet?\n Noe vi har glemt?];
+    ANNET[Annet? Noe vi har glemt?];
 ```
 
 </details>
@@ -60,11 +60,11 @@ For prosesser ser vi for oss disse sårbarhetene:
 ```mermaid
 graph TD;
     LOGG[Logging og overvåking]-->MANGEL[Manglfull logging];
-    LOGG-->SENS[Oppdager ikke\n logging av\n sensitiv\n informasjon];
-    LOGG-->TVE[Tvetydige eller\n uklare logger];
-    LOGG-->MON[Overvåker\n ikke for\n unormal\n aktivitet];
-    LOGG-->VARSL[Manglende\n varsling\n ved feil];
-    LOGG-->LOKALT[Logger lagres\n kun lokalt];
+    LOGG-->SENS[Oppdager ikke logging av sensitiv informasjon];
+    LOGG-->TVE[Tvetydige eller uklare logger];
+    LOGG-->MON[Overvåker ikke for unormal aktivitet];
+    LOGG-->VARSL[Manglende varsling ved feil];
+    LOGG-->LOKALT[Logger lagres kun lokalt];
 ```
 
 </details>
@@ -84,10 +84,10 @@ graph TD;
 
 ```mermaid
 graph TD;
-    KRYPT[Kryptografi]-->MANGEL[Validerer ikke\n token/JWT];
-    KRYPT-->FEIL[Validerer ikke\n token/JWT\n korrekt];
-    KRYPT-->SVAK[Buker svake\n krypteringsalgoritmer];
-    KRYPT-->STD[Bruker standardnøkler\n eller svake nøkler];
+    KRYPT[Kryptografi]-->MANGEL[Validerer ikke token/JWT];
+    KRYPT-->FEIL[Validerer ikke token/JWT korrekt];
+    KRYPT-->SVAK[Buker svake krypteringsalgoritmer];
+    KRYPT-->STD[Bruker standardnøkler eller svake nøkler];
 ```
 
 </details>
@@ -97,12 +97,12 @@ graph TD;
 
 ```mermaid
 graph TD;
-    AVHENG[Avhengigheter og programvare]-->Fei[Oppdager ikke\n sikkerhetsfeil\n i egen kode];
-    AVHENG-->SARB[Sårbarheter i\n avhengigheter og\n avhengighetskjede];
-    AVHENG-->OPPDAG[Oppdager ikke CVE\n i avhengigheter];
-    AVHENG-->DOCKER[Oppdager ikke\n sårbarheter\n i docker-image];
-    AVHENG-->HAND[Håndterer ikke\n sårbarhetene];
-    AVHENG-->CI[CI/CD-pipeline\n er ikke\n konfigurert\n riktig];
+    AVHENG[Avhengigheter og programvare]-->Fei[Oppdager ikke sikkerhetsfeil i egen kode];
+    AVHENG-->SARB[Sårbarheter i avhengigheter og avhengighetskjede];
+    AVHENG-->OPPDAG[Oppdager ikke CVE i avhengigheter];
+    AVHENG-->DOCKER[Oppdager ikke sårbarheter i docker-image];
+    AVHENG-->HAND[Håndterer ikke sårbarhetene];
+    AVHENG-->CI[CI/CD-pipeline er ikke konfigurert riktig];
 ```
 
 </details>
@@ -112,8 +112,8 @@ graph TD;
 
 ```mermaid
 graph TD;
-    INPUT[Input]-->MANGL[Manglende test av\n alle parametere];
-    INPUT-->VAL[Feil i validering\n filtrering, sanetisering\n av input];
+    INPUT[Input]-->MANGL[Manglende test av alle parametere];
+    INPUT-->VAL[Feil i validering filtrering, sanetisering av input];
 ```
 
 </details>
@@ -123,7 +123,7 @@ graph TD;
 
 ```mermaid
 graph TD;
-    ANNET[Annet?]-->DELER[Deler ressurser\n med andre\n applikasjoner];
+    ANNET[Annet?]-->DELER[Deler ressurser med andre applikasjoner];
 ```
 
 </details>
@@ -140,11 +140,11 @@ For data og lagring ser vi for oss disse sårbarhetene:
 
 ```mermaid
 graph TD;
-    AUTH[Autentisering]-->TILG[Manglende tilgangsstyring\n - Brukere\n - Programvare\n - Konsumenter\n Etc.];
-    AUTH-->MANGEL[Manglende\n autentisering];
+    AUTH[Autentisering]-->TILG[Manglende tilgangsstyring - Brukere - Programvare - Konsumenter Etc.];
+    AUTH-->MANGEL[Manglende autentisering];
     AUTH-->STD[Standardkonto];
-    AUTH-->APENT[Hemligheter ligger\n åpent i kode];
-    AUTH-->LOKALT[Hemligheter ligger\n åpent lokalt];
+    AUTH-->APENT[Hemligheter ligger åpent i kode];
+    AUTH-->LOKALT[Hemligheter ligger åpent lokalt];
 ```
 
 </details>
@@ -154,7 +154,7 @@ graph TD;
 
 ```mermaid
 graph TD;
-    TJEN[Tjenestenekt]-->PROC[Nekte tilgang\n til prosesser];
+    TJEN[Tjenestenekt]-->PROC[Nekte tilgang til prosesser];
     TJEN-->FULT[Fult lagringsmedium];
 ```
 
@@ -165,7 +165,7 @@ graph TD;
 
 ```mermaid
 graph TD;
-    LOG[Logging og overvåkning]-->USYNC[Usynkroniserte\n logger på tvers\n av systemer];
+    LOG[Logging og overvåkning]-->USYNC[Usynkroniserte logger på tvers av systemer];
 ```
 
 </details>
@@ -175,10 +175,10 @@ graph TD;
 
 ```mermaid
 graph TD;
-    KONF[Konfidensialitet]-->MANGEL[Manglende\n kryptering];
-    KONF-->HASH[Manglende hashing\n eller bruk av svake\n algoritmer];
+    KONF[Konfidensialitet]-->MANGEL[Manglende kryptering];
+    KONF-->HASH[Manglende hashing eller bruk av svake algoritmer];
     KONF-->BACKUP[Backup er ikke testet];
-    KONF-->LEKK[Metadata lekker data\n f.eks. filsystem];
+    KONF-->LEKK[Metadata lekker data f.eks. filsystem];
 ```
 
 </details>
@@ -215,8 +215,8 @@ graph TD;
 
 ```mermaid
 graph TD;
-    TJEN[Tjenestenekt]-->RATE[Manglende rate \n limiting];
-    TJEN-->FALLOVER[Manglende failover ved\n utilgjengelig endepunkt];
+    TJEN[Tjenestenekt]-->RATE[Manglende rate  limiting];
+    TJEN-->FALLOVER[Manglende failover ved utilgjengelig endepunkt];
 ```
 
 </details>
