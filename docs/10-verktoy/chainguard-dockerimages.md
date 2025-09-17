@@ -1,6 +1,6 @@
 ---
 title: Chainguard baseimages
-description: Sikkre docker images for dine containere
+description: Sikre docker images for dine containere
 tags:
   - containere
 ---
@@ -20,7 +20,7 @@ Chainguard sine images er tilgjengelige i et privat container registry som alle 
 
 Eksempel: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21`
 
-For images som ikke er tilgjenglige kan man ofte finne tilsvarende gratis versjoner av en spesifikk image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finns det gode gratis alternativer.
+For images som ikke er tilgjenglige kan man ofte finne tilsvarende gratis versjoner av et spesifikt image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finnes det gode gratis alternativer.
 
 Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry kan du be om å få det lagt til ved å kontakte Team AppSec.
 
@@ -189,10 +189,10 @@ EXPOSE 8080
 
 ## Migrering av eksisterende dockerfiles til Chainguard
 
-For å migrere en eksisterende dockerfile til Chainguard er det noen forskjeller beroende på hvilket image du bruker. Migrerer du fra google distroless er forskjellene minimale, mens migrering fra f.eks. navikt baseimages kan kreve litt mer arbeid.
+For å migrere en eksisterende dockerfile til Chainguard er det noen forskjeller avhengig av hvilket image du bruker. Migrerer du fra google distroless er forskjellene minimale, mens migrering fra f.eks. navikt baseimages kan kreve litt mer arbeid.
 
 Vi har laget en [FAQ for migrering av dockerfiles](/docs/sikker-utvikling/baseimages) som kan være til hjelp.
 
 ## Hjelp!
 
-Hvis du fastner, ikke kan logge in eller har problemer med å migrere teamets dockerfiler er det bare å ta kontakt med en av oss i appsec direkte eller på #appsec i Slack.
+Hvis du står fast, ikke kan logge inn, eller har problemer med å migrere teamets dockerfiler er det bare å ta kontakt med en av oss i appsec direkte eller på #appsec i Slack.
