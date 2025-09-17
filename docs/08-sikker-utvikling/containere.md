@@ -59,7 +59,7 @@ Ett par highlights som er spesielt relevante:
 
 ### Docker Secrets
 
-Husk att kommandoer og arguments du bruker i ett bygg lagres i imaget og kan leses ut. Sensitiv informasjon som tokens og passord bør mountes ved hjelp av docker secrets og passes in som build-arg.
+Husk at kommandoer og arguments du bruker i ett bygg lagres i imaget og kan leses ut. Sensitiv informasjon som tokens og passord bør mountes ved hjelp av docker secrets og passes inn som build-arg.
 Eksempel fra Aksel:
 
 ```bash
