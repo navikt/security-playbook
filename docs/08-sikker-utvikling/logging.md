@@ -24,7 +24,7 @@ Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dett
 - ROS på teamets logging og eventuelt tilgang til secure logs (**husk å oppdatere ved behov!**)
 - Er uhellet ute og det logges noe som ikke skal logges, bør man sørge for å slette loggene. Muligens må avvik også føres i [Avvikssystemet](https://navno.sharepoint.com/sites/intranett-avvik/SitePages/Avviksskjema.aspx)). Et eksempel på hvordan ting gikk galt og hvordan det ble rettet kan leses i [denne Slack-tråden](https://nav-it.slack.com/archives/C015FL6M3J5/p1597227300016200)
 
-Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/master/spesialist-selve/src/main/resources/logback.xml).
+Et eksempel på en app som benytter alle disse loggemulighetene finner man [her](https://github.com/navikt/helse-spesialist/blob/main/spesialist-bootstrap/src/main/resources/logback.xml)
 
 :::warning Pass på URL-ene
 URLer og HTTP-headere blir ofte logget av ulike rammeverk eller "mellomtjenester" som lastbalanserere.
