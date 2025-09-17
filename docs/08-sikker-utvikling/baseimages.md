@@ -13,30 +13,7 @@ Man kan redusere angrepsflaten sin betydelig ved å basere appen sin på et mini
 
 I Nav betaler vi for Chainguard images som er minimale images med ekstra sikkerhetstiltak. Her får du distroless images med (nesten alltid) null sårbarheter.
 
-Våre images finnes tilgjenglige for alle i Nav IT på Google Artifact Registry. Lokalt logger du in som vanlig med `gcloud auth login`. På github går det an å bruke `nais/docker-build-push`, `nais/login` eller googles egne `google-github-actions/auth`.
-
-Per dagsdato er tilgjenglige baseimages:
-
-- [Jre](https://images.chainguard.dev/directory/image/jre/versions)
-- [Jdk](https://images.chainguard.dev/directory/image/jdk/versions)
-- [Node](https://images.chainguard.dev/directory/image/node/versions)
-- [Python](https://images.chainguard.dev/directory/image/python/versions)
-- [Airflow-core](https://images.chainguard.dev/directory/image/airflow-core/versions)
-
-Tilgjenglige tags finner du på chainguards hjemmeside mens alle images hentes fra vårt GAR repository på
-`europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/`.
-
-Vil du for eksempel bruke node ser din dockerfile slik ut:
-
-```dockerfile
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:<tag/sha256>
-```
-
-For applikasjoner som kompilerer til statiske binærer som go kan man bruke [Static](https://images.chainguard.dev/directory/image/static/versions)
-
-```
-FROM cgr.dev/chainguard/static
-```
+Du finner mer informasjon om hvordan ta i bruk Chainguard i [Chainguard docker images](/docs/verktoy/chainguard-dockerimages).
 
 ## Migrering fra navikt/baseimages
 
