@@ -76,7 +76,7 @@ Vær eksplisitt i dine copy-besvergelser: `COPY mylocalfile myfileinimage`.
 
 ## Dockerfile eksempler
 
-Se flere eksempler i [Chainguard docker images](./verktøy/chainguard-dockerimages).
+Se flere eksempler i [Chainguard docker images](/docs/verktoy/chainguard-dockerimages).
 
 <br />
 

@@ -187,7 +187,7 @@ EXPOSE 8080
 
 For å migrere en eksisterende dockerfile til Chainguard er det noen forskjeller beroende på hvilket image du bruker. Migrerer du fra google distroless er forskjellene minimale, mens migrering fra f.eks. navikt baseimages kan kreve litt mer arbeid.
 
-Vi har laget en [FAQ for migrering av dockerfiles](./sikker-utvikling/baseimages) som kan være til hjelp.
+Vi har laget en [FAQ for migrering av dockerfiles](/docs/sikker-utvikling/baseimages) som kan være til hjelp.
 
 ## Hjelp!
 
