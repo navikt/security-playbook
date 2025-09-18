@@ -16,11 +16,13 @@ I Nav betaler vi for å bruke Chainguard sine container images som er minimale i
 
 ## Tilgjenglige images
 
-Chainguard sine images er tilgjengelige i et privat container registry som alle utviklere i Nav har tilgang til. Alle image tags er tilgjengelige i [Google Artifact Registry](https://console.cloud.google.com/artifacts/docker/cgr-nav/europe-north1/pull-through).
-
+Chainguard sine images er tilgjengelige i et privat container registry som alle utviklere i Nav har tilgang til. Alle image tags er tilgjengelige i [Google Artifact Registry](https://console.cloud.google.com/artifacts/docker/cgr-nav/europe-north1/pull-through).<br />
+Per nå er <b>følgende images tilgjengelige</b>: jdk, jre, node, python, airflow-core.<br />
 Eksempel: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21`
 
-For images som ikke er tilgjenglige kan man ofte finne tilsvarende gratis versjoner av et spesifikt image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finnes det gode gratis alternativer.
+<b>For images som ikke er tilgjenglig</b> kan man ofte finne tilsvarende gratis versjoner av et spesifikt image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finnes det gode gratis alternativer.
+
+Eksempel: `cgr.dev/chainguard/go:latest`
 
 Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry kan du be om å få det lagt til ved å kontakte Team AppSec.
 
@@ -35,13 +37,34 @@ Etter dette skal du ha tilgang til å laste ned Chainguard sine images lokalt.
 
 ### Github actions
 
-For å laste ned og bruke Chainguard sine container images i Github workflows må du autentisere mot deres container registry. Dette kan gjøres på flere måter, det enkleste er å bruke nais/login-action.
+For å laste ned og bruke Chainguard sine container images i Github workflows må du autentisere mot deres container registry. Dette kan gjøres på flere måter, det enkleste er å bruke nais/docker-build-push for å bygge. Da håndterer Nais autentiseringen for deg.
 
 :::note
 Husk å legge til github repositoriet i Nais Console.
 :::
 
-#### nais/login
+<details>
+<summary>nais/docker-build-push</summary>
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nais/docker-build-push@v0
+        id: docker-push
+        with:
+          team: myteam # required
+```
+
+</details>
+
+<details>
+<summary>nais/login</summary>
 
 ```yaml
 jobs:
@@ -55,7 +78,12 @@ jobs:
           team: <ditt team>
 ```
 
-#### google-github-actions/auth
+</details>
+
+<details>
+<summary>google-github-actions/auth</summary>
+
+Hvis dere bruker google-github-actions/auth unngå å bruke service account key. Bruk heller Workload Identity Federation. Dette krever at du har satt opp en Workload Identity Pool i GCP. Mer info [repoet til workflow-actionet](https://github.com/google-github-actions/auth?tab=readme-ov-file#indirect-wif)
 
 ```yaml
 jobs:
@@ -68,6 +96,8 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 ```
+
+</details>
 
 ## Eksempler på dockerfiles
 
