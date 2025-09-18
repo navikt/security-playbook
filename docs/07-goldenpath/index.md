@@ -15,7 +15,7 @@ De er satt opp i prioritert rekkefølge sånn at man kan komme raskt i gang.
   - [Statisk analyse](/docs/sikker-utvikling/kodeanalyse) av koden din og fiks det den oppdager.
   - [Docker image scan](/docs/verktoy/trivy). Det kan ha sneket seg med andre sårbarheter eller hemmeligheter du ikke er klar over.
   - Det er lurt å legge til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) i dine workflows. Det er fordi det kan dukke opp nye sårbarheter selv når dere ikke gjør kodeendringer.
-- Bruk Docker baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless). Mer info og eksempler er det her: [Sikkerhet i og rundt containere](/docs/sikker-utvikling/containere)
+- Bruk Docker baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless). Mer info og eksempler er det her: [Chainguard baseimages](/docs/verktoy/chainguard-dockerimages)
 - Bygg imagene dine vha. [docker-build-push](https://doc.nais.io/build/), og ikke skru av generering og opplasting sv SBOM (parametrene `byosbom` og `salsa`).
 - [Valider all input](/docs/sikker-utvikling/inputvalidering). Ikke stol på data som kommer inn uavhengig av hvor det kommer fra.
 - Ha kontroll på [loggene](/docs/sikker-utvikling/logging). Pass på at dere ikke logger sensitiv informasjon (f.eks. FNR/Jwt tokens) til standardloggene.
