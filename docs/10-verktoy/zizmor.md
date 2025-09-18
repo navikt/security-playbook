@@ -11,10 +11,11 @@ tags:
 
 - [Statisk analyse](/docs/sikker-utvikling/kodeanalyse)
 
-[zizmor](https://woodruffw.github.io/zizmor) er et statisk analyseverktøy for GitHub Actions.
-Den kan finne mange vanlige sikkerhetsproblemer i GitHub Actions.
+[zizmor](https://woodruffw.github.io/zizmor) er et statisk analyseverktøy for GitHub Actions workflow-filer.
+Den kan finne mange vanlige sikkerhetsproblemer i GitHub Actions, som beskrevet i [Github best practices](/docs/sikker-utvikling/github#github-actions).
 
-Man kan installere og kjøre zizmor lokalt:
+En fordel med zizmor er at man enkelt kan bruke det lokalt, og få tilbakemeldinger raskere enn ved å bruke GitHub Actions.
+For å installere og kjøre zizmor lokalt:
 
 ```bash
 brew install zizmor
@@ -22,7 +23,14 @@ brew install zizmor
 zizmor .github/workflows/main.yml
 ```
 
-Eller man kan legge det til i din GitHub Actions-workflow for å få det inn i Security tabben der.
+En kjent quirk ved lokal bruk og scan av en enkelt fil:
+
+```bash
+zizmor workflow.yml # Funker ikke
+zizmor ./workflow.yml # Funker
+```
+
+Eller man kan legge det til som en GitHub Actions-workflow for å få det inn i Security tabben der. Tilsvarende funksjonalitet kan man også få ved å sette opp [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse) til å scanne workflowfiler.
 
 ```zizmor
 name: zizmor GitHub Actions Security Analysis
