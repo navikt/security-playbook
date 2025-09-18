@@ -17,7 +17,7 @@ Ulempen med SAST-verktøy er at de kun kan identifisere et svært begrenset sett
 
 ## Verktøy
 
-Det finnes flere mulige verktøy, men Nav tilbyr [GitHub Advanced Security (CodeQL)](/docs/verktoy/github-advanced-security) og [zizmor (Github Actions scanner)](/docs/verktoy/zizmor) som gir deg tilgang til å integrere mot en rekke SAST-verktøy. Hos [OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) finner man en liste med andre verktøy man kan teste.
+Det finnes flere mulige verktøy, men Nav tilbyr [GitHub Advanced Security](/docs/verktoy/github-advanced-security) som blant annet har [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse), og [zizmor (Github Actions scanner)](/docs/verktoy/zizmor). I GitHub kan man integrere en rekke andre SAST-verktøy. Hos [OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) finner man en liste med andre verktøy man kan teste.
 
 <br />
 
