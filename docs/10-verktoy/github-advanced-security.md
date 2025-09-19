@@ -27,7 +27,10 @@ Statisk kodeanalyse med [CodeQL](https://github.com/github/codeql) kan aktiveres
 
 ![CodeQL setup](/img/codeql-setup.png "«Settings» -> «Code security and analysis» for å se aktivere CodeQL")
 
-Oppsettet avhenger av bl.a. hvilke programmeringsspråk som benyttes i repoet, men en typisk workflow for jvm-applikasjoner vil se slik ut:
+Det finnes to typer oppsett av CodeQL: "Default setup" og "Advanced setup".
+Vi anbefaler å prøve default setup, siden det er enklest å ta i bruk. Det kan hende at default setup ikke funker for ditt repo - isåfall trenger man advanced setup. Hvis det er noe som ikke funker, så stiller AppSec gladelig opp for å hjelpe!
+
+For advanced setup må man lage en workflow. Her vil oppsettet avhenge av bl.a. hvilke programmeringsspråk som benyttes i repoet, men en typisk workflow for jvm-applikasjoner vil se slik ut:
 
 ```yaml
 name: "CodeQL"
