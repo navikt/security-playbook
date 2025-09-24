@@ -99,6 +99,46 @@ jobs:
 
 </details>
 
+## Automagisk oppdatering av tags på Github
+
+Chainguard sine images oppdateres ofte med nye bygg vilket betyr at det er lurt å hente og bygge siste versjoner raskere enn andre images. Men siden chainguard ikke bruker semver for sine images støtter ikke dependabot dette.
+
+I Nav har vi en versjon av digestabot som implementerer autentisering mot vårt private registry og åpner en pullrequest i ditt repo når det finnes en nyere versjon av samme tag.
+
+```yaml
+name: "Check for newer image versions"
+
+on:
+  workflow_dispatch:
+  schedule:
+    # At the end of every day
+    - cron: "0 0 * * *"
+
+jobs:
+  digest-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: navikt/digestabot@3233d68167c867ef8227c5dfde7a30f2a0e10af0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          team: appsec
+```
+
+[Liste med tilgjenglige inputs til digestabot finnes her](https://github.com/navikt/digestabot?tab=readme-ov-file#inputs).
+
+Har du da en dockerfile som ser slik ut:
+
+```Dockerfile
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21@sha256:6534a2dd81db8998c70b6b7851a0b665b815372a1444184b2e704edfbd4ee27c
+```
+
+Så åpner workflowen en ny pullrequest i ditt repo når det finnes en nyere versjon for samme tag.
+
 ## Eksempler på dockerfiles
 
 <details>
@@ -226,6 +266,10 @@ Vi har laget en [FAQ for migrering av dockerfiles](/docs/sikker-utvikling/baseim
 ## Hjelp!
 
 Hvis du står fast, ikke kan logge inn, eller har problemer med å migrere teamets dockerfiler er det bare å ta kontakt med en av oss i appsec direkte eller på #appsec i Slack.
+
+## Dokumentasjon fra Chainguard
+
+Du finner [dokumentasjonen her](https://edu.chainguard.dev/).
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
