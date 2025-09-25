@@ -16,28 +16,6 @@ En av flere grunner til at vi betaler for Chainguard er at vi skal få tilgang t
 
 ## Hvordan ta i bruk Chainguard
 
-## Tilgjenglige images
-
-Chainguard sine images er tilgjengelige i et privat container registry som alle utviklere i Nav har tilgang til. Alle image tags er tilgjengelige i [Google Artifact Registry](https://console.cloud.google.com/artifacts/docker/cgr-nav/europe-north1/pull-through).<br />
-Per nå er <b>følgende images tilgjengelige</b>: jdk, jre, node, python, airflow-core.<br />
-Eksempel: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21`
-
-<b>For images som ikke er tilgjenglig</b> kan man ofte finne tilsvarende gratis versjoner av et spesifikt image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finnes det gode gratis alternativer.
-
-Eksempel: `cgr.dev/chainguard/go:latest`
-
-Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry kan du be om å få det lagt til ved å kontakte Team AppSec.
-
-## Tilgjenglige tags for de forskjellige alternativene
-
-Du finner alle tags for en spesifik image i [Chainguards image directory](https://images.chainguard.dev/). Her kan du søke opp imaget du ønsker å bruke, f.eks. `jre` og se alle tilgjengelige tags. Disse tagsen bruker du sedan med imaget i vårt private registry. `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/<image>:<tag>`
-
-:::info
-
-Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. Så når f.eks. 21.0.8 blir releaset er alle versjoner før det EOL (for samme major). Derfor er det lurt å bruke en major, pinna den til SHA256 digest og bruke digestabot eller bygge appen på nytt jevnlig for å holde den oppdatert.
-
-:::
-
 ### Lokalt på din maskin
 
 For å bruke Chainguard sine container images lokalt, må du først autentisere mot våres container registry. Dette kan gjøres ved å kjøre:
@@ -110,6 +88,28 @@ jobs:
 ```
 
 </details>
+
+## Tilgjenglige images
+
+Chainguard sine images er tilgjengelige i et privat container registry som alle utviklere i Nav har tilgang til. Alle image tags er tilgjengelige i [Google Artifact Registry](https://console.cloud.google.com/artifacts/docker/cgr-nav/europe-north1/pull-through).<br />
+Per nå er <b>følgende images tilgjengelige</b>: jdk, jre, node, python, airflow-core.<br />
+Eksempel: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21`
+
+<b>For images som ikke er tilgjenglig</b> kan man ofte finne tilsvarende gratis versjoner av et spesifikt image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finnes det gode gratis alternativer.
+
+Eksempel: `cgr.dev/chainguard/go:latest`
+
+Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry kan du be om å få det lagt til ved å kontakte Team AppSec.
+
+## Tilgjenglige tags for de forskjellige alternativene
+
+Du finner alle tags for en spesifik image i [Chainguards image directory](https://images.chainguard.dev/). Her kan du søke opp imaget du ønsker å bruke, f.eks. `jre` og se alle tilgjengelige tags. Disse tagsen bruker du sedan med imaget i vårt private registry. `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/<image>:<tag>`
+
+:::info
+
+Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. Så når f.eks. 21.0.8 blir releaset er alle versjoner før det EOL (for samme major). Derfor er det lurt å bruke en major, pinna den til SHA256 digest og bruke digestabot eller bygge appen på nytt jevnlig for å holde den oppdatert.
+
+:::
 
 ## Automagisk oppdatering av tags på Github
 
