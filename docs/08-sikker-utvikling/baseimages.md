@@ -73,6 +73,8 @@ I google distroless og chainguard images er det enten java -jar eller kun java. 
 
 For chainguard blir dette f.eks. `CMD ["-jar", "/path/to/app.jar"]`
 
+Du finner entrypoint for et image ved å kjøre `docker inspect <image> | jq '.[].Config.Entrypoint'`.
+
 </p>
 </details>
 
