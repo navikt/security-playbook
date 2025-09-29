@@ -12,7 +12,7 @@ tags:
 
 I Nav betaler vi for å bruke Chainguard sine container images som er minimale images med ekstra sikkerhetstiltak. Her får du images med minimalt antall sårbarheter både som distroless og alternativer med shell.
 
-En av flere grunner til at vi betaler for Chainguard er at vi skal få tilgang til flere tags av de mest brukte image-typene. Dette gjør vi for att det ofte er breaking changes i nyere versjoner, noe som gjør det vanskelig for teamene å alltid bruke latest.
+En av flere grunner til at vi betaler for Chainguard er at vi skal få tilgang til flere tags av de mest brukte image-typene. Dette gjør vi for at det ofte er breaking changes i nyere versjoner, noe som gjør det vanskelig for teamene å alltid bruke latest.
 
 ## Hvordan ta i bruk Chainguard
 
@@ -99,21 +99,21 @@ Eksempel: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-
 
 Eksempel: `cgr.dev/chainguard/go:latest`
 
-Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry kan du be om å få det lagt til ved å kontakte Team AppSec.
+Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry, kan du be om å få det lagt til ved å kontakte Team AppSec.
 
 ## Tilgjenglige tags for de forskjellige alternativene
 
-Du finner alle tags for en spesifik image i [Chainguards image directory](https://images.chainguard.dev/). Her kan du søke opp imaget du ønsker å bruke, f.eks. `jre` og se alle tilgjengelige tags. Disse tagsen bruker du sedan med imaget i vårt private registry. `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/<image>:<tag>`
+Du finner alle tags for et spesifikk image i [Chainguards image directory](https://images.chainguard.dev/). Her kan du søke opp imaget du ønsker å bruke, f.eks. `jre` og se alle tilgjengelige tags. Disse taggene bruker du deretter med imaget i vårt private registry. `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/<image>:<tag>`
 
 :::info
 
-Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. Så når f.eks. 21.0.8 blir releaset er alle versjoner før det EOL (for samme major). Derfor er det lurt å bruke en major, pinna den til SHA256 digest og bruke digestabot eller bygge appen på nytt jevnlig for å holde den oppdatert.
+Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. Så når f.eks. 21.0.8 blir releaset er alle versjoner før det EOL (for samme major). Derfor er det lurt å bruke en major, pinne den til SHA256 digest og bruke digestabot eller bygge appen på nytt jevnlig for å holde den oppdatert.
 
 :::
 
 ## Automagisk oppdatering av tags på Github
 
-Chainguard sine images oppdateres ofte med nye bygg vilket betyr at det er lurt å hente og bygge siste versjoner raskere enn andre images. Men siden chainguard ikke bruker semver for sine images støtter ikke dependabot dette.
+Chainguard sine images oppdateres ofte med nye bygg, som betyr at det er lurt å hente og bygge siste versjoner raskere enn andre images. Men siden chainguard ikke bruker semver for sine images støtter ikke dependabot dette.
 
 I Nav har vi en versjon av digestabot som implementerer autentisering mot vårt private registry og åpner en pullrequest i ditt repo når det finnes en nyere versjon av samme tag.
 
