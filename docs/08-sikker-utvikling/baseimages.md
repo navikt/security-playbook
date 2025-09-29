@@ -39,9 +39,19 @@ Mange tror at det er vanskelig og/eller veldig tidkrevende å migrere over til n
 </details>
 
 <details>
-<summary>Andre miljøvariabler</summary>
+<summary>Andre miljøvariabler (proxy options m/venner)</summary>
 <p>
-  Alle "ikke-hemmelige" miljøvariabler, feks `JAVA_OPTS` e.l., kan spesifiseres i [app-manifestet](https://doc.nais.io/workloads/application/reference/application-spec/?h=env#env). Her er det også muligheter for [templating](https://doc.nais.io/operate/cli/reference/validate/?h=templating#templating) sånn at de kan få forskjellig innhold for dev og prod.
+  Alle "ikke-hemmelige" miljøvariabler, feks `JAVA_OPTS` e.l., kan spesifiseres i [app-manifestet](https://doc.nais.io/workloads/application/reference/application-spec/#env). Her er det også muligheter for [templating](https://doc.nais.io/operate/cli/reference/validate/#templating) sånn at de kan få forskjellig innhold for dev og prod.
+
+Bruker du webproxy og får nettverksfeil er årsaken ofte at JVMen ikke får med seg injecta proxy-options. En enkel løsning er å legge til følgende i din nais.yaml-fil.
+
+```yaml
+    - name: JDK_JAVA_OPTIONS
+    value: $(JAVA_PROXY_OPTIONS)
+```
+
+Ref: [Nais webproxy dokumentasjon](https://docs.nais.io/workloads/reference/webproxy/#java)
+
 </p>
 </details>
 
