@@ -46,8 +46,8 @@ Mange tror at det er vanskelig og/eller veldig tidkrevende å migrere over til n
 Bruker du webproxy og får nettverksfeil er årsaken ofte at JVMen ikke får med seg injecta proxy-options. En enkel løsning er å legge til følgende i din nais.yaml-fil.
 
 ```yaml
-    - name: JDK_JAVA_OPTIONS
-    value: $(JAVA_PROXY_OPTIONS)
+- name: JDK_JAVA_OPTIONS
+  value: $(JAVA_PROXY_OPTIONS)
 ```
 
 Ref: [Nais webproxy dokumentasjon](https://docs.nais.io/workloads/reference/webproxy/#java)
