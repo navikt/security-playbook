@@ -1,118 +1,19 @@
-name: Merge Dependabot PRs
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: 0 6 * * *
+name: Automerge Dependabot PRs
 
-permissions:
-  contents: write
-  pull-requests: write
-  checks: write
-  statuses: read
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
-  merge-pullrequests:
+  automerge:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    permissions:
+      contents: write  # Required to merge PRs
+      pull-requests: read # Required for private/internal repos
     steps:
-      - name: Harden runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # ratchet:step-security/harden-runner@v2
+      - name: Automerge Dependabot PRs
+        uses: navikt/automerge-dependabot@v1.2.2
         with:
-          disable-sudo: true
-          egress-policy: block
-          allowed-endpoints: >
-            api.github.com:443 
-      - name: merge
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const erFerie = () => {
-              const today = new Date();
-              const sommerStart = new Date(today.getFullYear(), 5, 20);
-              const sommerSlutt = new Date(today.getFullYear(), 6, 7);
-              const julStart = new Date(today.getFullYear(), 11, 20);
-              const julSlutt = new Date(today.getFullYear(), 11, 31);
-              const nyttaarStart = new Date(today.getFullYear(), 0, 1);
-              const nyttaarSlutt = new Date(today.getFullYear(), 0, 3);
-              return (today >= sommerStart && today <= sommerSlutt) || (today >= julStart && today <= julSlutt) || (today >= nyttaarStart && today <= nyttaarSlutt)
-            } 
-            
-            if (erFerie()) {
-                console.log('Skriptet kjører ikke i ferier');
-                return;
-            }
-            const pulls = await github.request('GET /repos/{owner}/{repo}/pulls', {
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-            })
-            const toDager = 2 * 60 * 60 * 1000 // 2 days
-            const filtrert = pulls.data
-                .filter((it) => it.state == 'open')
-                .filter((it) => !it.head.repo.fork)
-                .filter((it) => it.user.login === 'dependabot[bot]')
-                .filter((it) => new Date(it.created_at).getTime() < (Date.now() - toDager))
-                .map((it) => {
-                    return {
-                        title: it.title,
-                        number: it.number,
-                    }
-                })
-            const beriket = filtrert.map(async (it) => {
-                    const QUERY = `query($owner: String!, $repo: String!, $pull_number: Int!) {
-                                          repository(owner: $owner, name:$repo) {
-                                            pullRequest(number:$pull_number) {
-                                              commits(last: 1) {
-                                                nodes {
-                                                  commit {
-                                                    statusCheckRollup {
-                                                      state
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }`
-                    const result = await github.graphql(QUERY, {
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        pull_number: it.number,
-                    })
-                    const [{ commit: lastCommit }] =
-                        result.repository.pullRequest.commits.nodes
-                    return {
-                        title: it.title,
-                        number: it.number,
-                        checksOk: lastCommit.statusCheckRollup?.state === 'SUCCESS',
-                    }
-                })
-            const allePrs = await Promise.all(beriket)
-            const mergeablePromise = allePrs
-                .filter((it) => it.checksOk)
-                .map(async (it) => {
-                    const prdata = await github.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        pull_number: it.number
-                    })
-                    return {
-                        title: it.title,
-                        number: it.number,
-                        mergeable: it.checksOk
-                    }
-                })
-            const mergeable = (await Promise.all(mergeablePromise))
-                .filter((it) => {
-                  return it.mergeable;
-                })
-            console.log(`About to merge ${mergeable.length} PRs`)
-              
-            mergeable.forEach(async (pr) => {
-              console.log('Merging PR: ', pr.title)
-              await github.request('PUT /repos/{owner}/{repo}/pulls/{pull_number}/merge', {
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    pull_number: pr.number,
-                    merge_method: 'squash'
-                })
-            })
+          token: ${{ github.token }}
+          minimum-age-of-pr: '3'
