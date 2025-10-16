@@ -36,7 +36,7 @@ GitHub Actions er en kraftig CI/CD-plattform, som hjelper oss til å teste og by
 - Bruk intermediate variables for alle variabler. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#use-an-intermediate-environment-variable)
   - Sett dine variabler i `env:` å sikre at du har input validering. Bruker du f.eks. `${{ github.event.pull_request.title }}` direkte i en bash run kan du være sårbar for command injection.
 - Pin 3rd party actions to commit sha. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)
-  - Github tags er mutable, noe som betyr at hvis du bruker v1.0 av en action kan den endres uten at du merker noe. Vi anbefaler at man pinner actions á la `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`
+  - Github tags er mutable, noe som betyr at hvis du bruker v1.0 av en action kan den endres uten at du merker noe. Vi anbefaler at man pinner actions á la `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`. [Ratchet](https://github.com/sethvargo/ratchet) er et verktøy som kan hjelpe med dette.
   - Githubs egne actions er nå immutable og kan bruke tags.
 - Use minimum permissions
   - Ting skjer, plutselig lekker man en github token på internet og en ondsinnet aktør får tak i den. Men hvis det eneste du kan gjøre med tokenet er å hente kildekoden stopper du attacken der.
