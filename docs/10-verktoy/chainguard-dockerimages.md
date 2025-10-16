@@ -168,7 +168,7 @@ CMD ["-jar","app.jar"]
 <summary>Node</summary>
 
 ```Dockerfile
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:22
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:22-slim
 
 ENV NODE_ENV production
 ENV NPM_CONFIG_CACHE /tmp
@@ -194,7 +194,7 @@ COPY . /app
 RUN npm ci
 RUN npm run build
 
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:22
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:22-slim
 WORKDIR /app
 COPY --from=builder /app /app
 CMD ["build/server.js"]
