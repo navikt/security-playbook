@@ -1,11 +1,13 @@
 ---
-title: Auditlogging
-description: Spor av alt som skjer, så du slipper å gjette mer 🔎.
+title: Auditlogging av oppslag
+description: Logg alt som vises fram.
 ---
 
-## Hva er auditlogg?
+## Hva er auditlogg av oppslag på personopplysninger?
 
-Auditlogg eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Auditloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
+Auditlogg av oppslag, oppslagslogg eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Auditloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
+
+NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-ansatte gjennom fagsystemene, og ikke auditlogging av endringer på lagrede data.
 
 ## Hvilke krav stilles til auditlogging?
 
@@ -43,7 +45,7 @@ De fleste fagsystemer skal inkluderes i innsynsrapportene til borgere og ledere.
 
 Les om loggformat i neste avsnitt. Format kan verifiseres i samarbeid med Team Auditlogging på teamets slack-kanal.
 
-## Teknisk implementasjon av auditlogg
+## Teknisk implementasjon av auditlogging av oppslag
 
 I Nav implementeres auditlogg i [ArcSight](#hva-er-arcsight-), og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
 Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit). [Team Komet](https://teamkatalog.nav.no/team/5345bce7-e076-4b37-8bf4-49030901a4c3) har også utviklet en komponent for å hjelpe med oversendingen. Denne kan du finne på [github](https://github.com/navikt/common-java-modules/tree/main/audit-log)
