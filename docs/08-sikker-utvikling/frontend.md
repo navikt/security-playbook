@@ -1,42 +1,11 @@
 ---
-title: Frontend Sikkerhet
+title: NPM Sikkerhet
 description: Beste praksiser for sikker frontend-utvikling med NPM og venner
 ---
 
-# Frontend Sikkerhet
+# NPM Sikkerhet
 
 NPM-økosystemet er sårbart for kompromittering, supply-chain angrep og skadelig programvare. Her er de viktigste sikkerhetstiltakene:
-
-### Pin avhengighetsversjoner
-
-**Hvorfor:** Forhindrer automatiske oppdateringer som kan introdusere skadelig kode eller sårbarheter.
-
-**Installering med eksakt versjon:**
-
-```bash
-npm install --save-exact react
-pnpm add --save-exact react
-yarn add --save-exact react
-bun add --exact react
-deno add npm:react@19.1.1
-```
-
-**Konfigurering:**
-
-```bash
-# npm
-npm config set save-exact=true
-
-# pnpm
-pnpm config set save-exact true
-
-# yarn
-yarn config set defaultSemverRangePrefix ""
-
-# bun (i bunfig.toml)
-[install]
-exact = true
-```
 
 ### Inkluder lockfiler
 
@@ -78,16 +47,15 @@ yarn config set enableScripts false
 **Hvorfor:** Unngår nylig publiserte pakker som kan inneholde skadelig kode før sikkerhetsvurdering.
 
 ```bash
-# pnpm (minutter)
-pnpm config set minimumReleaseAge 1440  # 24 timer
+pnpm config set minimumReleaseAge 1440  # minutter
 
-# npm (installer bare pakker publisert før en bestemt dato)
 npm install --before="$(date -v -1d)"
 
-# yarn (minutter)
-yarn config set npmMinimalAgeGate 1440
+yarn config set npmMinimalAgeGate 1440 # 1d i minutter
 
-# bun og deno: Ikke støttet enda
+bun add @types/bun --minimum-release-age 259200 # seconds
+
+deno install --minimum-dependency-age=P7D
 ```
 
 ### Reduser eksterne avhengigheter
@@ -97,12 +65,6 @@ yarn config set npmMinimalAgeGate 1440
 ### Bruk begrensede tokens
 
 **Hvorfor:** Begrenser skaden ved kompromitterte tokens og følger prinsippet om minimal tilgang.
-
-:::info
-
-Add stuff here.
-
-:::
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
