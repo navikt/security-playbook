@@ -26,13 +26,14 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 - [Try Hack Me](https://tryhackme.com/) - lær med tutorials og oppgaver i et trygt miljø (gratis eller "premium" til $8/mnd)
 - [Cheatsheet for Web Security hos Owasp](https://cheatsheetseries.owasp.org/)
 - [Awesome Hacker Search Engines](https://github.com/edoardottt/awesome-hacker-search-engines)
-- [Cast O3](https://www.o3c.no/knowledge) - Norsk podcast som ofte har tema relatert til sikkerhet.
+- [O3 Cyber - Artikler og podcasts](https://www.o3c.no/knowledge) - Norsk firma med artikler og podcaster relatert til sikkerhet. Podcasten finner du også på [Spotify](https://open.spotify.com/show/6ZHEdYUtPIIlznhlnsZtGG) eller i din foretrukne podcast-spiller.
 - [PentesterLab](https://pentesterlab.com/) - lær med oppgaver i et trygt miljø (gratis eller "premium" til $20/mnd)
 - [Equinor AppSec](https://equinor.github.io/appsec/#security-champion) Equinor sin AppSec playbook
 - [Security Champions Norge](https://securitychampions.no/) Norges hyggeligste fellesskap for sikkerhetskultur
 
 ### Artikler og presentasjoner fra Nav
 
+- Oktober 2022: [O3C - Cyber Security Podcast: S03 E14 - "Nav om Security Champions"](https://open.spotify.com/episode/5qxl7qWlEwzqw4mh8m2FZ9?si=cb6764ee3f824d98)
 - September 2022: [JavaZone – Hvordan vi sikrer Nav.no og ⅓ av Norges statsbudsjett](https://vimeo.com/748031584)
 - Juni 2022: [Kode24 – Nav forvalter en tredjedel av statsbudsjettet: - Vi blir angrepet hele tiden](https://www.kode24.no/artikkel/nav-forvalter-en-tredjedel-av-statsbudsjettet-vi-blir-angrepet-hele-tiden/76410353)
 - Februar 2022: [Kode24 – Nav gjør DevSecOps med 'security champions': - Det første forsøket feilet](https://www.kode24.no/artikkel/nav-gjor-devsecops-med-security-champions-det-forste-forsoket-feilet/75393687)
