@@ -28,7 +28,7 @@ Output-validering sikrer også at dataene presentert til brukerne er gyldige og 
 - For enkle typer som tall, datoer, enum og e-postadresser: bruk innebygde typer i programmeringsspråket og valider.
 - Når det kommer til tekst:
   - Vurder hvilke tegn som er gyldige.
-  - Sett opp en whitelist av gyldige tegn, og bruk regex for å validere at inputen kun inneholder disse tegnene.
+  - Sett opp en liste av gyldige tegn, og bruk regex for å validere at inputen kun inneholder disse tegnene.
   - For eksempel, fjerne alle ugyldige tegn: `input.replace(/[^a-zA-ZÀ-Ÿ0-9, -_.]/g, "")`.
   - Trenger man rik tekst eller HTML, vurder hvilke tags og attributter som er gyldige, og bruk et bibliotek for å sanitere.
 - Filopplasting er spessielt skummelt:
