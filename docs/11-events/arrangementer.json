@@ -221,5 +221,19 @@
     "label": "Security Champions Norge Meetup 11",
     "href": "https://securitychampions.no/blogg/2025-09-29-meetup11-rebel/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2026-02-11",
+    "endDate": "2026-02-12",
+    "label": "HackCon #21",
+    "href": "https://www.hackcon.org/hackcon21",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2026-03-02",
+    "endDate": "2026-03-05",
+    "label": "NDC Security Oslo",
+    "href": "https://ndcsecurity.com/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
