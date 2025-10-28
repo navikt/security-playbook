@@ -15,7 +15,7 @@ Den beste måten å understøtte plattformen i dette som applikasjonsutvikler er
 
 Når plattformen jobber med å fordele last rundt på nodene sine vil containere måtte startes, stoppes og flyttes. Hvis applikasjonene kjører flere instanser og tåler restarting kan plattformen (opp til en grense) sørge for at det alltid er noen som svarer på forespørsler.
 
-Forutsetningen for slik "elastisitet" er at applikasjonen ikke holder på state (som feks. HTTP-sesjoner) i minnet eller på disk i app-containerne. Hvis man trenger å lagre sesjoner eller filer kan man benytte hhv eksterne "key/value stores" som [Redis](https://doc.nais.io/persistence/redis/) eller "object storage" som [S3](https://doc.nais.io/persistence/objectstore/).
+Forutsetningen for slik "elastisitet" er at applikasjonen ikke holder på state (som feks. HTTP-sesjoner) i minnet eller på disk i app-containerne. Hvis man trenger å lagre sesjoner eller filer kan man benytte hhv eksterne "key/value stores" som [Valkey](https://doc.nais.io/persistence/valkey/) eller "object storage" som [Google Cloud Storage](https://doc.nais.io/persistence/buckets/).
 
 For å ta i bruk rate limiting i applikasjonene er det ulik støtte i de ulike rammeverkene. Det finnes mange ressurser som forklarer ulike framgangsmåter, feks. disse for hhv. [Spring](https://www.baeldung.com/spring-bucket4j), [Node/Express](https://www.section.io/engineering-education/nodejs-rate-limiting/) og [Resilience4j](https://resilience4j.readme.io/docs/examples-4) som kan benyttes i flere kontekster på JVM-en.
 
