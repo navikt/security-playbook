@@ -1,6 +1,6 @@
 ---
 title: Auditlogging av oppslag
-description: Logg alt som vises fram.
+description: Se hvem som har sett hva 👀.
 ---
 
 ## Hva er auditlogg av oppslag på personopplysninger?
