@@ -7,7 +7,7 @@ description: Pass på endring så slipper dere gjetting 🔎.
 
 Auditlogging av økonomisystemer er et krav i [statens økonomireglement](https://www.regjeringen.no/globalassets/upload/fin/vedlegg/okstyring/reglement_for_okonomistyring_i_staten.pdf) (§ 4.3.6). Endringer i databaser med regnskapsdata skal auditlogges med personlig identifikasjon, dato og klokkeslett for handlingen, som beskrevet i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/125/2). Loggene skal kunne brukes til revisjon.
 
-## Hvilke systemer skal auditlogge databaseendringer ?
+## Hvem skal auditlogge databaseendringer ?
 
 I økonomisystemer skal databaseendringer som er utført av personer, utenom applikasjonens normale brukergrensesnitt, auditlogges. Databasebrukere som benyttes for å gjøre endringer direkte i databaser skal være personlige eller mulig å knytte til person. Tilkoblingslogger, som pålogginger i databasene, skal ikke skrives til akkurat denne auditloggløsningen.
 
@@ -18,7 +18,7 @@ Endringer som gjøres via vanlige brukergrensesnitt i fagsystemener skal ikke sk
 
 ## Teknisk løsning
 
-Digital Sikkerhet og Nais jobber med å sette opp en ny teknisk løsning for innsamling og lagring av logger. Denne som skal kunne brukes for de ulike databaseteknologiene vi har i Nav. Løsningen bruker Google Cloud Logging for logger teamene trenger rask og enkel tilgang til, og Google Cloud Storage for arkiv. For å sette opp auditlogging av databaseendringer for PostgreSQL GCP, se [Nais dokumentasjon om auditlogging](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/). Husk at parametre skal logges.
+Digital Sikkerhet og Nais jobber med å sette opp en ny teknisk løsning for innsamling og lagring av logger. Denne skal kunne brukes for de ulike databaseteknologiene vi har i Nav. Løsningen bruker Google Cloud Logging for logger teamene trenger rask og enkel tilgang til, og Google Cloud Storage for arkiv. For å sette opp auditlogging av databaseendringer for PostgreSQL GCP, se [Nais dokumentasjon om auditlogging](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/). Husk at parametre skal logges.
 
 Frem til den nye løsningen er klar for on-prem teknologier, må logging utføres i henhold til eksisterende regime. Dette beskrives på teknologiavdelingen sine sider på Navet.
 
