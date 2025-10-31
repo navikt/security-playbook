@@ -5,7 +5,7 @@ description: Pass på endring så slipper dere gjetting 🔎.
 
 ## Hvorfor auditlogge databaseendringer ?
 
-Auditlogging av økonomisystemer er et krav i [statens økonomireglement](https://www.regjeringen.no/globalassets/upload/fin/vedlegg/okstyring/reglement_for_okonomistyring_i_staten.pdf) (§ 4.3.6). Endringer i databaser med regnskapsdata skal auditlogges med personlig identifikasjon, dato og klokkeslett for handlingen, som beskrevet i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/125/2). Loggene skal kunne brukes til revisjon.
+Auditlogging av økonomisystemer er et krav i [statens økonomireglement](https://www.regjeringen.no/globalassets/upload/fin/vedlegg/okstyring/reglement_for_okonomistyring_i_staten.pdf) (§ 4.3.6). Endringer i databaser som inngår i økonomisystem skal auditlogges med personlig identifikasjon, dato og klokkeslett for handlingen, som beskrevet i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/125/2). Loggene skal kunne brukes til revisjon.
 
 ## Hvem skal auditlogge databaseendringer ?
 
