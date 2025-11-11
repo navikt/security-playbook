@@ -115,6 +115,7 @@ Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. S
 
 Chainguard sine images oppdateres ofte med nye bygg, som betyr at det er lurt å hente og bygge siste versjoner raskere enn andre images. Men siden chainguard ikke bruker semver for sine images støtter ikke dependabot dette.
 
+<a name="digestabot"></a>
 I Nav har vi en versjon av digestabot som implementerer autentisering mot vårt private registry og åpner en pullrequest i ditt repo når det finnes en nyere versjon av samme tag.
 
 ```yaml
@@ -134,8 +135,8 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v5
-      - uses: navikt/digestabot@3233d68167c867ef8227c5dfde7a30f2a0e10af0
+      - uses: actions/checkout@v5 # Immutable release
+      - uses: navikt/digestabot@v1.0 # Immutable release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           team: appsec
@@ -282,6 +283,15 @@ Hvis du står fast, ikke kan logge inn, eller har problemer med å migrere teame
 ## Dokumentasjon fra Chainguard
 
 Du finner [dokumentasjonen her](https://edu.chainguard.dev/).
+
+## FAQ
+
+### Kan jag bruke Dependabot for å bumpe Chainguard images?
+Nei, Dependabot finner siste tag av et image. Vilket betyr att hvis du bruker openjdk-21 så kommer dependabot bumpe deg til siste versjon av openjdk.
+Bruk [digestabot](#digestabot). hvis du ønsker å pinne sha og få PR på nye versjoner av chainguard baseimaget.
+
+### Burde jag pinne SHA for våre Chainguard images?
+Hvis du vil ha reproduserbarhet gir det mening, men du kommer få nye PRs hele tiden som du ideelt sett automerger. Så anbefalingen er å ikke pinne sha. Heller sett opp workflow for å bygge applikasjonen på nytt å hente ny versjon av baseimaget.
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
