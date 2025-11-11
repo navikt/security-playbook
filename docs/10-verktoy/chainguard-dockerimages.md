@@ -287,11 +287,11 @@ Du finner [dokumentasjonen her](https://edu.chainguard.dev/).
 ## FAQ
 
 ### Kan jag bruke Dependabot for å bumpe Chainguard images?
-Nei, Dependabot finner siste tag av et image. Vilket betyr att hvis du bruker openjdk-21 så kommer dependabot bumpe deg til siste versjon av openjdk.
+Nei, Dependabot finner siste tag av et image. Det betyr at hvis du bruker openjdk-21 så kommer dependabot til å bumpe deg til siste versjon av openjdk.
 Bruk [digestabot](#digestabot). hvis du ønsker å pinne sha og få PR på nye versjoner av chainguard baseimaget.
 
-### Burde jag pinne SHA for våre Chainguard images?
-Hvis du vil ha reproduserbarhet gir det mening, men du kommer få nye PRs hele tiden som du ideelt sett automerger. Så anbefalingen er å ikke pinne sha. Heller sett opp workflow for å bygge applikasjonen på nytt å hente ny versjon av baseimaget.
+### Burde jeg pinne SHA for våre Chainguard images?
+Hvis du vil ha reproduserbarhet gir det mening, men du kommer få nye PRs hele tiden som du ideelt sett automerger. Så anbefalingen er å ikke pinne sha. Sett heller opp workflow for å bygge applikasjonen på nytt og hente ny versjon av baseimaget.
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
