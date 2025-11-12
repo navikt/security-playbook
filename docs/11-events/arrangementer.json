@@ -235,5 +235,12 @@
     "label": "NDC Security Oslo",
     "href": "https://ndcsecurity.com/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2025-11-18",
+    "endDate": "2025-11-18",
+    "label": "Security Champions møtet i NAV",
+    "href": "https://delta.nav.no/event/6db3660e-8058-4b7f-8911-da7d708e7f03",
+    "audience": "Security champions"
   }
 ]
