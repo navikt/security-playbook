@@ -5,7 +5,6 @@ module.exports = {
   url: "https://sikkerhet.nav.no",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/security-champion-logo.ico",
   organizationName: "navikt", // Usually your GitHub org/user name.
   projectName: "security-playbook", // Usually your repo name.
@@ -15,6 +14,9 @@ module.exports = {
   },
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
   },
   themes: ["@docusaurus/theme-mermaid"],
   plugins: [
