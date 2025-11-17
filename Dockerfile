@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/node:latest-dev AS build
+FROM node:24-alpine AS build
 USER root
 WORKDIR /app
 COPY package*.json ./
