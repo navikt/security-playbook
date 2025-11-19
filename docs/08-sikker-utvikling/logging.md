@@ -1,5 +1,5 @@
 ---
-title: Logging
+title: Applikasjonslogging
 description: 🪵 God logging holder deg unna jogging.
 ---
 
@@ -11,9 +11,9 @@ Loggene er åpne for alle utviklerne, og egner seg derfor ikke for personopplysn
 
 For logger som skal vare private bruker vi nå [Nais team logs](https://doc.nais.io/observability/logging/how-to/team-logs/).
 
-## Auditlogging
+## Oppslagslogger
 
-Auditlogger skal skrives til et system som heter ArcSight, nærmere info om dette finnes [her](auditlogging).
+Oppslag på personopplysninger skal logges, les mer [her](https://sikkerhet.nav.no/docs/sikker-utvikling/auditlogging).
 
 ## Logghygiene
 
