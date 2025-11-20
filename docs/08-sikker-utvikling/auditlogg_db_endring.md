@@ -1,6 +1,6 @@
 ---
 title: Auditlogging av databaseendringer
-description: Pass på endring så slipper dere gjetting 🔎.
+description: Endringer er bra, så lenge man vet hvem som gjorde hva 🔎.
 ---
 
 ## Hvorfor auditlogge databaseendringer ?
