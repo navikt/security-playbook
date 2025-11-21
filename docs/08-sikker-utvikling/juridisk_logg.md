@@ -1,6 +1,6 @@
 ---
 title: Juridisk logg
-description: Strengt og sikkert 📚🔒.
+description: Her er det viktig å implementere i tide, så vi har loven på vår side 📚🔒.
 ---
 
 ## Hva er Juridisk logg?
