@@ -1,6 +1,6 @@
 ---
 tittle: SEO poisoning
-description: 🕵️‍♂️🔍☠️ Farlig funn.
+description: 🕵️‍♂️🔍☠️ Farlig funn, i bunn og grunn.
 hide_table_of_contents: true
 ---
 
