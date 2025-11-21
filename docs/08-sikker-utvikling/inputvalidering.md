@@ -1,6 +1,6 @@
 ---
 title: Input / output validering
-description: 🧾 Validering av input og output er viktig for å unngå problemer
+description: 🧾 Sjekker vi nøye hva som går ut og inn, ender vi opp med en vinn vinn 🏆
 ---
 
 Alle systemer må håndtere input og output på en sikker måte. Dette gjelder både for data som kommer inn i systemet, og data som sendes ut. Validering av input og output er en viktig del av sikkerhetsarbeidet, og kan bidra til å forhindre en rekke typer angrep.
