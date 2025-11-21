@@ -286,7 +286,7 @@ Du finner [dokumentasjonen her](https://edu.chainguard.dev/).
 
 ## FAQ
 
-### Kan jag bruke Dependabot for å bumpe Chainguard images?
+### Kan jeg bruke Dependabot for å bumpe Chainguard images?
 Nei, Dependabot finner siste tag av et image. Det betyr at hvis du bruker openjdk-21 så kommer dependabot til å bumpe deg til siste versjon av openjdk.
 Bruk [digestabot](#digestabot). hvis du ønsker å pinne sha og få PR på nye versjoner av chainguard baseimaget.
 
