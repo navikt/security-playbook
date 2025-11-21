@@ -1,6 +1,6 @@
 ---
 title: NPM Sikkerhet
-description: Beste praksiser for sikker frontend-utvikling med NPM og venner
+description: Ha kontroll på dine pakker, så blir det enklere å gjøre koden vakker.
 ---
 
 # NPM Sikkerhet
