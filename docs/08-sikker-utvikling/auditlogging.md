@@ -1,6 +1,6 @@
 ---
 title: Auditlogging av oppslag
-description: Se hvem som har sett hva 👀.
+description: Innsyn uten synsing 👀.
 ---
 
 ## Hva er auditlogg av oppslag på personopplysninger?
