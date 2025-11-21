@@ -1,6 +1,6 @@
 ---
 title: Hemmeligheter
-description: 🤷‍♂️ Rim er vanskelig
+description: En lekket nøkkel er skjemmelig, så hold den hemmelig 🔒.
 ---
 
 Alle systemer har informasjon de trenger å holde hemmelig. Dette er ting som passord og nøkler, men kan også være andre typer informasjon. Hvordan kan vi sørge for at hemmelighetene forblir hemmelige, og hva gjør vi hvis de mot formodning skulle lekke?
