@@ -235,5 +235,19 @@
     "label": "NDC Security Oslo",
     "href": "https://ndcsecurity.com/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2025-11-28",
+    "endDate": "2025-11-30",
+    "label": "HeroCTF v7",
+    "href": "https://ctf.heroctf.fr/",
+    "audience": "Åpent for alle, høyt nivå"
+  },
+  {
+    "startDate": "2025-12-05",
+    "endDate": "2025-12-07",
+    "label": "Null CTF",
+    "href": "https://ctf.r0devnull.team/",
+    "audience": "Åpent for alle, lav til høyt nivå"
   }
 ]
