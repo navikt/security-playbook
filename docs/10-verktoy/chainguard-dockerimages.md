@@ -48,7 +48,7 @@ jobs:
       - uses: nais/docker-build-push@v0
         id: docker-push
         with:
-          team: myteam # required
+          team: < myteam > # required
 ```
 
 </details>
@@ -65,7 +65,7 @@ jobs:
     steps:
       - uses: nais/login@v0
         with:
-          team: <ditt team>
+          team: < myteam > # required
 ```
 
 </details>
@@ -139,7 +139,7 @@ jobs:
       - uses: navikt/digestabot@v1.0 # Immutable release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          team: appsec
+          team: < myteam > # required
 ```
 
 [Liste med tilgjenglige inputs til digestabot finnes her](https://github.com/navikt/digestabot?tab=readme-ov-file#inputs).
