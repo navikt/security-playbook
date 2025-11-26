@@ -11,6 +11,29 @@ Du finner dem her: [Backend](https://github.com/navikt/backend-golden-path) og [
 Github har selv skrevet en guide med best practices for github actions, du finner [den her](https://docs.github.com/en/actions/reference/security/secure-use).
 Nedenfor finner du en kort oppsummering av de viktigste punktene.
 
+## Tokens
+
+Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Når du trenger PAT er det lurt lage en github app og ikke gi appen mer rettigheter enn nødvendig.
+
+1. Registrere en ny GitHub App under instillinger til din bruker. https://github.com/settings/apps/new
+2. Gi appen et navn og en url (denne kan være midlertidig).
+3. Skru av "Webhook" om du ikke trenger det. Er du usikker, skru det av.
+4. Under "Permissions & events", gi appen kun de rettighetene den trenger.
+5. Skal du hente pakker fra andre repos trenger du f.eks. kun "Packages: Read-only".
+6. Under "Where can this GitHub App be installed?" velg "Only on this account".
+7. Under General, gå ned til Private keys og lag en ny nøkkel.
+   1. Åpne filen som blir nedlastet å kopier den nøkkelen til et sikkert sted. For eksempel i en hemmelighet i Nais Console.
+   2. Slette nøkkelen fra din harddisk for å unngå att den blir lekket.
+8. Kopier App ID, dette er ikke sensitive informasjon.
+9. Advanced
+
+- Transfer ownership -> navikt
+
+8. App managers
+   - Scrolle lengst ned, Finn teamet å Grant access
+9. Gå til Install App og installer appen til navikt-organisasjonen.
+10. Velg kun de repos appen skal ha tilgang til.
+
 ## Repository settings
 
 ### Eierskap
