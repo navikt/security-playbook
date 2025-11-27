@@ -16,23 +16,75 @@ Nedenfor finner du en kort oppsummering av de viktigste punktene.
 Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Når du trenger PAT er det lurt lage en github app og ikke gi appen mer rettigheter enn nødvendig.
 
 1. Registrere en ny GitHub App under instillinger til din bruker. https://github.com/settings/apps/new
-2. Gi appen et navn og en url (denne kan være midlertidig).
-3. Skru av "Webhook" om du ikke trenger det. Er du usikker, skru det av.
-4. Under "Permissions & events", gi appen kun de rettighetene den trenger.
-5. Skal du hente pakker fra andre repos trenger du f.eks. kun "Packages: Read-only".
-6. Under "Where can this GitHub App be installed?" velg "Only on this account".
-7. Under General, gå ned til Private keys og lag en ny nøkkel.
+   1. Gi appen et navn og en url (denne kan være et til repo/teamkatalogen etc).
+   2. Skru av "Webhook" om du ikke trenger det. Er du usikker, skru det av.
+   3. Under "Permissions & events", gi appen kun de rettighetene den trenger. Skal du hente pakker fra andre repos trenger du f.eks. kun "Packages: Read-only".
+   4. Under "Where can this GitHub App be installed?" velg "Only on this account".
+2. Klikke på "Create GitHub App".
+3. Kopier App ID, dette er ikke sensitive informasjon.
+4. Under "General", scrolle ned til Private keys og lag en ny nøkkel.
    1. Åpne filen som blir nedlastet å kopier den nøkkelen til et sikkert sted. For eksempel i en hemmelighet i Nais Console.
    2. Slette nøkkelen fra din harddisk for å unngå att den blir lekket.
-8. Kopier App ID, dette er ikke sensitive informasjon.
-9. Advanced
+5. Under "Advanced"
+   1. Klikke på "Transfer ownership"
+   2. Fyll i navnet på appen å skriv inn "navikt" som ny owner.
+6. Transfer this GitHub App.
+7. App managers
+   1. Scrolle lengst ned, finn ditt team å Grant access
+8. Gå til Install App og installer appen til navikt-organisasjonen.
+9. Velg kun de repos appen skal ha tilgang til.
 
-- Transfer ownership -> navikt
+Nå har du en applikasjon som kan lage kortlevde tokens med kun de rettighetene den trenger. App ID og den private nøkkelen du lagde tidligere trengs for å lage tokens. Disse må legges in i hvert repo som skal bruke appen.
 
-8. App managers
-   - Scrolle lengst ned, Finn teamet å Grant access
-9. Gå til Install App og installer appen til navikt-organisasjonen.
-10. Velg kun de repos appen skal ha tilgang til.
+1. Gå til repoet som skal bruke appen.
+2. Gå til Settings > Secrets and variables > Actions > New repository
+   1. Lage en secret med navn GITHUB_APP_PRIVATE_KEY og lim inn private keyen du lagret ett sikkert sted som verdi.
+3. Klikke på Variables lengst opp > New repository variable
+   1. Lage en variable med navn GITHUB_APP_ID og lim inn App ID som verdi.
+4. Nå kan du bruke appen i dine workflows for å lage tokens med kun de rettighetene du trenger.
+
+### Hente token for samme repo
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.GITHUB_APP_ID }}
+          private-key: ${{ secrets.GITHUB_APP_PRIVATE_KEY }}
+
+      - uses: ./actions/staging-tests
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+```
+
+### Hente token for andre repos
+
+```yaml
+- uses: actions/create-github-app-token@v2
+  id: app-token
+  with:
+    app-id: ${{ vars.APP_ID }}
+    private-key: ${{ secrets.PRIVATE_KEY }}
+    owner: ${{ github.repository_owner }}
+    repositories: |
+      repo1
+      repo2
+```
+
+### Hente token for alle repos appen har tilgang til
+
+```yaml
+- uses: actions/create-github-app-token@v2
+  id: app-token
+  with:
+    app-id: ${{ vars.APP_ID }}
+    private-key: ${{ secrets.PRIVATE_KEY }}
+    owner: ${{ github.repository_owner }}
+```
 
 ## Repository settings
 
