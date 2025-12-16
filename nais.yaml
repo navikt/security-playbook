@@ -12,10 +12,10 @@ spec:
   port: 8080
   resources:
     requests:
-      cpu: 20m
-      memory: 64Mi
+      cpu: 10m
+      memory: 32Mi
     limits:
-      memory: 128Mi
+      memory: 32Mi
   ingresses:
     - https://sikkerhet.nav.no/
   replicas:
