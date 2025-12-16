@@ -5,7 +5,7 @@ description: Ha kontroll på dine pakker, så blir det enklere å gjøre koden v
 
 # NPM Sikkerhet
 
-NPM-økosystemet er sårbart for kompromittering, supply-chain angrep og skadelig programvare. Her er de viktigste sikkerhetstiltakene:
+NPM-økosystemet er sårbart for kompromittering, supply-chain angrep og skadelig programvare. [npm sletter selv skadelige pakker](https://docs.npmjs.com/threats-and-mitigations#by-changing-an-existing-package-to-have-malicious-behavior), men det tar ofte noen dager fra de er lastet opp til de er identifisert. Her er de viktigste sikkerhetstiltakene for å skjerme seg mot angrep igjennom npm-pakker:
 
 ### Inkluder lockfiler
 
@@ -57,6 +57,8 @@ bun add @types/bun --minimum-release-age 259200 # seconds
 
 deno install --minimum-dependency-age=P7D
 ```
+
+Dependabot har lignende funksjonalitet. [Les mer om sikker konfigurering av Dependabot her](/docs/verktoy/dependabot).
 
 ### Reduser eksterne avhengigheter
 
