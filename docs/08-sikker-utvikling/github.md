@@ -18,7 +18,7 @@ Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal
 1. Registrere en ny GitHub App under instillinger til din bruker. https://github.com/settings/apps/new
    1. Gi appen et navn og en url (denne kan være et til repo/teamkatalogen etc).
    2. Skru av "Webhook" om du ikke trenger det. Er du usikker, skru det av.
-   3. Under "Permissions & events", gi appen kun de rettighetene den trenger. Skal du hente pakker fra andre repos trenger du f.eks. kun "Packages: Read-only".
+   3. Under "Permissions & events", gi appen kun de rettighetene den trenger. Skal du hente pakker fra andre repos trenger du f.eks. kun "Contents: Read-only".
    4. Under "Where can this GitHub App be installed?" velg "Only on this account".
 2. Klikke på "Create GitHub App".
 3. Kopier App ID, dette er ikke sensitive informasjon.
