@@ -13,7 +13,7 @@ Nedenfor finner du en kort oppsummering av de viktigste punktene.
 
 ## Tokens
 
-Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Når du trenger PAT er det lurt lage en github app og ikke gi appen mer rettigheter enn nødvendig.
+Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å, for eksempel, hente andre interne repos kan du bruke ett installation token fra en Github App. Da kan du scopea tokenet til presis det du trenger med tilgang til kun ett fåtal repos.
 
 1. Registrere en ny GitHub App under instillinger til din bruker. https://github.com/settings/apps/new
    1. Gi appen et navn og en url (denne kan være et til repo/teamkatalogen etc).
