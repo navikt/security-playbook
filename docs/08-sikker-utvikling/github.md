@@ -23,7 +23,7 @@ Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal
 2. Klikke på "Create GitHub App".
 3. Kopier App ID, dette er ikke sensitive informasjon.
 4. Under "General", scrolle ned til Private keys og lag en ny nøkkel.
-   1. Åpne filen som blir nedlastet å kopier den nøkkelen til et sikkert sted. For eksempel i en hemmelighet i Nais Console.
+   1. Åpne filen som blir nedlastet å kopier den nøkkelen til et sikkert sted. For eksempel i en hemmelighet i Nais Console. Alternativt bare slette den etter att den er lagt til i alle repos.
    2. Slette nøkkelen fra din harddisk for å unngå att den blir lekket.
 5. Under "Advanced"
    1. Klikke på "Transfer ownership"
@@ -38,9 +38,9 @@ Nå har du en applikasjon som kan lage kortlevde tokens med kun de rettighetene 
 
 1. Gå til repoet som skal bruke appen.
 2. Gå til Settings > Secrets and variables > Actions > New repository
-   1. Lage en secret med navn GITHUB_APP_PRIVATE_KEY og lim inn private keyen du lagret ett sikkert sted som verdi.
+   1. Lage en secret med navn APP_ID og lim inn private keyen du lagret ett sikkert sted som verdi.
 3. Klikke på Variables lengst opp > New repository variable
-   1. Lage en variable med navn GITHUB_APP_ID og lim inn App ID som verdi.
+   1. Lage en variable med navn PRIVATE_KEY og lim inn App ID som verdi.
 4. Nå kan du bruke appen i dine workflows for å lage tokens med kun de rettighetene du trenger.
 
 ### Hente token for samme repo
@@ -53,8 +53,8 @@ jobs:
       - uses: actions/create-github-app-token@v2
         id: app-token
         with:
-          app-id: ${{ vars.GITHUB_APP_ID }}
-          private-key: ${{ secrets.GITHUB_APP_PRIVATE_KEY }}
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
 
       - uses: ./actions/staging-tests
         with:
