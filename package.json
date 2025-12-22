@@ -25,8 +25,8 @@
     "classnames": "2.5.1",
     "clsx": "2.1.1",
     "docusaurus-lunr-search": "3.6.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "browserslist": {
     "production": [
@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "husky": "9.1.7",
-    "lint-staged": "16.2.3",
-    "prettier": "3.6.2"
+    "lint-staged": "16.2.7",
+    "prettier": "3.7.4"
   },
   "lint-staged": {
     "*.{js,jsx,css,md,mdx,json}": "prettier --write"
