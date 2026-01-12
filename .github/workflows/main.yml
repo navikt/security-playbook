@@ -11,16 +11,16 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
         with:
           persist-credentials: false
-      - uses: nais/docker-build-push@1fae4798c79f4af4c3cdbd3fe65e51f8f3ba2368
+      - uses: nais/docker-build-push@3b44f7c419b9511ad7c8b72174b3cc078d570bed
         id: docker-push
         with:
           team: appsec
           push_image: true
           pull: true
-      - uses: nais/deploy/actions/deploy@56e14061f2a8437bd9119e7b8f92749a3b288db1
+      - uses: nais/deploy/actions/deploy@fa754451577294aae42872a69b888b3470478ec1
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais.yaml
