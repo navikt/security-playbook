@@ -37,10 +37,10 @@ Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal
 Nå har du en applikasjon som kan lage kortlevde tokens med kun de rettighetene den trenger. App ID og den private nøkkelen du lagde tidligere trengs for å lage tokens. Disse må legges in i hvert repo som skal bruke appen.
 
 1. Gå til repoet som skal bruke appen.
-2. Gå til Settings > Secrets and variables > Actions > New repository
-   1. Lage en secret med navn APP_ID og lim inn private keyen du lagret ett sikkert sted som verdi.
-3. Klikke på Variables lengst opp > New repository variable
-   1. Lage en variable med navn PRIVATE_KEY og lim inn App ID som verdi.
+2. Gå til Settings > Secrets and variables > Actions > Variables > New repository variable
+   1. Lag en variabel med navn APP_ID og lim inn App ID som verdi.
+3. Klikk på Secrets lengst opp > New repository secret
+   1. Lag en secret med navn PRIVATE_KEY og lim inn private keyen du lagret et sikkert sted som verdi.
 4. Nå kan du bruke appen i dine workflows for å lage tokens med kun de rettighetene du trenger.
 
 ### Hente token for samme repo
