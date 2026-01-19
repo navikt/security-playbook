@@ -31,15 +31,18 @@ Når denne er klar vil det komme informasjon om hvor man skal oppgi at auditlogg
 
 ---
 
+<details><summary>
 ### PostgreSQL – GCP
+</summary>
 
-| Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Teamet som eier databasen må selv skru på auditlogging ved å følge framgangsmetoden beskrevet i [Enable auditlogging på nais.io](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#enable-audit-logging).                                                                                                                                                                                                          |
-| **Verifikasjon** | Teamet må gå inn på [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/) og verifisere at minst én personlig endring er logget. Kontaktkanal er [#nais-database-auditlogging på Slack](https://nav-it.slack.com/archives/C0A29KP884T). Vi anbefaler å kjøre [verify-audit](https://doc.nais.io/operate/cli/reference/postgres/index.html#verify-audit) for å bekrefte at konfigurasjonen er riktig. |
-| **Om oppsettet** | Loggene blir automatisk sendt til nais-teamets Cloud Logging bøtte i nais audit project, hvor de blir lagret i 2 år. Månedlig blir teamets logger lagret som en .zip-fil og sendt til en 11 års arkivbøtte. Loggene sendes også automatisk til team ISOC for sikkerhetsovervåkning.                                                                                                                                               |
-| **Vær oppmerksom på** | Husk også å kjøre [siste steget i oppsettet med nais cli](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#use-the-nais-cli-to-configure-database-internals). Kjøringen med cli installerer pgaudit extension i basen, og skrur av auditlogging for appbrukeren.                                                                                                                                                  |
+| Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                                                                |
+|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Ansvarlig for oppsett** | Teamet som eier databasen må selv skru på auditlogging ved å følge framgangsmetoden beskrevet i [Enable auditlogging på nais.io](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#enable-audit-logging).                                                                                                                                                                   |
+| **Verifikasjon** | Teamet må gå inn på [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/) og verifisere at minst én personlig endring er logget. Vi anbefaler å kjøre [verify-audit](https://doc.nais.io/operate/cli/reference/postgres/index.html#verify-audit) for å bekrefte at konfigurasjonen er riktig.                                                                 |
+| **Om oppsettet** | Loggene blir automatisk sendt til nais-teamets Cloud Logging bøtte i nais audit project, hvor de blir lagret i 2 år. Månedlig blir teamets logger lagret som en .zip-fil og sendt til en 11 års arkivbøtte. Kontaktkanal er [#nais-database-auditlogging på Slack](https://nav-it.slack.com/archives/C0A29KP884T). Loggene sendes også automatisk til team ISOC for sikkerhetsovervåkning. |
+| **Vær oppmerksom på** | Husk også å kjøre [siste steget i oppsettet med nais cli](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#use-the-nais-cli-to-configure-database-internals). Kjøringen med cli installerer pgaudit extension i basen, og skrur av auditlogging for appbrukeren.                                                                                                           |
 
+</details>
 
 ---
 
@@ -67,12 +70,12 @@ Når denne er klar vil det komme informasjon om hvor man skal oppgi at auditlogg
 
 ### DB2
 
-| Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                     |
-|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Teamet må bestille logging til ArcSight og be DB2-DBA bekrefte at loggene lagres i DB2 i minst 10 år.  Logging i DB2 med Query Monitor er aktivert som standard i alle databaser.                                                                                                                                                               |
-| **Verifikasjon** | Teamene må selv verifisere logging til ArcSight ved å kontakte #auditlogging-arcsight på Slack.                                                                                                                                                                                                                                                 |
-| **Om oppsettet** | Det er opprettet egne tabeller i DB2 for auditlogging. Logging er aktivert for alle databaser. All SQL utført av personlige identer og DB2-systemidenter (SYSADM) logges.  Loggdata leses av ArcSight for de databasene der dette er bestilt.  Logging lagres også lokalt i DB2 fra 15.08.2025 inntil ny løsning for varig lagring er på plass. |
-| **Vær oppmerksom på** | For å gjennomgå loggene, be DB2-DBA om uttrekk eller om lesetilgang til SYSTOOLS.                                                                                                                                                                                                                                                               |
+| Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                 |
+|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Ansvarlig for oppsett** | Teamet må bestille logging til ArcSight og be DB2-DBA bekrefte at loggene lagres i DB2 i minst 10 år.  Logging i DB2 med Query Monitor er aktivert som standard i alle databaser.                                                                                                                                                           |
+| **Verifikasjon** | Teamene må selv verifisere logging til ArcSight ved å kontakte #auditlogging-arcsight på Slack.                                                                                                                                                                                                                                             |
+| **Om oppsettet** | Det er opprettet egne tabeller i DB2 for auditlogging. Logging er aktivert for alle databaser. All SQL utført av personlige identer og DB2-systemidenter (SYSADM) logges.  Loggdata leses av ArcSight for de databasene der dette er bestilt.  Logging lagres også lokalt i DB2 fra 15.08.2025 inntil transport til fellesløsningen er på plass. |
+| **Vær oppmerksom på** | For å gjennomgå loggene, be DB2-DBA om uttrekk eller om lesetilgang til SYSTOOLS.                                                                                                                                                                                                                                                           |
 
 ---
 
@@ -89,7 +92,7 @@ Når denne er klar vil det komme informasjon om hvor man skal oppgi at auditlogg
 
 Nais har utviklet en teknisk løsning for lagring og gjennomgang av auditlogger (GAAL). Digital Sikkerhet jobber med å få logger fra on-premises databaseteknologier inn i denne løsningen. Løsningen bruker Google Cloud Logging i 2 år hvor teamene har lesetilgang til egne logger, og sender loggene månedlig som .zip-fil til Google Cloud Storage for arkiv i 11 år.
 
-Frem til den nye løsningen er klar for on-prem teknologier, må logging utføres i henhold til eksisterende regime som er beskrevet ovenfor.
+Fram til den nye løsningen er klar for on-prem teknologier, må logging og gjennomgang av loggene utføres i henhold til eksisterende regime som er beskrevet ovenfor.
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
