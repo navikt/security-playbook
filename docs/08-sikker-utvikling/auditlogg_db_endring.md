@@ -31,9 +31,7 @@ Når denne er klar vil det komme informasjon om hvor man skal oppgi at auditlogg
 
 ---
 
-<details><summary>
 ### PostgreSQL – GCP
-</summary>
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,7 +40,6 @@ Når denne er klar vil det komme informasjon om hvor man skal oppgi at auditlogg
 | **Om oppsettet** | Loggene blir automatisk sendt til nais-teamets Cloud Logging bøtte i nais audit project, hvor de blir lagret i 2 år. Månedlig blir teamets logger lagret som en .zip-fil og sendt til en 11 års arkivbøtte. Loggene sendes også automatisk til team ISOC for sikkerhetsovervåkning.                                                                                                                                               |
 | **Vær oppmerksom på** | Husk også å kjøre [siste steget i oppsettet med nais cli](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#use-the-nais-cli-to-configure-database-internals). Kjøringen med cli installerer pgaudit extension i basen, og skrur av auditlogging for appbrukeren.                                                                                                                                                  |
 
-</details>
 
 ---
 
