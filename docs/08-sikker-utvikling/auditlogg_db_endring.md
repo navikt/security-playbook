@@ -6,8 +6,8 @@ description: Endringer er bra, så lenge vi vet hvem som har gjort hva 🔎.
 ## Hvorfor auditlogge databaseendringer ?
 
 Auditlogging av økonomisystemer er et krav i [statens økonomireglement](https://www.regjeringen.no/globalassets/upload/fin/vedlegg/okstyring/reglement_for_okonomistyring_i_staten.pdf) (§ 4.3.6). 
-Endringer i databaser som inngår i økonomisystem skal auditlogges med personlig identifikasjon, dato og klokkeslett for handlingen, som beskrevet i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/125/2). 
-Loggene skal kunne brukes til revisjon.
+Endringer i databaser som inngår i økonomisystem skal auditlogges med personlig identifikasjon, dato og klokkeslett for handlingen, som beskrevet i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/125/2) og [Etterlevelse av økonomireglementet på Navet](https://navno.sharepoint.com/sites/enhet-it-avdelingen/SitePages/Etterlevelse-av-%C3%B8konomireglementet-i-digital-utvikling.aspx). 
+Teamene må i tillegg utarbeide og følge egne rutiner for gjennomgang av auditloggene, som følger rammene og kravene beskrevet [Etterlevelse av økonomireglementet på Navet](https://navno.sharepoint.com/sites/enhet-it-avdelingen/SitePages/Etterlevelse-av-%C3%B8konomireglementet-i-digital-utvikling.aspx).
 
 ## Hvem skal auditlogge databaseendringer ?
 
@@ -31,9 +31,8 @@ Når denne er klar vil det komme informasjon om hvor man skal oppgi at auditlogg
 
 ---
 
-<details><summary>
+
 ### PostgreSQL – GCP
-</summary>
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                                                                |
 |-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,7 +41,6 @@ Når denne er klar vil det komme informasjon om hvor man skal oppgi at auditlogg
 | **Om oppsettet** | Loggene blir automatisk sendt til nais-teamets Cloud Logging bøtte i nais audit project, hvor de blir lagret i 2 år. Månedlig blir teamets logger lagret som en .zip-fil og sendt til en 11 års arkivbøtte. Kontaktkanal er [#nais-database-auditlogging på Slack](https://nav-it.slack.com/archives/C0A29KP884T). Loggene sendes også automatisk til team ISOC for sikkerhetsovervåkning. |
 | **Vær oppmerksom på** | Husk også å kjøre [siste steget i oppsettet med nais cli](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#use-the-nais-cli-to-configure-database-internals). Kjøringen med cli installerer pgaudit extension i basen, og skrur av auditlogging for appbrukeren.                                                                                                           |
 
-</details>
 
 ---
 
