@@ -249,5 +249,12 @@
     "label": "Null CTF",
     "href": "https://ctf.r0devnull.team/",
     "audience": "Åpent for alle, lav til høyt nivå"
+  },
+  {
+    "startDate": "2026-08-24",
+    "endDate": "2026-08-26",
+    "label": "Sikkerhetsfestivalen",
+    "href": "https://sikkerhetsfestivalen.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
