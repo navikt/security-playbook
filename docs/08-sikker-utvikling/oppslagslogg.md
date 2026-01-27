@@ -1,5 +1,5 @@
 ---
-title: Auditlogging av oppslag
+title: Auditlogging av oppslag (oppslagslogg)
 description: Innsyn uten synsing 👀.
 ---
 
@@ -7,7 +7,7 @@ description: Innsyn uten synsing 👀.
 
 Auditlogg av oppslag, oppslagslogg eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Auditloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
 
-NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-ansatte gjennom fagsystemene, og ikke auditlogging av endringer på lagrede data.
+NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-ansatte gjennom fagsystemene, og ikke f.eks. auditlogging av endringer på lagrede data.
 
 ## Hvilke krav stilles til auditlogging?
 
