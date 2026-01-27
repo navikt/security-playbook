@@ -13,7 +13,7 @@ For logger som skal vare private bruker vi nå [Nais team logs](https://doc.nais
 
 ## Oppslagslogger
 
-Oppslag på personopplysninger skal logges, les mer [her](https://sikkerhet.nav.no/docs/sikker-utvikling/auditlogging).
+Oppslag på personopplysninger skal logges, les mer [her](https://sikkerhet.nav.no/docs/sikker-utvikling/oppslagslogg).
 
 ## Logghygiene
 
