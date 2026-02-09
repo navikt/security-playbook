@@ -44,7 +44,7 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: nais/docker-build-push@v0
         id: docker-push
         with:
@@ -135,8 +135,10 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v5 # Immutable release
-      - uses: navikt/digestabot@v1.0 # Immutable release
+      - uses: actions/checkout@v6 # Immutable release
+        with:
+          persist-credentials: false
+      - uses: navikt/digestabot@v1 # Immutable release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           team: < myteam > # required
