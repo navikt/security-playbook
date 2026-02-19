@@ -19,7 +19,7 @@ Man kan ikke stole på at filnavn-extensions (doc, pdf osv.) forteller sannheten
 
 ## Kryptering
 
-Man bør også vurdere om de opplastede filene skal krypteres. Dette gjelder spesielt dersom man tilbyr mellomlagring av delvis utfylte søknader da denne informasjonen juridisk sett ikke er "innsendt" enda, og da har vi ikke hjemmel til å benytte den. Et eksempel på slik kryptering finner du [her](https://gist.github.com/joakibj/76bcfd21fa93746d661cbf0a6e59dbf6). Husk å beskytte nøkler og passphrases ved å lagre dem i [Google Secrets Manager](https://doc.nais.io/security/secrets/google-secrets-manager/) (eller [Vault](https://doc.nais.io/security/secrets/vault/) hvis man er on-prem).
+Man bør også vurdere om de opplastede filene skal krypteres. Dette gjelder spesielt dersom man tilbyr mellomlagring av delvis utfylte søknader da denne informasjonen juridisk sett ikke er "innsendt" enda, og da har vi ikke hjemmel til å benytte den. Et eksempel på slik kryptering finner du [her](https://gist.github.com/joakibj/76bcfd21fa93746d661cbf0a6e59dbf6). Husk å beskytte nøkler og passphrases ved å lagre dem i [Nais Secrets](https://doc.nais.io/services/secrets/).
 
 <br />
 
