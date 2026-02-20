@@ -39,6 +39,10 @@ module.exports = {
             from: "/docs/intro",
             to: "/docs/",
           },
+          {
+            from: "/docs/sikker-utvikling/frontend",
+            to: "/docs/sikker-utvikling/supply-chain",
+          },
         ],
       },
     ],

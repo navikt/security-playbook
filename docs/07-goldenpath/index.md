@@ -4,28 +4,91 @@ description: Beskrivelse av hva er navs golden path og hva er golden path.
 hide_table_of_contents: true
 ---
 
-Golden Path er en samling av oppgaver med nyttige tiltak et team kan implementere for å bedre sikkerheten sin.
-De er satt opp i prioritert rekkefølge sånn at man kan komme raskt i gang.
+Golden Path er en samling prioriterte tiltak et team kan implementere for å oppnå et trygt sikkerhetsgrunnlag.
 
-- Bruk [Nais doc](https://doc.nais.io/) og anbefalingene som gis. Appen skal være mest mulig lik standardinnstillingene i Nais. Autentisering og autorisering er særlig viktig.
-- Sett opp [overvåking og alarmer](https://doc.nais.io/observability/) for appene dine sånn at du oppdager oppførsel som avviker fra normalen.
-- Pass på at du har kontroll på [hemmelighetene](/docs/sikker-utvikling/hemmeligheter) som appene dine benytter. ALDRI kopier ut hemmeligheter fra produksjonsmiljøet til egen PC.
-- Sett opp scanningverktøy for å fange opp eksisterende og fremtidige lavthengende frukt
-  - [Dependabot](/docs/verktoy/dependabot) for avhengigheter, patche regelmessig.
-  - [Statisk analyse](/docs/sikker-utvikling/kodeanalyse) av koden din og fiks det den oppdager.
-  - [Docker image scan](/docs/verktoy/trivy). Det kan ha sneket seg med andre sårbarheter eller hemmeligheter du ikke er klar over.
-  - Det er lurt å legge til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) i dine workflows. Det er fordi det kan dukke opp nye sårbarheter selv når dere ikke gjør kodeendringer.
-- Bruk Docker baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google](https://github.com/GoogleContainerTools/distroless). Mer info og eksempler er det her: [Chainguard baseimages](/docs/verktoy/chainguard-dockerimages)
-- Bygg imagene dine vha. [docker-build-push](https://doc.nais.io/build/), og ikke skru av generering og opplasting av SBOM (parametrene `byosbom` og `salsa`).
-- [Valider all input](/docs/sikker-utvikling/inputvalidering). Ikke stol på data som kommer inn uavhengig av hvor det kommer fra.
-- Ha kontroll på [loggene](/docs/sikker-utvikling/logging). Pass på at dere ikke logger sensitiv informasjon (f.eks. FNR/Jwt tokens) til standardloggene.
-- Sikre maskin til maskin-kommunikasjonen din med [OAuth](/docs/sikker-utvikling/m2m), ikke bruk servicebrukere og "STS'en"
+<details>
+<summary>Følg Nais-dokumentasjonen og bruk standardinnstillingene</summary>
 
-```mdx-code-block
-import DocCardList from '@theme/DocCardList';
-import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+[Nais-plattformen](https://doc.nais.io/) gir deg sikkerhetsfunksjoner gratis når du følger anbefalingene.
+Autentisering og autorisering via plattformen er særlig viktig – ikke rull din egen løsning.
 
-<DocCardList items={useCurrentSidebarCategory().items}/>
-<SavnerDuNoe />
-```
+</details>
+
+<details>
+<summary>Bruk client credentials for maskin-til-maskin-kommunikasjon</summary>
+
+[Entra ID client credentials](/docs/sikker-utvikling/m2m) er godt støttet i NAIS og lar plattformen håndtere token-utstedelse for deg – ingen hemmeligheter å rotere manuelt.
+Unngå servicebrukere og den gamle STS-løsningen.
+
+</details>
+
+<details>
+<summary>Ha kontroll på hemmelighetene dine</summary>
+
+Bruk [NAIS sine Secret-ressurser eller Google Secret Manager](/docs/sikker-utvikling/hemmeligheter) – aldri kopier hemmeligheter fra produksjonsmiljøet til din lokale PC.
+Roter hemmeligheter regelmessig og gi tilgang kun til de appene som faktisk trenger dem.
+
+</details>
+
+<details>
+<summary>Bygg images med docker-build-push og behold SBOM-generering</summary>
+
+Bruk [docker-build-push](https://doc.nais.io/build/) for å bygge og publisere images.
+Ikke deaktiver parametrene `byosbom` og `salsa` – de gir deg automatisk software supply chain-sikkerhet uten ekstra innsats.
+
+</details>
+
+<details>
+<summary>Sikre GitHub-repoet og GitHub Actions-workflowene dine</summary>
+
+Et usikret repo kan gi angripere direkte tilgang til kodebasen eller CI/CD-pipelinen din.
+Les [GitHub best practices](/docs/sikker-utvikling/github) for en gjennomgang av de viktigste tiltakene – branch protection, token-håndtering og sikre workflows.
+
+Kjør [zizmor](/docs/verktoy/zizmor) for å automatisk avdekke sikkerhetsproblemer i GitHub Actions-workflowene dine.
+
+</details>
+
+<details>
+<summary>Sett opp automatisk scanning av avhengigheter, kode og images</summary>
+
+Lavthengende frukt fanges opp automatisk med disse verktøyene:
+
+- [Dependabot](/docs/verktoy/dependabot) – holder avhengighetene oppdatert og varsler om kjente sårbarheter.
+- [Statisk kodeanalyse](/docs/sikker-utvikling/kodeanalyse) – finner sikkerhetsfeil direkte i koden din.
+- [Docker image-scan](/docs/verktoy/trivy) – avdekker sårbarheter og hemmeligheter i containerimaget.
+
+Legg også til en [scheduled trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) i GitHub Actions-workflowene dine, slik at scanning kjøres selv når det ikke skjer kodeendringer.
+
+</details>
+
+<details>
+<summary>Bruk distroless baseimages (Chainguard eller Google Distroless)</summary>
+
+Uten et operativsystem i containeren finnes det ingen shell å utnytte – selv om en sårbarhet finnes, er den langt vanskeligere å utnytte.
+Bruk baseimages fra [Chainguard](https://github.com/chainguard-images) eller [Google Distroless](https://github.com/GoogleContainerTools/distroless), og se [Chainguard baseimages](/docs/verktoy/chainguard-dockerimages) for eksempler og komme-i-gang-guide.
+
+</details>
+
+<details>
+<summary>Valider all input</summary>
+
+Stol aldri på data som kommer inn i applikasjonen din, uansett kilde – API-kall, skjemaer, filer eller andre systemer.
+Se [inputvalidering](/docs/sikker-utvikling/inputvalidering) for konkrete råd og eksempler.
+
+</details>
+
+<details>
+<summary>Sett opp overvåking og alarmer</summary>
+
+Med [overvåking og alarmer](https://doc.nais.io/observability/) oppdager du avvikende adferd før det blir et alvorlig problem.
+Sett opp varsler på uvanlig trafikk, feilrater og responstider.
+
+</details>
+
+<details>
+<summary>Ikke logg sensitiv informasjon</summary>
+
+FNR, JWT-tokens og andre personopplysninger skal ikke forekomme i standardloggene.
+Se [logging-siden](/docs/sikker-utvikling/logging) for hva du bør passe på og hvordan du strukturerer loggene dine.
+
+</details>
