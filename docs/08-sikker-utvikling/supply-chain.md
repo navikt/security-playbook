@@ -67,6 +67,8 @@ yarn config set npmMinimalAgeGate 1440  # 1d i minutter
 bun add @types/bun --minimum-release-age 259200  # sekunder
 
 deno install --minimum-dependency-age=P7D
+
+npm install --min-release-age 20 # i dager - evt sette i .npmrc
 ```
 
 Dependabot har lignende funksjonalitet. [Les mer om sikker konfigurering av Dependabot her](/docs/verktoy/dependabot).
