@@ -1,56 +1,57 @@
 ---
-title: Auditlogging av oppslag (oppslagslogg)
+title: Oppslagslogg (auditlogging av oppslag)
 description: Innsyn uten synsing 👀.
 ---
 
-## Hva er auditlogg av oppslag på personopplysninger?
+## Hva er logg av oppslag på personopplysninger?
 
-Auditlogg av oppslag, oppslagslogg eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Auditloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
+Oppslagslogg, auditlogg av oppslag eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Oppslagsloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
 
-NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-ansatte gjennom fagsystemene, og ikke f.eks. auditlogging av endringer på lagrede data.
+NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-ansatte gjennom fagsystemene, og ikke f.eks. [auditlogging av endringer på lagrede data](https://sikkerhet.nav.no/docs/sikker-utvikling/auditlogg_db_endring) (økonomireglementet §4.3.6, arkivforskrifta §5).
 
-## Hvilke krav stilles til auditlogging?
+## Hvilke krav stilles til oppslagslogging?
 
-Følgende avsnitt er en kopi av kravene slik de ligger i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/253/1).
+Følgende avsnitt er en kopi av kravene i [Støtte til etterlevelse](https://etterlevelse.ansatt.nav.no/krav/253/1).
 
-### 1. Når en brukers personopplysninger vises i vårt fagsystem, blir dette auditlogget
+### 1. Når en brukers personopplysninger vises i vårt fagsystem, blir dette logget til oppslagsloggen
 
-Visning av brukernes opplysninger i fagsystemene skal auditlogges.
+Visning av brukernes opplysninger i fagsystemene skal skrives til oppslagsloggen.
 Det finnes noen unntak fra kravet, se suksesskriterium 3.
 
-### 2. Vi auditlogger kun når vi vet at personopplysninger er vist frem
+### 2. Vi logger kun når vi vet at personopplysninger er vist frem
 
-Auditloggene skal dokumentere hvilke Nav-ansatte som har hatt tilgang til brukerdata. Derfor skal loggene kun inneholde hendelser som dokumenterer visning av informasjon. Det skal for eksempel ikke logges ved henting av data for tilgangskontroll eller maskinell behandling, eller når en Nav-ansatt får tilgang avvist.
+Oppslagsloggene skal dokumentere hvilke Nav-ansatte som har hatt tilgang til brukerdata. Derfor skal loggene kun inneholde hendelser som dokumenterer visning av informasjon. Det skal for eksempel ikke logges ved henting av data for tilgangskontroll eller maskinell behandling, eller når en Nav-ansatt får tilgang avvist.
+
 Det kan oppstå tekniske feil som medfører at data i enkeltstående tilfeller ikke returneres fra backend til frontend. Det er ikke nødvendig å ta høyde for dette i loggingen.
 
-### 3. Vi auditlogger ikke når en bruker "dukker opp" i et liste eller i en annen brukers sak
+### 3. Vi logger ikke når en bruker "dukker opp" i et liste eller i en annen brukers sak
 
-Når mengden personopplysninger som vises om en bruker er begrenset, og ikke stammer fra et direkte oppslag på brukeren, skal det ikke auditlogges. Eksempler på slike situasjoner er:
+Når mengden personopplysninger som vises om en bruker er begrenset, og ikke stammer fra et direkte oppslag på brukeren, skal det ikke logges til Arcsight. Eksempler på slike situasjoner er:
 
 - Brukerens navn vises i en annen brukers sak, for eksempel som familiemedlem eller verge.
 - Brukerens vises i en liste over deltakere på arbeidsmarkedstiltak.
 - Brukerens fødselsnummer vises i en oppgave på oppgavebenken til den ansattes Nav-enhet.
 
-Dersom disse situasjonene skrives til auditloggen, blir de oppfattet som ordinære oppslag og blir inkludert i brukerens innsynsrapporter. Dette gir et misvisende bilde av hva den ansatte har sett og gjort, og det er urimelig å forvente at den ansatte kan forklare dette i ettertid. Fagsystemene skal derfor kun auditlogge når den ansatte utfører en handling som tilgjengeliggjør ytterligere personopplysninger om brukeren, for eksempel ved å åpne brukerens sak
+Dersom disse situasjonene skrives til oppslagsloggen, blir de oppfattet som ordinære oppslag og blir inkludert i brukerens innsynsrapporter. Dette gir et misvisende bilde av hva den ansatte har sett og gjort, og det er urimelig å forvente at den ansatte kan forklare dette i ettertid. Fagsystemene skal derfor kun logge når den ansatte utfører en handling som tilgjengeliggjør ytterligere personopplysninger om brukeren, for eksempel ved å åpne brukerens sak.
 
-### 4. Vi auditlogger ikke mer enn nødvendig
+### 4. Vi logger ikke mer enn nødvendig
 
-For å redusere loggvolumet og minimere "støy" i auditloggen, skal én handling i et fagsystem resultere i én linje i auditloggen. Eksempler på handlinger er at en Nav-ansatt gjør oppslag på bruker eller navigerer til en ny fane eller skjermbilde i fagsystemet. Kun handlinger som gir den ansatte tilgang til nye personopplysninger om brukeren skal auditlogges.
+For å redusere loggvolumet bør én handling i et fagsystem som hovedregel resultere i én logglinje. Eksempler på handlinger er at en Nav-ansatt gjør oppslag på bruker eller navigerer til en ny fane eller skjermbilde i fagsystemet. Det er kun behov for å logge handlinger som gir den ansatte tilgang til nye personopplysninger om brukeren.
 
-### 5. Vi har avklart med Team Auditlogging hvorvidt fagsystemet skal inkluderes i innsynsrapportene til borgere og ledere
+### 5. Vi har avklart med Team Auditlogging ArcSight hvorvidt fagsystemet skal inkluderes i innsynsrapportene til borgere og ledere
 
-De fleste fagsystemer skal inkluderes i innsynsrapportene til borgere og ledere. Det må avklares med Team Auditlogging hvilke rapporter systemet skal inkluderes i, og hvordan systemet skal navngis og beskrives i rapporten.
+De fleste fagsystemer skal inkluderes i innsynsrapportene til innbyggere og ledere. Det må avklares med Team Auditlogging Arcsight hvilke rapporter systemet skal inkluderes i, og hvordan systemet skal navngis og beskrives i rapporten.
 
-### 6. Team Auditlogging har bekreftet at loggene er mottatt på rett format i produksjon
+### 6. Team Auditlogging ArcSight har bekreftet at loggene er mottatt på rett format i produksjon
 
-Les om loggformat i neste avsnitt. Format kan verifiseres i samarbeid med Team Auditlogging på teamets slack-kanal.
+Les om loggformat i neste avsnitt. Format kan verifiseres med [Team Auditlogging ArcSight på Slack](https://nav-it.slack.com/archives/C014576K5TQ).
 
-## Teknisk implementasjon av auditlogging av oppslag
+## Teknisk implementasjon av oppslagslogg
 
-I Nav implementeres auditlogg i [ArcSight](#hva-er-arcsight-), og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
+I Nav implementeres oppslagslogg i [ArcSight](#hva-er-arcsight-), og transportmekanismen til ArcSight er Syslog med unntak for legacysystemer.
 Hvordan Syslog settes opp for NAIS applikasjoner er beskrevet [her](https://github.com/navikt/naudit). [Team Komet](https://teamkatalog.nav.no/team/5345bce7-e076-4b37-8bf4-49030901a4c3) har også utviklet en komponent for å hjelpe med oversendingen. Denne kan du finne på [github](https://github.com/navikt/common-java-modules/tree/main/audit-log)
 
-Eksempler på implementasjon av auditlogg ( App'ene er strippet annet enn logging for å demonstrere hvordan dette fungerer ) :
+Eksempler på implementasjon av oppslagslogg ( App'ene er strippet annet enn logging for å demonstrere hvordan dette fungerer ) :
 | Type App | Github adresse |
 |----------------------------------------|----------------------------------------|
 | NodeJS app | https://github.com/navikt/testnodeapp |
@@ -61,11 +62,11 @@ Det er [ArcSight Common Event Format (CEF)](https://www.microfocus.com/documenta
 
 Det mest vanlige i Nav er å benytte logback.xml gjennom logback rammeverket. Dette er gjerne i backend applikasjoner, og ofte java basert. Linken ovenfor er en måte å ordne dette på i Java. Dersom det logges i frontend, eksempelvis NodeJS relaterte applikasjoner kan f.eks Winston benyttes, eller [Winston-syslog](https://github.com/winstonjs/winston-syslog) da.
 
-**MERK!** Etter Device Vendor \ Device Product er satt kan disse ikke endres uten at det tas opp med Team Auditlogg. Endringer i hva dere sender i Extension attributtene er helt opp til teamene selv, men disse to kan ikke røres ettersom de brekker filtrene vi benytter og loggene kan derfor falle ut av rapporter etc. Det er derfor svært viktig at Team Auditlogg informeres om endringer i disse som følge av valg teamene mener bør gjøres slik at vi kan løse problemene når de oppstår og ikke ende opp i en situasjon hvor bruker får ufullstendige logger uten at vi kan forklare dette.
+**MERK!** Etter Device Vendor \ Device Product er satt kan disse ikke endres uten at det tas opp med Team Auditlogging ArcSight. Endringer i hva dere sender i Extension attributtene er helt opp til teamene selv, men disse to kan ikke røres ettersom de brekker filtrene vi benytter og loggene kan derfor falle ut av rapporter etc. Det er derfor svært viktig at Team Auditlogging ArcSight informeres om endringer i disse som følge av valg teamene mener bør gjøres slik at vi kan løse problemene når de oppstår og ikke ende opp i en situasjon hvor bruker får ufullstendige logger uten at vi kan forklare dette.
 
 ## Hva er Arcsight ?
 
-Arcsight er en SIEM pakke fra OpenText ( tidligere MicroFocus ). Dette er en løsning vi selv har installert og drifter på fysiske servere. Arcsight består av ulike komponenter som til slutt ( iallefall for vår del ) munner ut i innsynsrapporten og auditlogg arkiv for Nav. Tjenesten eies av Sikkerhetsavdelingen\Digital Sikkerhet og brukes av Team Auditlogg. Arcsight har vært i bruk i Nav siden rundt 2016. Ønsker du å vite mer ? Ta kontakt på Slack #auditlogging-arcsight
+Arcsight er en SIEM pakke fra OpenText ( tidligere MicroFocus ). Dette er en løsning vi selv har installert og drifter på fysiske servere. Arcsight består av ulike komponenter som til slutt ( iallefall for vår del ) munner ut i innsynsrapporten og arkiv for oppslagslogg i Nav. Tjenesten eies av Sikkerhetsseksjonen\Digital Sikkerhet og brukes av Team Auditlogging ArcSight. ArcSight har vært i bruk i Nav siden rundt 2016. Ønsker du å vite mer ? Ta kontakt på Slack #auditlogging-arcsight
 
 ## Riktig bruk av severity
 
@@ -197,7 +198,7 @@ CEF:0|my-nice-app|auditLog|1.0|audit:access|my-nice-app audit log|INFO|end=16183
 
 ## Overvåkning via Prometheus \ Grafana
 
-Fra etter påsken 2024 blir det dyttet ut daglige og timentlige status oppdateringer på mottatte events fra de ulike appene i Nav. Dette sendes til følgende metrics på fss datasource. Disse kan benyttes til å lage egne alarmer for å passe på at auditloggingen ikke stanser ved en oppdatering eller annet. Skulle det være ønske om andre metrikker kan dette meldes inn til slack kanalen vår. Applikasjonen tagges med "source" og er $NAIS_APP_NAME.
+Fra etter påsken 2024 blir det dyttet ut daglige og timentlige status oppdateringer på mottatte events fra de ulike appene i Nav. Dette sendes til følgende metrics på fss datasource. Disse kan benyttes til å lage egne alarmer for å passe på at oppslagsloggingen ikke stanser ved en oppdatering eller annet. Skulle det være ønske om andre metrikker kan dette meldes inn til #auditlogging-arcsight på Slack. Applikasjonen tagges med "source" og er $NAIS_APP_NAME.
 | Navn på Metric | Beskrivelse | Oppdaterings intervall |
 |---------------------------------|----------------------------------------------------------------------|------------------------|
 | arcsight_logging_events_pr_hour | Beskriver antall loggevents for alle applikasjoner foregående time. | 5 min over hver time |
