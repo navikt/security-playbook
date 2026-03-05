@@ -7,6 +7,8 @@ description: Innsyn uten synsing 👀.
 
 Oppslagslogg, auditlogg av oppslag eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Oppslagsloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
 
+Bruk gjerne også backend-tjenesten [Tilgangsmaskinen](https://github.com/navikt/populasjonstilgangskontroll) for tilgangskontroll, for å sjekke om en ansatt har riktige tilganger for å se informasjonen til en bruker.
+
 NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-ansatte gjennom fagsystemene, og ikke f.eks. [auditlogging av endringer på lagrede data](https://sikkerhet.nav.no/docs/sikker-utvikling/auditlogg_db_endring) (økonomireglementet §4.3.6, arkivforskrifta §5).
 
 ## Hvilke krav stilles til oppslagslogging?
@@ -71,7 +73,7 @@ Arcsight er en SIEM pakke fra OpenText ( tidligere MicroFocus ). Dette er en lø
 ## Riktig bruk av severity
 
 Som hovedregel benyttes INFO.
-Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på strengt fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige. Per i dag logges kun eventer av typen "permit" hvor Nav-ansatte faktisk har fått innsyn til personopplysninger, men i framtiden kan WARN vurderes for eventer av typen "deny". Det er ikke unormalt i seg selv at en ansatt ikke har tilgang til data.
+Dersom oppslagene er utenom det vanlige kan WARN benyttes. Dette kan f.eks. være oppslag på strengt fortrolig, fortrolig eller egne ansatte. Evnt andre hendelser som ansees som uvanlige eller mistenkelige. Per i dag logges kun eventer av typen "permit" hvor Nav-ansatte faktisk har fått innsyn til personopplysninger, men i framtiden kan WARN vurderes for eventer av typen "deny". Det er ikke unormalt i seg selv at en ansatt ikke har tilgang til data. 
 
 ## Beskrivelse av CEF
 
