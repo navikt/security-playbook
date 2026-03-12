@@ -161,6 +161,7 @@ Så åpner workflowen en ny pullrequest i ditt repo når det finnes en nyere ver
 
 ```Dockerfile
 FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21
+ENV TZ="Europe/Oslo" # Sikrer at tidssone er satt til norsk tid uansett hvor applikasjonen deployes
 COPY target/app.jar app.jar
 CMD ["-jar","app.jar"]
 ```
