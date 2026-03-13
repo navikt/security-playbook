@@ -13,7 +13,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "prepare": "husky install",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
+    "refresh": "rm -rf node_modules && rm pnpm-lock.yaml && pnpm install"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
