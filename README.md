@@ -34,18 +34,19 @@ Dersom du ønsker å gjøre større endringer, anbefales det å starte applikasj
 
 ### Lokal utvikling
 
-Krever `node` versjon `>= 22`.
+- Krever `node` versjon `>= 22`.
+- Anbefaler `pnpm` versjon `>= 10.11.0`
 
 #### Installer lokalt
 
 ```console
-$ npm install
+pnpm install --frozen-lockfile
 ```
 
 ##### Kjør playbooken lokalt i utviklingsmodus
 
 ```console
-$ npm start
+pnpm start
 ```
 
 **NB**: Ikke alle funksjoner fungerer i utviklingsmodus. Bl.a. søk krever at du i stedet bygger playbooken.
@@ -53,6 +54,6 @@ $ npm start
 #### Bygg og start en komplett versjon av playbooken
 
 ```console
-$ npm run build
-$ npm run serve
+pnpm run build
+pnpm run serve
 ```
