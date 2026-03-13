@@ -1,10 +1,11 @@
 FROM node:24-alpine AS build
 USER root
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+RUN npm install -g pnpm@10.11.0
+COPY .npmrc package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 COPY . .
-RUN npm run build
+RUN pnpm run build
 
 # Production stage
 FROM cgr.dev/chainguard/nginx AS production
