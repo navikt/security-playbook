@@ -39,14 +39,14 @@ jobs:
       ......
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
         with:
           image-ref: '${{ env.IMAGE }}'
           format: 'sarif'
           output: 'trivy.sarif'
 
       - name: Upload results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@ff0a06e83cb2de871e5a09832bc6a81e7276941f
         with:
           sarif_file: 'trivy.sarif'
 ```
@@ -69,7 +69,7 @@ jobs:
       <checkout, build etc>
       ......
 
-      - uses: nais/docker-build-push@v0
+      - uses: nais/docker-build-push@1fae4798c79f4af4c3cdbd3fe65e51f8f3ba2368
         id: docker-push
           team: my-team
           pull: true
@@ -84,20 +84,20 @@ jobs:
       id-token: write # for nais/login
       actions: read # for private repositories
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       - uses: nais/login@v0
         with:
           team: my-team
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
         with:
           image-ref: '${{ needs.build.outputs.image }}'
           format: 'sarif'
           output: 'trivy.sarif'
 
       - name: Upload results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@ff0a06e83cb2de871e5a09832bc6a81e7276941f
         with:
           sarif_file: 'trivy.sarif'
 ```
