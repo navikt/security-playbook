@@ -11,16 +11,30 @@ Du behøver ikke være utlært sikkerhetsekspert for å bli security champion. V
 
 1. Rediger teamet ditt og gi deg selv rollen «Security Champion» i [teamkatalogen](https://teamkatalog.nav.no/)
 
-… og det var det. Gratulerer! Du har nå blitt med i ett av Navs kuleste [nettverk](/docs/om-nettverket) og kan pryde deg selv med klistremerker, sokker, hettegenser, og annet swag! 🥳
+… og det var det. Gratulerer! Du har nå blitt med i ett av Navs kuleste [nettverk](/docs/om-nettverket).
+
+<!-- TODO: Flytt til side om sec champ levels.
+ og kan pryde deg selv med klistremerker, sokker, hettegenser, og annet swag! 🥳
+
 
 <img alt="Hettegenser for security champions" src="/img/security-champion-hoodie.png" style={{"height":"150px"}}/>
 <img alt="Klistremerker for security champions" src="/img/security-champion-stickers.png" style={{"height":"150px"}}/>
+-->
 
 [Slackboten](https://github.com/navikt/security-champion-slackbot) vår vil videre passe på at du meldes inn i Slack-gruppen [@security-champions](https://app.slack.com/client/T5LNAMWNA/browse-user-groups/user_groups/S01MX7W3LB0) og kanalen [#security-champion](https://nav-it.slack.com/archives/CN8N938K1) innen relativt kort tid (maks 24 timer), så du skal slippe å gjøre det selv. 🙂
 
+## Hva forventes av en Security Champion?
+
+Det forventes at du som Security Champion er en pådriver for sikkerhet, og at du bidrar til å øke sikkerhetskompetansen i teamet ditt. Det betyr at du:
+
+- Er med i og følger med på hva som skjer i slack-kanalen [#security-champion](https://nav-it.slack.com/archives/CN8N938K1) for å holde deg oppdatert på det som skjer i nettverket.
+- Deltar på så mange av nettverkets arrangementer som mulig, og oppfordrer gjerne andre i teamet ditt til å bli med også hvis det er relevant for dem.
+- Er gjerne den som varsler når det kommer nye relevante sikkerhetsrelaterte saker i teamet ditt, og er en pådriver for at teamet tar tak i det.
+- Finner ut hvordan teamet avviker fra beste praksis og jobber for å få det på plass.
+
 ## Spørsmål?
 
-Vi har forsøkt å svare på noen vanlige spørsmål her, men ta mer enn gjerne kontakt med [oss i redaksjonen](https://teamkatalog.nav.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7) hvis du lurer på noe rundt det å bli Security Champion!
+Vi har forsøkt å svare på noen vanlige spørsmål her, men ta mer enn gjerne kontakt med [oss i appsec](https://teamkatalogen.nav.no/team/02ed767d-ce01-49b5-9350-ee4c984fd78f) hvis du lurer på noe rundt det å bli Security Champion!
 
 ### Må jeg være sikkerhetsekspert for å bli security champion?
 
