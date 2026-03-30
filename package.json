@@ -13,7 +13,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "prepare": "husky install",
-    "refresh": "rm -rf node_modules && rm pnpm-lock.yaml && pnpm install"
+    "refresh": "rm -rf node_modules && pnpm install"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -47,5 +47,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,css,md,mdx,json}": "prettier --write"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
   }
 }
