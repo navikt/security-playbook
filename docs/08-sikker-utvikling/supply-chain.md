@@ -81,6 +81,49 @@ Dependabot har lignende funksjonalitet. [Les mer om sikker konfigurering av Depe
 
 **Hvorfor:** Begrenser skaden ved kompromitterte tokens og følger prinsippet om minimal tilgang. Generer tokens med kun de rettighetene som trengs (f.eks. read-only for CI) via [npmjs.com](https://www.npmjs.com/) under Account Settings → Access Tokens.
 
+## Sikre din lokale maskin
+
+Med noen enkle engangsoppsett i globale konfigurasjonsfiler kan du redusere risikoen for å installere ondsinnet kode – uavhengig av prosjektets konfigurasjon. npm, pnpm, bun og uv støtter alle minimum utgivelsesalder som global innstilling.
+
+**[`~/.npmrc`](https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age)** (alle plattformer)
+
+```ini
+min-release-age=7 # dager
+ignore-scripts=true
+```
+
+**[pnpm](https://pnpm.io/settings#minimumreleaseage)** – filplassering varierer per OS:
+
+| OS      | Sti                             |
+| ------- | ------------------------------- |
+| macOS   | `~/Library/Preferences/pnpm/rc` |
+| Linux   | `~/.config/pnpm/rc`             |
+| Windows | `%LOCALAPPDATA%\pnpm\config\rc` |
+
+```ini
+minimum-release-age=10080 # minutter
+```
+
+**[`~/.bunfig.toml`](https://bun.sh/docs/runtime/bunfig#install-minimumreleaseage)** (alle plattformer)
+
+```toml
+[install]
+minimumReleaseAge = 604800 # sekunder
+```
+
+**[uv](https://docs.astral.sh/uv/reference/settings/#exclude-newer)** – filplassering varierer per OS:
+
+| OS            | Sti                    |
+| ------------- | ---------------------- |
+| macOS / Linux | `~/.config/uv/uv.toml` |
+| Windows       | `%APPDATA%\uv\uv.toml` |
+
+```toml
+exclude-newer = "7 days"
+```
+
+> **Tips:** [`ignore-scripts=true`](https://docs.npmjs.com/cli/v11/using-npm/config#ignore-scripts) i `~/.npmrc` er alene tilstrekkelig til å forhindre de fleste angrep som utnytter lifecycle scripts. pnpm og bun har dette deaktivert som standard.
+
 ## Generelle råd på tvers av økosystemer
 
 - **Evaluer nye avhengigheter** før du legger dem til – sjekk aktivitet i GitHub-repoet, hvem som vedlikeholder det, og søk etter kjente sårbarheter. Se [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode) for en sjekkliste.
