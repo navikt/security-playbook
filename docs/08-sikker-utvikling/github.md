@@ -28,9 +28,8 @@ Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal
 5. Under "Advanced"
    1. Klikke på "Transfer ownership"
    2. Fyll i navnet på appen å skriv inn "navikt" som ny owner.
-6. Transfer this GitHub App.
-7. App managers
-   1. Scrolle lengst ned, finn ditt team å Grant access
+6. Transfer this GitHub App. (Be en github admin i #github-support godkjenne dette)
+   1. Be om tilgang for deres team under https://github.com/organizations/navikt/settings/permissions/integrations/<GITHUB APPEN>/managers
 8. Gå til Install App og installer appen til navikt-organisasjonen.
 9. Velg kun de repos appen skal ha tilgang til.
 
