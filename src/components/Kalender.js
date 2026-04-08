@@ -1,9 +1,7 @@
 import React from "react";
-import { useCurrentSidebarCategory } from "@docusaurus/theme-common";
+import { usePluginData } from "@docusaurus/useGlobalData";
 
-function getEvents() {
-  const { items } = useCurrentSidebarCategory();
-
+function getEvents(items) {
   return items.map(mapItem);
 }
 
@@ -113,19 +111,20 @@ function EventList({ events }) {
 }
 
 export default function KalenderPage({ extraEvents }) {
-  const events = [...getEvents(), ...extraEvents.map(mapExtraEvent)];
+  const { items } = usePluginData("events-plugin");
+  const events = [...getEvents(items), ...extraEvents.map(mapExtraEvent)];
   const currentDate = new Date()
     .toISOString()
     .substring(0, "yyyy-mm-dd".length);
 
   const upcomingEvents = events.filter((item) => item.endDate >= currentDate);
   upcomingEvents.sort((a, b) =>
-    a.endDate > b.endDate ? 1 : a.endDate === b.endDate ? 0 : -1
+    a.endDate > b.endDate ? 1 : a.endDate === b.endDate ? 0 : -1,
   );
 
   const pastEvents = events.filter((item) => item.endDate < currentDate);
   pastEvents.sort((a, b) =>
-    a.endDate > b.endDate ? -1 : a.endDate === b.endDate ? 0 : 1
+    a.endDate > b.endDate ? -1 : a.endDate === b.endDate ? 0 : 1,
   );
 
   return (

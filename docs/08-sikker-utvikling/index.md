@@ -12,8 +12,7 @@ Her er en oversikt over sikkerhetsrelaterte tema som er greit å kjenne til når
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-<DocCardList items={useCurrentSidebarCategory().items}/>
+<DocCardList />
 <SavnerDuNoe />
 ```

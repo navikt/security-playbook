@@ -10,8 +10,7 @@ Her er en oversikt over noen sikkerhetsrelaterte verktøy som brukes i Nav IT.
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-<DocCardList items={useCurrentSidebarCategory().items}/>
+<DocCardList />
 <SavnerDuNoe />
 ```
