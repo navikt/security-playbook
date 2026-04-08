@@ -85,14 +85,14 @@ Dependabot har lignende funksjonalitet. [Les mer om sikker konfigurering av Depe
 
 Med noen enkle engangsoppsett i globale konfigurasjonsfiler kan du redusere risikoen for å installere ondsinnet kode – uavhengig av prosjektets konfigurasjon. npm, pnpm, bun og uv støtter alle minimum utgivelsesalder som global innstilling.
 
-**[`~/.npmrc`](https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age)** (alle plattformer)
+### **[`~/.npmrc`](https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age)** (alle plattformer)
 
 ```ini
 min-release-age=7 # dager
 ignore-scripts=true
 ```
 
-**[pnpm](https://pnpm.io/settings#minimumreleaseage)** – filplassering varierer per OS:
+### **[pnpm](https://pnpm.io/settings#minimumreleaseage)** – fil plassering varierer per OS:
 
 | OS      | Sti                             |
 | ------- | ------------------------------- |
@@ -104,14 +104,14 @@ ignore-scripts=true
 minimum-release-age=10080 # minutter
 ```
 
-**[`~/.bunfig.toml`](https://bun.sh/docs/runtime/bunfig#install-minimumreleaseage)** (alle plattformer)
+### **[`~/.bunfig.toml`](https://bun.sh/docs/runtime/bunfig#install-minimumreleaseage)** (alle plattformer)
 
 ```toml
 [install]
 minimumReleaseAge = 604800 # sekunder
 ```
 
-**[uv](https://docs.astral.sh/uv/reference/settings/#exclude-newer)** – filplassering varierer per OS:
+### **[uv](https://docs.astral.sh/uv/reference/settings/#exclude-newer)** – filplassering varierer per OS:
 
 | OS            | Sti                    |
 | ------------- | ---------------------- |

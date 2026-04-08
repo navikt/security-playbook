@@ -1,0 +1,11 @@
+# Hoist packages that need to be resolvable at the root (Docusaurus internals + webpack/babel/postcss)
+publicHoistPattern:
+  - "*webpack*"
+  - "*babel*"
+  - "*postcss*"
+  - "*docusaurus*"
+  - lunr
+  - lunr-languages
+
+engineStrict: true
+preferFrozenLockfile: true
