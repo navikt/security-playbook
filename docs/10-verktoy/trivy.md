@@ -85,7 +85,7 @@ jobs:
       actions: read # for private repositories
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-      - uses: nais/login@v0
+      - uses: nais/login@c88ada9ce583928e1c84d2fd5c45cfacdd18d5de # v0
         with:
           team: my-team
 

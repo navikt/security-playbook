@@ -49,9 +49,9 @@ jobs:
     permissions: # The Dependency Submission API requires write permission
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Submit Dependency Snapshot
-        uses: advanced-security/maven-dependency-submission-action@v4
+        uses: advanced-security/maven-dependency-submission-action@fe8d4d650a4b66508612d0683ce4726d51dfe6ac # v4
 ```
 
 ### Oppsett Gradle (build.gradle.kts / build.gradle)
@@ -73,9 +73,9 @@ jobs:
     permissions: # The Dependency Submission API requires write permission
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Generate and submit dependency graph
-        uses: gradle/actions/dependency-submission@v4
+        uses: gradle/actions/dependency-submission@ed408507eac070d1f99cc633dbcf757c94c7933a # v4
 ```
 
 <br />
