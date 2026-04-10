@@ -31,10 +31,10 @@ Roter hemmeligheter regelmessig og gi tilgang kun til de appene som faktisk tren
 </details>
 
 <details>
-<summary>Bygg images med docker-build-push og behold SBOM-generering</summary>
+<summary>Bygg images med docker-build-push og deploy med nais/deploy</summary>
 
-Bruk [docker-build-push](https://doc.nais.io/build/) for å bygge og publisere images.
-Ikke deaktiver parametrene `byosbom` og `salsa` – de gir deg automatisk software supply chain-sikkerhet uten ekstra innsats.
+Bruk [docker-build-push](https://doc.nais.io/build/) for å bygge og publisere Docker-images til GAR, og deploy deretter med `nais/deploy`.
+Actionen bruker federert identitet, og standardinnstillingene oppretter, attesterer og signerer en SBOM.
 
 </details>
 
@@ -42,7 +42,7 @@ Ikke deaktiver parametrene `byosbom` og `salsa` – de gir deg automatisk softwa
 <summary>Sikre GitHub-repoet og GitHub Actions-workflowene dine</summary>
 
 Et usikret repo kan gi angripere direkte tilgang til kodebasen eller CI/CD-pipelinen din.
-Les [GitHub best practices](/docs/sikker-utvikling/github) for en gjennomgang av de viktigste tiltakene – branch protection, token-håndtering og sikre workflows.
+Les [GitHub best practices](/docs/sikker-utvikling/github) for en gjennomgang av de viktigste tiltakene: rulesets, trygge triggere, token-håndtering og sikre workflows.
 
 Kjør [zizmor](/docs/verktoy/zizmor) for å automatisk avdekke sikkerhetsproblemer i GitHub Actions-workflowene dine.
 

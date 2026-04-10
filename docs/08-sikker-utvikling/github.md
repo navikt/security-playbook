@@ -1,5 +1,5 @@
 ---
-title: Github best practices
+title: GitHub best practices
 description: Orden i repo gir ro i sjela ✨.
 ---
 
@@ -49,7 +49,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/create-github-app-token@v2
+      - uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
         id: app-token
         with:
           app-id: ${{ vars.APP_ID }}
@@ -63,7 +63,7 @@ jobs:
 ### Hente token for andre repos
 
 ```yaml
-- uses: actions/create-github-app-token@v2
+- uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
   id: app-token
   with:
     app-id: ${{ vars.APP_ID }}
@@ -77,7 +77,7 @@ jobs:
 ### Hente token for alle repos appen har tilgang til
 
 ```yaml
-- uses: actions/create-github-app-token@v2
+- uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
   id: app-token
   with:
     app-id: ${{ vars.APP_ID }}
@@ -89,33 +89,81 @@ jobs:
 
 ### Eierskap
 
-I Nav anbefaler vi att et nais-team står som admin for ett repository. Fordi når folk slutter eller bytter team blir det mye jobb å gå igjennom alle repositories.
+I Nav anbefaler vi at et NAIS-team står som admin for et repository. Det gjør eierskap og vedlikehold enklere når folk slutter eller bytter team.
+I dagens modell får teammedlemmer admin-tilgang via teamet. Derfor er det viktigste at repoet ligger under riktig team, og at beskyttelsen ligger i rulesets og workflows.
 
-### Branch protection
+### Rulesets
 
-Sett opp branch protection for default branch for å unngå att noen sletter kode.
+Bruk rulesets fremfor klassisk branch protection når det er mulig.
 
-- Settings > Rules > Rulesets > New Ruleset > New branch ruleset
-  - Add target -> Include default branch
-  - Bruke anbefalte defaults:
-    - Restrict deletion
-    - Block force push
+- Beskytt standardbranchen.
+- Blokker force push og sletting.
+- Krev pull requests og nødvendige status checks.
 
 ## Github Actions
 
-GitHub Actions er en kraftig CI/CD-plattform, som hjelper oss til å teste og bygge kode raskere og enklere. Dette betyr også at den er veldig viktig for oss, og at feil her kan få store konsekvenser. Under følger en liste over ting man bør huske på for å sikre sine pipelines. Vi også verktøyene [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse) og [zizmor](/docs/verktoy/zizmor) som kan hjelpe deg med å sørge for at workflowene dine er trygt konfigurert.
+GitHub Actions er en kraftig CI/CD-plattform som hjelper oss med å teste, bygge og deploye raskt. Samtidig kan feil konfigurasjon få store konsekvenser. Under følger en kort oppsummering av det viktigste du bør passe på. Verktøy som [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse) og [zizmor](/docs/verktoy/zizmor) kan hjelpe deg med å kontrollere at workflowene dine er trygt satt opp.
+
+### Velg trygge triggere
+
+Bruk `pull_request` for kode du ikke fullt ut stoler på.
+Unngå `pull_request_target` og `workflow_run` for bygg og test av PR-kode. De er lette å konfigurere feil og gir ofte mer privilegier enn nødvendig.
 
 ### Workflows
 
-- Bruk intermediate variables for alle variabler. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#use-an-intermediate-environment-variable)
-  - Sett dine variabler i `env:` å sikre at du har input validering. Bruker du f.eks. `${{ github.event.pull_request.title }}` direkte i en bash run kan du være sårbar for command injection.
-- Pin 3rd party actions to commit sha. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)
-  - Github tags er mutable, noe som betyr at hvis du bruker v1.0 av en action kan den endres uten at du merker noe. Vi anbefaler at man pinner actions á la `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`. [Ratchet](https://github.com/sethvargo/ratchet) er et verktøy som kan hjelpe med dette.
-  - Bruker du dependabot, kan du legge til en kommentar med versjonen som oppdateres av dependabot ved endringer: `action@hash # v1.2.3`. Ratchet har tilsvarende funksjonalitet.
-  - Githubs egne actions er nå immutable og kan bruke tags.
-- Use minimum permissions
-  - Ting skjer, plutselig lekker man en github token på internet og en ondsinnet aktør får tak i den. Men hvis det eneste du kan gjøre med tokenet er å hente kildekoden stopper du attacken der.
-  - Bruk minst mulig permissions i dine workflows, sett permissions for hvert eneste steg i workflowen. Skal du bygge og teste applikasjonen uten å pushe docker-image trenger du f.eks. ikke id-token.
+- Start med `permissions: {}` og gi kun nødvendige rettigheter per jobb.
+
+```yaml
+permissions: {}
+
+jobs:
+  test:
+    permissions:
+      contents: read
+```
+
+- Bruk mellomvariabler for data fra GitHub-konteksten. [GitHub docs ref](https://docs.github.com/en/actions/reference/security/secure-use#use-an-intermediate-environment-variable)
+  - Legg verdiene i `env:` og valider input. Bruker du for eksempel `${{ github.event.pull_request.title }}` direkte i en `run`-kommando, kan du bli sårbar for command injection.
+- Pin actions til full commit-SHA. [GitHub docs ref](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)
+  - GitHub-tags er mutable. Bruk derfor full SHA, for eksempel `nais/docker-build-push@45d352fb62fb52ccb5ff6cba22c047fa02b35321 # v0`.
+  - Bruker du Dependabot, kan du legge til versjonskommentar: `action@hash # v1.2.3`.
+- Gi workflowene minst mulig rettigheter.
+  - Hvis et token lekker, bør det kunne gjøre minst mulig skade.
+  - Skal du bare bygge og teste applikasjonen, trenger du for eksempel ikke `id-token`.
+- Sett `persist-credentials: false` på `actions/checkout` med mindre workflowen faktisk skal pushe tilbake til repoet.
+- Foretrekk federert identitet fremfor `secrets`. Hvis du må bruke `secrets`, legg dem på lavest mulig nivå.
+
+### Bygg, push og deploy på NAIS
+
+Vanlig flyt i Nav er å bygge et Docker-image fra Dockerfile, pushe imaget til GAR med `nais/docker-build-push`, og deploye med `nais/deploy`.
+
+- `nais/docker-build-push` bruker federert identitet mot GAR og NAIS.
+- Med standardinnstillingene oppretter, attesterer og signerer actionen en SBOM.
+- Hvis du trenger autentisering i egne steg, for eksempel for å teste eller scanne selv, bruk `nais/login`.
+
+```yaml
+permissions:
+  contents: read
+  id-token: write
+
+steps:
+  - uses: nais/docker-build-push@078e460885ed0424b60d45ce9220b4be1748be9d # v0
+    id: docker-push
+    with:
+      team: my-team
+      push_image: true
+
+  - uses: nais/deploy/actions/deploy@fa754451577294aae42872a69b888b3470478ec1 # v2
+    env:
+      CLUSTER: prod-gcp
+      RESOURCE: nais.yaml
+      IMAGE: ${{ steps.docker-push.outputs.image }}
+```
+
+### Når en GitHub App er et bedre valg enn en workflow
+
+Hvis automasjonen må kommentere på issues eller pull requests, oppdatere andre repoer eller bruke mer privilegerte tokens, er en GitHub App ofte et tryggere valg enn en vanlig workflow.
+Kjør aldri PR-kode du ikke stoler på i samme jobb som privilegerte tokens eller `secrets`.
 
 ## Secret scanning
 

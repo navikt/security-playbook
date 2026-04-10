@@ -54,11 +54,11 @@ jobs:
       security-events: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@5c8a8a642e79153f5d047b10ec1cba1d1cc65699 # v3
         with:
           languages: java-kotlin
           queries: security-and-quality
@@ -66,13 +66,13 @@ jobs:
       # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below)
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+        uses: github/codeql-action/autobuild@5c8a8a642e79153f5d047b10ec1cba1d1cc65699 # v3
 
       #- name: Gradle build
       #  run: ./gradlew build
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@5c8a8a642e79153f5d047b10ec1cba1d1cc65699 # v3
         with:
           category: "/language:java-kotlin"
 ```
@@ -94,7 +94,7 @@ Og legg til config-filen i workflowen:
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v3
+  uses: github/codeql-action/init@5c8a8a642e79153f5d047b10ec1cba1d1cc65699 # v3
   with:
     config-file: codeql-config.yml
 ```

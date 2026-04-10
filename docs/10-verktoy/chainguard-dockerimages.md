@@ -44,8 +44,8 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: nais/docker-build-push@v0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: nais/docker-build-push@45d352fb62fb52ccb5ff6cba22c047fa02b35321 # v0
         id: docker-push
         with:
           team: < myteam > # required
@@ -63,7 +63,7 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: nais/login@v0
+      - uses: nais/login@c88ada9ce583928e1c84d2fd5c45cfacdd18d5de # v0
         with:
           team: < myteam > # required
 ```
@@ -82,9 +82,10 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: google-github-actions/auth@v0
+      - uses: google-github-actions/auth@09cecabe1f169596b81c2ef22b40faff87acc460 # v0
         with:
-          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+          workload_identity_provider: ${{ vars.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: my-service-account@my-project.iam.gserviceaccount.com
 ```
 
 </details>
@@ -111,11 +112,10 @@ Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. S
 
 :::
 
-## Automagisk oppdatering av tags på Github
+## Automagisk oppdatering av tags på Github {#digestabot}
 
 Chainguard sine images oppdateres ofte med nye bygg, som betyr at det er lurt å hente og bygge siste versjoner raskere enn andre images. Men siden chainguard ikke bruker semver for sine images støtter ikke dependabot dette.
 
-<a name="digestabot"></a>
 I Nav har vi en versjon av digestabot som implementerer autentisering mot vårt private registry og åpner en pullrequest i ditt repo når det finnes en nyere versjon av samme tag.
 
 ```yaml
@@ -135,10 +135,10 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6 # Immutable release
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-      - uses: navikt/digestabot@v1 # Immutable release
+      - uses: navikt/digestabot@e4b413f1eed3c97f7fd4ffa1d05204de9944d0a9 # v1.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           team: < myteam > # required
@@ -290,10 +290,12 @@ Du finner [dokumentasjonen her](https://edu.chainguard.dev/).
 ## FAQ
 
 ### Kan jeg bruke Dependabot for å bumpe Chainguard images?
+
 Nei, Dependabot finner siste tag av et image. Det betyr at hvis du bruker openjdk-21 så kommer dependabot til å bumpe deg til siste versjon av openjdk.
-Bruk [digestabot](#digestabot). hvis du ønsker å pinne sha og få PR på nye versjoner av chainguard baseimaget.
+Bruk [Automagisk oppdatering av tags på Github](#digestabot) hvis du ønsker å pinne sha og få PR på nye versjoner av chainguard baseimaget.
 
 ### Burde jeg pinne SHA for våre Chainguard images?
+
 Hvis du vil ha reproduserbarhet gir det mening, men du kommer få nye PRs hele tiden som du ideelt sett automerger. Så anbefalingen er å ikke pinne sha. Sett heller opp workflow for å bygge applikasjonen på nytt og hente ny versjon av baseimaget.
 
 ```mdx-code-block
