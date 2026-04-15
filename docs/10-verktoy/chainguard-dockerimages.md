@@ -107,7 +107,7 @@ Du finner alle tags for et spesifikk image i [Chainguards image directory](https
 
 :::info
 
-Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. Så når f.eks. 21.0.8 blir releaset er alle versjoner før det EOL (for samme major). Derfor er det lurt å bruke en major, pinne den til SHA256 digest og bruke digestabot eller bygge appen på nytt jevnlig for å holde den oppdatert.
+Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. Så når f.eks. 21.0.8 blir releaset er alle versjoner før det EOL (for samme major). Derfor er det lurt å bruke en major og bygge appen på nytt jevnlig for å holde den oppdatert.
 
 :::
 
