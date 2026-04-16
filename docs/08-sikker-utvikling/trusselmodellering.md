@@ -223,9 +223,8 @@ Verktøy som kan være nyttige:
 - [Threagile](https://threagile.io/)
 
 :::tip AI-assistert trusselmodellering
-Med [GitHub Copilot sikkerhetsverktøy](/docs/verktoy/github-copilot) kan du bruke `@security-champion` til å kjøre STRIDE-A-trusselmodellering direkte i editoren. Agenten kjenner Nav-spesifikke tillitsgrenser (Internett → Ingress → App → Kafka → Database) og foreslår konkrete tiltak.
-
-Installer med `brew install navikt/tap/nav-pilot && nav-pilot install kotlin-backend`
+Med [GitHub Copilot sikkerhetsverktøy](/docs/verktoy/github-copilot) kan du bruke `@security-champion` til å kjøre en STRIDE-trusselmodellering. Dette
+kan brukes for å se om den finner noe dere ikke gjorde selv.
 :::
 
 <br />

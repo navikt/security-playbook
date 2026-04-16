@@ -92,11 +92,3 @@ FNR, JWT-tokens og andre personopplysninger skal ikke forekomme i standardloggen
 Se [logging-siden](/docs/sikker-utvikling/logging) for hva du bør passe på og hvordan du strukturerer loggene dine.
 
 </details>
-
-<details>
-<summary>Bruk AI-verktøy for sikkerhet (GitHub Copilot)</summary>
-
-[GitHub Copilot sikkerhetsverktøy](/docs/verktoy/github-copilot) gir deg agenter og instruksjoner for trusselmodellering, kodegjennomgang og autentisering — direkte i editoren.
-Installer med `nav-pilot install kotlin-backend` for å legge til sikkerhetsverktøyene i utviklingsoppsettet.
-
-</details>
