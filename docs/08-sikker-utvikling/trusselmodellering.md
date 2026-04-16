@@ -26,6 +26,18 @@ forstå følgende:
 brukes med fordel i alle tilfeller.</i></p>
 :::
 
+## Hvorfor trusselmodellering?
+
+Målene med trusselmodellering er:
+
+- Bli kjent med systemet
+- Finne og håndtere sårbarheter
+- Bygge og dele kunnskap og kultur
+
+:::tip Bruk av resultatene
+Listen over sårbarheter og tilltak er nyttige inn i ROS og andre risikovurderinger.
+:::
+
 ## Hvordan gjennomfører man en trusselmodellering?
 
 <p style={{fontSize:"x-small"}}><i>Det er mange teknikker og modeller for å gjennomføre trusselmodellering, det som 
