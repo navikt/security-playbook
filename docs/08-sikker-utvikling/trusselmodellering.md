@@ -222,6 +222,11 @@ Verktøy som kan være nyttige:
 
 - [Threagile](https://threagile.io/)
 
+:::tip AI-assistert trusselmodellering
+Med [GitHub Copilot sikkerhetsverktøy](/docs/verktoy/github-copilot) kan du bruke `@security-champion` til å kjøre en STRIDE-trusselmodellering. Dette
+kan brukes for å se om den finner noe dere ikke gjorde selv.
+:::
+
 <br />
 
 ```mdx-code-block

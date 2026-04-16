@@ -19,6 +19,10 @@ Ulempen med SAST-verktøy er at de kun kan identifisere et svært begrenset sett
 
 Det finnes flere mulige verktøy, men Nav tilbyr [GitHub Advanced Security](/docs/verktoy/github-advanced-security) som blant annet har [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse), og [zizmor (Github Actions scanner)](/docs/verktoy/zizmor). I GitHub kan man integrere en rekke andre SAST-verktøy. Hos [OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) finner man en liste med andre verktøy man kan teste.
 
+:::tip AI-assistert kodeanalyse
+[GitHub Copilot sikkerhetsverktøy](/docs/verktoy/github-copilot) gir deg `@security-champion`-agenten, som finner sikkerhetsproblemer mens du koder. OWASP Top 10-instruksjoner aktiveres automatisk for Kotlin- og Go-filer. Se [oppsett og bruk](/docs/verktoy/github-copilot#kom-i-gang).
+:::
+
 <br />
 
 ```mdx-code-block
