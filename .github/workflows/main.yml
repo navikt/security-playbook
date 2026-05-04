@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-      - uses: nais/docker-build-push@078e460885ed0424b60d45ce9220b4be1748be9d # v0
+      - uses: nais/docker-build-push@be85229e81c0293c265c646c084f05317fb6e0d2 # v0
         id: docker-push
         with:
           team: appsec
           push_image: true
           pull: true
-      - uses: nais/deploy/actions/deploy@fa754451577294aae42872a69b888b3470478ec1 # v2
+      - uses: nais/deploy/actions/deploy@2f28259ff29ea37915f5a0c9e2a8e3542c429df7 # v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais.yaml
