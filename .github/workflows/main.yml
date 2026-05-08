@@ -8,6 +8,10 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     environment: prod
+    concurrency:
+      group: deploy-prod
+      cancel-in-progress: false # Let in-flight deploys finish
+    timeout-minutes: 15
     permissions:
       contents: 'read'
       id-token: 'write'
