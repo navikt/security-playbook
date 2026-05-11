@@ -16,10 +16,10 @@
     "refresh": "rm -rf node_modules && pnpm install"
   },
   "dependencies": {
-    "@docusaurus/core": "3.10.0",
-    "@docusaurus/plugin-client-redirects": "3.10.0",
-    "@docusaurus/preset-classic": "3.10.0",
-    "@docusaurus/theme-mermaid": "3.10.0",
+    "@docusaurus/core": "3.10.1",
+    "@docusaurus/plugin-client-redirects": "3.10.1",
+    "@docusaurus/preset-classic": "3.10.1",
+    "@docusaurus/theme-mermaid": "3.10.1",
     "@mdx-js/react": "3.1.1",
     "@svgr/webpack": "8.1.0",
     "classnames": "2.5.1",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "husky": "9.1.7",
     "lint-staged": "16.4.0",
-    "prettier": "3.8.2"
+    "prettier": "3.8.3"
   },
   "lint-staged": {
     "*.{js,jsx,css,md,mdx,json}": "prettier --write"
