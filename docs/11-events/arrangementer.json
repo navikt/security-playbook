@@ -263,5 +263,12 @@
     "label": "Security Champions Norge Meetup 12",
     "href": "https://securitychampions.no/events/",
     "audience": "Åpent for alle"
+  },
+  {
+    "startDate": "2026-10-29",
+    "endDate": "2026-10-29",
+    "label": "BSides Oslo",
+    "href": "https://bsidesoslo.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8 (777kr for 2026)"
   }
 ]
