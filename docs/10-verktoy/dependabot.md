@@ -18,6 +18,27 @@ Versjonsoppdateringer anbefales på det sterkeste, ikke alle sårbarheter får e
 
 Avhengighetsscanning i seg selv skal være automatisk aktivert for alle nye repo på GitHub i `navikt`, men det kan hende den ikke klarer å få oversikt over avhengighetene ut av boksen.
 
+For at få versjonsoppdateringer trenger man en dependabot.yaml, for at unngå supply-chain angrep er det lurt å bruke cooldown. Dette fører til att dependabot venter konfigurert antall dager før den oppretter PR for en ny versjon. Dette påvirker IKKE sikkerhetsoppdateringer.
+
+*.github/dependabot.yaml*
+```yaml
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 3
+
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 3
+```
+
 ### Sjekk om Dependabot finner avhengigheter (og versjoner) automatisk
 
 Oversikten over hva Dependabot følger med på finner du under «Insights», og så «Dependency graph».
