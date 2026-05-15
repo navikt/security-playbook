@@ -50,7 +50,7 @@ For bredere råd om utviklermaskin og lokale arbeidsmønstre, se [Sikre utvikler
 Når hemmeligheter brukes i CI eller bygg, skal de holdes utenfor kildekoden og begrenses til det workflowen faktisk trenger.
 
 - Dersom du trenger hemmeligheter i GitHub Actions, bruk [GitHubs opplegg](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
-- Foretrekk kortlevde tokens og minst mulig tilgang fremfor langlivede tokens og brede PAT-er.
+- Foretrekk kortlevde tokens og minst mulig tilgang fremfor langlivede tokens og PAT-er med vide tilganger.
 - Vær eksplisitt når du kopierer filer inn i Docker-images. `COPY enkonkretfil /enkatalog/` gir deg kontroll.
 
 :::caution Kopier bare det du trenger

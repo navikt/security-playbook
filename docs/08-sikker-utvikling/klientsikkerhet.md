@@ -17,7 +17,7 @@ Denne siden handler om utviklerworkflow: lokale hemmeligheter, pakkebehandlere, 
 
 ## Lokale hemmeligheter
 
-Lokale hemmeligheter skal håndteres som en del av utviklerworkflowen, ikke lagres som tilfeldige filer på maskinen. Det viktigste er å unngå plaintext i repoer, dotfiles, IDE-konfigurasjon og shell-historikk.
+Lokale hemmeligheter skal ikke lagres ukryptert i filer på maskinen, men håndteres av egnede verktøy som feks. passordmanagere. Vanlige steder der hemmeligheter i klartekst kan forekomme er koderepoer, dotfiles, IDE-konfigurasjon og shell-historikk.
 
 - Ikke kopier hemmeligheter fra produksjonsmiljøet til din lokale maskin.
 - Bruk miljøvariabler eller verktøy som injiserer hemmeligheter ved oppstart, for eksempel fnox eller 1Password CLI.
@@ -74,7 +74,7 @@ En sikker utviklermaskin er ofte en litt kjedelig maskin:
 - Du bruker passordmanager og MFA eller passkeys på kontoene dine.
 - GitHub viser at commits du lager er signert.
 
-Hvis du er i tvil, spør. Det er mye billigere å avklare et sikkert arbeidsmønster enn å rydde opp etter en lekkasje.
+Hvis du er i tvil, spør. Det er mye billigere å etablere gode og sikre rutiner enn å rydde opp etter en lekkasje.
 
 <br />
 

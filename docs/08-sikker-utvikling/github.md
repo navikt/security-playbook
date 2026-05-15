@@ -14,7 +14,7 @@ GitHub har også skrevet en guide med best practices for GitHub Actions, du finn
 Hvis du bare skal gjøre noen få ting først, gjør disse:
 
 - Sett opp branch protection for default branch.
-- Bruk GitHubs innebygde token eller GitHub App-tokens, ikke brede PAT-er.
+- Bruk GitHubs innebygde token eller GitHub App-tokens, ikke PAT-er med vide tilganger.
 - Pin tredjeparts-actions til commit SHA.
 - Sett minimum permissions i workflowene dine.
 - Kjør [zizmor](/docs/verktoy/zizmor) mot `.github/workflows`.
@@ -47,6 +47,15 @@ Vi har også verktøyene [CodeQL](/docs/verktoy/github-advanced-security#codeql-
 ### Bruk intermediate variables
 
 Bruk intermediate variables for alle variabler som senere brukes i shell eller scripts. Sett variablene i `env:` og sørg for inputvalidering. Hvis du bruker for eksempel `${{ github.event.pull_request.title }}` direkte i en `run:`-kommando kan du bli sårbar for command injection.
+
+Eksempel:
+```yaml
+name: Check PR title
+  env:
+    TITLE: ${{ github.event.pull_request.title }}
+  run: |
+    echo "PR title is $TITLE"
+```
 
 Les mer i [GitHubs docs](https://docs.github.com/en/actions/reference/security/secure-use#use-an-intermediate-environment-variable).
 
