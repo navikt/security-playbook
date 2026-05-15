@@ -17,3 +17,4 @@ jobs:
         with:
           token: ${{ github.token }}
           minimum-age-of-pr: '3'
+          merge-method: 'squash'

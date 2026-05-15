@@ -1,35 +1,80 @@
 ---
-title: Klientsikkerhet
-description: Det er mye å passe på - også din egen maskin 🖥️
+title: Sikre utviklermaskinen
+description: Sikkerheten starter på maskinen du utvikler fra.
 ---
 
-## Kortreist sikkerhet
+Utviklermaskinen er en del av leveransekjeden. Hvis maskinen eller kontoene dine kompromitteres, hjelper det lite at resten av pipeline-en er godt sikret.
 
-I Nav IT, som i de aller fleste IT-organisasjoner, så finnes det en drøss av sikkerhetsmekanismer som er designet for å beskytte brukere fra seg selv. Sagt litt annerledes: Maskinene som benyttes til "kontorarbeid" eller utvikling av applikasjoner er oftere enn ikke underlagt kontroll og styring. Dette gir noen utfordringer.
+Denne siden handler om utviklerworkflow: lokale hemmeligheter, pakkebehandlere, kontoer og enkle maskinvaner som reduserer risiko uten å gjøre hverdagen unødvendig tung.
 
-- Policiene som settes er ofte ikke kommunisert noe sted.
-- Policiene er til plunder og heft for avanserte brukere.
-- Policiene tar ikke høyde for "the human element".
-- Policiene er satt med "bred pensel" av noen som ikke kjenner _din_ arbeidsflyt eller kompetansenivå.
-- Policiene fungerer som sovepute da du som bruker får et inntrykk av sikkerheten er ivaretatt for deg.
+## Start her
 
-Hensikten med overskriften er fortsatt kanskje ikke helt åpenbar?
-Store deler av denne playbooken handler om kodescanning og validering av koden som skal settes i produksjon. Alt dette er vel og bra, men dersom din maskin, altså du som aktør i [verdikjeden er kompromittert](https://sikkerhet.nav.no/docs/wordlist/#supply-chain-attack) så hjelper alle våre andre mekanismer svært lite.
+- Hold programvare og verktøy oppdatert, ikke bare operativsystem og nettleser.
+- Bruk en passordmanager og skru på MFA eller passkeys der du kan.
+- Ikke kjør med mer lokale rettigheter enn du trenger til vanlig.
+- Hold hemmeligheter ute av lokale filer og shell-historikk.
+- Herd pakkebehandlerne dine globalt, ikke bare per prosjekt.
 
-Så for å parafrasere et utrykk som er aktuelt i samtiden; Kortreist sikkerhet er den lavest hengende frukten hva gjelder bærekraftig utvikling i Nav.
+## Lokale hemmeligheter
 
-- Prøv å orientere deg i hva (og hvorfor noe) er gjort med maskinen din via policies så du kan gjøre opplyste avgjørelser om å gå rundt eller disable policies.
-- Sett deg inn i [Do's and Don´ts](https://naisdevice-approval.external.prod-gcp.nav.cloud.nais.io/) (Kun tilgjengelig i Naisdevice). De er der for å hjelpe deg gjøre riktige valg.
+Lokale hemmeligheter skal ikke lagres ukryptert i filer på maskinen, men håndteres av egnede verktøy som feks. passordmanagere. Vanlige steder der hemmeligheter i klartekst kan forekomme er koderepoer, dotfiles, IDE-konfigurasjon og shell-historikk.
 
-### Konkrete og effektive tiltak for sikring av egen maskin og egne brukerkontoer:
+- Ikke kopier hemmeligheter fra produksjonsmiljøet til din lokale maskin.
+- Bruk miljøvariabler eller verktøy som injiserer hemmeligheter ved oppstart, for eksempel fnox eller 1Password CLI.
+- Ignorer filer som `.env` i Git, Docker og npm der det er relevant.
+- Vær ekstra oppmerksom på filer som IntelliJ lagrer i `.idea/`.
 
-- Hold softwaren din oppdatert. Ikke bare operativsystemet og web-browseren, men også de andre verktøyene du bruker.
-- Ha sterke og unike passord på hver tjeneste du bruker. Den eneste måten å oppnå dette på i praksis er ved å bruke en passord-manager. Om du bruker [LastPass](https://www.lastpass.com/), [1Password](https://1password.com/), [Bitwarden](https://bitwarden.com/) eller en annen spiller ikke så stor rolle, men bruk en av dem.
-- Skru på 2-faktor autentisering (2FA, av og til omtalt som multifaktor-autentisering eller MFA) alle steder som støtter dette (og det er de fleste). [WebAuthn](https://webauthn.io/) med [Yubikeys](https://www.yubico.com/why-yubico/) eller tilsvarende er bedre enn engangspassord fra en "authenticator app", app er bedre enn SMS, men SMS er mye bedre enn ingenting.
-- Sett opp signering av commits til github. Alle utviklere bør bruke signerte commits på kode som commites til Nav sine repoer. Tilsvarende bør alle Navs repoer kreve signerte commits. Les mer om å sette opp [signering av commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
-- Ikke kjør med flere tillatelser enn du trenger til vanlig, det er ikke så ofte man faktisk trenger å være root. På en standard Nav-oppsatt Mac har du tilgang til et verktøy som heter [Privileges](https://github.com/SAP/macOS-enterprise-privileges) som kan benyttes til å gi seg selv ekstra tilgang ved behov.
+Eksempel med 1Password CLI:
 
-Og ikke minst; Vi har mange eksperter i Nav - og når det gjelder sikkerhet så anser vi alle spørsmål som smarte, så hvis du er i tvil; spør en venn.
+`op run --env-file="my.env" -- node myapp.js`
+
+Generell håndtering av hemmeligheter på tvers av lokal utvikling, GitHub og runtime er beskrevet på siden om [hemmeligheter](/docs/sikker-utvikling/hemmeligheter).
+
+## Herd pakkebehandlerne dine
+
+Pakkebehandlere er en vanlig inngang for supply chain-angrep. Derfor bør du legge inn sikre standardvalg i hjemmekatalogen din, slik at de gjelder uansett hvilket prosjekt du jobber i.
+
+Eksempel for npm i Nav-miljø:
+
+```ini
+@navikt:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+ignore-scripts=true
+min-release-age=3
+```
+
+Dette gir deg tre viktige ting:
+
+- Tokenet ligger i en miljøvariabel i stedet for i fila.
+- `ignore-scripts=true` stopper de fleste angrep som misbruker lifecycle scripts.
+- `min-release-age=3` gjør at helt ferske pakker må modnes litt før de kan installeres.
+
+Tilsvarende oppsett for pnpm, bun og uv finner du på [supply chain-sikkerhet](/docs/sikker-utvikling/supply-chain).
+
+## Kontoer og credentials
+
+- Ha sterke og unike passord på alle tjenester. I praksis betyr det å bruke en passordmanager som [1Password](https://1password.com/), [Bitwarden](https://bitwarden.com/) eller tilsvarende.
+- Skru på MFA eller passkeys alle steder som støtter det. WebAuthn og sikkerhetsnøkler er bedre enn engangskoder, men engangskoder er mye bedre enn ingenting.
+- Sett opp signering av commits til GitHub. Alle utviklere bør bruke signerte commits på kode som committes til Nav sine repoer. Les mer om [signering av commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification).
+- Bruk minst mulig rettigheter, både lokalt og i eksterne tjenester. En kompromittert konto med admin-rettigheter gjør mye mer skade enn en konto med begrenset tilgang.
+
+## Hold maskinen kjedelig
+
+En sikker utviklermaskin er ofte en litt kjedelig maskin:
+
+- Prøv å forstå hvilke policyer som gjelder for maskinen din før du skrur dem av eller går rundt dem.
+- Sett deg inn i [Do's and Don'ts](https://naisdevice-approval.external.prod-gcp.nav.cloud.nais.io/) i Naisdevice.
+- Ikke jobb til vanlig som root eller lokal admin. På Nav-oppsatte Mac-er kan [Privileges](https://github.com/SAP/macOS-enterprise-privileges) brukes ved behov.
+- Installer bare verktøy, plugins og utvidelser du faktisk trenger.
+
+## Verifiser
+
+- Du finner ingen plaintext secrets i dotfiles, `.env`, `.idea/` eller andre lokale konfigurasjonsfiler.
+- `~/.npmrc` bruker `${NPM_TOKEN}`, `ignore-scripts=true` og `min-release-age=3`.
+- Du bruker passordmanager og MFA eller passkeys på kontoene dine.
+- GitHub viser at commits du lager er signert.
+
+Hvis du er i tvil, spør. Det er mye billigere å etablere gode og sikre rutiner enn å rydde opp etter en lekkasje.
 
 <br />
 

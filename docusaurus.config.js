@@ -165,7 +165,10 @@ module.exports = {
           editUrl: "https://github.com/navikt/security-playbook/tree/main/",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [
+            require.resolve("./src/css/custom.css"),
+            require.resolve("./src/css/golden-path-tokens.css"),
+          ],
         },
       },
     ],

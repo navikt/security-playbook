@@ -1,0 +1,131 @@
+.card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.good {
+  border-color: var(--gp-good-border, #dce7eb);
+  background: var(--gp-good-bg, var(--ifm-background-surface-color));
+}
+
+.bad {
+  border-color: var(--gp-bad-border, #f3c5ce);
+  background: var(--gp-bad-bg, var(--ifm-background-surface-color));
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: color-mix(
+    in srgb,
+    var(--ifm-background-color) 88%,
+    var(--ifm-color-emphasis-200)
+  );
+}
+
+.toneIcon {
+  color: var(--ifm-color-emphasis-700);
+  flex: 0 0 auto;
+}
+
+.good .toneIcon,
+.good .toneLabel {
+  color: var(--gp-good-accent, var(--ifm-color-success-dark));
+}
+
+.bad .toneIcon,
+.bad .toneLabel {
+  color: var(--gp-bad-accent, var(--ifm-color-danger-dark));
+}
+
+.file {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toneLabel {
+  margin-left: auto;
+  color: var(--ifm-color-emphasis-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 11px;
+}
+
+.code :global(pre) {
+  margin: 0;
+  border-radius: 0;
+}
+
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checklist li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tick {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.good .tick {
+  color: var(--gp-good-accent, var(--ifm-color-success-dark));
+}
+
+.bad .tick {
+  color: var(--gp-bad-accent, var(--ifm-color-danger-dark));
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.tabActive {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-background);
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .toneLabel {
+    margin-left: 0;
+  }
+}

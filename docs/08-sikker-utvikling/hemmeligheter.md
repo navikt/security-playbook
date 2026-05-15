@@ -3,34 +3,22 @@ title: Hemmeligheter
 description: En lekket nøkkel er skjemmelig, så hold den hemmelig 🔒.
 ---
 
-Alle systemer har informasjon de trenger å holde hemmelig. Dette er ting som passord og nøkler, men kan også være andre typer informasjon. Hvordan kan vi sørge for at hemmelighetene forblir hemmelige, og hva gjør vi hvis de mot formodning skulle lekke?
+Alle systemer har informasjon de trenger å holde hemmelig. Dette er ting som passord og nøkler, men også tokens, konfigurasjon og andre verdier som ikke skal på avveie.
 
-## Hvordan håndtere hemmeligheter?
+Det viktigste er å håndtere hemmeligheter riktig i riktig kontekst. Rådene for lokal utvikling er ikke alltid de samme som for GitHub eller runtime i NAIS.
 
-Kode og hemmeligheter bør alltid holdes fra hverandre og håndteres separat. Hemmelighetene tilgjengeliggjøres for applikasjonene i kjøretidsmiljøet vha mekanismer som plattformen tilbyr. Applikasjoner som bruker Postgres får automatisk en [Cloud SQL Proxy](https://doc.nais.io/persistence/postgres/#cloud-sql-proxy) som sørger for at tilkobling skjer kryptert og med credentials som roteres automatisk. Hvis man skulle trenge å hente ut Postgres-credentials finnes det et [opplegg](https://doc.nais.io/persistence/postgres/#cloud-sql-credentials) for det også. For [OAuth](https://doc.nais.io/security/auth/) får man også automatisk provisjonert (og rotert) nødvendige hemmeligheter som tilgjengeliggjøres i podene som miljøvariabler, filer eller Kubernetes secrets. Deploy benytter kortlevde tokens fra GitHub.
+## Lokal utvikling
+
+På utviklermaskinen er målet å holde hemmeligheter ute av kildekode, lokale filer og shell-historikk.
 
 :::danger OBS!
-Hemmeligheter for prod-systemer skal ikke under noen omstendigheter hentes ut og lagres på utsiden!
+Hemmeligheter for prod-systemer skal ikke under noen omstendigheter hentes ut og lagres på utsiden.
 :::
 
-Andre hemmeligheter som appene dine måtte trenge administrerer du i [Console](https://doc.nais.io/how-to-guides/secrets/console/). Disse blir automatisk tilgjengelig som miljøvariabler i ditt team sitt namespace og/eller som filer i de aktuelle podene.
-
-Dersom man trenger å benytte hemmeligheter når man bygger på GitHub kan man bruke [GitHubs opplegg](https://docs.github.com/en/actions/security-guides/encrypted-secrets). Disse vil automatisk bli tilgjengelige i workflows.
-
-## Hemmeligheter i kildekode
-
-Et av de vanligste stedene å lekke hemmeligheter er i kildekode. Hvis man ikke er oppmerksom er det fort gjort å hardkode og committe hemmeligheter fordi "man bare kjapt skulle teste noe", eller at man legger de i env-filer eller IDE-konfigurasjon som den IntelliJ lagrer i klartekst i `.idea/`. For å oppdage dette så tidlig som mulig lønner det seg å bruke verktøy som [git-secrets](https://github.com/awslabs/git-secrets) og [GitHub Secret Scanning](/docs/verktoy/github-advanced-security) aktivt.
-
-Et billig og effektivt tiltak man kan gjøre er å alltid ignorere filer som typisk inneholder potensielt sensitiv konfigurasjon, feks `.env`. Git, Docker og npm har alle ignore-mekanismer (hhv `.gitignore`, `.dockerignore` og `.npmignore`) der slike filer kan utelukkes.
-
-Når man skal kopiere filer over til et Docker-image er det også lurt å være eksplisitt. `COPY enkonkretfil /enkatalog/` gir deg full kontroll.
-
-:::caution Kopier bare det du trenger
-`COPY . .` i en Dockerfile fører til at alt i denne katalogen kopieres over, også filer man kanskje ikke hadde tenkt skulle være med.
-:::
-
-:::tip Tips!
-For å holde hemmeligheter unna lokale filer samt Git og kommandohistorikk kan man bruke kommandolinjeverktøyene som tilbys av passordmanagere.
+- Ikke hardkod hemmeligheter i kode, testdata eller IDE-konfigurasjon.
+- Ikke lagre tokens eller passord i `.env`, `.idea/` eller andre filer som lett havner i Git eller blir liggende ukryptert.
+- Bruk miljøvariabler eller verktøy som injiserer hemmeligheter ved oppstart, for eksempel fnox eller 1Password CLI.
+- Ignorer filer som typisk inneholder sensitiv konfigurasjon, som `.env`, i `.gitignore`, `.dockerignore` og `.npmignore` der det er relevant.
 
 Eksempel med 1Password:
 
@@ -38,8 +26,7 @@ Eksempel med 1Password:
 
 `op run --env-file="my.env" -- node myapp.js`
 
-Se dokumentasjonen til [1Password](https://developer.1password.com/docs/cli/) for detaljer
-:::
+Se dokumentasjonen til [1Password](https://developer.1password.com/docs/cli/) for detaljer.
 
 :::tip Tips!
 Dersom man ikke har tilgang til en passordmanager kan man lage seg enkle shellscript som henter hemmeligheter fra egnede lagringssteder og tilgjengeliggjør dem som miljøvariabler som kun lever så lenge en prosess kjører.
@@ -56,23 +43,52 @@ npm run mytests
 
 :::
 
-## Hemmeligheter i Git
+For bredere råd om utviklermaskin og lokale arbeidsmønstre, se [Sikre utviklermaskinen](/docs/sikker-utvikling/klientsikkerhet).
+
+## GitHub og build
+
+Når hemmeligheter brukes i CI eller bygg, skal de holdes utenfor kildekoden og begrenses til det workflowen faktisk trenger.
+
+- Dersom du trenger hemmeligheter i GitHub Actions, bruk [GitHubs opplegg](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
+- Foretrekk kortlevde tokens og minst mulig tilgang fremfor langlivede tokens og PAT-er med vide tilganger.
+- Vær eksplisitt når du kopierer filer inn i Docker-images. `COPY enkonkretfil /enkatalog/` gir deg kontroll.
+
+:::caution Kopier bare det du trenger
+`COPY . .` i en Dockerfile fører til at alt i denne katalogen kopieres over, også filer man kanskje ikke hadde tenkt skulle være med.
+:::
+
+Detaljer om sikre GitHub-oppsett finner du på [Github best practices](/docs/sikker-utvikling/github).
+
+## Runtime i NAIS
+
+I runtime skal hemmeligheter leveres av plattformen, ikke av utvikleren manuelt.
+
+Kode og hemmeligheter bør alltid holdes fra hverandre og håndteres separat. Hemmelighetene tilgjengeliggjøres for applikasjonene i kjøretidsmiljøet via mekanismer som plattformen tilbyr.
+
+- Applikasjoner som bruker Postgres får automatisk en [Cloud SQL Proxy](https://doc.nais.io/persistence/postgres/#cloud-sql-proxy) som sørger for kryptert tilkobling og credentials som roteres automatisk.
+- For [OAuth](https://doc.nais.io/security/auth/) får man også automatisk provisjonert og rotert nødvendige hemmeligheter som miljøvariabler, filer eller Kubernetes secrets i podene.
+- Andre hemmeligheter som appene dine trenger administrerer du i [Console](https://doc.nais.io/how-to-guides/secrets/console/). Disse blir automatisk tilgjengelig som miljøvariabler i teamets namespace og eller som filer i podene.
+- Deploy benytter kortlevde tokens fra GitHub.
+
+## Når hemmeligheter havner i Git
+
+Et av de vanligste stedene å lekke hemmeligheter er i kildekode. Hvis man ikke er oppmerksom er det fort gjort å committe hemmeligheter fordi man "bare kjapt skulle teste noe". For å oppdage dette så tidlig som mulig lønner det seg å bruke verktøy som [GitHub Secret Scanning](/docs/verktoy/github-advanced-security) aktivt.
 
 Husk at Git aldri glemmer, og man har ikke kontroll på hvor mange som har sjekket ut eller forket et repository. Tjenester som [GH Archive](http://www.gharchive.org/) driver med mer eller mindre systematisk scraping av alle public repositories på GitHub.
 
-Selv om man feks sletter en branch vil commitene den bestod av fortsatt eksistere, og disse kan enkelt [gjenopprettes](https://rewind.com/blog/how-to-restore-deleted-branch-commit-git-reflog/). Det er også flere [gotchas](https://trufflesecurity.com/blog/anyone-can-access-deleted-and-private-repo-data-github) ifm forking av repositories på GitHub. Koblinger mellom forks og originalene representeres i tre-strukturer, og sletting av forks betyr bare at pekere til commit-noder skyfles rundt.
+Selv om man sletter en branch vil commitene den bestod av fortsatt eksistere, og disse kan enkelt [gjenopprettes](https://rewind.com/blog/how-to-restore-deleted-branch-commit-git-reflog/). Det er også flere [gotchas](https://trufflesecurity.com/blog/anyone-can-access-deleted-and-private-repo-data-github) knyttet til forking av repositories på GitHub.
 
 Moralen er derfor: alle hemmeligheter som har funnet veien inn i Git er å anse som kompromitterte, uansett hvor kort tid de har vært der.
 
-## Hvordan håndtere lekkede hemmeligheter
+## Ved lekkasje
 
-Uansett hvor mange forholdsregler man tar vil det fra tid til annen skje uhell som medfører at hemmeligheter lekker. I slike situasjoner er det viktig å være "på ballen" kjapt.
+Uansett hvor mange forholdsregler man tar vil det fra tid til annen skje uhell som medfører at hemmeligheter lekker. I slike situasjoner er det viktig å være på ballen raskt.
 
-- Roter de(n) aktuelle hemmeligheten(e) så raskt som mulig.
-- Sjekk logging og overvåking for spor etter evt. kompromittering.
-- Varsle aktuelle parter ihht [etatens beredskapsplaner](https://navno.sharepoint.com/sites/intranett-sikkerhet/SitePages/Beredskap-i-Nav.aspx) dersom man har konkrete mistanker om at systemer er kompromittert og/eller at informasjon er på avveie.
+- Roter de aktuelle hemmelighetene så raskt som mulig.
+- Sjekk logging og overvåking for spor etter eventuell kompromittering.
+- Ta kontakt med nærmeste leder eller ISOC på slack (#soc) for å få hjelp til å håndtere situasjonen.
 
-Det er _veldig_ lurt å øve på situasjoner som dette slik at man har rutiner og verktøy på plass den dagen det smeller.
+Det er veldig lurt å øve på situasjoner som dette slik at man har rutiner og verktøy på plass den dagen det smeller.
 
 <br />
 

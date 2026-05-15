@@ -1,0 +1,63 @@
+:root {
+  --gp-good-border: #2f8f5b;
+  --gp-good-bg: #e7f6ee;
+  --gp-good-accent: #1f6f45;
+  --gp-bad-border: #d84b6a;
+  --gp-bad-bg: #fdecef;
+  --gp-bad-accent: #a61e45;
+}
+
+[data-theme="dark"] {
+  --gp-good-border: #48b57a;
+  --gp-good-bg: #113624;
+  --gp-good-accent: #8be0ad;
+  --gp-bad-border: #f06b8a;
+  --gp-bad-bg: #3f1621;
+  --gp-bad-accent: #ff9bb3;
+}
+
+.gp-chip {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.gp-chip--plattform {
+  background: rgba(69, 140, 180, 0.12);
+  border-color: rgba(69, 140, 180, 0.35);
+}
+
+.gp-chip--identitet {
+  background: rgba(120, 87, 180, 0.12);
+  border-color: rgba(120, 87, 180, 0.35);
+}
+
+.gp-chip--hemmeligheter {
+  background: rgba(198, 91, 91, 0.12);
+  border-color: rgba(198, 91, 91, 0.35);
+}
+
+.gp-chip--bygg {
+  background: rgba(84, 134, 84, 0.12);
+  border-color: rgba(84, 134, 84, 0.35);
+}
+
+.gp-chip--kildekode {
+  background: rgba(207, 142, 61, 0.12);
+  border-color: rgba(207, 142, 61, 0.35);
+}
+
+.gp-chip--avhengigheter {
+  background: rgba(197, 112, 44, 0.12);
+  border-color: rgba(197, 112, 44, 0.35);
+}
+
+.gp-chip--kode {
+  background: rgba(77, 143, 140, 0.12);
+  border-color: rgba(77, 143, 140, 0.35);
+}
+
+.gp-chip--drift {
+  background: rgba(120, 120, 120, 0.12);
+  border-color: rgba(120, 120, 120, 0.35);
+}
