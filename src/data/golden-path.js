@@ -156,7 +156,6 @@ const PRACTICES = [
         "- uses: nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91",
         "  with:",
         "    team: my-team",
-        "    identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}",
       ].join("\n"),
     },
     antiPattern: {
