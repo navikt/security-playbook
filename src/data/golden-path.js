@@ -22,52 +22,6 @@ const PRACTICES = [
     },
   },
   {
-    id: "client-credentials",
-    short: "Bruk client credentials",
-    why: "Kortlevde tokens er tryggere enn servicebrukere og manuelt håndterte passord.",
-    cat: "Identitet",
-    href: "/docs/sikker-utvikling/m2m",
-    action: {
-      kind: "list",
-      items: [
-        "Bruk OAuth Client Credentials Flow for maskin-til-maskin-kall.",
-        "Hent hemmeligheter dynamisk fra miljøvariabler eller filer levert av runtime.",
-        "Bruk støtten som finnes i NAIS og Entra ID.",
-      ],
-    },
-    antiPattern: {
-      kind: "list",
-      items: [
-        "Ikke bruk servicebrukere med langlivede passord.",
-        "Ikke bruk den gamle STS-løsningen i nye oppsett.",
-      ],
-    },
-  },
-  {
-    id: "local-secrets",
-    short: "Hold hemmeligheter ute av lokale filer",
-    why: "En kompromittert utviklermaskin undergraver resten av verdikjeden.",
-    cat: "Hemmeligheter",
-    href: "/docs/sikker-utvikling/hemmeligheter",
-    action: {
-      kind: "code",
-      file: "lokal oppstart",
-      lang: "bash",
-      code: [
-        "MY_PW=$(op read op://vault/entry/field)",
-        'op run --env-file="my.env" -- node myapp.js',
-      ].join("\n"),
-    },
-    antiPattern: {
-      kind: "code",
-      file: ".env",
-      lang: "dotenv",
-      code: ["NPM_TOKEN=ghp_plaintext_token", "DB_PASSWORD=prod-passord"].join(
-        "\n",
-      ),
-    },
-  },
-  {
     id: "package-manager-hardening",
     short: "Herd pakkebehandleren",
     why: "Stopper vanlige supply chain-angrep før de når prosjektet ditt.",
@@ -123,7 +77,7 @@ const PRACTICES = [
   {
     id: "dependabot-cooldown",
     short: "Slå på Dependabot med cooldown",
-    why: "Gir jevne oppdateringer og bedre signal på faktiske problemer.",
+    why: "Gir jevne oppdateringer og mitigerer supply-chain angrep uten å stoppe sikkerhetsoppdateringer.",
     cat: "Avhengigheter",
     href: "/docs/verktoy/dependabot",
     action: {
@@ -140,6 +94,30 @@ const PRACTICES = [
         "    cooldown:",
         "      default-days: 3",
       ].join("\n"),
+    },
+  },
+  {
+    id: "local-secrets",
+    short: "Hold hemmeligheter ute av lokale filer",
+    why: "En kompromittert utviklermaskin undergraver resten av verdikjeden.",
+    cat: "Hemmeligheter",
+    href: "/docs/sikker-utvikling/hemmeligheter",
+    action: {
+      kind: "code",
+      file: "lokal oppstart",
+      lang: "bash",
+      code: [
+        "MY_PW=$(op read op://vault/entry/field)",
+        'op run --env-file="my.env" -- node myapp.js',
+      ].join("\n"),
+    },
+    antiPattern: {
+      kind: "code",
+      file: ".env",
+      lang: "dotenv",
+      code: ["NPM_TOKEN=ghp_plaintext_token", "DB_PASSWORD=prod-passord"].join(
+        "\n",
+      ),
     },
   },
   {
@@ -176,7 +154,7 @@ const PRACTICES = [
       file: "Dockerfile",
       lang: "docker",
       code: [
-        "FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21",
+        "FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-25",
         'ENV TZ="Europe/Oslo"',
         "COPY target/app.jar app.jar",
         'CMD ["-jar","app.jar"]',
@@ -202,6 +180,29 @@ const PRACTICES = [
       file: "React",
       lang: "jsx",
       code: "return <div dangerouslySetInnerHTML={{ __html: userInput }} />;",
+    },
+  },
+  {
+    id: "client-credentials",
+    short: "Bruk client credentials",
+    why: "Kortlevde tokens er tryggere enn servicebrukere og manuelt håndterte passord.",
+    cat: "Identitet",
+    href: "/docs/sikker-utvikling/m2m",
+    action: {
+      kind: "list",
+      items: [
+        "Bruk OAuth Client Credentials Flow for maskin-til-maskin-kall.",
+        "Bruk On-behalf-of Flow for å videreformidle brukeridentitet mest mulig.",
+        "Hent hemmeligheter dynamisk fra miljøvariabler eller filer levert av runtime.",
+        "Bruk støtten som finnes i NAIS og Entra ID.",
+      ],
+    },
+    antiPattern: {
+      kind: "list",
+      items: [
+        "Ikke bruk servicebrukere med langlivede passord.",
+        "Ikke bruk den gamle STS-løsningen i nye oppsett.",
+      ],
     },
   },
   {

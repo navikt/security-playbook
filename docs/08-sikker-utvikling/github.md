@@ -49,6 +49,7 @@ Vi har også verktøyene [CodeQL](/docs/verktoy/github-advanced-security#codeql-
 Bruk intermediate variables for alle variabler som senere brukes i shell eller scripts. Sett variablene i `env:` og sørg for inputvalidering. Hvis du bruker for eksempel `${{ github.event.pull_request.title }}` direkte i en `run:`-kommando kan du bli sårbar for command injection.
 
 Eksempel:
+
 ```yaml
 name: Check PR title
   env:
@@ -68,6 +69,16 @@ Pin tredjeparts-actions til commit SHA.
 - Hvis du bruker Dependabot kan du legge til en kommentar med versjonen som oppdateres, for eksempel `action@hash # v1.2.3`.
 - [Ratchet](https://github.com/sethvargo/ratchet) kan hjelpe med dette.
 - GitHubs egne actions er nå immutable og kan bruke tags.
+
+Det finnes også en GitHub CLI-utvidelse som kan pinne og oppdatere workflow-actions for deg. `navikt/gh-act` er en fork av `wayneashleyberry/gh-act`:
+
+```bash
+gh extension install navikt/gh-act
+gh act pin
+git add .
+git commit -m "pinned workflow actions to commit sha"
+git push
+```
 
 Les mer i [GitHubs docs](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions).
 
