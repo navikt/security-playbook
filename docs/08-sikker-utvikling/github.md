@@ -3,44 +3,126 @@ title: Github best practices
 description: Orden i repo gir ro i sjela ✨.
 ---
 
-I Nav har vi satt opp to repositories som skall gi ett hint om vad "best practice" er for att bruke Github.
-Her finner du eksempel på en applikasjon som bygges, scannes og deployes til Nais.
+I Nav har vi satt opp to repositories som viser en god standard for GitHub-oppsett. Her finner du eksempler på applikasjoner som bygges, scannes og deployes til NAIS.
 
 Du finner dem her: [Backend](https://github.com/navikt/backend-golden-path) og [Frontend](https://github.com/navikt/frontend-golden-path).
 
-Github har selv skrevet en guide med best practices for github actions, du finner [den her](https://docs.github.com/en/actions/reference/security/secure-use).
-Nedenfor finner du en kort oppsummering av de viktigste punktene.
+GitHub har også skrevet en guide med best practices for GitHub Actions, du finner [den her](https://docs.github.com/en/actions/reference/security/secure-use).
+
+## Start her
+
+Hvis du bare skal gjøre noen få ting først, gjør disse:
+
+- Sett opp branch protection for default branch.
+- Bruk GitHubs innebygde token eller GitHub App-tokens, ikke brede PAT-er.
+- Pin tredjeparts-actions til commit SHA.
+- Sett minimum permissions i workflowene dine.
+- Kjør [zizmor](/docs/verktoy/zizmor) mot `.github/workflows`.
+- Bruk [Dependabot](/docs/verktoy/dependabot) med cooldown og sørg for at dependency graph er korrekt.
+
+## Repository settings
+
+### Eierskap
+
+I Nav anbefaler vi at et nais-team står som admin for et repository. Når folk slutter eller bytter team blir det mye mindre manuelt arbeid hvis repoet eies av teamet, ikke enkeltpersoner.
+
+### Branch protection
+
+Sett opp branch protection for default branch for å unngå at noen sletter kode eller pusher forbi review og checks.
+
+- Settings > Rules > Rulesets > New Ruleset > New branch ruleset
+- Add target -> Include default branch
+- Bruk anbefalte defaults:
+  - Restrict deletion
+  - Block force push
+  - Require pull request before merging
+  - Require status checks to pass
+
+## Github Actions
+
+GitHub Actions er en kraftig CI/CD-plattform. Det betyr også at feil i workflowene dine kan gi store konsekvenser. Under følger de viktigste tiltakene for å sikre pipeline-en din.
+
+Vi har også verktøyene [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse) og [zizmor](/docs/verktoy/zizmor) som kan hjelpe deg med å sørge for at workflowene dine er trygt konfigurert.
+
+### Bruk intermediate variables
+
+Bruk intermediate variables for alle variabler som senere brukes i shell eller scripts. Sett variablene i `env:` og sørg for inputvalidering. Hvis du bruker for eksempel `${{ github.event.pull_request.title }}` direkte i en `run:`-kommando kan du bli sårbar for command injection.
+
+Les mer i [GitHubs docs](https://docs.github.com/en/actions/reference/security/secure-use#use-an-intermediate-environment-variable).
+
+### Pin tredjeparts-actions
+
+Pin tredjeparts-actions til commit SHA.
+
+- GitHub-tags er mutable. Hvis du bruker `v1` kan den peke til noe annet i morgen enn i dag.
+- Vi anbefaler at man pinner actions slik: `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`.
+- Hvis du bruker Dependabot kan du legge til en kommentar med versjonen som oppdateres, for eksempel `action@hash # v1.2.3`.
+- [Ratchet](https://github.com/sethvargo/ratchet) kan hjelpe med dette.
+- GitHubs egne actions er nå immutable og kan bruke tags.
+
+Les mer i [GitHubs docs](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions).
+
+### Use minimum permissions
+
+Bruk minst mulige permissions i workflowene dine. Lekker en GitHub-token, er skaden begrenset hvis tokenet bare kan lese kildekode.
+
+- Sett `permissions` eksplisitt i workflowene dine.
+- Gi bare rettighetene jobben faktisk trenger.
+- Trenger du bare å bygge og teste, trenger du for eksempel ikke `id-token`.
+
+### Kjør zizmor
+
+[zizmor](/docs/verktoy/zizmor) finner mange vanlige sikkerhetsproblemer i GitHub Actions-konfigurasjon. Det er et raskt og nyttig verifiseringssteg når du herder et repo.
+
+```bash
+zizmor .github/workflows
+```
+
+## Secret scanning og dependency graph
+
+### Secret scanning
+
+Secret scanning er skrudd på som standard og kan blokkere pushes hvis du prøver å sjekke inn hemmeligheter. Secret scanning scanner også repoet for å finne eksisterende hemmeligheter.
+
+Husk at dette kun scanner kildekoden i repoet ditt, ikke det du bygger inn i Docker-images.
+
+Les mer om hemmeligheter på siden [Hemmeligheter](/docs/sikker-utvikling/hemmeligheter).
+
+### Dependency graph
+
+Dependency graph er listen over avhengigheter som brukes i prosjektet. Den brukes av GitHub Security for å opprette varsler når de finner en sårbar avhengighet i repoet.
+
+Det er derfor viktig at dependency graph faktisk stemmer. Mer om dette finner du på [Dependabot-siden](../verktoy/dependabot).
 
 ## Tokens
 
-Best practice er å bruke Githubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å, for eksempel, hente andre interne repos kan du bruke ett installation token fra en Github App. Da kan du scopea tokenet til presis det du trenger med tilgang til kun ett fåtal repos.
+Best practice er å bruke GitHubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å hente andre interne repoer kan du bruke et installation token fra en GitHub App. Da kan du scope tokenet til presis det du trenger med tilgang til kun et fåtall repoer.
 
-1. Registrere en ny GitHub App under instillinger til din bruker. https://github.com/settings/apps/new
-   1. Gi appen et navn og en url (denne kan være et til repo/teamkatalogen etc).
-   2. Skru av "Webhook" om du ikke trenger det. Er du usikker, skru det av.
-   3. Under "Permissions & events", gi appen kun de rettighetene den trenger. Skal du hente pakker fra andre repos trenger du f.eks. kun "Contents: Read-only".
-   4. Under "Where can this GitHub App be installed?" velg "Only on this account".
-2. Klikke på "Create GitHub App".
-3. Kopier App ID, dette er ikke sensitive informasjon.
-4. Under "General", scrolle ned til Private keys og lag en ny nøkkel.
-   1. Åpne filen som blir nedlastet å kopier den nøkkelen til et sikkert sted. For eksempel i en hemmelighet i Nais Console. Alternativt bare slette den etter att den er lagt til i alle repos.
-   2. Slette nøkkelen fra din harddisk for å unngå att den blir lekket.
-5. Under "Advanced"
-   1. Klikke på "Transfer ownership"
-   2. Fyll i navnet på appen å skriv inn "navikt" som ny owner.
-6. Transfer this GitHub App. (Be en github admin i #github-support godkjenne dette)
-   1. Be om tilgang for deres team under `https://github.com/organizations/navikt/settings/permissions/integrations/<GITHUB APPEN>/managers`
-7. Gå til Install App og installer appen til navikt-organisasjonen.
-8. Velg kun de repos appen skal ha tilgang til.
+Bruk denne prioriteringen:
 
-Nå har du en applikasjon som kan lage kortlevde tokens med kun de rettighetene den trenger. App ID og den private nøkkelen du lagde tidligere trengs for å lage tokens. Disse må legges in i hvert repo som skal bruke appen.
+1. `GITHUB_TOKEN` for samme repository
+2. GitHub App installation token når du trenger tilgang på tvers av repoer
+3. PAT bare hvis du har en helt konkret grunn og ikke har bedre alternativer
+
+4. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new
+5. Gi appen et navn og en URL.
+6. Skru av `Webhook` hvis du ikke trenger det.
+7. Under `Permissions & events`, gi appen kun rettighetene den trenger.
+8. Under `Where can this GitHub App be installed?`, velg `Only on this account`.
+9. Klikk på `Create GitHub App`.
+10. Kopier App ID. Dette er ikke sensitiv informasjon.
+11. Under `General`, scroll ned til `Private keys` og lag en ny nøkkel.
+12. Lagre nøkkelen på et sikkert sted, og slett den fra harddisken når den er lagt inn der den skal brukes.
+13. Under `Advanced`, bruk `Transfer ownership` og overfør appen til `navikt`.
+14. Be en GitHub-admin i `#github-support` godkjenne overføringen.
+15. Installer appen i `navikt`-organisasjonen og velg kun repoene den skal ha tilgang til.
+
+Nå har du en app som kan lage kortlevde tokens med kun de rettighetene den trenger. App ID og den private nøkkelen må legges inn i hvert repo som skal bruke appen.
 
 1. Gå til repoet som skal bruke appen.
-2. Gå til Settings > Secrets and variables > Actions > Variables > New repository variable
-   1. Lag en variabel med navn APP_ID og lim inn App ID som verdi.
-3. Klikk på Secrets lengst opp > New repository secret
-   1. Lag en secret med navn PRIVATE_KEY og lim inn private keyen du lagret et sikkert sted som verdi.
-4. Nå kan du bruke appen i dine workflows for å lage tokens med kun de rettighetene du trenger.
+2. Gå til `Settings > Secrets and variables > Actions > Variables > New repository variable` og lag en variabel med navn `APP_ID`.
+3. Gå til `Secrets > New repository secret` og lag en secret med navn `PRIVATE_KEY`.
+4. Nå kan du bruke appen i workflowene dine for å lage tokens med kun de rettighetene du trenger.
 
 ### Hente token for samme repo
 
@@ -85,55 +167,12 @@ jobs:
     owner: ${{ github.repository_owner }}
 ```
 
-## Repository settings
-
-### Eierskap
-
-I Nav anbefaler vi att et nais-team står som admin for ett repository. Fordi når folk slutter eller bytter team blir det mye jobb å gå igjennom alle repositories.
-
-### Branch protection
-
-Sett opp branch protection for default branch for å unngå att noen sletter kode.
-
-- Settings > Rules > Rulesets > New Ruleset > New branch ruleset
-  - Add target -> Include default branch
-  - Bruke anbefalte defaults:
-    - Restrict deletion
-    - Block force push
-
-## Github Actions
-
-GitHub Actions er en kraftig CI/CD-plattform, som hjelper oss til å teste og bygge kode raskere og enklere. Dette betyr også at den er veldig viktig for oss, og at feil her kan få store konsekvenser. Under følger en liste over ting man bør huske på for å sikre sine pipelines. Vi også verktøyene [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse) og [zizmor](/docs/verktoy/zizmor) som kan hjelpe deg med å sørge for at workflowene dine er trygt konfigurert.
-
-### Workflows
-
-- Bruk intermediate variables for alle variabler. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#use-an-intermediate-environment-variable)
-  - Sett dine variabler i `env:` å sikre at du har input validering. Bruker du f.eks. `${{ github.event.pull_request.title }}` direkte i en bash run kan du være sårbar for command injection.
-- Pin 3rd party actions to commit sha. [Github docs ref](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)
-  - Github tags er mutable, noe som betyr at hvis du bruker v1.0 av en action kan den endres uten at du merker noe. Vi anbefaler at man pinner actions á la `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`. [Ratchet](https://github.com/sethvargo/ratchet) er et verktøy som kan hjelpe med dette.
-  - Bruker du dependabot, kan du legge til en kommentar med versjonen som oppdateres av dependabot ved endringer: `action@hash # v1.2.3`. Ratchet har tilsvarende funksjonalitet.
-  - Githubs egne actions er nå immutable og kan bruke tags.
-- Use minimum permissions
-  - Ting skjer, plutselig lekker man en github token på internet og en ondsinnet aktør får tak i den. Men hvis det eneste du kan gjøre med tokenet er å hente kildekoden stopper du attacken der.
-  - Bruk minst mulig permissions i dine workflows, sett permissions for hvert eneste steg i workflowen. Skal du bygge og teste applikasjonen uten å pushe docker-image trenger du f.eks. ikke id-token.
-
-## Secret scanning
-
-Skrudd på by default, og vil kunne fange opp hemmeligheter og blokkere deg fra å pushe koden din, hvis du har hemmeligheter i koden du forsøker å pushe.
-Secret scanning scanner også repoet for å finne eksisterende hemmeligheter.
-
-Husk at dette kun scanner kildekoden din! Ting som skjer i workflows, for eksempel når du bygger docker images scannes ikke av github.
-
 ## Andre verktøy
 
-- Dependency graph
-  - Dependency graph er en liste over avhengigheter som er brukt i prosjektet.
-  - Brukes av github security for å opprette security alerts når de finner en sårbar avhengighet i repoet.
-  - Derfor er det viktig at man sikrer at informasjonen her stemmer, mer info om dette på [dependabot-siden](../verktoy/dependabot).
 - [CodeQL](../verktoy/github-advanced-security#codeql-statisk-kodeanalyse)
-  - CodeQL har støtte for scanning av applikasjoner og github workflows.
+  - CodeQL har støtte for scanning av applikasjoner og GitHub workflows.
 - [Trivy](../verktoy/trivy)
-  - Trivy bruker vi for å sikre at vi ikke lekker hemmeligheter når vi bygger docker images.
+  - Trivy bruker vi for å sikre at vi ikke lekker hemmeligheter når vi bygger Docker-images.
 - [Dependabot](../verktoy/dependabot)
   - Versjonshåndtering av avhengigheter. Jevnlig patching gjør livet enklere og applikasjonene sikrere.
 

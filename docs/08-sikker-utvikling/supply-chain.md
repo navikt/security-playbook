@@ -3,10 +3,11 @@ title: Supply chain-sikkerhet
 description: Ikke la avhengighetene dine bli en bakdør inn i applikasjonen din.
 ---
 
-Et supply chain-angrep skjer når en angriper kompromitterer en avhengighet du allerede stoler på – enten ved å ta over et eksisterende pakkeprosjekt, publisere en ondsinnet pakke med et lignende navn, eller injisere kode i en legitim pakke.
+Et supply chain-angrep skjer når en angriper kompromitterer en avhengighet du allerede stoler på, enten ved å ta over et eksisterende pakkeprosjekt, publisere en ondsinnet pakke med et lignende navn, eller injisere kode i en legitim pakke.
 Tiltakene nedenfor reduserer risikoen betraktelig og er i stor grad engangsoppsett.
 
 Se også [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode) for generelle råd om due diligence og evaluering av nye avhengigheter.
+For bredere råd om utviklermaskin og lokale arbeidsmønstre, se [Sikre utviklermaskinen](/docs/sikker-utvikling/klientsikkerhet).
 
 ## npm / Node.js
 
@@ -58,17 +59,17 @@ yarn config set enableScripts false
 **Hvorfor:** Unngår nylig publiserte pakker som kan inneholde skadelig kode før sikkerhetsvurdering.
 
 ```bash
-pnpm config set minimumReleaseAge 1440  # minutter
+pnpm config set minimumReleaseAge 4320  # minutter (3 dager)
 
-npm install --before="$(date -v -1d)"
+npm install --before="$(date -v -3d)"
 
-yarn config set npmMinimalAgeGate 1440  # 1d i minutter
+yarn config set npmMinimalAgeGate 4320  # 3d i minutter
 
 bun add @types/bun --minimum-release-age 259200  # sekunder
 
-deno install --minimum-dependency-age=P7D
+deno install --minimum-dependency-age=P3D
 
-npm install --min-release-age 20 # i dager - evt sette i .npmrc
+npm install --min-release-age 3 # i dager - evt sette i .npmrc
 ```
 
 Dependabot har lignende funksjonalitet. [Les mer om sikker konfigurering av Dependabot her](/docs/verktoy/dependabot).
@@ -79,20 +80,22 @@ Dependabot har lignende funksjonalitet. [Les mer om sikker konfigurering av Depe
 
 ### Bruk begrensede npm-tokens
 
-**Hvorfor:** Begrenser skaden ved kompromitterte tokens og følger prinsippet om minimal tilgang. Generer tokens med kun de rettighetene som trengs (f.eks. read-only for CI) via [npmjs.com](https://www.npmjs.com/) under Account Settings → Access Tokens.
+**Hvorfor:** Begrenser skaden ved kompromitterte tokens og følger prinsippet om minimal tilgang. Generer tokens med kun de rettighetene som trengs, for eksempel read-only for CI, via [npmjs.com](https://www.npmjs.com/) under Account Settings -> Access Tokens.
 
-## Sikre din lokale maskin
+## Herd pakkebehandlere på utviklermaskinen
 
-Med noen enkle engangsoppsett i globale konfigurasjonsfiler kan du redusere risikoen for å installere ondsinnet kode – uavhengig av prosjektets konfigurasjon. npm, pnpm, bun og uv støtter alle minimum utgivelsesalder som global innstilling.
+Med noen enkle engangsoppsett i globale konfigurasjonsfiler kan du redusere risikoen for å installere ondsinnet kode, uavhengig av prosjektets konfigurasjon. npm, pnpm, bun og uv støtter alle minimum utgivelsesalder som global innstilling.
 
 ### **[`~/.npmrc`](https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age)** (alle plattformer)
 
 ```ini
-min-release-age=7 # dager
+@navikt:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+min-release-age=3 # dager
 ignore-scripts=true
 ```
 
-### **[pnpm](https://pnpm.io/settings#minimumreleaseage)** – fil plassering varierer per OS:
+### **[pnpm](https://pnpm.io/settings#minimumreleaseage)** - fil plassering varierer per OS:
 
 | OS      | Sti                             |
 | ------- | ------------------------------- |
@@ -101,17 +104,17 @@ ignore-scripts=true
 | Windows | `%LOCALAPPDATA%\pnpm\config\rc` |
 
 ```ini
-minimum-release-age=10080 # minutter
+minimum-release-age=4320 # minutter
 ```
 
 ### **[`~/.bunfig.toml`](https://bun.sh/docs/runtime/bunfig#install-minimumreleaseage)** (alle plattformer)
 
 ```toml
 [install]
-minimumReleaseAge = 604800 # sekunder
+minimumReleaseAge = 259200 # sekunder
 ```
 
-### **[uv](https://docs.astral.sh/uv/reference/settings/#exclude-newer)** – filplassering varierer per OS:
+### **[uv](https://docs.astral.sh/uv/reference/settings/#exclude-newer)** - filplassering varierer per OS:
 
 | OS            | Sti                    |
 | ------------- | ---------------------- |
@@ -119,15 +122,22 @@ minimumReleaseAge = 604800 # sekunder
 | Windows       | `%APPDATA%\uv\uv.toml` |
 
 ```toml
-exclude-newer = "7 days"
+exclude-newer = "3 days"
 ```
 
 > **Tips:** [`ignore-scripts=true`](https://docs.npmjs.com/cli/v11/using-npm/config#ignore-scripts) i `~/.npmrc` er alene tilstrekkelig til å forhindre de fleste angrep som utnytter lifecycle scripts. pnpm og bun har dette deaktivert som standard.
 
+Du kan verifisere npm-oppsettet ditt med:
+
+```bash
+npm config get ignore-scripts
+npm config get min-release-age
+```
+
 ## Generelle råd på tvers av økosystemer
 
-- **Evaluer nye avhengigheter** før du legger dem til – sjekk aktivitet i GitHub-repoet, hvem som vedlikeholder det, og søk etter kjente sårbarheter. Se [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode) for en sjekkliste.
-- **Bruk [Dependabot](/docs/verktoy/dependabot)** for automatiserte varsler om avhengigheter med kjente sårbarheter – det tar seg av den løpende overvåkingen. Bruk cooldowns for dependabot version updates.
+- **Evaluer nye avhengigheter** før du legger dem til. Sjekk aktivitet i GitHub-repoet, hvem som vedlikeholder det, og søk etter kjente sårbarheter. Se [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode) for en sjekkliste.
+- **Bruk [Dependabot](/docs/verktoy/dependabot)** for automatiserte varsler om avhengigheter med kjente sårbarheter. Bruk cooldowns for Dependabot version updates.
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';

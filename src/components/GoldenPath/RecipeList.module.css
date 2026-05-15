@@ -1,0 +1,6 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 2px solid var(--ifm-color-emphasis-900);
+}

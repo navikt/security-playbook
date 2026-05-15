@@ -115,7 +115,8 @@ Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. S
 
 Chainguard sine images oppdateres ofte med nye bygg, som betyr at det er lurt å hente og bygge siste versjoner raskere enn andre images. Men siden chainguard ikke bruker semver for sine images støtter ikke dependabot dette.
 
-<a name="digestabot"></a>
+### Digestabot
+
 I Nav har vi en versjon av digestabot som implementerer autentisering mot vårt private registry og åpner en pullrequest i ditt repo når det finnes en nyere versjon av samme tag.
 
 ```yaml
@@ -290,10 +291,12 @@ Du finner [dokumentasjonen her](https://edu.chainguard.dev/).
 ## FAQ
 
 ### Kan jeg bruke Dependabot for å bumpe Chainguard images?
+
 Nei, Dependabot finner siste tag av et image. Det betyr at hvis du bruker openjdk-21 så kommer dependabot til å bumpe deg til siste versjon av openjdk.
 Bruk [digestabot](#digestabot). hvis du ønsker å pinne sha og få PR på nye versjoner av chainguard baseimaget.
 
 ### Burde jeg pinne SHA for våre Chainguard images?
+
 Hvis du vil ha reproduserbarhet gir det mening, men du kommer få nye PRs hele tiden som du ideelt sett automerger. Så anbefalingen er å ikke pinne sha. Sett heller opp workflow for å bygge applikasjonen på nytt og hente ny versjon av baseimaget.
 
 ```mdx-code-block
