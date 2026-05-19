@@ -74,6 +74,17 @@ npm install --min-release-age 3 # i dager - evt sette i .npmrc
 
 Dependabot har lignende funksjonalitet. [Les mer om sikker konfigurering av Dependabot her](/docs/verktoy/dependabot).
 
+### Vurder å forby lasting av avhengigheter rett fra "remote sources" eller Git
+
+**Hvorfor:** Unngår pakker som ikke har blitt scannet for sikkerhetsproblemer på npmjs.com
+
+```bash
+npm config set allow-git "none"
+npm config set allow-remote "none"
+
+pnpm config set blockExoticSubdeps true
+```
+
 ### Reduser eksterne avhengigheter
 
 **Hvorfor:** Færre avhengigheter = mindre angrepsflate og redusert risiko for kompromitterte pakker. Vurder om du virkelig trenger et bibliotek, eller om funksjonaliteten enkelt kan implementeres selv.
