@@ -11,7 +11,7 @@ tags:
 
 - [Statisk analyse](/docs/sikker-utvikling/kodeanalyse)
 
-[zizmor](https://woodruffw.github.io/zizmor) er et statisk analyseverktøy for GitHub Actions workflow-filer.
+[zizmor](https://docs.zizmor.sh/) er et statisk analyseverktøy for GitHub Actions workflow-filer.
 Den kan finne mange vanlige sikkerhetsproblemer i GitHub Actions, som beskrevet i [Github best practices](/docs/sikker-utvikling/github#github-actions).
 
 En fordel med zizmor er at man enkelt kan bruke det lokalt, og få tilbakemeldinger raskere enn ved å bruke GitHub Actions.
