@@ -125,6 +125,15 @@ minimum-release-age=4320 # minutter
 minimumReleaseAge = 259200 # sekunder
 ```
 
+> **Tips:** [`ignore-scripts=true`](https://docs.npmjs.com/cli/v11/using-npm/config#ignore-scripts) i `~/.npmrc` er alene tilstrekkelig til å forhindre de fleste angrep som utnytter lifecycle scripts. pnpm og bun har dette deaktivert som standard.
+
+Du kan verifisere npm-oppsettet ditt med:
+
+```bash
+npm config get ignore-scripts
+npm config get min-release-age
+```
+
 ### **[uv](https://docs.astral.sh/uv/reference/settings/#exclude-newer)** - filplassering varierer per OS:
 
 | OS            | Sti                    |
@@ -134,15 +143,6 @@ minimumReleaseAge = 259200 # sekunder
 
 ```toml
 exclude-newer = "3 days"
-```
-
-> **Tips:** [`ignore-scripts=true`](https://docs.npmjs.com/cli/v11/using-npm/config#ignore-scripts) i `~/.npmrc` er alene tilstrekkelig til å forhindre de fleste angrep som utnytter lifecycle scripts. pnpm og bun har dette deaktivert som standard.
-
-Du kan verifisere npm-oppsettet ditt med:
-
-```bash
-npm config get ignore-scripts
-npm config get min-release-age
 ```
 
 ## Generelle råd på tvers av økosystemer
