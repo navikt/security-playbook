@@ -18,7 +18,7 @@ Versjonsoppdateringer anbefales på det sterkeste, ikke alle sårbarheter får e
 
 Avhengighetsscanning i seg selv skal være automatisk aktivert for alle nye repo på GitHub i `navikt`, men det kan hende den ikke klarer å få oversikt over avhengighetene ut av boksen.
 
-For at få versjonsoppdateringer trenger man en dependabot.yaml, for at unngå supply-chain angrep er det lurt å bruke cooldown. Dette fører til att dependabot venter konfigurert antall dager før den oppretter PR for en ny versjon. Dette påvirker IKKE sikkerhetsoppdateringer.
+For å få versjonsoppdateringer trenger man en `dependabot.yaml`. For å unngå supply chain-angrep er det lurt å bruke `cooldown`: Dependabot venter da konfigurert antall dager før den oppretter PR for en ny versjon, slik at en eventuell ondsinnet release rekker å bli oppdaget og trukket fra registry før vi installerer den. Dette påvirker **ikke** sikkerhetsoppdateringer — kjente sårbarheter får PR umiddelbart uavhengig av cooldown.
 
 *.github/dependabot.yaml*
 ```yaml
@@ -77,7 +77,7 @@ jobs:
 
 ### Oppsett Gradle (build.gradle.kts / build.gradle)
 
-Gradle-avhengigheter må eksplisitt legges inn gjennom GitHubs [Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api). Dette kan gjøres med en github-actionen [dependency-submission](https://github.com/marketplace/actions/build-with-gradle), slik:
+GitHub plukker ikke opp Gradle-avhengigheter automatisk. Uten et eget oppsett vil Dependency Graph være tom eller ufullstendig, og du går glipp av Dependabot-varsler. Bruk [`gradle/actions/dependency-submission`](https://github.com/gradle/actions/blob/main/docs/dependency-submission.md) til å sende inn avhengighetene via GitHubs [Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
 
 ```yaml
 name: Submit dependency graph
@@ -88,16 +88,25 @@ on:
     paths:
       - "**.gradle.kts"
       - "gradle.properties"
+
 jobs:
   dependencies:
     runs-on: ubuntu-latest
     permissions: # The Dependency Submission API requires write permission
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Generate and submit dependency graph
-        uses: gradle/actions/dependency-submission@v4
+        uses: gradle/actions/dependency-submission@v6
+        with:
+          dependency-graph-exclude-configurations: ".*[Tt]est(Compile|Runtime)Classpath"
 ```
+
+`dependency-graph-exclude-configurations: ".*[Tt]est(Compile|Runtime)Classpath"` filtrerer bort dependencies som kun brukes i test-classpath. Dette reduserer støy fra Dependabot-alerts om sårbarheter i testbiblioteker som aldri når produksjon.
+
+:::tip Feilsøking
+Får du Dependabot-alerts for avhengigheter du ikke kjenner igjen? Det er nesten alltid transitive avhengigheter eller plugin-avhengigheter som faktisk blir resolvet under bygget. Slå på debug-logging på workflow-kjøringen, eller publiser en gratis [Develocity Build Scan](https://scans.gradle.com/) for å se hvor de kommer fra. Se [Gradle sin FAQ for dependency-submission](https://github.com/gradle/actions/blob/main/docs/dependency-submission-faq.md) for detaljer.
+:::
 
 <br />
 
