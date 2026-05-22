@@ -98,11 +98,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Generate and submit dependency graph
         uses: gradle/actions/dependency-submission@v6
-        with:
-          dependency-graph-exclude-configurations: ".*[Tt]est(Compile|Runtime)Classpath"
 ```
-
-`dependency-graph-exclude-configurations: ".*[Tt]est(Compile|Runtime)Classpath"` filtrerer bort dependencies som kun brukes i test-classpath. Dette reduserer støy fra Dependabot-alerts om sårbarheter i testbiblioteker som aldri når produksjon.
 
 :::tip Feilsøking
 Får du Dependabot-alerts for avhengigheter du ikke kjenner igjen? Det er nesten alltid transitive avhengigheter eller plugin-avhengigheter som faktisk blir resolvet under bygget. Slå på debug-logging på workflow-kjøringen, eller publiser en gratis [Develocity Build Scan](https://scans.gradle.com/) for å se hvor de kommer fra. Se [Gradle sin FAQ for dependency-submission](https://github.com/gradle/actions/blob/main/docs/dependency-submission-faq.md) for detaljer.
