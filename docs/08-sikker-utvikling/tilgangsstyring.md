@@ -79,6 +79,13 @@ Det kan finnes unntak, i så fall ta kontakt via #tilgang-og-identitet på Slack
 
 Bestilling av styring av nye tilganger og endring av styring på eksisterende tilganger: [Overordnet bestillings- og endringsprosess for tilganger i Mine Tilganger](https://navno.sharepoint.com/sites/intranett-it/SitePages/Overordnet-bestillings--og-endringsprosess-for-tilganger.aspx)
 
+### "Just in time"-tilganger
+"Just in time"-tilganger er tilganger som gis for korte perioder. En "just in time"-tilgang i Mine tilganger vil si en tilgang som bestilles ved behov, og med en kort gyldighetsperiode. Når gyldighetsperioden er over, trekkes tilgangen automatisk tilabke. Hvis behovet for tilgangen oppstår igjen, må tilgangen dermed bestilles på nytt for en ny avgrenset periode.
+
+Teamene som eier slike tilganger kan bestemme hvem som kan bestille tilgangen og hvilke utvalgte personer som skal godkjenne bestillinger (man kan ikke godkjenne egne bestillinger).
+
+Hvis et team ønsker en "Just in time"-tilgang, presiseres dette i bestillingsprosessen.
+
 ## Gode ressurser
 
 - [NAIS - Authentication and Authorization](https://doc.nais.io/security/auth/)
