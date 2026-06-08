@@ -150,6 +150,12 @@ exclude-newer = "3 days"
 - **Evaluer nye avhengigheter** før du legger dem til. Sjekk aktivitet i GitHub-repoet, hvem som vedlikeholder det, og søk etter kjente sårbarheter. Se [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode) for en sjekkliste.
 - **Bruk [Dependabot](/docs/verktoy/dependabot)** for automatiserte varsler om avhengigheter med kjente sårbarheter. Bruk cooldowns for Dependabot version updates.
 
+## Publiserer du pakker?
+
+[npm](https://docs.npmjs.com/trusted-publishers#configuring-allowed-actions), [PyPI](https://docs.pypi.org/trusted-publishers/) og [Ruby](https://guides.rubygems.org/trusted-publishing/) støtter federering av identitet vha kortlevde OIDC tokens. De kaller dette "trusted publishing". Dette reduserer behovet for langtlevende hemmeligheter, og dermed tidsvinduet som lekkede hemmeligheter kan misbrukes i.
+
+npm har i tillegg støtte for [staged publishing](https://docs.npmjs.com/staged-publishing) f.o.m. versjon 11.15.0. Nye versjoner av pakker med staged publishing skrudd på vil da måtte godkjennes manuelt på websiden eller via cli-et og 2FA. Dette hindrer at kompromitterte CI/CD pipelines eller utviklermaskiner kan brukes til pushe nye versjoner automatisk.
+
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
 
