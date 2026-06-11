@@ -44,8 +44,8 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: nais/docker-build-push@v0
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: nais/docker-build-push@05dbb6091b30bd84279c6d64a45ef8782fd410a5 # v0
         id: docker-push
         with:
           team: < myteam > # required
@@ -63,7 +63,7 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: nais/login@v0
+      - uses: nais/login@d6ab5d83f735e9f155eb9d7d29cd20ae46820ea9 # v0
         with:
           team: < myteam > # required
 ```
@@ -82,7 +82,7 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: google-github-actions/auth@v0
+      - uses: google-github-actions/auth@09cecabe1f169596b81c2ef22b40faff87acc460 # v0.9.0
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 ```
@@ -136,10 +136,10 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6 # Immutable release
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
-      - uses: navikt/digestabot@v1 # Immutable release
+      - uses: navikt/digestabot@3302a753e533ceb9ec216de7f78345436cd636e3 # v1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           team: < myteam > # required
