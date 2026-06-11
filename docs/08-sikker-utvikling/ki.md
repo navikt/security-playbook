@@ -7,7 +7,8 @@ description: 🤔 Tenk selv, også når maskiner tenker for deg. 🤖
 Du er ansvarlig for det som gjøres, også når du bruker KI-verktøy.
 
 ## Isoler KI
-Kjør KI-verktøy i egne miljøer, for eksempel med `cplt`, slik at de ikke får unødvendig tilgang til resten av utviklingsmiljøet.
+Kjør KI-verktøy i egne miljøer, for eksempel med `cplt`, slik at de ikke får unødvendig tilgang til resten av 
+utviklingsmiljøet. Se [cplt dokumentasjon](https://min-copilot.intern.nav.no/cplt)
 
 ## Prompt injection
 Vær bevisst hvilke kilder KI-verktøy får tilgang til. Prompt injection er et angrep der en angriper manipulerer input for å få KI-en til å utføre uønskede handlinger eller lekke sensitiv informasjon.
