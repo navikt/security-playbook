@@ -21,7 +21,7 @@ Gi kun tilgang til det som er nødvendig for å løse oppgaven. Prinsippet om mi
 
 Unngå å gi KI-verktøy tilgang til sensitive data eller kritiske systemer. Feil bruk kan føre til datalekkasje eller skadelige handlinger.
 
-Se også [Klientsikkerhet](/docs/08-sikker-utvikling/klientsikkerhet).
+Se også [Klientsikkerhet](/docs/sikker-utvikling/klientsikkerhet).
 
 :::tip Tips!
 Hvis du er i tvil, spør. Det er mye billigere å etablere gode og sikre rutiner enn å rydde opp etter en lekkasje.
