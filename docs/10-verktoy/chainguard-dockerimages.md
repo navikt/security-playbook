@@ -18,16 +18,16 @@ En av flere grunner til at vi betaler for Chainguard er at vi skal få tilgang t
 
 ### Lokalt på din maskin
 
-For å bruke Chainguard sine container images lokalt, må du først autentisere mot våres container registry. Dette kan gjøres ved å kjøre:
+For å bruke Chainguard sine container images lokalt, må du først autentisere mot vårt container registry. Dette kan gjøres ved å kjøre:
 
-1. `gcloud auth configure-docker europe-north1-docker.pkg.dev` -- For å sette opp docker til å bruke gcloud som autentiseringsmetode
-2. `gcloud auth login` -- For å logge inn med din nav.no-mail
+1. `gcloud auth configure-docker europe-north1-docker.pkg.dev` # For å sette opp docker til å bruke gcloud som autentiseringsmetode
+2. `gcloud auth login` # For å logge inn med din nav.no-mail
 
 Etter dette skal du ha tilgang til å laste ned Chainguard sine images lokalt.
 
 ### Github actions
 
-For å laste ned og bruke Chainguard sine container images i Github workflows må du autentisere mot deres container registry. Dette kan gjøres på flere måter, det enkleste er å bruke nais/docker-build-push for å bygge. Da håndterer Nais autentiseringen for deg.
+For å laste ned og bruke Chainguard sine container images i Github workflows må du autentisere mot vårt container registry. Dette kan gjøres på flere måter, det enkleste er å bruke nais/docker-build-push for å bygge. Da håndterer Nais autentiseringen for deg.
 
 :::note
 Husk å legge til github repositoriet i Nais Console.
@@ -89,21 +89,21 @@ jobs:
 
 </details>
 
-## Tilgjenglige images
+## Tilgjengelige images
 
 Chainguard sine images er tilgjengelige i et privat container registry som alle utviklere i Nav har tilgang til. Alle image tags er tilgjengelige i [Google Artifact Registry](https://console.cloud.google.com/artifacts/docker/cgr-nav/europe-north1/pull-through).<br />
 Per nå er <b>følgende images tilgjengelige</b>: jdk, jre, node, python, airflow-core.<br />
 Eksempel: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21`
 
-<b>For images som ikke er tilgjenglig</b> kan man ofte finne tilsvarende gratis versjoner av et spesifikt image i [Chainguard sin egen registry](https://images.chainguard.dev/). For applikasjoner som er skrevet i Go eller kjører på nginx f.eks. finnes det gode gratis alternativer.
+<b>For images som ikke er tilgjengelige</b> kan man ofte finne tilsvarende gratis versjoner av et spesifikt image i [Chainguard sitt eget registry](https://images.chainguard.dev/). Det finnes f.eks. gode gratis-alternativer for applikasjoner som er skrevet i Go eller kjører på nginx.
 
 Eksempel: `cgr.dev/chainguard/go:latest`
 
 Hvis du finner et image du ønsker å bruke som ikke er tilgjengelig i vårt registry, kan du be om å få det lagt til ved å kontakte Team AppSec.
 
-## Tilgjenglige tags for de forskjellige alternativene
+## Tilgjengelige tags for de forskjellige alternativene
 
-Du finner alle tags for et spesifikk image i [Chainguards image directory](https://images.chainguard.dev/). Her kan du søke opp imaget du ønsker å bruke, f.eks. `jre` og se alle tilgjengelige tags. Disse taggene bruker du deretter med imaget i vårt private registry. `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/<image>:<tag>`
+Du finner alle tags for et spesifikt image i [Chainguards image directory](https://images.chainguard.dev/). Her kan du søke opp imaget du ønsker å bruke, f.eks. `jre`, og se alle tilgjengelige tags. En slik tag bruker du deretter med imaget fra vårt private registry: `europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/<image>:<tag>`
 
 :::info
 
@@ -113,9 +113,18 @@ Husk at Chainguard ikke backporter oppdateringer til patch og minor versjoner. S
 
 ## Automagisk oppdatering av tags på Github
 
-Chainguard sine images oppdateres ofte med nye bygg, som betyr at det er lurt å hente og bygge siste versjoner raskere enn andre images. Men siden chainguard ikke bruker semver for sine images støtter ikke dependabot dette.
+Chainguard publiserer ofte nye bygg av sine image-tags, så det er lurt om man oftere enn for andre images ser etter og evt. bygger applikasjoner basert på siste versjoner. Dette kan man gjøre på 2 måter:
+
+* Kun spesifisere image + tag, og gjøre bygg+deploy jevnlig/ved behov for å dra med seg endringer i nyeste Chainguard-bygg, eller
+* Spesifisere image + tag + digest, og bruke noe a la digestabot for å komme med forslag til digest-oppdateringer
+
+(Merk at dependabot ikke kan brukes til å holde digest oppdatert, både fordi Chainguard-images ikke bruker semver og fordi de regner digest-only endringsforslag som "noise" og dermed en [bug](https://github.com/dependabot/dependabot-core/issues/15081))
 
 ### Digestabot
+
+:::info
+Merk at bruk av digestabot primært er tenkt som en løsning dersom man er opptatt av reproduserbarhet i byggeprosessen. Hvis slik reproduserbarhet ikke er noe teamet ditt er så opptatt av, kan det å kun spesifisere image+tag (og sørge for jevnlige bygg+deploy) gi mindre PR-støy.
+:::
 
 I Nav har vi en versjon av digestabot som implementerer autentisering mot vårt private registry og åpner en pullrequest i ditt repo når det finnes en nyere versjon av samme tag.
 
@@ -145,7 +154,7 @@ jobs:
           team: < myteam > # required
 ```
 
-[Liste med tilgjenglige inputs til digestabot finnes her](https://github.com/navikt/digestabot?tab=readme-ov-file#inputs).
+[Liste med tilgjengelige inputs til digestabot finnes her](https://github.com/navikt/digestabot?tab=readme-ov-file#inputs).
 
 Har du da en dockerfile som ser slik ut:
 
