@@ -10,7 +10,7 @@ const FeatureList = [
       <>
         Security Playbook følger <i>«Golden Path»</i>-prinsippet. Å følge
         playbooken er ikke et krav, men den representerer hvordan{" "}
-        <b>Utvikling og Data</b> ønsker å bygge sikker software.
+        <b>Utvikling</b> ønsker å bygge sikker software.
       </>
     ),
   },
