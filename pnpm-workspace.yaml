@@ -1,6 +1,14 @@
 allowBuilds:
   core-js: false
 engineStrict: true
+minimumReleaseAgeExclude:
+  - webpack-dev-server@5.2.4
+  - ws@8.20.1
+  - uuid@11.1.1
+  - qs@6.15.2
+  - brace-expansion@5.0.6
+  - shell-quote@1.8.4
+  - joi@17.13.4
 overrides:
   brace-expansion@<1.1.13: ">=1.1.13"
   dompurify@<3.4.0: ">=3.4.0"
