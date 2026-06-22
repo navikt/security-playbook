@@ -5,6 +5,78 @@ description: 📦 Andres kode trenger ikke gi deg vondt i hodet.
 
 Vi drar stadig flere tredjepartsavhengigheter inn i koden vår. Disse avhengighetene har gjerne selv avhengigheter, som igjen har avhengigheter, og så videre. Noen estimater sier at så mye som 85% av koden i en typisk applikasjon (i den grad det finnes typiske applikasjoner) er skrevet av andre enn oss selv. Denne koden har (som all annen kode) feil og sårbarheter. Ulike <abbr title="Open-source software">OSS</abbr>-prosjekter har ulike strukturer og arbeidsformer. Noen av dem forlates, andre overtas av mennesker som ikke har like gode hensikter som de forrige.
 
+### Transitive avhengigheter
+
+Det fleste pakkehåndterere har en mekanisme for å oppdatere transitive/indirekte avhengigheter. 
+Dette kan være nødvendig for å få inn viktige sikkerhetsoppdateringer.
+Her er hvordan man gjør dette i noen av de mest populære pakkehåndtererne:
+
+<details>
+<summary>npm</summary>
+
+## npm update
+
+Kjør `npm update` for å oppdatere alle avhengigheter til de nyeste versjonene.
+For mere kontroll kan du spesifisere en pakke, for eksempel `npm update sårbart-bibliotek` for å tvinge oppdatering av denne.
+
+## Overrides
+
+Du kan tvinge en spesifikk versjon av en transitiv avhengighet ved å bruke `overrides`-feltet i `package.json`.
+Dette vil overskrive den versjonen som er spesifisert via den direkte avhengigheten. 
+
+```json
+{
+  "overrides": {
+    "sårbart-bibliotek": "1.2.3"
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Maven</summary>
+
+Du kan tvinge en spesifikk versjon av en transitiv avhengighet ved å bruke `dependencyManagement`-seksjonen i `pom.xml`.
+Dette vil overskrive den versjonen som er spesifisert via den direkte avhengigheten.
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>sårbart-bibliotek</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+<dependencies>
+    <dependency>
+        direkte dependencies her
+    </dependency>
+</dependencies>
+```
+
+</details>
+
+<details>
+<summary>Gradle</summary>
+
+Du kan tvinge en spesifikk versjon av en transitiv avhengighet ved å bruke `constraints` i `build-gradle`.
+Dette vil overskrive den versjonen som er spesifisert via den direkte avhengigheten.
+
+```json
+dependencies {
+    implementation("com.example.direkte-avhengighet:1.1.0")
+    constraints {
+        implementation("com.example:sårbart-bibliotek:1.2.3") {
+            because("en tekst som beskriver hvorfor denne må oppdateres")
+        }
+    }
+}
+```
+</details>
+
 ## Verktøy
 
 Det er en uoverkommelig oppgave å skulle holde oversikt over slike ting selv. Det har derfor dukket opp tjenester som kontinuerlig monitorerer og systematiserer info om kjente sårbarheter og hvilke produkter som er rammet av dem.
