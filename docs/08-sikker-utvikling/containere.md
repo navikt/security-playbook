@@ -1,6 +1,6 @@
 ---
 title: Sikkerhet i og rundt containere
-description: Husk lokk på boksen, så slipper du trøbbel i kroken📦
+description: Husk lokk på boksen som kjører koden, så angriperen ikke tar over noden 📦
 tags:
   - containere
 ---

@@ -1,6 +1,6 @@
 ---
 title: Sikre utviklermaskinen
-description: Sikkerheten starter på maskinen du utvikler fra.
+description: Sikre maskinen der koden blir til, så unngår du hackernes lumske spill
 ---
 
 Utviklermaskinen er en del av leveransekjeden. Hvis maskinen eller kontoene dine kompromitteres, hjelper det lite at resten av pipeline-en er godt sikret.
