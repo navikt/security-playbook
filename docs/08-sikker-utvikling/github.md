@@ -15,6 +15,8 @@ Hvis du bare skal gjøre noen få ting først, gjør disse:
 
 - Sett opp branch protection for default branch.
 - Bruk GitHubs innebygde token eller GitHub App-tokens, ikke PAT-er med vide tilganger.
+- Fjern privileged triggers
+- Bruk intermediate variables
 - Pin tredjeparts-actions til commit SHA.
 - Sett minimum permissions i workflowene dine.
 - Kjør [zizmor](/docs/verktoy/zizmor) mot `.github/workflows`.
@@ -43,6 +45,18 @@ Sett opp branch protection for default branch for å unngå at noen sletter kode
 GitHub Actions er en kraftig CI/CD-plattform. Det betyr også at feil i workflowene dine kan gi store konsekvenser. Under følger de viktigste tiltakene for å sikre pipeline-en din.
 
 Vi har også verktøyene [CodeQL](/docs/verktoy/github-advanced-security#codeql-statisk-kodeanalyse) og [zizmor](/docs/verktoy/zizmor) som kan hjelpe deg med å sørge for at workflowene dine er trygt konfigurert.
+
+### Workflow triggers
+
+**Unngå `pull_request_target` og `workflow_run`**
+
+Begge triggerne kjører med tilgang til secrets og utvidede rettigheter, men kan utløses av uautoriserte aktører, hvem som helst kan åpne en PR eller pushe til en fork. Hvis workflowen sjekker ut og kjører kode fra PR-en (tester, bygg, installasjon), kjører angriperens kode med reposets rettigheter, og eksponerer secrets og skrivetilgang.
+
+**Bruk i stedet:**
+- `pull_request` (ikke `_target`) for alt som kjører kode fra andre, den får ingen secrets og kun lesetilgang.
+- Hvis du trenger både kjøring av kode *og* privilegerte handlinger (f.eks. poste testresultater som kommentar på PR-en), del det opp: kjør tester under upriviligert `pull_request`, last opp resultater som artifact, og bruk deretter en separat `workflow_run`-jobb som kun leser artifact-dataen (aldri kjører den) for å utføre den privilegerte handlingen.
+- Sjekk aldri ut PR-ens head-kode under `pull_request_target`.
+
 
 ### Bruk intermediate variables
 
@@ -118,29 +132,30 @@ Det er derfor viktig at dependency graph faktisk stemmer. Mer om dette finner du
 
 Best practice er å bruke GitHubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å hente andre interne repoer kan du bruke et installation token fra en GitHub App. Da kan du scope tokenet til presis det du trenger med tilgang til kun et fåtall repoer.
 
+Bruk av token fra GitHub App har flere fordeler sammenlignet med PAT. Tokenet har kort levetid (1 time), du gir kun de tilgangene du trenger for jobben du skal gjøre, og hvis du slutter i Nav, bytter team, eller av en eller annen grunn får deaktivert kontoen din, slutter ikke alle workflows som bruker tokenet å virke.
+
 Bruk denne prioriteringen:
 
-1. `GITHUB_TOKEN` for samme repository
-2. GitHub App installation token når du trenger tilgang på tvers av repoer
-3. PAT bare hvis du har en helt konkret grunn og ikke har bedre alternativer
-
-4. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new
+1. `GITHUB_TOKEN` for samme repository.
+2. GitHub App installation token når du trenger tilgang på tvers av repoer.
+3. PAT (Personal Access Token) bare hvis du har en helt konkret grunn og ikke har bedre alternativer.
+4. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new.
 5. Gi appen et navn og en URL.
 6. Skru av `Webhook` hvis du ikke trenger det.
 7. Under `Permissions & events`, gi appen kun rettighetene den trenger.
 8. Under `Where can this GitHub App be installed?`, velg `Only on this account`.
 9. Klikk på `Create GitHub App`.
-10. Kopier App ID. Dette er ikke sensitiv informasjon.
+10. Kopier Client ID. Dette er ikke sensitiv informasjon.
 11. Under `General`, scroll ned til `Private keys` og lag en ny nøkkel.
 12. Lagre nøkkelen på et sikkert sted, og slett den fra harddisken når den er lagt inn der den skal brukes.
 13. Under `Advanced`, bruk `Transfer ownership` og overfør appen til `navikt`.
 14. Be en GitHub-admin i `#github-support` godkjenne overføringen.
 15. Installer appen i `navikt`-organisasjonen og velg kun repoene den skal ha tilgang til.
 
-Nå har du en app som kan lage kortlevde tokens med kun de rettighetene den trenger. App ID og den private nøkkelen må legges inn i hvert repo som skal bruke appen.
+Nå har du en app som kan lage kortlevde tokens med kun de rettighetene den trenger. Client ID og den private nøkkelen må legges inn i hvert repo som skal bruke appen.
 
 1. Gå til repoet som skal bruke appen.
-2. Gå til `Settings > Secrets and variables > Actions > Variables > New repository variable` og lag en variabel med navn `APP_ID`.
+2. Gå til `Settings > Secrets and variables > Actions > Variables > New repository variable` og lag en variabel med navn `CLIENT_ID`.
 3. Gå til `Secrets > New repository secret` og lag en secret med navn `PRIVATE_KEY`.
 4. Nå kan du bruke appen i workflowene dine for å lage tokens med kun de rettighetene du trenger.
 
@@ -151,10 +166,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/create-github-app-token@v2
+      - uses: actions/create-github-app-token@v3
         id: app-token
         with:
-          app-id: ${{ vars.APP_ID }}
+          client-id: ${{ vars.CLIENT_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
 
       - uses: ./actions/staging-tests
@@ -165,10 +180,10 @@ jobs:
 ### Hente token for andre repos
 
 ```yaml
-- uses: actions/create-github-app-token@v2
+- uses: actions/create-github-app-token@v3
   id: app-token
   with:
-    app-id: ${{ vars.APP_ID }}
+    client-id: ${{ vars.CLIENT_ID }}
     private-key: ${{ secrets.PRIVATE_KEY }}
     owner: ${{ github.repository_owner }}
     repositories: |
@@ -179,10 +194,10 @@ jobs:
 ### Hente token for alle repos appen har tilgang til
 
 ```yaml
-- uses: actions/create-github-app-token@v2
+- uses: actions/create-github-app-token@v3
   id: app-token
   with:
-    app-id: ${{ vars.APP_ID }}
+    client-id: ${{ vars.CLIENT_ID }}
     private-key: ${{ secrets.PRIVATE_KEY }}
     owner: ${{ github.repository_owner }}
 ```
