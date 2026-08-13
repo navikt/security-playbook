@@ -1,0 +1,65 @@
+.details {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  user-select: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::marker {
+  content: '';
+}
+
+.summary:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Heading element extracted from children and placed inside summary */
+.summary :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  display: inline !important;
+}
+
+/* Hide the anchor icon — not useful inside a <summary> */
+.summary .hash-link {
+  display: none;
+}
+
+.chevron {
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  font-size: 0.7em;
+}
+
+.details[open] .chevron {
+  transform: rotate(90deg);
+}
+
+.summaryText {
+  font-weight: 600;
+}
+
+.content {
+  padding: 0.25rem 1.25rem 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.content > :first-child {
+  margin-top: 0.75rem;
+}

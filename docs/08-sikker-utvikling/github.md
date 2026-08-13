@@ -2,6 +2,7 @@
 title: Github best practices
 description: Orden i repo gir ro i sjela ✨.
 ---
+import CollapsibleSection from '@site/src/components/CollapsibleSection';
 
 I Nav har vi satt opp to repositories som viser en god standard for GitHub-oppsett. Her finner du eksempler på applikasjoner som bygges, scannes og deployes til NAIS.
 
@@ -22,6 +23,8 @@ Hvis du bare skal gjøre noen få ting først, gjør disse:
 - Kjør [zizmor](/docs/verktoy/zizmor) mot `.github/workflows`.
 - Bruk [Dependabot](/docs/verktoy/dependabot) med cooldown og sørg for at dependency graph er korrekt.
 
+<CollapsibleSection>
+
 ## Repository settings
 
 ### Eierskap
@@ -39,7 +42,9 @@ Sett opp branch protection for default branch for å unngå at noen sletter kode
   - Block force push
   - Require pull request before merging
   - Require status checks to pass
+</CollapsibleSection>
 
+<CollapsibleSection>
 ## Github Actions
 
 GitHub Actions er en kraftig CI/CD-plattform. Det betyr også at feil i workflowene dine kan gi store konsekvenser. Under følger de viktigste tiltakene for å sikre pipeline-en din.
@@ -111,7 +116,9 @@ Bruk minst mulige permissions i workflowene dine. Lekker en GitHub-token, er ska
 ```bash
 zizmor .github/workflows
 ```
+</CollapsibleSection>
 
+<CollapsibleSection>
 ## Secret scanning og dependency graph
 
 ### Secret scanning
@@ -127,7 +134,9 @@ Les mer om hemmeligheter på siden [Hemmeligheter](/docs/sikker-utvikling/hemmel
 Dependency graph er listen over avhengigheter som brukes i prosjektet. Den brukes av GitHub Security for å opprette varsler når de finner en sårbar avhengighet i repoet.
 
 Det er derfor viktig at dependency graph faktisk stemmer. Mer om dette finner du på [Dependabot-siden](../verktoy/dependabot).
+</CollapsibleSection>
 
+<CollapsibleSection>
 ## Tokens
 
 Best practice er å bruke GitHubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å hente andre interne repoer kan du bruke et installation token fra en GitHub App. Da kan du scope tokenet til presis det du trenger med tilgang til kun et fåtall repoer.
@@ -140,6 +149,7 @@ Bruk denne prioriteringen:
 2. GitHub App installation token når du trenger tilgang på tvers av repoer.
 3. PAT (Personal Access Token) bare hvis du har en helt konkret grunn og ikke har bedre alternativer.
 
+<CollapsibleSection>
 ### Hvordan opprette GitHub App
 
 1. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new.
@@ -206,7 +216,10 @@ jobs:
     private-key: ${{ secrets.PRIVATE_KEY }}
     owner: ${{ github.repository_owner }}
 ```
+</CollapsibleSection>
+</CollapsibleSection>
 
+<CollapsibleSection>
 ## Andre verktøy
 
 - [CodeQL](../verktoy/github-advanced-security#codeql-statisk-kodeanalyse)
@@ -215,6 +228,7 @@ jobs:
   - Trivy bruker vi for å sikre at vi ikke lekker hemmeligheter når vi bygger Docker-images.
 - [Dependabot](../verktoy/dependabot)
   - Versjonshåndtering av avhengigheter. Jevnlig patching gjør livet enklere og applikasjonene sikrere.
+</CollapsibleSection>
 
 <br />
 
