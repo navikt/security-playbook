@@ -8,14 +8,15 @@ export default function CollapsibleSection({ summary, children }) {
   const location = useLocation();
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash && detailsRef.current) {
-      const targetElement = detailsRef.current.querySelector(hash);
+    if (location.hash && detailsRef.current) {
+      const targetElement = detailsRef.current.querySelector(location.hash);
       if (targetElement) {
         setIsOpen(true);
+        // Wait one tick for React to render <details open> before scrolling
+        const OPEN_RENDER_DELAY_MS = 50;
         setTimeout(() => {
           targetElement.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
+        }, OPEN_RENDER_DELAY_MS);
       }
     }
   }, [location.hash]);
