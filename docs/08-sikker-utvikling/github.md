@@ -144,16 +144,16 @@ Bruk denne prioriteringen:
 
 1. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new.
 2. Gi appen et navn og en URL.
-3. Skru av Webhook hvis du ikke trenger det.
-4. Under Permissions & events, gi appen kun rettighetene den trenger.
-5. Under Where can this GitHub App be installed?, velg Only on this account.
-6. Klikk på Create GitHub App.
+3. Skru av `Webhook` hvis du ikke trenger det.
+4. Under `Permissions & events`, gi appen kun rettighetene den trenger.
+5. Under `Where can this GitHub App be installed?`, velg `Only on this account`.
+6. Klikk på `Create GitHub App`.
 7. Kopier Client ID. Dette er ikke sensitiv informasjon.
-8. Under General, scroll ned til Private keys og lag en ny nøkkel.
+8. Under `General`, scroll ned til `Private keys` og lag en ny nøkkel.
 9. Lagre nøkkelen på et sikkert sted, og slett den fra harddisken når den er lagt inn der den skal brukes.
-10. Under Advanced, bruk Transfer ownership og overfør appen til navikt.
-11. Be en GitHub-admin i #github-support godkjenne overføringen.
-12. Installer appen i navikt-organisasjonen og velg kun repoene den skal ha tilgang til.
+10. Under `Advanced`, bruk `Transfer ownership` og overfør appen til `navikt`.
+11. Be en GitHub-admin i `#github-support` godkjenne overføringen.
+12. Installer appen i `navikt`-organisasjonen og velg kun repoene den skal ha tilgang til.
 
 ### Hvordan ta i bruk din nye GitHub App
 
