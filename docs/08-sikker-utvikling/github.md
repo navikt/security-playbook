@@ -2,6 +2,7 @@
 title: Github best practices
 description: Orden i repo gir ro i sjela ✨.
 ---
+import CollapsibleSection from '@site/src/components/CollapsibleSection';
 
 I Nav har vi satt opp to repositories som viser en god standard for GitHub-oppsett. Her finner du eksempler på applikasjoner som bygges, scannes og deployes til NAIS.
 
@@ -22,6 +23,8 @@ Hvis du bare skal gjøre noen få ting først, gjør disse:
 - Kjør [zizmor](/docs/verktoy/zizmor) mot `.github/workflows`.
 - Bruk [Dependabot](/docs/verktoy/dependabot) med cooldown og sørg for at dependency graph er korrekt.
 
+<CollapsibleSection>
+
 ## Repository settings
 
 ### Eierskap
@@ -39,6 +42,7 @@ Sett opp branch protection for default branch for å unngå at noen sletter kode
   - Block force push
   - Require pull request before merging
   - Require status checks to pass
+</CollapsibleSection>
 
 ## Github Actions
 
