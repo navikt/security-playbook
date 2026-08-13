@@ -13,12 +13,12 @@ GitHub har også skrevet en guide med best practices for GitHub Actions, du finn
 
 Hvis du bare skal gjøre noen få ting først, gjør disse:
 
-- Sett opp branch protection for default branch.
-- Bruk GitHubs innebygde token eller GitHub App-tokens, ikke PAT-er med vide tilganger.
-- Fjern privileged triggers
-- Bruk intermediate variables
-- Pin tredjeparts-actions til commit SHA.
-- Sett minimum permissions i workflowene dine.
+- [Sett opp branch protection for default branch.](#branch-protection)
+- [Bruk GitHubs innebygde token eller GitHub App-tokens, ikke PAT-er med vide tilganger.](#tokens)
+- [Fjern privileged triggers.](#workflow-triggers)
+- [Bruk intermediate variables.](#bruk-intermediate-variables)
+- [Pin tredjeparts-actions til commit SHA.](#pin-tredjeparts-actions)
+- [Sett minimum permissions i workflowene dine.](#use-minimum-permissions)
 - Kjør [zizmor](/docs/verktoy/zizmor) mot `.github/workflows`.
 - Bruk [Dependabot](/docs/verktoy/dependabot) med cooldown og sørg for at dependency graph er korrekt.
 
@@ -139,18 +139,23 @@ Bruk denne prioriteringen:
 1. `GITHUB_TOKEN` for samme repository.
 2. GitHub App installation token når du trenger tilgang på tvers av repoer.
 3. PAT (Personal Access Token) bare hvis du har en helt konkret grunn og ikke har bedre alternativer.
-4. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new.
-5. Gi appen et navn og en URL.
-6. Skru av `Webhook` hvis du ikke trenger det.
-7. Under `Permissions & events`, gi appen kun rettighetene den trenger.
-8. Under `Where can this GitHub App be installed?`, velg `Only on this account`.
-9. Klikk på `Create GitHub App`.
-10. Kopier Client ID. Dette er ikke sensitiv informasjon.
-11. Under `General`, scroll ned til `Private keys` og lag en ny nøkkel.
-12. Lagre nøkkelen på et sikkert sted, og slett den fra harddisken når den er lagt inn der den skal brukes.
-13. Under `Advanced`, bruk `Transfer ownership` og overfør appen til `navikt`.
-14. Be en GitHub-admin i `#github-support` godkjenne overføringen.
-15. Installer appen i `navikt`-organisasjonen og velg kun repoene den skal ha tilgang til.
+
+### Hvordan opprette GitHub App
+
+1. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new.
+2. Gi appen et navn og en URL.
+3. Skru av Webhook hvis du ikke trenger det.
+4. Under Permissions & events, gi appen kun rettighetene den trenger.
+5. Under Where can this GitHub App be installed?, velg Only on this account.
+6. Klikk på Create GitHub App.
+7. Kopier Client ID. Dette er ikke sensitiv informasjon.
+8. Under General, scroll ned til Private keys og lag en ny nøkkel.
+9. Lagre nøkkelen på et sikkert sted, og slett den fra harddisken når den er lagt inn der den skal brukes.
+10. Under Advanced, bruk Transfer ownership og overfør appen til navikt.
+11. Be en GitHub-admin i #github-support godkjenne overføringen.
+12. Installer appen i navikt-organisasjonen og velg kun repoene den skal ha tilgang til.
+
+### Hvordan ta i bruk din nye GitHub App
 
 Nå har du en app som kan lage kortlevde tokens med kun de rettighetene den trenger. Client ID og den private nøkkelen må legges inn i hvert repo som skal bruke appen.
 
