@@ -3,6 +3,7 @@
 
 # Production
 /build
+/sbom-output
 .idea
 
 # Generated files
