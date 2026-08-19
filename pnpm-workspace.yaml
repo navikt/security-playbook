@@ -1,5 +1,6 @@
 allowBuilds:
   core-js: false
+  libxmljs2: false
 engineStrict: true
 trustPolicyExclude:
   - 'detect-port@1.6.1'

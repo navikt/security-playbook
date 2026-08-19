@@ -21,6 +21,7 @@ module.exports = {
   themes: ["@docusaurus/theme-mermaid"],
   plugins: [
     require.resolve("./src/plugins/events-plugin"),
+    require.resolve("./src/plugins/cyclonedx-plugin"),
     [
       require.resolve("docusaurus-lunr-search"),
       {
