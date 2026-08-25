@@ -37,6 +37,15 @@ NB! Auditloggene skal inkludere parametrene i SQL-kommandoen.
 | **Om oppsettet** | Loggene blir automatisk sendt til nais-teamets Cloud Logging bøtte i nais audit project, hvor de blir lagret i 2 år. Månedlig blir teamets logger lagret som en .zip-fil og sendt til en 11 års arkivbøtte. Kontaktkanal er [#nais-database-auditlogging på Slack](https://nav-it.slack.com/archives/C0A29KP884T). Loggene sendes også automatisk til team ISOC (Splunk) for sikkerhetsovervåkning. |
 | **Vær oppmerksom på** | Husk også å kjøre [siste steget i oppsettet med nais cli](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#use-the-nais-cli-to-configure-database-internals). Kjøringen med cli installerer pgaudit extension i basen, og skrur av auditlogging for appbrukeren. |
 
+For å se hvem som har gitt seg selv rollen/tilgangen `cloud.sql-admin` (eller `instanceUser`, som også gir tilgang til databasen), søk etter følgende i Logs Explorer:
+```
+protoPayload.methodName="SetIamPolicy"
+protoPayload.serviceData.policyDelta.bindingDeltas.role="roles/cloudsql.admin"
+protoPayload.serviceData.policyDelta.bindingDeltas.action="ADD"
+```
+
+#### Flytting av data fra en database til en annen i GCP
+Hvis du skal flytte data fra en database til en annen, vent enten med å skru på auditlogging i databasen du flytter det til eller gjør det som app-brukeren. (Og sammenlign databasene etterpå.)
 
 ---
 
@@ -44,10 +53,10 @@ NB! Auditloggene skal inkludere parametrene i SQL-kommandoen.
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                                                                    |
 |-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Auditlogging er aktivert som standard. Teamene trenger ikke å bestille dette. <br/> Postgres on-prem databaser kan nå registeres hos [team Sikkerhetstjenesten](https://nav-it.slack.com/archives/C09KKNS0RJS) for overføring til Nais' felleslagring og [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/). |
+| **Ansvarlig for oppsett** | Auditlogging er aktivert som standard. Registrer Postgres on-prem databaser hos [team Sikkerhetstjenesten](https://nav-it.slack.com/archives/C09KKNS0RJS) for overføring til Nais' felleslagring og gjennomgang i [GAAL](https://audit-approval.iap.nav.cloud.nais.io/). |
 | **Verifikasjon** | Teamene må be DBA verifisere: <br/> - at auditlogger skrives til PostgreSQL sine logger <br/> - at filtrert logg havner på backupserver. |
 | **Om oppsettet** | Auditlogging aktiveres ved installasjon av PostgreSQL på hver server for alle databaser og brukere, både for DDL og DML. Dette styres via templates brukt av Ansible playbooks.  All logging skrives til PostgreSQL sine loggfiler, og auditlogger lagres på backupserver med applikasjonsbruker filtert bort. |
-| **Vær oppmerksom på** | Inntil loggene overføres til Nais-loggløsningen, må teamene sende inn en Jira-sak til DBAene for å få utlevert loggene for gjennomgang. Husk å oppgi i Jira-saken hvor dere ønsker å motta loggene.                                                                                                          |
+| **Vær oppmerksom på** | –  |
 
 ---
 
@@ -66,10 +75,10 @@ NB! Auditloggene skal inkludere parametrene i SQL-kommandoen.
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                 |
 |-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Teamet må bestille logging til ArcSight og be DB2-DBA bekrefte at loggene lagres i DB2 i minst 10 år.  Logging i DB2 med Query Monitor er aktivert som standard i alle databaser.                                                                                                                                                           |
-| **Verifikasjon** | Teamene må selv verifisere logging til ArcSight ved å kontakte #auditlogging-arcsight på Slack.                                                                                                                                                                                                                                             |
+| **Ansvarlig for oppsett** | Teamet må bestille logging til ArcSight og be DB2-DBA bekrefte at loggene lagres i DB2 i minst 10 år.  Logging i DB2 med Query Monitor er aktivert som standard i alle databaser. |
+| **Verifikasjon** | Teamene må selv verifisere logging til ArcSight ved å kontakte #auditlogging-arcsight på Slack. |
 | **Om oppsettet** | Det er opprettet egne tabeller i DB2 for auditlogging. Logging er aktivert for alle databaser. All SQL utført av personlige identer og DB2-systemidenter (SYSADM) logges.  Loggdata leses av ArcSight for de databasene der dette er bestilt.  Logging lagres også lokalt i DB2 fra 15.08.2025 inntil transport til fellesløsningen er på plass. |
-| **Vær oppmerksom på** | For å gjennomgå loggene, be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk.                                                                                                                                                                                                                                                           |
+| **Vær oppmerksom på** | Det er ikke mulig å eksportere parametre fra Query Monitor. Unngå derfor gjerne parametriserte SQL-endringer. <br/> For å gjennomgå loggene, be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk. |
 
 ---
 
@@ -77,16 +86,17 @@ NB! Auditloggene skal inkludere parametrene i SQL-kommandoen.
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                          |
 |-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Teamene må bestille auditlogging fra *Team Database* via porten (Jira-sak).  Bestillingen må spesifisere at kun databasebrukere (inkludert DBA) skal auditlogges.                                                                                                    |
-| **Verifikasjon** | DBA kan verifisere at auditlogger skrives. Loggene ble lagret på SQL Server-disk, men skrives nå direkte til Windows Security Log og blir automatisk videresendt til Splunk (team ISOC). |
+| **Ansvarlig for oppsett** | Teamene må bestille auditlogging fra *Team Database* via porten (Jira-sak).  Bestillingen må spesifisere at kun databasebrukere (inkludert DBA) skal auditlogges. |
+| **Verifikasjon** | DBA kan verifisere at auditlogger skrives. Loggene ble tidligere lagret på SQL Server-disk, men skrives nå direkte til Windows Security Log og blir automatisk videresendt til Splunk (team ISOC). |
 | **Om oppsettet** | Auditloggfiler lagres lokalt på disk og slettes ikke. Det tas i tillegg backup med **30 dagers retention**.  Dersom auditfilene blir store, kan logging skrives direkte til Windows Security Log og dermed videresendes til Splunk ved behov (testet i testmiljøer). |
-| **Vær oppmerksom på** | –                                                                                                                                                                                                                                                                    |
+| **Vær oppmerksom på** | –  |
 
 ## Teknisk fellesløsning
 
 Nais har utviklet en teknisk løsning for lagring og [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/). Digital Sikkerhet utvikler [Loggkamel (Github)](https://github.com/navikt/loggkamel) for å overføre logger fra on-premises databaseteknologier til Nais' fellesløsning. Nais' løsning bruker Google Cloud Logging i 2 år hvor teamene har lesetilgang til egne logger, og sender loggene månedlig som .zip-fil til Google Cloud Storage for arkiv i 11 år.
 
-Fram til overføringen til den nye løsningen er klar for on-prem teknologier, må logging og gjennomgang av loggene utføres i henhold til eksisterende regime som er beskrevet ovenfor. Postgres on-prem databaser kan nå registeres hos [team Sikkerhetstjenesten](https://nav-it.slack.com/archives/C09KKNS0RJS).
+Overføring for Postgres on-prem databaser er klart, og DB2 er neste. Registrer databaser hos [team Sikkerhetstjenesten](https://nav-it.slack.com/archives/C09KKNS0RJS) for overføring.
+
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
