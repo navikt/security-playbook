@@ -156,6 +156,11 @@ exclude-newer = "3 days"
 
 npm har i tillegg støtte for [staged publishing](https://docs.npmjs.com/staged-publishing) f.o.m. versjon 11.15.0. Nye versjoner av pakker med staged publishing skrudd på vil da måtte godkjennes manuelt på websiden eller via cli-et og 2FA. Dette hindrer at kompromitterte CI/CD pipelines eller utviklermaskiner kan brukes til pushe nye versjoner automatisk.
 
+## Se også
+
+- [Automatiske oppdateringer](/docs/sikker-utvikling/automatiske-oppdateringer) — strategi og SLA for å holde avhengigheter oppdatert
+- [Livssyklushåndtering](/docs/sikker-utvikling/livssyklus) — patch-SLA og vedlikeholdsforventninger
+
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
 
