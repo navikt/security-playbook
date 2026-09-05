@@ -36,7 +36,7 @@ Etter installasjon kan du bruke verktøyene i VS Code, JetBrains eller terminale
 
 ```
 @security-champion Trusselmodeller denne tjenesten
-@auth-agent Hvordan setter jeg opp TokenX for denne appen?
+@nav-pilot Bruk $nav-auth til å sette opp TokenX for denne appen
 @nav-pilot Jeg trenger en ny tjeneste som håndterer søknader
 ```
 
@@ -56,21 +56,6 @@ En agent som hjelper med trusselmodellering, GDPR-vurderinger og sikkerhetsarkit
 @security-champion Hva er de viktigste sikkerhetstruslene for en Kafka-basert hendelsesstrøm?
 ```
 
-### @auth-agent
-
-En agent som kjenner alle autentiserings- og autorisasjonsmekanismer i Nav:
-
-- **Azure AD**: Ansattinnlogging, JWT-validering, gruppebasert tilgangsstyring
-- **TokenX**: Tjeneste-til-tjeneste med brukerkontekst, token exchange
-- **ID-porten + Wonderwall**: Innbyggerinnlogging med OIDC
-- **Maskinporten**: Maskin-til-maskin for eksterne parter
-- **JWT-claims**: Validering av `iss`, `aud`, `exp`, `azp` og pre-authorized apps
-
-```
-@auth-agent Hvordan validerer jeg et TokenX-token i Ktor?
-@auth-agent Hvilken auth-mekanisme trenger jeg for maskin-til-maskin mot et eksternt API?
-```
-
 ## Sikkerhetsskills
 
 Skills er kunnskapspakker som agentene bruker, men som du også kan referere til direkte.
@@ -81,6 +66,25 @@ Skills er kunnskapspakker som agentene bruker, men som du også kan referere til
 | `$threat-model` | STRIDE-A trusselmodellering med dataflytdiagram og Nav-spesifikke tillitsgrenser |
 | `$workstation-security` | Sikkerhetssjekk av utviklermaskinen: FileVault, brannmur, SSH, Git-credentials, naisdevice |
 | `$tokenx-auth` | Implementasjonsguide for TokenX token exchange med Ktor, caching og testing |
+| `$nav-auth` | Autentisering og autorisasjon i Nav: Azure AD, TokenX, ID-porten, Maskinporten og JWT-validering |
+
+### $nav-auth
+
+Skillen dekker autentiserings- og autorisasjonsmønstrene for Nav-applikasjoner på Nais. Den er ment for deg som legger til autentisering i en app, kaller en annen tjeneste med TokenX, validerer JWT-er, setter opp maskin-til-maskin med Maskinporten eller feilsøker autentisering som ikke virker.
+
+- **Azure AD**: Ansattinnlogging med Nais-konfigurasjon, miljøvariablene som injiseres, og JWT-validering i Ktor og i Next.js med `@navikt/oasis`
+- **TokenX**: Tjeneste-til-tjeneste med brukerkontekst, token exchange i Kotlin og TypeScript, og `accessPolicy` for inn- og utgående trafikk
+- **ID-porten**: Innbyggerinnlogging via sidecar, der applikasjonen får en ferdig validert JWT
+- **Maskinporten**: Maskin-til-maskin for eksterne organisasjoner, med scopes i Nais-manifestet
+- **JWT-validering**: Issuer, audience, utløpstid og signatur, og validering av `azp` mot `AZURE_APP_PRE_AUTHORIZED_APPS` for M2M-tokener
+- **Testing**: MockOAuth2Server i Kotlin og Vitest i TypeScript
+
+Skillen ber deg også holde autentiseringskoden og `accessPolicy.inbound.rules` i Nais-manifestet i takt, slik at alt som slipper gjennom på nettverksnivå også valideres på token-nivå.
+
+```
+@nav-pilot Bruk $nav-auth til å validere et TokenX-token i Ktor
+@nav-pilot Bruk $nav-auth til å finne riktig auth-mekanisme for maskin-til-maskin mot et eksternt API
+```
 
 ## Sikkerhetsinstruksjoner
 
@@ -137,7 +141,7 @@ Agentpakka inkluderer alt sikkerhetsinnholdet, og du kan velge bort det du ikke 
 | Type | Innhold |
 |------|---------|
 | Agenter | security-champion |
-| Skills | security-review, threat-model, tokenx-auth, workstation-security |
+| Skills | security-review, threat-model, nav-auth, tokenx-auth, workstation-security |
 | Instruksjoner | security-owasp |
 
 ## Lenker
