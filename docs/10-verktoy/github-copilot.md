@@ -23,15 +23,13 @@ Verktøyene er bygget som _agenter_, _skills_ og _instruksjoner_ som Copilot bru
 
 ## Kom i gang
 
-Installer [nav-pilot](https://github.com/navikt/copilot) og velg en samling som passer prosjektet ditt. Sikkerhetsverktøyene følger med automatisk.
+Installer [nav-pilot](https://github.com/navikt/copilot). Alt innhold ligger nå i én agentpakke, og sikkerhetsverktøyene følger med automatisk.
 
 ```bash
 brew install navikt/tap/nav-pilot
 
-# Installer en samling (inkluderer sikkerhetsverktøy)
-nav-pilot install kotlin-backend   # Kotlin/Ktor/Spring Boot
-nav-pilot install fullstack        # Kotlin + Next.js
-nav-pilot install platform         # Plattform og infrastruktur
+# Installer agentpakka (inkluderer sikkerhetsverktøy)
+nav-pilot install nav-pilot
 ```
 
 Etter installasjon kan du bruke verktøyene i VS Code, JetBrains eller terminalen:
@@ -132,15 +130,15 @@ I stedet for å starte fra bunnen av kan du bruke `@security-champion` til å ge
 
 Agenten lager et strukturert resultat med trusler, alvorlighetsgrad og konkrete tiltak — klart til gjennomgang med teamet.
 
-## Samlinger og innhold
+## Sikkerhetsinnhold i agentpakka
 
-Alle samlinger inkluderer sikkerhetsverktøy. Her er hva som følger med:
+Agentpakka inkluderer alt sikkerhetsinnholdet, og du kan velge bort det du ikke trenger i velgeren ved installasjon:
 
-| Samling | Agenter | Skills | Instruksjoner |
-|---------|---------|--------|---------------|
-| `kotlin-backend` | security-champion | security-review, threat-model | security-owasp |
-| `fullstack` | security-champion | security-review, threat-model, tokenx-auth | security-owasp |
-| `platform` | security-champion | security-review, threat-model, workstation-security | security-owasp |
+| Type | Innhold |
+|------|---------|
+| Agenter | security-champion |
+| Skills | security-review, threat-model, tokenx-auth, workstation-security |
+| Instruksjoner | security-owasp |
 
 ## Lenker
 
