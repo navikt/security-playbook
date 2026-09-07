@@ -38,7 +38,7 @@ jobs:
           pull: true
           additional_sboms: sbom-output/frontend.cdx.json
       - name: Deploy to prod-gcp
-        uses: nais/deploy/actions/deploy@849e900e3cfa7faf7ad1532bb3a3e6499c932199 # v2
+        uses: nais/deploy/actions/deploy@027a91857992525139798892f2804b0ca21f4af6 # v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais.yaml
