@@ -21,7 +21,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Create frontend SBOM
-        uses: nais/docker-build-push@8e41f1f58749b9248e376c25d33bfbdd2b1163c0 # v0
+        uses: nais/docker-build-push@0e73849f69ff260ee27597553c0a7848ca4e9795 # v0
         with:
           team: appsec
           push_image: false
@@ -30,7 +30,7 @@ jobs:
           salsa: false
           outputs: type=local,dest=sbom-output
       - name: Build and push image
-        uses: nais/docker-build-push@8e41f1f58749b9248e376c25d33bfbdd2b1163c0 # v0
+        uses: nais/docker-build-push@0e73849f69ff260ee27597553c0a7848ca4e9795 # v0
         id: docker-push
         with:
           team: appsec
@@ -38,7 +38,7 @@ jobs:
           pull: true
           additional_sboms: sbom-output/frontend.cdx.json
       - name: Deploy to prod-gcp
-        uses: nais/deploy/actions/deploy@849e900e3cfa7faf7ad1532bb3a3e6499c932199 # v2
+        uses: nais/deploy/actions/deploy@027a91857992525139798892f2804b0ca21f4af6 # v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais.yaml
