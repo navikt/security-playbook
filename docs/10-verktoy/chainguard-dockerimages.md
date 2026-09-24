@@ -306,7 +306,7 @@ Bruk [digestabot](#digestabot). hvis du ønsker å pinne sha og få PR på nye v
 
 ### Burde jeg pinne SHA for våre Chainguard images?
 
-Hvis du vil ha reproduserbarhet gir det mening, men du kommer få nye PRs hele tiden som du ideelt sett automerger. Så anbefalingen er å ikke pinne sha. Sett heller opp workflow for å bygge applikasjonen på nytt og hente ny versjon av baseimaget.
+Hvis du vil ha reproduserbarhet gir det mening, men du kommer få nye PRs hele tiden som du ideelt sett automerger. Så anbefalingen er å ikke pinne SHA. Sett heller opp en workflow for å bygge og deploye applikasjonen på nytt jevnlig selv om du ikke har endringer i din egen kode. Dermed får du ny versjon av baseimaget. På GitHub gjøres dette enklest ved å bruke [scheduled triggers](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
