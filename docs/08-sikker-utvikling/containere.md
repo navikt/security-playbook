@@ -78,6 +78,11 @@ Vær eksplisitt i dine copy-besvergelser: `COPY mylocalfile myfileinimage`.
 
 Se flere eksempler i [Chainguard docker images](/docs/verktoy/chainguard-dockerimages).
 
+## Se også
+
+- [Forsvar i dybden](/docs/sikker-utvikling/forsvar-i-dybden) — hvordan containersikkerhet er ett av flere lag
+- [Minimale defaults](/docs/sikker-utvikling/minimale-defaults) — prinsippet om å starte lukket og kun åpne det du trenger
+
 <br />
 
 ```mdx-code-block
