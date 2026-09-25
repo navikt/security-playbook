@@ -11,7 +11,7 @@ Ingen modeller, agenter eller harnesser er noensinne _sikre_. Uansett hva slags 
 
 ## Isoler KI
 Kjør KI-verktøy i egne miljøer, for eksempel med `cplt`, slik at de ikke får unødvendig tilgang til resten av 
-utviklingsmiljøet. Se [cplt dokumentasjon](https://min-copilot.intern.nav.no/cplt)
+utviklingsmiljøet. Se [cplt dokumentasjon](https://min-copilot.intern.nav.no/cplt).
 
 ## Prompt injection
 Vær bevisst hvilke kilder KI-verktøy får tilgang til. Prompt injection er et angrep der en angriper manipulerer input for å få KI-en til å utføre uønskede handlinger eller lekke sensitiv informasjon.
