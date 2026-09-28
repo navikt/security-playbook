@@ -21,7 +21,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Create frontend SBOM
-        uses: nais/docker-build-push@0e73849f69ff260ee27597553c0a7848ca4e9795 # v0
+        uses: nais/docker-build-push@423a915c9b72edf2ba848b88171ccb0489e2a40a # v0
         with:
           team: appsec
           push_image: false
@@ -30,7 +30,7 @@ jobs:
           salsa: false
           outputs: type=local,dest=sbom-output
       - name: Build and push image
-        uses: nais/docker-build-push@0e73849f69ff260ee27597553c0a7848ca4e9795 # v0
+        uses: nais/docker-build-push@423a915c9b72edf2ba848b88171ccb0489e2a40a # v0
         id: docker-push
         with:
           team: appsec
