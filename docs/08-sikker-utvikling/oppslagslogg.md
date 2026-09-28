@@ -5,11 +5,11 @@ description: Innsyn uten synsing 👀.
 
 ## Hva er logg av oppslag på personopplysninger?
 
-Oppslagslogg, auditlogg av oppslag eller innsynslogg er loggen over hvilke personopplysninger til en bruker som har blitt vist en Nav-ansatt i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en ansatt har hatt sett opplysninger om en bruker. Oppslagsloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til proaktiv loggkontroll.
+Oppslagslogg, auditlogg av oppslag eller innsynslogg er loggen over hvilken brukers personopplysninger som har blitt vist en Nav-medarbeider i et fagsystem. Formålet er å kunne bevise, eller motbevise, om en Nav-medarbeider har sett opplysninger om en bruker. Oppslagsloggene brukes blant annet til å lage innsynsrapporter til brukere og ledere, samt til kontroll av oppslagslogg.
 
-Bruk gjerne også backend-tjenesten [Tilgangsmaskinen](https://github.com/navikt/populasjonstilgangskontroll) for tilgangskontroll, for å sjekke om en ansatt har riktige tilganger for å se informasjonen til en bruker.
+Bruk gjerne også backend-tjenesten [Tilgangsmaskinen](https://github.com/navikt/populasjonstilgangskontroll) for tilgangskontroll, for å sjekke om en ansatt har riktige tilganger for å se informasjonen til en bruker og ikke er inhabil ovenfor brukeren.
 
-NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-ansatte gjennom fagsystemene, og ikke f.eks. [auditlogging av endringer på lagrede data](https://sikkerhet.nav.no/docs/sikker-utvikling/auditlogg_db_endring) (økonomireglementet §4.3.6, arkivforskrifta §5).
+NB: Nav har flere forskjellige typer auditlogger og løsninger. Dette kravet treffer kun visning av personopplysninger til Nav-medarbeider gjennom fagsystemene, og ikke f.eks. [auditlogging av endringer på lagrede data](https://sikkerhet.nav.no/docs/sikker-utvikling/auditlogg_db_endring) (økonomireglementet §4.3.6, arkivforskrifta §5).
 
 ## Hvilke krav stilles til oppslagslogging?
 

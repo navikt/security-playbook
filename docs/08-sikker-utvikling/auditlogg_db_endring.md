@@ -30,12 +30,12 @@ NB! Auditloggene skal inkludere parametrene i SQL-kommandoen.
 
 ### PostgreSQL – GCP
 
-| Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                                                                |
-|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Teamet som eier databasen må selv skru på auditlogging ved å følge framgangsmetoden beskrevet i [Enable auditlogging på nais.io](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#enable-audit-logging). For økonomireglementet og arkivforskrifta skal det logges `write, role, ddl`, og `pgaudit.log_parameter` må være `on`. |
-| **Verifikasjon** | Teamet må gå inn på [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/) og verifisere at minst én personlig endring er logget. Kjør også [verify-audit](https://doc.nais.io/operate/cli/reference/postgres/index.html#verify-audit) for å bekrefte at konfigurasjonen er riktig. |
+| Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                                                                         |
+|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Ansvarlig for oppsett** | Teamet som eier databasen må selv skru på auditlogging ved å følge framgangsmetoden beskrevet i [Enable auditlogging på nais.io](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#enable-audit-logging). For økonomireglementet og arkivforskrifta skal det logges `write, role, ddl`. Husk at `pgaudit.log_parameter` og `pgaudit.log_relation` må være `on`.                                            |
+| **Verifikasjon** | Teamet må gå inn på [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/) og verifisere at minst én personlig endring er logget. Kjør også [verify-audit](https://doc.nais.io/operate/cli/reference/postgres/index.html#verify-audit) for å bekrefte at konfigurasjonen er riktig.                                                                                     |
 | **Om oppsettet** | Loggene blir automatisk sendt til nais-teamets Cloud Logging bøtte i nais audit project, hvor de blir lagret i 2 år. Månedlig blir teamets logger lagret som en .zip-fil og sendt til en 11 års arkivbøtte. Kontaktkanal er [#nais-database-auditlogging på Slack](https://nav-it.slack.com/archives/C0A29KP884T). Loggene sendes også automatisk til team ISOC (Splunk) for sikkerhetsovervåkning. |
-| **Vær oppmerksom på** | Husk også å kjøre [siste steget i oppsettet med nais cli](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#use-the-nais-cli-to-configure-database-internals). Kjøringen med cli installerer pgaudit extension i basen, og skrur av auditlogging for appbrukeren. |
+| **Vær oppmerksom på** | Husk også å kjøre [siste steget i oppsettet med nais cli](https://doc.nais.io/persistence/cloudsql/how-to/enable-auditing/#use-the-nais-cli-to-configure-database-internals). Kjøringen med cli installerer pgaudit extension i basen, og skrur av auditlogging for appbrukeren.                                                                                                                    |
 
 For å se hvem som har gitt seg selv rollen/tilgangen `cloud.sql-admin` (eller `instanceUser`, som også gir tilgang til databasen), søk etter følgende i Logs Explorer:
 ```
@@ -45,7 +45,7 @@ protoPayload.serviceData.policyDelta.bindingDeltas.action="ADD"
 ```
 
 #### Flytting av data fra en database til en annen i GCP
-Hvis du skal flytte data fra en database til en annen, vent enten med å skru på auditlogging i databasen du flytter det til eller gjør det som app-brukeren. (Og sammenlign databasene etterpå.)
+Hvis du skal flytte data fra en database til en annen, vent enten med å skru på auditlogging i databasen du flytter det til. (Og sammenlign databasene etterpå.)
 
 ---
 
@@ -75,10 +75,11 @@ Hvis du skal flytte data fra en database til en annen, vent enten med å skru p�
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                 |
 |-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Teamet må bestille logging til ArcSight og be DB2-DBA bekrefte at loggene lagres i DB2 i minst 10 år.  Logging i DB2 med Query Monitor er aktivert som standard i alle databaser. |
-| **Verifikasjon** | Teamene må selv verifisere logging til ArcSight ved å kontakte #auditlogging-arcsight på Slack. |
+| **Ansvarlig for oppsett** | Teamet må be DB2-DBA bekrefte at loggene lagres i DB2 i minst 10 år. Logging i DB2 med Query Monitor er aktivert som standard i alle databaser.                                                                                                                                                                                         |
+| **Verifikasjon** | Be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk og verifiser at det logges.                                                                                                                                                                                                                                                                 |
 | **Om oppsettet** | Det er opprettet egne tabeller i DB2 for auditlogging. Logging er aktivert for alle databaser. All SQL utført av personlige identer og DB2-systemidenter (SYSADM) logges.  Loggdata leses av ArcSight for de databasene der dette er bestilt.  Logging lagres også lokalt i DB2 fra 15.08.2025 inntil transport til fellesløsningen er på plass. |
-| **Vær oppmerksom på** | Det er ikke mulig å eksportere parametre fra Query Monitor. Unngå derfor gjerne parametriserte SQL-endringer. <br/> For å gjennomgå loggene, be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk. |
+| **Vær oppmerksom på** | Det er ikke mulig å eksportere parametre fra Query Monitor. Unngå derfor gjerne parametriserte SQL-endringer. <br/> For å gjennomgå loggene, be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk.                                                                                                                                          |
+
 
 ---
 
