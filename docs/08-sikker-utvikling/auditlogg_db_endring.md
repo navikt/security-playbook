@@ -45,7 +45,7 @@ protoPayload.serviceData.policyDelta.bindingDeltas.action="ADD"
 ```
 
 #### Flytting av data fra en database til en annen i GCP
-Hvis du skal flytte data fra en database til en annen, vent enten med å skru på auditlogging i databasen du flytter det til. (Og sammenlign databasene etterpå.)
+Hvis du skal flytte data fra en database til en annen, vent med å skru på auditlogging i databasen du flytter det til. (Og sammenlign databasene etterpå.)
 
 ---
 
