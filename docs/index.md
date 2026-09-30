@@ -27,7 +27,7 @@ På siden [«Sikker utvikling i Nav IT»](/docs/sikker-utvikling) finner du en o
 
 ### 3. Fellesskap 💖
 
-Det arrangeres jevnlige [samlinger](/docs/events/2022-01-11-kickoff), [kurs](/docs/events/2022-01-20-kurs-hyf), og [foredrag](/docs/events/2021-11-22-stranger-danger). Målet er å bli kjent for å lettere lære av hverandre og bygge Norges beste og hyggeligste sikkerhetsmiljø!
+Det arrangeres jevnlige [samlinger, kurs og foredrag](/docs/events/). Målet er å bli kjent for å lettere lære av hverandre og bygge Norges beste og hyggeligste sikkerhetsmiljø!
 
 ## Forslag, kommentarer, eller feil?
 
