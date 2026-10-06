@@ -57,3 +57,29 @@ pnpm start
 pnpm run build
 pnpm run serve
 ```
+
+### Statisk arrangementsfeed
+
+Produksjonsbygget publiserer `/events.json` med `schemaVersion: 1` og en
+`events`-liste. Hvert arrangement har `id`, `title`, `startDate`, `endDate`,
+`audience` og en absolutt `url`. Listen inneholder både tidligere og kommende
+arrangementer, sortert etter `startDate` og deretter `id`.
+
+Kalenderen og feeden bruker de samme metadataene fra Markdown-filene i
+`docs/11-events` (unntatt `index.md`) og `arrangementer.json`. Markdown bruker
+`sidebar_custom_props.startDate`, deretter `date`, deretter en full dato i
+filnavnet. Sluttdatoen er `endDate`, deretter `date`, deretter startdatoen.
+JSON bruker `startDate` eller `date`, med samme rekkefølge for sluttdatoen.
+Datoer må være gyldige og fullstendige (`YYYY-MM-DD`); manglende datoer,
+ugyldige datoer og omvendte datointervaller stopper bygget med kildehenvisning.
+Innholdet i Markdown eksporteres ikke.
+
+Feed-ID-er har prefikset `playbook:` for dokument-ID-er og `external:` for
+JSON-oppføringer. Gi hver ny JSON-oppføring en unik, varig `id`, også når årlige
+arrangementer deler URL. Behold ID-en når du retter tittel, dato eller URL.
+Dupliserte ID-er og URL-er som ikke bruker HTTP(S), stopper bygget.
+
+`events.json` skrives direkte til byggmappen i pluginens `postBuild`-hook.
+Den genereres ikke av `pnpm start`. Kjør `pnpm run build` og `pnpm run serve`
+for å lese feeden lokalt. `pnpm run test:events` kjører testene for metadata,
+feed og kalender uten å bygge hele nettstedet.

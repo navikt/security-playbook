@@ -19,5 +19,5 @@ jobs:
           node-version: '24.x'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Build
-        run: pnpm run build
+      - name: Test
+        run: pnpm run test

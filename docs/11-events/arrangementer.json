@@ -1,21 +1,25 @@
 [
   {
     "date": "2022-03-01",
+    "id": "snyk-know-your-code-2022",
     "label": "Snyk-konferanse «Know Your Code»",
     "href": "https://www.techstrongevents.com/know-your-code-open-source-and-supply-chain-summit/1839768"
   },
   {
     "date": "2022-03-29",
+    "id": "owasp-forensics-2022",
     "label": "OWASP Norge: Where Security meets Forensics",
     "href": "https://www.meetup.com/OWASP-Oslo/events/284603583/"
   },
   {
     "date": "2022-03-30",
+    "id": "nsm-sikkerhetskonferansen-2022",
     "label": "Sikkerhetskonferansen 2022 (NSM)",
     "href": "https://nsm.no/aktuelt/sikkerhetskonferansen-2022"
   },
   {
     "startDate": "2022-04-04",
+    "id": "ndc-security-2022",
     "endDate": "2022-04-07",
     "label": "NDC Security Oslo",
     "href": "https://ndc-security.com/",
@@ -23,12 +27,14 @@
   },
   {
     "date": "2022-05-25",
+    "id": "bsides-oslo-2022",
     "label": "BSides Oslo",
     "href": "https://bsidesoslo.no/",
     "audience": "Spør din personalleder \uD83D\uDCB8"
   },
   {
     "startDate": "2022-08-06",
+    "id": "black-hat-usa-2022",
     "endDate": "2022-08-11",
     "label": "Black Hat USA",
     "href": "https://www.blackhat.com/us-22/",
@@ -36,6 +42,7 @@
   },
   {
     "startDate": "2022-08-11",
+    "id": "def-con-2022",
     "endDate": "2022-08-14",
     "label": "Def Con USA",
     "href": "https://defcon.org/",
@@ -43,6 +50,7 @@
   },
   {
     "startDate": "2022-08-29",
+    "id": "sikkerhetsfestivalen-2022",
     "endDate": "2022-08-31",
     "label": "Sikkerhetsfestivalen",
     "href": "https://sikkerhetsfestivalen.no/",
@@ -50,6 +58,7 @@
   },
   {
     "startDate": "2022-09-21",
+    "id": "op-holmgang-2022",
     "endDate": "2022-09-21",
     "label": "OP Holmgang, Kripos sin årlige CTF",
     "href": "https://opholmgang.com/",
@@ -57,6 +66,7 @@
   },
   {
     "startDate": "2022-11-04",
+    "id": "equinor-ctf-2022",
     "endDate": "2022-11-05",
     "label": "Equinor CTF",
     "href": "https://ctf.equinor.com/",
@@ -64,6 +74,7 @@
   },
   {
     "startDate": "2022-09-29",
+    "id": "cs20-kripos-2022",
     "endDate": "2022-09-29",
     "label": "CS20: Presentasjon fra Kripos om ransomware-angrepet på Norsk Hydro i 2019",
     "href": "https://financeinnovation.no/events/cs-in-20-minutes-with-kripos",
@@ -71,6 +82,7 @@
   },
   {
     "startDate": "2022-11-09",
+    "id": "snyk-fetch-the-flag-2022",
     "endDate": "2022-11-09",
     "label": "Snyk \"Fetch the Flag\" CTF",
     "href": "https://snyk.io/ctf/",
@@ -78,12 +90,14 @@
   },
   {
     "date": "2022-11-24",
+    "id": "rebel-share-5",
     "label": "Rebel Share #5: Crypto, Cyber Criminals and Government Hackers",
     "href": "https://www.meetup.com/rebel-oslo/events/289809955/",
     "audience": "Åpent for alle"
   },
   {
     "startDate": "2022-12-05",
+    "id": "black-hat-europe-2022",
     "endDate": "2022-12-08",
     "label": "Black Hat Europe (London)",
     "href": "https://www.blackhat.com/eu-22/",
@@ -91,6 +105,7 @@
   },
   {
     "startDate": "2023-01-16",
+    "id": "ndc-security-2023",
     "endDate": "2023-01-19",
     "label": "NDC Security Oslo",
     "href": "https://ndc-security.com/",
@@ -98,6 +113,7 @@
   },
   {
     "startDate": "2023-02-01",
+    "id": "hackcon-online-2023",
     "endDate": "2023-02-10",
     "label": "HackCon Online",
     "href": "https://www.bigmarker.com/series/hco2023/series_summit",
@@ -105,6 +121,7 @@
   },
   {
     "startDate": "2023-02-15",
+    "id": "hackcon-18",
     "endDate": "2023-02-16",
     "label": "HackCon #18",
     "href": "https://www.hackcon.org/",
@@ -112,6 +129,7 @@
   },
   {
     "startDate": "2023-02-28",
+    "id": "snyk-big-fix-2023",
     "endDate": "2023-02-28",
     "label": "Snyk: The Big Fix",
     "href": "https://snyk.io/events/the-big-fix/",
@@ -119,6 +137,7 @@
   },
   {
     "startDate": "2023-08-28",
+    "id": "sikkerhetsfestivalen-2023",
     "endDate": "2023-08-30",
     "label": "Sikkerhetsfestivalen",
     "href": "https://sikkerhetsfestivalen.no/",
@@ -126,6 +145,7 @@
   },
   {
     "startDate": "2023-01-17",
+    "id": "owasp-toolbox-2023",
     "endDate": "2023-01-17",
     "label": "OWASP meetup: Tune your Toolbox for Velocity and Value (Josh Grossman)",
     "href": "https://www.meetup.com/owasp-oslo/events/290761822/",
@@ -133,6 +153,7 @@
   },
   {
     "startDate": "2023-11-11",
+    "id": "equinor-ctf-2023",
     "endDate": "2023-11-11",
     "label": "Equinor CTF",
     "href": "https://ctf.equinor.com/",
@@ -140,6 +161,7 @@
   },
   {
     "startDate": "2023-06-22",
+    "id": "cloud-security-detection-response-2023",
     "endDate": "2023-06-22",
     "label": "Cloud Security Detection and Response",
     "href": "https://www.meetup.com/cloud-security-alliance-norway-meetup/events/293979257/",
@@ -147,6 +169,7 @@
   },
   {
     "startDate": "2023-10-18",
+    "id": "snyk-ctf-workshop-2023",
     "endDate": "2023-10-18",
     "label": "Snyk CTF Workshop",
     "href": "https://snyk.io/events/ctf/",
@@ -154,6 +177,7 @@
   },
   {
     "startDate": "2023-10-27",
+    "id": "snyk-ctf-2023",
     "endDate": "2023-10-27",
     "label": "Snyk CTF",
     "href": "https://snyk.io/events/ctf/",
@@ -161,6 +185,7 @@
   },
   {
     "startDate": "2024-02-01",
+    "id": "trusselmodellering-workshop-2024",
     "endDate": "2024-02-01",
     "label": "Trusselmodellering workshop",
     "href": "https://delta.nav.no/event/ad4380ae-7f69-4fdd-a8c1-6796293e4be5",
@@ -168,6 +193,7 @@
   },
   {
     "startDate": "2024-02-13",
+    "id": "champions-meetup-februar-2024",
     "endDate": "2024-02-13",
     "label": "Meetup - Februar 2024 (Påmelding @ delta.nav.no)",
     "href": "https://delta.nav.no/event/bf36c158-b6a7-450f-9209-a29523842019",
@@ -175,6 +201,7 @@
   },
   {
     "startDate": "2024-04-09",
+    "id": "champions-meetup-april-2024",
     "endDate": "2024-04-09",
     "label": "Meetup - April 2024 (Påmelding @ delta.nav.no)",
     "href": "https://delta.nav.no/event/ff2d1731-cb51-44e0-ba5b-3f44476453c9",
@@ -182,6 +209,7 @@
   },
   {
     "startDate": "2024-10-14",
+    "id": "bsides-oslo-2024",
     "endDate": "2024-10-14",
     "label": "BSides Oslo",
     "href": "https://bsidesoslo.no/",
@@ -189,6 +217,7 @@
   },
   {
     "startDate": "2025-01-20",
+    "id": "ndc-security-2025",
     "endDate": "2025-01-23",
     "label": "NDC Security Oslo",
     "href": "https://ndc-security.com/",
@@ -196,6 +225,7 @@
   },
   {
     "startDate": "2025-02-12",
+    "id": "hackcon-20",
     "endDate": "2025-02-13",
     "label": "HackCon #20",
     "href": "https://www.hackcon.org/",
@@ -203,6 +233,7 @@
   },
   {
     "startDate": "2024-11-07",
+    "id": "elephant-in-appsec-2024",
     "endDate": "2024-11-07",
     "label": "The Elephant in AppSec Conference",
     "href": "https://www.theelephantinappsec.com/",
@@ -210,6 +241,7 @@
   },
   {
     "startDate": "2025-10-30",
+    "id": "bsides-oslo-2025",
     "endDate": "2025-10-30",
     "label": "BSides Oslo",
     "href": "https://bsidesoslo.no/",
@@ -217,6 +249,7 @@
   },
   {
     "startDate": "2025-11-26",
+    "id": "security-champions-norge-meetup-11",
     "endDate": "2025-11-26",
     "label": "Security Champions Norge Meetup 11",
     "href": "https://securitychampions.no/blogg/2025-09-29-meetup11-rebel/",
@@ -224,6 +257,7 @@
   },
   {
     "startDate": "2026-02-11",
+    "id": "hackcon-21",
     "endDate": "2026-02-12",
     "label": "HackCon #21",
     "href": "https://www.hackcon.org/hackcon21",
@@ -231,6 +265,7 @@
   },
   {
     "startDate": "2026-03-02",
+    "id": "ndc-security-2026",
     "endDate": "2026-03-05",
     "label": "NDC Security Oslo",
     "href": "https://ndcsecurity.com/",
@@ -238,6 +273,7 @@
   },
   {
     "startDate": "2025-11-28",
+    "id": "heroctf-7",
     "endDate": "2025-11-30",
     "label": "HeroCTF v7",
     "href": "https://ctf.heroctf.fr/",
@@ -245,6 +281,7 @@
   },
   {
     "startDate": "2025-12-05",
+    "id": "null-ctf-2025",
     "endDate": "2025-12-07",
     "label": "Null CTF",
     "href": "https://ctf.r0devnull.team/",
@@ -252,6 +289,7 @@
   },
   {
     "startDate": "2026-08-24",
+    "id": "sikkerhetsfestivalen-2026",
     "endDate": "2026-08-26",
     "label": "Sikkerhetsfestivalen",
     "href": "https://sikkerhetsfestivalen.no/",
@@ -259,6 +297,7 @@
   },
   {
     "startDate": "2026-03-11",
+    "id": "security-champions-norge-meetup-12",
     "endDate": "2026-03-11",
     "label": "Security Champions Norge Meetup 12",
     "href": "https://securitychampions.no/events/",
@@ -266,6 +305,7 @@
   },
   {
     "startDate": "2026-10-29",
+    "id": "bsides-oslo-2026",
     "endDate": "2026-10-29",
     "label": "BSides Oslo",
     "href": "https://bsidesoslo.no/",

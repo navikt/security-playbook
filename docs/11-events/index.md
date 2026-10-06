@@ -10,9 +10,8 @@ Har du forslag til arrangementer, kurs, eller lignende? Si ifra til [redaksjonen
 ```mdx-code-block
 import SavnerDuNoe from '/common/\_savner_du_noe.mdx';
 import Kalender from '../../src/components/Kalender'
-import arrangementer from './arrangementer.json'
 
-<Kalender extraEvents={arrangementer}/>
+<Kalender/>
 
 <br />
 <SavnerDuNoe />
