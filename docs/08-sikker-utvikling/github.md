@@ -139,15 +139,17 @@ Det er derfor viktig at dependency graph faktisk stemmer. Mer om dette finner du
 <CollapsibleSection>
 ## Tokens
 
-Best practice er å bruke GitHubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å hente andre interne repoer kan du bruke et installation token fra en GitHub App. Da kan du scope tokenet til presis det du trenger med tilgang til kun et fåtall repoer.
+Best practice er å bruke GitHubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å hente andre interne repoer, eller for at en merge skal utløse andre workflows, kan du bruke et installation token fra en egen GitHub App. Da kan du scope tokenet til presis det du trenger med tilgang til kun et fåtall repoer.
 
 Bruk av token fra GitHub App har flere fordeler sammenlignet med PAT. Tokenet har kort levetid (1 time), du gir kun de tilgangene du trenger for jobben du skal gjøre, og hvis du slutter i Nav, bytter team, eller av en eller annen grunn får deaktivert kontoen din, slutter ikke alle workflows som bruker tokenet å virke.
 
 Bruk denne prioriteringen:
 
 1. `GITHUB_TOKEN` for samme repository.
-2. GitHub App installation token når du trenger tilgang på tvers av repoer.
+2. GitHub App installation token når du trenger tilgang på tvers av repoer, eller når handlingen skal utløse andre workflows, også i samme repo.
 3. PAT (Personal Access Token) bare hvis du har en helt konkret grunn og ikke har bedre alternativer.
+
+For automatisk merge som også skal utløse deploy, følg [oppsettet for `navikt/automerge-dependabot`](/docs/verktoy/dependabot#automatisk-merge-av-dependabot-pr-er).
 
 <CollapsibleSection>
 ### Hvordan opprette GitHub App
