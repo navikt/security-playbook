@@ -163,6 +163,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          sidebarItemsGenerator: require("./src/secure-development-sidebar"),
           editUrl: "https://github.com/navikt/security-playbook/tree/main/",
         },
         theme: {
