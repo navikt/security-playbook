@@ -26,6 +26,7 @@
     "classnames": "2.5.1",
     "clsx": "2.1.1",
     "docusaurus-lunr-search": "3.6.0",
+    "gray-matter": "4.0.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
