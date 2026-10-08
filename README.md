@@ -58,6 +58,16 @@ pnpm run build
 pnpm run serve
 ```
 
+### Kategorier for sikker utvikling
+
+`src/secure-development-sidebar.js` definerer kategoriene og rekkefølgen for
+sikker utvikling. Sidefeltet og temaoversikten bruker samme inndeling.
+Når du legger til en temaside i `docs/08-sikker-utvikling`, må du også legge
+dokumentnavnet uten filendelse i en kategori. Manglende eller dupliserte
+oppføringer stopper bygget. Artikkelfilene trenger ikke flyttes eller gis nye URL-er.
+
+Kjør `pnpm run test:navigation` for å sjekke inndelingen.
+
 ### Statisk arrangementsfeed
 
 Produksjonsbygget publiserer `/events.json` med `schemaVersion: 1` og en
