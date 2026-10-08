@@ -19,17 +19,18 @@
     "refresh": "rm -rf node_modules && pnpm install"
   },
   "dependencies": {
-    "@docusaurus/core": "3.10.1",
-    "@docusaurus/plugin-client-redirects": "3.10.1",
-    "@docusaurus/preset-classic": "3.10.1",
-    "@docusaurus/theme-mermaid": "3.10.1",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/plugin-client-redirects": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-mermaid": "3.10.2",
     "@mdx-js/react": "3.1.1",
     "@svgr/webpack": "8.1.0",
     "classnames": "2.5.1",
     "clsx": "2.1.1",
     "docusaurus-lunr-search": "3.6.0",
-    "react": "19.2.5",
-    "react-dom": "19.2.5"
+    "gray-matter": "4.0.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "browserslist": {
     "production": [
@@ -46,8 +47,8 @@
   "devDependencies": {
     "@cyclonedx/webpack-plugin": "5.3.3",
     "husky": "9.1.7",
-    "lint-staged": "16.4.0",
-    "prettier": "3.8.3"
+    "lint-staged": "17.6.0",
+    "prettier": "3.9.9"
   },
   "lint-staged": {
     "*.{js,jsx,css,md,mdx,json}": "prettier --write"
