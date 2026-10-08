@@ -34,6 +34,14 @@ module.exports = {
       {
         redirects: [
           {
+            from: "/docs/bli-security-champion",
+            to: "/docs/security-champion-rolle",
+          },
+          {
+            from: "/docs/ny-security-champion",
+            to: "/docs/security-champion-rolle",
+          },
+          {
             from: "/docs/kom-i-gang",
             to: "/docs/sikker-utvikling/",
           },
@@ -58,8 +66,8 @@ module.exports = {
       },
       items: [
         {
-          type: "doc",
-          docId: "index",
+          to: "/docs/",
+          activeBaseRegex: "^/docs/$",
           position: "left",
           label: "Hva er dette? 📚",
         },
@@ -112,10 +120,6 @@ module.exports = {
             {
               label: "Nais",
               href: "https://doc.nais.io",
-            },
-            {
-              label: "«Security Champion»-redaksjonen",
-              href: "https://teamkatalog.nav.no/team/b5915f11-0740-4a2e-b767-6ac5c407e9c7",
             },
           ],
         },

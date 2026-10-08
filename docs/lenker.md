@@ -1,7 +1,7 @@
 ---
 title: Lenker
 description: Nettets snarveier kan bite 🔗
-sidebar_position: 6
+sidebar_position: 12
 ---
 
 # Nyttige Lenker 🔗
@@ -60,7 +60,7 @@ Har du forslag til tillegg eller rettelser? Legg det gjerne inn selv på [GitHub
 
 - [TryggNok – Risikovurdering](https://apps.powerapps.com/play/f8517640-ea01-46e2-9c09-be6b05013566)
 - [NAIS doc](https://doc.nais.io/)
-- [Oversikt over security champions](https://teamkatalog.nav.no/dashboard/members/role/SECURITY_CHAMPION)
+- [Security Champion Stats](http://securitychampion.ansatt.nav.no/)
 
 ### Slack-kanaler
 
