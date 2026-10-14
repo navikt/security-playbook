@@ -13,7 +13,7 @@ jobs:
       pull-requests: read # Required for private/internal repos
     steps:
       - name: Automerge Dependabot PRs
-        uses: navikt/automerge-dependabot@70455df4433fac78f20d5a248f9ebf07ccac11fe # v1.5
+        uses: navikt/automerge-dependabot@v1.5
         with:
           token: ${{ github.token }}
           merge-method: 'squash'

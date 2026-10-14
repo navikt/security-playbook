@@ -17,11 +17,11 @@ jobs:
       id-token: 'write' # Required for OIDC authentication to Nais
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - name: Create frontend SBOM
-        uses: nais/docker-build-push@bfe52e3ad6d0e96fd1056a03acb7b619aaffb39d # v0
+        uses: nais/docker-build-push@main
         with:
           team: appsec
           push_image: false
@@ -30,7 +30,7 @@ jobs:
           salsa: false
           outputs: type=local,dest=sbom-output
       - name: Build and push image
-        uses: nais/docker-build-push@bfe52e3ad6d0e96fd1056a03acb7b619aaffb39d # v0
+        uses: nais/docker-build-push@main
         id: docker-push
         with:
           team: appsec
@@ -38,7 +38,7 @@ jobs:
           pull: true
           additional_sboms: sbom-output/frontend.cdx.json
       - name: Deploy to prod-gcp
-        uses: nais/deploy/actions/deploy@9850be311389ca754d9a9f2280615419d738c891 # v3
+        uses: nais/deploy/actions/deploy@v3
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais.yaml
