@@ -53,9 +53,9 @@ Hvis du skal flytte data fra en database til en annen, vent med å skru på audi
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                                                                    |
 |-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Auditlogging er aktivert som standard. Registrer Postgres on-prem databaser hos [team Sikkerhetstjenesten](https://nav-it.slack.com/archives/C09KKNS0RJS) for overføring til Nais' felleslagring og gjennomgang i [GAAL](https://audit-approval.iap.nav.cloud.nais.io/). |
-| **Verifikasjon** | Teamene må be DBA verifisere: <br/> - at auditlogger skrives til PostgreSQL sine logger <br/> - at filtrert logg havner på backupserver. |
-| **Om oppsettet** | Auditlogging aktiveres ved installasjon av PostgreSQL på hver server for alle databaser og brukere, både for DDL og DML. Dette styres via templates brukt av Ansible playbooks.  All logging skrives til PostgreSQL sine loggfiler, og auditlogger lagres på backupserver med applikasjonsbruker filtert bort. |
+| **Ansvarlig for oppsett** | Auditlogging er aktivert som standard. Registrer Postgres on-prem databaser på [loggkamel.ansatt.nav.no](https://loggkamel.ansatt.nav.no) for overføring til Nais' felleslagring og gjennomgang i [GAAL](https://audit-approval.iap.nav.cloud.nais.io/). |
+| **Verifikasjon** | Teamet kan sjekke i Loggkamel (minst en dag etter registrering og en dag etter spørringer har blitt kjørt), eller så må de be DBA verifisere: <br/> - at auditlogger skrives til PostgreSQL sine logger <br/> - at filtrert logg havner på backupserver. |
+| **Om oppsettet** | Auditlogging aktiveres ved installasjon av PostgreSQL på hver server for alle databaser og brukere, både for DDL og DML. Dette styres via templates brukt av Ansible playbooks. All logging skrives til PostgreSQL sine loggfiler, og auditlogger lagres på backupserver med applikasjonsbruker filtert bort. |
 | **Vær oppmerksom på** | –  |
 
 ---
@@ -75,10 +75,10 @@ Hvis du skal flytte data fra en database til en annen, vent med å skru på audi
 
 | Tema | Beskrivelse                                                                                                                                                                                                                                                                                                                                 |
 |-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ansvarlig for oppsett** | Teamet må be DB2-DBA bekrefte at loggene lagres i DB2 i minst 10 år. Logging i DB2 med Query Monitor er aktivert som standard i alle databaser.                                                                                                                                                                                         |
-| **Verifikasjon** | Be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk og verifiser at det logges.                                                                                                                                                                                                                                                                 |
-| **Om oppsettet** | Det er opprettet egne tabeller i DB2 for auditlogging. Logging er aktivert for alle databaser. All SQL utført av personlige identer og DB2-systemidenter (SYSADM) logges.  Loggdata leses av ArcSight for de databasene der dette er bestilt.  Logging lagres også lokalt i DB2 fra 15.08.2025 inntil transport til fellesløsningen er på plass. |
-| **Vær oppmerksom på** | Det er ikke mulig å eksportere parametre fra Query Monitor. Unngå derfor gjerne parametriserte SQL-endringer. <br/> For å gjennomgå loggene, be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk.                                                                                                                                          |
+| **Ansvarlig for oppsett** | Registrer Postgres on-prem databaser på [loggkamel.ansatt.nav.no](https://loggkamel.ansatt.nav.no) for overføring til Nais' felleslagring og gjennomgang i [GAAL](https://audit-approval.iap.nav.cloud.nais.io/). (Logging i DB2 med Query Monitor er aktivert som standard i alle databaser.) |
+| **Verifikasjon** | Teamene kan sjekke i Loggkamel (minst en dag etter registrering og en dag etter spørringer har blitt kjørt), eller be DB2-DBA om lesetilgang til SYSTOOLS eller uttrekk og verifiser at det logges.  |
+| **Om oppsettet** | Query Monitor brukes for å logge alle databaser, og en TWS-jobb henter ut loggene hver morgen. Kjente ikke-personlige brukere filtreres ut, og loggene sendes til egne tabeller i DB2 (med utvidet lagringstid fra 15.08.2025). Loggkamel leser loggene og overfører dem til teamets bucket, hvor de blir automatisk videresendt til Nais fellesløsning og tilgjengelige i [GAAL](https://audit-approval.iap.nav.cloud.nais.io/). |
+| **Vær oppmerksom på** | Det er ikke mulig å eksportere parametre fra Query Monitor. Unngå derfor gjerne parametriserte SQL-endringer. |
 
 
 ---
@@ -94,9 +94,9 @@ Hvis du skal flytte data fra en database til en annen, vent med å skru på audi
 
 ## Teknisk fellesløsning
 
-Nais har utviklet en teknisk løsning for lagring og [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/). Digital Sikkerhet utvikler [Loggkamel (Github)](https://github.com/navikt/loggkamel) for å overføre logger fra on-premises databaseteknologier til Nais' fellesløsning. Nais' løsning bruker Google Cloud Logging i 2 år hvor teamene har lesetilgang til egne logger, og sender loggene månedlig som .zip-fil til Google Cloud Storage for arkiv i 11 år.
+Nais har utviklet en teknisk løsning for lagring og [Gjennomgang av auditlogger (GAAL)](https://audit-approval.iap.nav.cloud.nais.io/). [Team sikkerhetstjenesten (Slack)](https://nav-it.slack.com/archives/C09KKNS0RJS) har utviklet [Loggkamel](https://loggkamel.ansatt.nav.no/about) for å overføre logger fra on-premises databaseteknologier til Nais' fellesløsning. Nais' løsning bruker Google Cloud Logging i 2 år hvor teamene har lesetilgang til egne logger, og sender loggene månedlig som .zip-fil til Google Cloud Storage for arkiv i 11 år.
 
-Overføring for Postgres on-prem databaser er klart, og DB2 er neste. Registrer databaser hos [team Sikkerhetstjenesten](https://nav-it.slack.com/archives/C09KKNS0RJS) for overføring.
+Overføring for Postgres on-prem og DB2 databaser er klart. Registrer databaser på [loggkamel.ansatt.nav.no](https://loggkamel.ansatt.nav.no) for overføring.
 
 
 ```mdx-code-block
