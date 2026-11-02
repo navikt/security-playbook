@@ -152,7 +152,7 @@ module.exports = {
       },
       {
         name: "Content-Security-Policy",
-        content: "default-src 'self' ; connect-src 'none'",
+        content: "default-src 'self'; script-src 'self' https://cdn.nav.no; connect-src https://reops-event-proxy.nav.no; upgrade-insecure-requests; block-all-mixed-content"
       },
       {
         name: "Permissions-Policy",
@@ -178,6 +178,16 @@ module.exports = {
         },
       },
     ],
+  ],
+  scripts: [
+    {
+      src: 'https://cdn.nav.no/team-researchops/sporing/sporing.js',
+      async: true,
+      "data-website-id": "2f9169db-437d-4154-a8f6-e70e58abcf78",
+      "data-domains": "sikkerhet.nav.no",
+      "data-do-not-track": true,
+      "data-exclude-search": true
+    },
   ],
   clientModules: [require.resolve("./src/modules/sneaky.js")],
 };
