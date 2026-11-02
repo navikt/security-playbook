@@ -19,5 +19,5 @@ RUN rm -rf /app/build/cyclonedx
 # Production stage
 FROM cgr.dev/chainguard/nginx AS production
 COPY --from=static /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/playbook.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8080
