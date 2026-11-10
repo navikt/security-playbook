@@ -105,6 +105,41 @@ GitHub vil automatisk plukke opp secrets som committes som en del av koden. Secr
 
 [Les mer om Secret Scanning hos GitHub.](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning)
 
+## Dependency review
+
+Dependency review viser hvordan en pull request endrer avhengighetene i prosjektet. Åpne den rike diffen for en manifest- eller lockfil under «Files changed», så ser du:
+
+- hvilke avhengigheter som er lagt til, fjernet eller oppdatert, med datoen for hver release
+- hvor mange prosjekter som bruker dem
+- kjente sårbarheter i dem
+
+Dette virker uten ekstra oppsett så lenge [dependency graph](/docs/sikker-utvikling/github#dependency-graph) er riktig. [Les mer om dependency review hos GitHub.](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)
+
+Med [dependency-review-action](https://github.com/actions/dependency-review-action) kan du stoppe pull requests som legger til avhengigheter med kjente sårbarheter. Actionen viser også [OpenSSF Scorecard](https://scorecard.dev/)-resultater for de nye avhengighetene. Den trenger ikke å sjekke ut koden.
+
+```yaml
+name: Dependency review
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dependency review
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: high
+```
+
+Legg jobben inn som påkrevd status check i [branch protection eller rulesets](/docs/sikker-utvikling/github#branch-protection), ellers kan pull requesten merges selv om sjekken feiler.
+
+Bruker du [dependency submission for Gradle eller Maven](./dependabot#oppsett-gradle-buildgradlekts--buildgradle), må submission-workflowen også kjøre på `pull_request`. Sett da `retry-on-snapshot-warnings: true` i dependency-review-action, så venter den på at avhengighetene er sendt inn.
+
 ## Vanlige feil
 
 Hvis du analyserer en større applikasjon er det ikke uvanlig att gradle går tom for minne, noe som kan økes ved å legge til `kotlin.daemon.jvmargs=-Xmx4096m` i `gradle.properties`.

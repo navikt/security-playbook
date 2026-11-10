@@ -18,7 +18,7 @@ Hvis du bare skal gjøre noen få ting først, gjør disse:
 - [Bruk GitHubs innebygde token eller GitHub App-tokens, ikke PAT-er med vide tilganger.](#tokens)
 - [Fjern privileged triggers.](#workflow-triggers)
 - [Bruk intermediate variables.](#bruk-intermediate-variables)
-- [Pin tredjeparts-actions til commit SHA.](#pin-tredjeparts-actions)
+- [Lås tredjeparts-actions med lockfil eller commit SHA.](#pin-tredjeparts-actions)
 - [Sett minimum permissions i workflowene dine.](#use-minimum-permissions)
 - Kjør [zizmor](/docs/verktoy/zizmor) mot `.github/workflows`.
 - Bruk [Dependabot](/docs/verktoy/dependabot) med cooldown og sørg for at dependency graph er korrekt.
@@ -81,9 +81,43 @@ Les mer i [GitHubs docs](https://docs.github.com/en/actions/reference/security/s
 
 ### Pin tredjeparts-actions
 
-Pin tredjeparts-actions til commit SHA.
+Tags i GitHub er mutable. Bruker du `v1`, kan den peke på annen kode i morgen enn i dag. Blir kontoen til en maintainer kompromittert, kan angriperen flytte taggen til ondsinnet kode, og workflowen din kjører den neste gang. Lås derfor actions til en bestemt commit. Vi anbefaler å gjøre det med en lockfil. Alternativet er å pinne commit SHA i workflow-filene.
 
-- GitHub-tags er mutable. Hvis du bruker `v1` kan den peke til noe annet i morgen enn i dag.
+#### Lockfil for actions
+
+En [workflow dependency lockfile](https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles) låser alle actions workflowene bruker til en commit SHA. Det gjelder også transitive avhengigheter, altså actions som actionene dine bruker. Lockfilen ligger i `.github/workflows/actions.lock` og lagrer også ID-en til repoet og eieren av hver action. Da oppdager GitHub det hvis noen andre har tatt over navnet. Workflow-filene kan beholde lesbare versjonstagger.
+
+Lag lockfilen med GitHub CLI fra rota av repoet:
+
+```bash
+gh extension install github/gh-actions-lock
+gh actions-lock
+```
+
+Kommandoen skriver lockfilen og endrer `uses:`-linjene til full versjon, for eksempel fra `@v3` til `@v3.1.0`. Se gjennom hele diffen før du committer. Vil du ta én workflow om gangen, kjør `gh actions-lock .github/workflows/ci.yml`. Se [GitHubs guide](https://docs.github.com/en/actions/how-tos/secure-your-work/lock-workflow-dependencies) for flere valg og feilsøking.
+
+Hold lockfilen oppdatert:
+
+- La [Dependabot](/docs/verktoy/dependabot) oppdatere actions. For workflows som er med i lockfilen, oppdaterer Dependabot lockfilen i samme pull request.
+- Kjør `gh actions-lock` på nytt når du legger til en workflow eller endrer hvilke actions en workflow bruker.
+- Kjør `gh actions-lock --verify` som påkrevd status check på pull requests. Sjekken feiler hvis lockfilen er utdatert. GitHub har en [eksempel-workflow](https://github.com/github/gh-actions-lock/blob/main/.github/workflows/verify-lockfile.yml).
+- Ikke rediger lockfilen for hånd.
+
+Gå gjennom endringer i lockfilen slik du gjør med andre avhengigheter. En ny `commit` betyr at workflowene kjører ny kode. Endres `owner_id` eller `repo_id`, er repoet bak navnet et annet enn det du låste, og du bør undersøke hvorfor før du merger. Legg gjerne `.github/workflows/actions.lock` inn i `CODEOWNERS`.
+
+Lockfilen låser ikke disse, så de må du fortsatt pinne selv:
+
+- Kall til reusable workflows (`jobs.<job_id>.uses`). Pin dem til commit SHA. En reusable workflow i et annet repo dekkes av lockfilen i det repoet.
+- Docker-images i workflows og actions. Pin dem til digest.
+- Actions som brukes inne i composite actions du lager selv (`action.yml`). De låses bare når en workflow bruker den composite actionen.
+- Lokale actions med `uses: ./…`. Kjør `gh actions-lock --migrate-local-actions` for å bytte til `uses: $/…`, som alltid kjører koden fra samme commit som workflowen.
+
+[zizmor](/docs/verktoy/zizmor) forstår lockfiler fra versjon 1.32.0, men støtten er foreløpig eksperimentell.
+
+#### Commit SHA i workflow-filen
+
+Bruker du ikke lockfil, pin tredjeparts-actions til commit SHA i workflow-filen.
+
 - Vi anbefaler at man pinner actions slik: `nais/docker-build-push@aed4d69de423d70d995a9fac4bb00dedb7b00f91`.
 - Hvis du bruker Dependabot kan du legge til en kommentar med versjonen som oppdateres, for eksempel `action@hash # v1.2.3`.
 - [Ratchet](https://github.com/sethvargo/ratchet) kan hjelpe med dette.

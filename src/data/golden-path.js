@@ -58,7 +58,7 @@ const PRACTICES = [
     action: {
       kind: "list",
       items: [
-        "Pin tredjeparts-actions til commit SHA.",
+        "Lås tredjeparts-actions med `actions.lock` eller commit SHA.",
         "Sett minimum permissions i workflowene dine.",
         "Kjør zizmor mot `.github/workflows`.",
         "Legg til schedule på sikkerhetsrelevante scans.",
@@ -68,7 +68,7 @@ const PRACTICES = [
       kind: "list",
       items: [
         "Ikke bruk brede PAT-er når `GITHUB_TOKEN` eller GitHub App holder.",
-        "Ikke bruk mutable tredjeparts-tags når du kan pinne commit SHA.",
+        "Ikke bruk mutable tredjeparts-tags uten lockfil eller commit SHA.",
         "Ikke gi `write-all` hvis workflowen bare trenger å lese og teste.",
         "Unngå overprivilegerte triggere som `pull_request_target` og `workflow_run` uten en veldig bevisst vurdering.",
       ],

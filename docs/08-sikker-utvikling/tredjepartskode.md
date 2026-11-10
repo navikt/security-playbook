@@ -5,7 +5,44 @@ description: 📦 Andres kode trenger ikke gi deg vondt i hodet.
 
 Vi drar stadig flere tredjepartsavhengigheter inn i koden vår. Disse avhengighetene har gjerne selv avhengigheter, som igjen har avhengigheter, og så videre. Noen estimater sier at så mye som 85% av koden i en typisk applikasjon (i den grad det finnes typiske applikasjoner) er skrevet av andre enn oss selv. Denne koden har (som all annen kode) feil og sårbarheter. Ulike <abbr title="Open-source software">OSS</abbr>-prosjekter har ulike strukturer og arbeidsformer. Noen av dem forlates, andre overtas av mennesker som ikke har like gode hensikter som de forrige.
 
-### Transitive avhengigheter
+Med avhengigheter mener vi alt prosjektet henter inn utenfra: biblioteker og pakker fra npm, Maven og Gradle, Docker-images, GitHub Actions og bygg- og utviklerverktøy. Rådene på denne siden gjelder alle disse. Se også [Valg av baseimage](/docs/sikker-utvikling/baseimages) og [Pin tredjeparts-actions](/docs/sikker-utvikling/github#pin-tredjeparts-actions).
+
+## Vurder nye avhengigheter
+
+Hver avhengighet må oppdateres, testes og følges opp så lenge den er i bruk. Gå gjennom spørsmålene under før du legger til en ny. Still dem også jevnlig om avhengighetene dere allerede har.
+
+### Trenger vi den?
+
+En avhengighet kan få opptil et par oppdateringer i uka. Med mange avhengigheter blir det fort tusenvis av oppdateringer i året, og hver av dem må merges, bygges og testes. Jo større og mer kompleks avhengigheten er, jo mer vedlikehold krever den. Har ikke teamet tid til å følge den opp, bør dere la være å ta den inn.
+
+### Blir den vedlikeholdt?
+
+Når ingen vedlikeholder et prosjekt, blir heller ingen bugs eller sårbarheter fikset. En pakke kan ha millioner av nedlastinger og likevel være forlatt. Dette kan du se etter i GitHub-repoet til prosjektet:
+
+- Legg til `/pulse/monthly` på slutten av URL-en, for eksempel `https://github.com/nais/naiserator/pulse/monthly`. Her ser du hvor mange issues og pull requests som er åpnet og lukket den siste måneden, hvor mange releaser som er publisert og hvor mange som har bidratt.
+- Mange åpne issues og pull requests som ingen lukker, tyder på at ingen følger opp prosjektet.
+- Mange bidragsytere betyr at prosjektet ikke står og faller på én person.
+- Legg til `/community` på slutten av URL-en for å se om prosjektet har filer som `CONTRIBUTING.md` og `CODE_OF_CONDUCT.md`. Mangler de, er det et dårlig tegn.
+
+[OpenSSF Scorecard](https://scorecard.dev/) gir prosjekter en score ut fra blant annet vedlikehold, code review og sikkerhetspraksis. [deps.dev](https://deps.dev/) viser Scorecard-resultater, kjente sårbarheter og avhengighetstreet for pakker fra npm, Maven, PyPI, Go, Cargo og NuGet.
+
+### Hva bruker andre i Nav?
+
+Søk etter avhengigheten i [koden til navikt på GitHub](https://github.com/search?q=org%3Anavikt&type=code) for å se om andre team bruker den, eller spør i [#utviklerrommet](https://nav-it.slack.com/archives/C60FFACN5) på Slack. For større valg, som rammeverk, kan [Teknologiradaren](https://teknologiradaren.intern.nav.no/) ha en anbefaling. Finner du den ikke der, kan du foreslå den i [#teknologiradar](https://nav-it.slack.com/archives/CEHSHMNBF).
+
+### Er den trygg nok?
+
+Et prosjekt som blir vedlikeholdt, er som regel tryggere enn et som ikke blir det, men det er ingen garanti. Søk opp pakken i [GitHub Advisory Database](https://github.com/advisories) eller [OSV](https://osv.dev/) for å se om den har kjente sårbarheter. Har den det, må dere vurdere om risikoen er verdt det.
+
+Legg til `/security` på slutten av URL-en til repoet for å se om prosjektet har en sikkerhetspolicy og har publisert security advisories.
+
+Se [Supply chain-sikkerhet](/docs/sikker-utvikling/supply-chain) for hvordan du beskytter deg mot ondsinnede pakker når du installerer dem.
+
+### Lisens og ytelse
+
+Lisens og ytelse er ikke sikkerhetsspørsmål, men hører med i vurderingen. Les om lisenser på [Åpen kildekode og lisenser](https://utvikling.intern.nav.no/teknisk/open-source-licenses.html) i utviklerhåndboka.
+
+## Transitive avhengigheter
 
 Det fleste pakkehåndterere har en mekanisme for å oppdatere transitive/indirekte avhengigheter. 
 Dette kan være nødvendig for å få inn viktige sikkerhetsoppdateringer.
@@ -87,7 +124,15 @@ Disse konkrete produktene brukes mye i Nav og kan anbefales:
 - [Dependabot](/docs/verktoy/dependabot)
 - [NAIS Console & Dependency-Track](/docs/verktoy/nais-console-dp-track)
 
-Disse kan scanne prosjektene dine jevnlig etter avhengigheter med kjente sårbarheter og varsle dere i form av meldinger på Slack/epost eller ved å lage pull requests som oppdaterer de sårbare versjonene.
+Disse kan scanne prosjektene dine jevnlig etter avhengigheter med kjente sårbarheter og varsle dere i form av meldinger på Slack/epost eller ved å lage pull requests som oppdaterer de sårbare versjonene. Med [dependency review](/docs/verktoy/github-advanced-security#dependency-review) kan du i tillegg stoppe pull requests som legger til sårbare avhengigheter.
+
+Vil du sjekke avhengighetene lokalt eller i en egen CI-jobb, har de fleste økosystemer egne verktøy:
+
+- `pnpm audit` og `npm audit` for JavaScript
+- [govulncheck](https://go.dev/doc/tutorial/govulncheck) for Go
+- [cargo-audit](https://github.com/rustsec/rustsec/tree/main/cargo-audit) for Rust
+- [pip-audit](https://github.com/pypa/pip-audit) for Python
+- [OSV-Scanner](https://google.github.io/osv-scanner/) og [Trivy](/docs/verktoy/trivy) på tvers av økosystemer
 
 ## Plugins i ymse verktøy
 
@@ -95,7 +140,7 @@ Veldig mange utviklerverktøy har en eller annen mekanisme for å utvide funksjo
 
 ### Due dilligence
 
-Før man tar i bruk plugins er det viktig å kjøre en mini-trusselvurdering. Hvilken kontekst skal denne koden kjøre i, og hvilken informasjon har den potensielt tilgang til? Hva er "worst case" hvis en plugin går "rogue"? Hvem har laget den? Hva slags aktivitet har det vært i GitHub-repoet den siste tiden? Gjør et lite søk etter kjente sårbarheter på Google og på steder som [Snyk](https://security.snyk.io/), [VulDB](https://vuldb.com) eller [Mitre](https://cve.mitre.org/cve/search_cve_list.html)
+Før man tar i bruk plugins er det viktig å kjøre en mini-trusselvurdering. Hvilken kontekst skal denne koden kjøre i, og hvilken informasjon har den potensielt tilgang til? Hva er "worst case" hvis en plugin går "rogue"? Hvem har laget den? Hva slags aktivitet har det vært i GitHub-repoet den siste tiden? Gjør et lite søk etter kjente sårbarheter på Google og på steder som [GitHub Advisory Database](https://github.com/advisories), [OSV](https://osv.dev/), [VulDB](https://vuldb.com) eller [Mitre](https://cve.mitre.org/cve/search_cve_list.html)
 
 ### Begrense handlingsrommet til tredjeparter
 

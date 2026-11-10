@@ -147,7 +147,7 @@ exclude-newer = "3 days"
 
 ## Generelle råd på tvers av økosystemer
 
-- **Evaluer nye avhengigheter** før du legger dem til. Sjekk aktivitet i GitHub-repoet, hvem som vedlikeholder det, og søk etter kjente sårbarheter. Se [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode) for en sjekkliste.
+- **Evaluer nye avhengigheter** før du legger dem til. Sjekk aktivitet i GitHub-repoet, hvem som vedlikeholder det, og søk etter kjente sårbarheter. Se [Tredjepartskode](/docs/sikker-utvikling/tredjepartskode#vurder-nye-avhengigheter) for en sjekkliste.
 - **Bruk [Dependabot](/docs/verktoy/dependabot)** for automatiserte varsler om avhengigheter med kjente sårbarheter. Bruk cooldowns for Dependabot version updates.
 
 ## Publiserer du pakker?
