@@ -34,6 +34,7 @@ Commit lockfilen til repoet:
 Installer alltid fra lockfil i CI/CD:
 
 ```bash
+pnpm install --frozen-lockfile
 npm ci
 bun install --frozen-lockfile
 yarn install --frozen-lockfile

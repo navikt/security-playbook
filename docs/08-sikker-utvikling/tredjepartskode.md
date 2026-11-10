@@ -49,14 +49,14 @@ Dette kan være nødvendig for å få inn viktige sikkerhetsoppdateringer.
 Her er hvordan man gjør dette i noen av de mest populære pakkehåndtererne:
 
 <details>
-<summary>npm</summary>
+<summary>pnpm</summary>
 
-## npm update
+<h2>pnpm update</h2>
 
-Kjør `npm update` for å oppdatere alle avhengigheter til de nyeste versjonene.
-For mere kontroll kan du spesifisere en pakke, for eksempel `npm update sårbart-bibliotek` for å tvinge oppdatering av denne.
+Kjør `pnpm update` for å oppdatere alle avhengigheter til de nyeste versjonene.
+For mere kontroll kan du spesifisere en pakke, for eksempel `pnpm update <sårbart-bibliotek>` for å tvinge oppdatering av denne.
 
-## Overrides
+<h2>Overrides</h2>
 
 Du kan tvinge en spesifikk versjon av en transitiv avhengighet ved å bruke `overrides`-feltet i `package.json`.
 Dette vil overskrive den versjonen som er spesifisert via den direkte avhengigheten. 

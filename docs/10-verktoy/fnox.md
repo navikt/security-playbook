@@ -69,7 +69,7 @@ Verdiene lagres kryptert av operativsystemet. `fnox.toml` inneholder bare navnen
 Kjør kommandoer med hemmelighetene tilgjengelig **kun for den prosessen**:
 
 ```bash
-fnox exec -- npm run dev
+fnox exec -- pnpm run dev
 fnox exec -- ./gradlew test
 fnox exec -- mvn spring-boot:run
 ```
