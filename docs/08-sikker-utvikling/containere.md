@@ -13,6 +13,8 @@ Det er praktisk å få varsel når det oppdages alvorlige sårbarheter i images 
 
 Man unngår mange potensielle sikkerhetsproblemer ved å bruke så minimale image som mulig. Du trenger sannsynligvis ikke et shell, en package manager og en masse utilities for å få kjørt appen din, men for en angriper er de veldig nyttige. Såkalte "distroless" images er spesialdesignet for å være så lette som mulig, se f.eks. disse fra [Google](https://github.com/GoogleContainerTools/distroless) og [Chainguard](https://github.com/chainguard-images).
 
+Av og til trenger man jo et shell fordi man må kjøre et program inni containeren. Forsøk da å redusere angrepsflaten ved å benytte et baseimage som har minst mulig "stæsj" installert. Alpine, BusyBox og Debian Slim er alternativer her. Chainguard har også `-dev` tags for noen av sine images. Disse inneholder som regel et shell.
+
 ![shell](/img/cantdont.jpg "shell")
 
 Et annet billig sikkerhetstiltak er å ikke kjøre appen sin som root inni containeren. Dette er default i nais nå.
