@@ -67,7 +67,7 @@ const PRACTICES = [
     antiPattern: {
       kind: "list",
       items: [
-        "Ikke bruk brede PAT-er når `GITHUB_TOKEN` eller GitHub App holder.",
+        "Ikke bruk brede PAT-er eller egne GitHub Apper når `GITHUB_TOKEN` eller octo-sts holder.",
         "Ikke bruk mutable tredjeparts-tags uten lockfil eller commit SHA.",
         "Ikke gi `write-all` hvis workflowen bare trenger å lese og teste.",
         "Unngå overprivilegerte triggere som `pull_request_target` og `workflow_run` uten en veldig bevisst vurdering.",
