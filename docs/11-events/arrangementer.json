@@ -310,5 +310,29 @@
     "label": "BSides Oslo",
     "href": "https://bsidesoslo.no/",
     "audience": "Spør din personalleder \uD83D\uDCB8 (777kr for 2026)"
+  },
+  {
+    "startDate": "2027-02-15",
+    "id": "ndc-security-2027",
+    "endDate": "2027-02-18",
+    "label": "NDC Security Oslo",
+    "href": "https://ndcsecurity.com/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2027-02-17",
+    "id": "hackcon-22",
+    "endDate": "2027-02-18",
+    "label": "HackCon #22",
+    "href": "https://hackcon.org/hackcon22",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
+  },
+  {
+    "startDate": "2027-08-23",
+    "id": "sikkerhetsfestivalen-2027",
+    "endDate": "2027-08-25",
+    "label": "Sikkerhetsfestivalen",
+    "href": "https://www.sikkerhetsfestivalen.no/",
+    "audience": "Spør din personalleder \uD83D\uDCB8"
   }
 ]
