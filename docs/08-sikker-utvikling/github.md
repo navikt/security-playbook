@@ -15,7 +15,7 @@ GitHub har også skrevet en guide med best practices for GitHub Actions, du finn
 Hvis du bare skal gjøre noen få ting først, gjør disse:
 
 - [Sett opp branch protection for default branch.](#branch-protection)
-- [Bruk GitHubs innebygde token eller GitHub App-tokens, ikke PAT-er med vide tilganger.](#tokens)
+- [Bruk GitHubs innebygde token eller octo-sts, ikke PAT-er med vide tilganger.](#tokens)
 - [Fjern privileged triggers.](#workflow-triggers)
 - [Bruk intermediate variables.](#bruk-intermediate-variables)
 - [Lås tredjeparts-actions med lockfil eller commit SHA.](#pin-tredjeparts-actions)
@@ -173,85 +173,162 @@ Det er derfor viktig at dependency graph faktisk stemmer. Mer om dette finner du
 <CollapsibleSection>
 ## Tokens
 
-Best practice er å bruke GitHubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å hente andre interne repoer, eller for at en merge skal utløse andre workflows, kan du bruke et installation token fra en egen GitHub App. Da kan du scope tokenet til presis det du trenger med tilgang til kun et fåtall repoer.
+Best practice er å bruke GitHubs innebygde tokens fremfor å lage egne personal access tokens (PATs). Hvis du trenger et token for å hente andre interne repoer, eller for at en merge skal utløse andre workflows, bruker du [octo-sts](https://github.com/octo-sts/app).
 
-Bruk av token fra GitHub App har flere fordeler sammenlignet med PAT. Tokenet har kort levetid (1 time), du gir kun de tilgangene du trenger for jobben du skal gjøre, og hvis du slutter i Nav, bytter team, eller av en eller annen grunn får deaktivert kontoen din, slutter ikke alle workflows som bruker tokenet å virke.
+octo-sts er en GitHub App fra Chainguard som er installert i alle repoer i `navikt`. Workflowen bytter sitt eget OIDC-token mot et kortlevd installation token. Hva tokenet får lov til, styres av en trust policy som ligger i repoet tokenet skal gi tilgang til.
+
+Sammenlignet med PAT og egne GitHub Apper:
+
+- Du har ingen hemmelighet å lagre, rotere eller lekke. Det finnes ingen privat nøkkel eller PAT i repoet.
+- Tokenet lever i maks én time, og `octo-sts/action` tilbakekaller det når jobben er ferdig.
+- Tokenet gjelder bare ett repo og har bare rettighetene som står i trust policyen.
+- Tilgangen er ikke knyttet til en person. Workflows slutter ikke å virke når noen slutter i Nav eller bytter team.
+- Teamet som eier repoet, bestemmer hvem som får tilgang, fordi trust policyen sjekkes inn og reviewes som annen kode.
 
 Bruk denne prioriteringen:
 
 1. `GITHUB_TOKEN` for samme repository.
-2. GitHub App installation token når du trenger tilgang på tvers av repoer, eller når handlingen skal utløse andre workflows, også i samme repo.
+2. octo-sts når du trenger tilgang på tvers av repoer, eller når handlingen skal utløse andre workflows, også i samme repo.
 3. PAT (Personal Access Token) bare hvis du har en helt konkret grunn og ikke har bedre alternativer.
 
 For automatisk merge som også skal utløse deploy, følg [oppsettet for `navikt/automerge-dependabot`](/docs/verktoy/dependabot#automatisk-merge-av-dependabot-pr-er).
 
 <CollapsibleSection>
-### Hvordan opprette GitHub App
+### Slik virker octo-sts
 
-1. Registrer en ny GitHub App under innstillinger til brukeren din: https://github.com/settings/apps/new.
-2. Gi appen et navn og en URL.
-3. Skru av `Webhook` hvis du ikke trenger det.
-4. Under `Permissions & events`, gi appen kun rettighetene den trenger.
-5. Under `Where can this GitHub App be installed?`, velg `Only on this account`.
-6. Klikk på `Create GitHub App`.
-7. Kopier Client ID. Dette er ikke sensitiv informasjon.
-8. Under `General`, scroll ned til `Private keys` og lag en ny nøkkel.
-9. Lagre nøkkelen på et sikkert sted, og slett den fra harddisken når den er lagt inn der den skal brukes.
-10. Under `Advanced`, bruk `Transfer ownership` og overfør appen til `navikt`.
-11. Be en GitHub-admin i `#github-support` godkjenne overføringen.
-12. Installer appen i `navikt`-organisasjonen og velg kun repoene den skal ha tilgang til.
+1. Workflowen kaller `octo-sts/action` med `scope` (repoet tokenet skal gi tilgang til) og `identity` (navnet på trust policyen).
+2. octo-sts leser `.github/chainguard/<identity>.sts.yaml` fra default branch i repoet som står i `scope`.
+3. octo-sts sjekker at workflowens OIDC-token matcher `issuer`, `subject` og eventuelle `claim_pattern` i policyen.
+4. Hvis alt matcher, får workflowen et token med rettighetene i `permissions`. Ellers feiler steget.
 
-### Hvordan ta i bruk din nye GitHub App
+Trust policyen ligger altså alltid i repoet det skal lages token **for**, ikke i repoet workflowen kjører i. Skal repo A hente kode fra repo B, er det teamet som eier repo B som sjekker inn policyen.
 
-Nå har du en app som kan lage kortlevde tokens med kun de rettighetene den trenger. Client ID og den private nøkkelen må legges inn i hvert repo som skal bruke appen.
+### Skriv en trust policy
 
-1. Gå til repoet som skal bruke appen.
-2. Gå til `Settings > Secrets and variables > Actions > Variables > New repository variable` og lag en variabel med navn `CLIENT_ID`.
-3. Gå til `Secrets > New repository secret` og lag en secret med navn `PRIVATE_KEY`.
-4. Nå kan du bruke appen i workflowene dine for å lage tokens med kun de rettighetene du trenger.
+Lag filen `.github/chainguard/<navn>.sts.yaml` i repoet tokenet skal gi tilgang til. Gi den et navn som forteller hva den brukes til, for eksempel `automerge-dependabot.sts.yaml`. Navnet uten `.sts.yaml` er verdien du bruker i `identity`.
+
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/octo-sts/app/refs/heads/main/pkg/octosts/octosts.TrustPolicy.json
+
+issuer: https://token.actions.githubusercontent.com
+subject: repo:navikt@11848947/min-app@123456789:ref:refs/heads/main
+claim_pattern:
+  job_workflow_ref: navikt/min-app/\.github/workflows/dependabot-automerge\.yml@refs/heads/main
+
+permissions:
+  contents: write
+  pull_requests: write
+```
+
+- `issuer` er alltid `https://token.actions.githubusercontent.com` for GitHub Actions.
+- `subject` sier hvilket repo og hvilken branch workflowen må kjøre fra. Alle repoer i `navikt` bruker [immutable subject claims](https://docs.github.com/en/actions/reference/security/oidc#immutable-subject-claims), så subject inneholder både navn og ID: `repo:navikt@<owner-id>/<repo>@<repo-id>:ref:refs/heads/<branch>`.
+- `job_workflow_ref` låser policyen til én bestemt workflow-fil. Uten den kan alle workflows på `main` i repoet hente tokenet. Verdien er et regulært uttrykk som må matche hele verdien, så escape punktum med `\.`.
+- `permissions` bruker samme navn som [GitHub App-rettigheter](https://docs.github.com/en/rest/apps/apps#create-an-installation-access-token-for-an-app), for eksempel `contents`, `pull_requests`, `workflows`, `checks` og `statuses`. Gi bare det jobben trenger.
+
+:::tip Finn subject for repoet ditt
+Hent prefikset med GitHub CLI og legg til `:ref:refs/heads/main`:
+
+```bash
+gh api repos/navikt/<repo>/actions/oidc/customization/sub --jq .sub_claim_prefix
+```
+
+Du finner det samme under **Default subject claim prefix** på `https://github.com/navikt/<repo>/settings/actions/oidc-configuration`. ID-en til `navikt` er alltid `11848947`.
+
+Fordi subject inneholder ID-er, kan ikke et annet repo som senere tar over navnet hente tokenet. Renamer du repoet, endres navnet i subject, men ikke ID-ene. Oppdater da `subject` og `job_workflow_ref` i policyen.
+:::
+
+Regler for trust policies:
+
+- Lås `subject` til default branch. Ikke bruk `subject_pattern` som matcher alle brancher, `pull_request` eller tags. Da kan alle som kan pushe en branch, hente tokenet.
+- Lås policyen til én workflow med `job_workflow_ref`.
+- Lag én policy per bruksområde, ikke én stor policy med alle rettigheter.
+- Legg `.github/chainguard/` inn i `CODEOWNERS`, slik at teamet må godkjenne endringer i hvem som får tilgang.
+- Policyen må ligge på default branch før den virker.
 
 ### Hente token for samme repo
 
+Bruk dette når handlingen skal utløse andre workflows, for eksempel at en merge skal starte deploy. Policyen ligger i samme repo som workflowen.
+
 ```yaml
+permissions: {}
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Trengs for å hente token fra octo-sts
     steps:
-      - uses: actions/create-github-app-token@v3
-        id: app-token
+      - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
+        id: octo-sts
         with:
-          client-id: ${{ vars.CLIENT_ID }}
-          private-key: ${{ secrets.PRIVATE_KEY }}
+          scope: ${{ github.repository }}
+          identity: min-policy
 
-      - uses: ./actions/staging-tests
-        with:
-          token: ${{ steps.app-token.outputs.token }}
+      - run: gh pr list
+        env:
+          GH_TOKEN: ${{ steps.octo-sts.outputs.token }}
 ```
+
+`id-token: write` lar jobben hente et OIDC-token. Det gir ikke tilgang til repoet i seg selv. Tokenets rettigheter kommer bare fra trust policyen.
 
 ### Hente token for andre repos
 
-```yaml
-- uses: actions/create-github-app-token@v3
-  id: app-token
-  with:
-    client-id: ${{ vars.CLIENT_ID }}
-    private-key: ${{ secrets.PRIVATE_KEY }}
-    owner: ${{ github.repository_owner }}
-    repositories: |
-      repo1
-      repo2
-```
-
-### Hente token for alle repos appen har tilgang til
+Skal `navikt/app-a` lese det interne repoet `navikt/app-b`, sjekker teamet som eier `app-b` inn denne policyen i `navikt/app-b`, for eksempel som `.github/chainguard/app-a-les.sts.yaml`. `subject` er subject for `app-a`, altså repoet workflowen kjører i:
 
 ```yaml
-- uses: actions/create-github-app-token@v3
-  id: app-token
-  with:
-    client-id: ${{ vars.CLIENT_ID }}
-    private-key: ${{ secrets.PRIVATE_KEY }}
-    owner: ${{ github.repository_owner }}
+# yaml-language-server: $schema=https://raw.githubusercontent.com/octo-sts/app/refs/heads/main/pkg/octosts/octosts.TrustPolicy.json
+
+issuer: https://token.actions.githubusercontent.com
+subject: repo:navikt@11848947/app-a@123456789:ref:refs/heads/main
+claim_pattern:
+  job_workflow_ref: navikt/app-a/\.github/workflows/build\.yml@refs/heads/main
+
+permissions:
+  contents: read
 ```
+
+Workflowen i `navikt/app-a`:
+
+```yaml
+- uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
+  id: octo-sts
+  with:
+    scope: navikt/app-b
+    identity: app-a-les
+
+- uses: actions/checkout@v6
+  with:
+    repository: navikt/app-b
+    token: ${{ steps.octo-sts.outputs.token }}
+    persist-credentials: false
+```
+
+Ett token gir tilgang til ett repo. Trenger du flere repoer, legger du en policy i hvert av dem og kaller `octo-sts/action` én gang per repo.
+
+### Migrer fra egen GitHub App
+
+Har teamet en egen GitHub App og bruker `actions/create-github-app-token`, bytt til octo-sts:
+
+1. Sjekk inn en trust policy med de samme rettighetene som `permission-*`-feltene i dag, i hvert repo appen lager token for. Merge den til default branch.
+2. Bytt `actions/create-github-app-token`-steget med `octo-sts/action`. Sett `scope` til repoet du tidligere ga i `repositories`, eller `${{ github.repository }}` for samme repo.
+3. Gi jobben `id-token: write`.
+4. Erstatt `steps.app-token.outputs.token` med `steps.octo-sts.outputs.token`.
+5. Sjekk om andre workflows filtrerer på aktør, for eksempel `github.actor == 'min-app[bot]'`. Aktøren er nå `octo-sts[bot]`.
+6. Kjør workflowen og sjekk at den virker, også at deploy starter hvis det er poenget.
+7. Slett Actions-variabelen `CLIENT_ID` og secreten `PRIVATE_KEY` fra repoet.
+8. Når ingen workflows bruker appen lenger, be om at den avinstalleres og slettes i `#github-support`.
+
+### Feilsøking
+
+Feiler `octo-sts/action`, er det nesten alltid et av disse:
+
+- Jobben mangler `id-token: write`.
+- `subject` mangler ID-ene eller har feil repo-ID. Hent riktig prefiks som beskrevet i [Skriv en trust policy](#skriv-en-trust-policy).
+- Workflowen kjørte fra en annen branch enn den policyen tillater, for eksempel fra en PR.
+- `job_workflow_ref` matcher ikke, for eksempel fordi filen heter `.yaml` og ikke `.yml`, eller punktum ikke er escapet.
+- Policyen ligger ikke på default branch i repoet i `scope`, eller `identity` matcher ikke filnavnet.
+
+Se [octo-sts-dokumentasjonen](https://github.com/octo-sts/app#the-trust-policy) for flere valg.
 </CollapsibleSection>
 </CollapsibleSection>
 
