@@ -47,8 +47,8 @@
   "devDependencies": {
     "@cyclonedx/webpack-plugin": "5.3.3",
     "husky": "9.1.7",
-    "lint-staged": "17.6.0",
-    "prettier": "3.9.10"
+    "lint-staged": "17.6.1",
+    "prettier": "3.10.1"
   },
   "lint-staged": {
     "*.{js,jsx,css,md,mdx,json}": "prettier --write"
