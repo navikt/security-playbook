@@ -37,6 +37,11 @@ Målet er å ha en beredskapsorganisasjon som er proaktiv, profesjonell og som g
 
 [IT-sikkerhet og beredskap](https://navno.sharepoint.com/:u:/r/sites/enhet-it-avdelingen/SitePages/IT-sikkerhet%20og%20beredskap.aspx?csf=1&web=1&e=raIwcM)
 
+## Se også
+
+- [Livssyklushåndtering](/docs/sikker-utvikling/livssyklus) — post-incident læring og dekommisjonering
+- [Forsvar i dybden](/docs/sikker-utvikling/forsvar-i-dybden) — lag kontroller som gir deg tid til å reagere
+
 <br />
 
 ```mdx-code-block
