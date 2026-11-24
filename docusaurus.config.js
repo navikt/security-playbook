@@ -58,6 +58,7 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    image: "img/social-card.png",
     navbar: {
       title: "Security Playbook",
       logo: {
