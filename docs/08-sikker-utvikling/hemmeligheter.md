@@ -45,6 +45,10 @@ npm run mytests
 
 For bredere råd om utviklermaskin og lokale arbeidsmønstre, se [Sikre utviklermaskinen](/docs/sikker-utvikling/klientsikkerhet).
 
+### Søk etter hemmeligheter før du committer
+
+Bruk en [lokal pre-commit-hook med Betterleaks](/docs/verktoy/betterleaks) til å skanne endringer som er lagt til med `git add`, og stoppe commits som kan inneholde hemmeligheter. Veiledningen viser hvordan du installerer verktøyet på Windows, Linux og macOS, beholder eksisterende hooks og omgår sjekken for én commit ved bekreftede falske positiver. Lokale hooks er et supplement til GitHub secret scanning og push protection, ikke en erstatning.
+
 ## GitHub og build
 
 Når hemmeligheter brukes i CI eller bygg, skal de holdes utenfor kildekoden og begrenses til det workflowen faktisk trenger.
